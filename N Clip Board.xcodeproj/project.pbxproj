@@ -3,22 +3,27 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		DBEF770E2324F23F00A63D28 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBEF770D2324F23F00A63D28 /* AppDelegate.swift */; };
 		DBEF77102324F23F00A63D28 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DBEF770F2324F23F00A63D28 /* Assets.xcassets */; };
 		DBEF77132324F24000A63D28 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = DBEF77112324F23F00A63D28 /* MainMenu.xib */; };
+		E69A2A3A4E86CF0DECDD3D78 /* Pods_N_Clip_Board.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B37792841C67B6A432FD14D /* Pods_N_Clip_Board.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2B37792841C67B6A432FD14D /* Pods_N_Clip_Board.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_N_Clip_Board.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4CF13127831EF3F43BE9AEFD /* Pods-N Clip Board.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-N Clip Board.debug.xcconfig"; path = "Target Support Files/Pods-N Clip Board/Pods-N Clip Board.debug.xcconfig"; sourceTree = "<group>"; };
+		B9F90EB868A137C49ED41B90 /* Pods-N Clip Board.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-N Clip Board.release.xcconfig"; path = "Target Support Files/Pods-N Clip Board/Pods-N Clip Board.release.xcconfig"; sourceTree = "<group>"; };
 		DBEF770A2324F23F00A63D28 /* N Clip Board.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "N Clip Board.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DBEF770D2324F23F00A63D28 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DBEF770F2324F23F00A63D28 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DBEF77122324F23F00A63D28 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		DBEF77142324F24000A63D28 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DBEF77152324F24000A63D28 /* N_Clip_Board.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = N_Clip_Board.entitlements; sourceTree = "<group>"; };
+		DBEF771B2325016E00A63D28 /* OpenQuicklyX.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = OpenQuicklyX.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -26,17 +31,38 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E69A2A3A4E86CF0DECDD3D78 /* Pods_N_Clip_Board.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C261A11D424A1B6EE9659870 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				DBEF771B2325016E00A63D28 /* OpenQuicklyX.framework */,
+				2B37792841C67B6A432FD14D /* Pods_N_Clip_Board.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C3EFDB7B9192615D76DA929F /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				4CF13127831EF3F43BE9AEFD /* Pods-N Clip Board.debug.xcconfig */,
+				B9F90EB868A137C49ED41B90 /* Pods-N Clip Board.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		DBEF77012324F23F00A63D28 = {
 			isa = PBXGroup;
 			children = (
 				DBEF770C2324F23F00A63D28 /* N Clip Board */,
 				DBEF770B2324F23F00A63D28 /* Products */,
+				C3EFDB7B9192615D76DA929F /* Pods */,
+				C261A11D424A1B6EE9659870 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -67,9 +93,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = DBEF77182324F24000A63D28 /* Build configuration list for PBXNativeTarget "N Clip Board" */;
 			buildPhases = (
+				D4D0A03E904AD44355BFA634 /* [CP] Check Pods Manifest.lock */,
 				DBEF77062324F23F00A63D28 /* Sources */,
 				DBEF77072324F23F00A63D28 /* Frameworks */,
 				DBEF77082324F23F00A63D28 /* Resources */,
+				9B1DB0D3A0C4D397060680A2 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -124,6 +152,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		9B1DB0D3A0C4D397060680A2 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-N Clip Board/Pods-N Clip Board-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-N Clip Board/Pods-N Clip Board-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-N Clip Board/Pods-N Clip Board-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D4D0A03E904AD44355BFA634 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-N Clip Board-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		DBEF77062324F23F00A63D28 /* Sources */ = {
@@ -265,11 +335,13 @@
 		};
 		DBEF77192324F24000A63D28 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4CF13127831EF3F43BE9AEFD /* Pods-N Clip Board.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "N Clip Board/N_Clip_Board.entitlements";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "N Clip Board/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -277,17 +349,20 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "poor-branson.N-Clip-Board";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
 		DBEF771A2324F24000A63D28 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B9F90EB868A137C49ED41B90 /* Pods-N Clip Board.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "N Clip Board/N_Clip_Board.entitlements";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "N Clip Board/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -295,6 +370,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "poor-branson.N-Clip-Board";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Release;

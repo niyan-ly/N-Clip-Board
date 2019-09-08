@@ -1,0 +1,6 @@
+framework module Pods_N_Clip_Board {
+  umbrella header "Pods-N Clip Board-umbrella.h"
+
+  export *
+  module * { export * }
+}
