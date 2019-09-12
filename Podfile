@@ -4,7 +4,6 @@
 target 'N Clip Board' do
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
-  pod 'OpenQuicklyX', :path => '~/Desktop/OpenQuickly'
   pod 'HotKey'
   # Pods for N Clip Board
 

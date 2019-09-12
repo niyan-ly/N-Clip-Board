@@ -7,16 +7,23 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DB5F25B323290141007993F6 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5F25B223290141007993F6 /* SearchViewController.swift */; };
+		DB5F25B523290200007993F6 /* SearchWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5F25B423290200007993F6 /* SearchWindowController.swift */; };
+		DB5F25B723290624007993F6 /* SearchPanel.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB5F25B623290624007993F6 /* SearchPanel.xib */; };
+		DB5F25BA23292076007993F6 /* Pods_N_Clip_Board.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB5F25B923292076007993F6 /* Pods_N_Clip_Board.framework */; };
 		DBEF770E2324F23F00A63D28 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBEF770D2324F23F00A63D28 /* AppDelegate.swift */; };
 		DBEF77102324F23F00A63D28 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DBEF770F2324F23F00A63D28 /* Assets.xcassets */; };
 		DBEF77132324F24000A63D28 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = DBEF77112324F23F00A63D28 /* MainMenu.xib */; };
-		E69A2A3A4E86CF0DECDD3D78 /* Pods_N_Clip_Board.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B37792841C67B6A432FD14D /* Pods_N_Clip_Board.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		2B37792841C67B6A432FD14D /* Pods_N_Clip_Board.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_N_Clip_Board.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4CF13127831EF3F43BE9AEFD /* Pods-N Clip Board.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-N Clip Board.debug.xcconfig"; path = "Target Support Files/Pods-N Clip Board/Pods-N Clip Board.debug.xcconfig"; sourceTree = "<group>"; };
 		B9F90EB868A137C49ED41B90 /* Pods-N Clip Board.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-N Clip Board.release.xcconfig"; path = "Target Support Files/Pods-N Clip Board/Pods-N Clip Board.release.xcconfig"; sourceTree = "<group>"; };
+		DB5F25B223290141007993F6 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		DB5F25B423290200007993F6 /* SearchWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchWindowController.swift; sourceTree = "<group>"; };
+		DB5F25B623290624007993F6 /* SearchPanel.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchPanel.xib; sourceTree = "<group>"; };
+		DB5F25B923292076007993F6 /* Pods_N_Clip_Board.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_N_Clip_Board.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DBEF770A2324F23F00A63D28 /* N Clip Board.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "N Clip Board.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DBEF770D2324F23F00A63D28 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DBEF770F2324F23F00A63D28 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -31,7 +38,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E69A2A3A4E86CF0DECDD3D78 /* Pods_N_Clip_Board.framework in Frameworks */,
+				DB5F25BA23292076007993F6 /* Pods_N_Clip_Board.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -41,6 +48,7 @@
 		C261A11D424A1B6EE9659870 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				DB5F25B923292076007993F6 /* Pods_N_Clip_Board.framework */,
 				DBEF771B2325016E00A63D28 /* OpenQuicklyX.framework */,
 				2B37792841C67B6A432FD14D /* Pods_N_Clip_Board.framework */,
 			);
@@ -54,6 +62,14 @@
 				B9F90EB868A137C49ED41B90 /* Pods-N Clip Board.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		DB5F25B823290697007993F6 /* xib */ = {
+			isa = PBXGroup;
+			children = (
+				DB5F25B623290624007993F6 /* SearchPanel.xib */,
+			);
+			path = xib;
 			sourceTree = "<group>";
 		};
 		DBEF77012324F23F00A63D28 = {
@@ -77,9 +93,12 @@
 		DBEF770C2324F23F00A63D28 /* N Clip Board */ = {
 			isa = PBXGroup;
 			children = (
+				DB5F25B823290697007993F6 /* xib */,
 				DBEF770D2324F23F00A63D28 /* AppDelegate.swift */,
+				DB5F25B223290141007993F6 /* SearchViewController.swift */,
 				DBEF770F2324F23F00A63D28 /* Assets.xcassets */,
 				DBEF77112324F23F00A63D28 /* MainMenu.xib */,
+				DB5F25B423290200007993F6 /* SearchWindowController.swift */,
 				DBEF77142324F24000A63D28 /* Info.plist */,
 				DBEF77152324F24000A63D28 /* N_Clip_Board.entitlements */,
 			);
@@ -146,6 +165,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DB5F25B723290624007993F6 /* SearchPanel.xib in Resources */,
 				DBEF77102324F23F00A63D28 /* Assets.xcassets in Resources */,
 				DBEF77132324F24000A63D28 /* MainMenu.xib in Resources */,
 			);
@@ -200,7 +220,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DB5F25B323290141007993F6 /* SearchViewController.swift in Sources */,
 				DBEF770E2324F23F00A63D28 /* AppDelegate.swift in Sources */,
+				DB5F25B523290200007993F6 /* SearchWindowController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
