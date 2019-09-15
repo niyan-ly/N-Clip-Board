@@ -10,10 +10,11 @@ import Cocoa
 
 typealias PreferenceSubView = NSToolbarItem.Identifier
 extension PreferenceSubView {
-    static let general = PreferenceSubView("general")
-    static let advanced = PreferenceSubView("advanced")
-    static let snippets = PreferenceSubView("snippets")
-    static let info = PreferenceSubView("info")
+    static let general = PreferenceSubView("General")
+    static let advanced = PreferenceSubView("Advanced")
+    static let snippets = PreferenceSubView("Snippets")
+    static let info = PreferenceSubView("Info")
+    static let appearance = PreferenceSubView("Appearance")
 }
 
 public protocol ViewInitialSize: NSViewController {
@@ -26,6 +27,7 @@ class PreferencePanelController: NSWindowController {
     var generalViewController = GeneralViewController(nibName: "GeneralViewController", bundle: nil)
     var snippetsViewController = SnippetsViewController(nibName: "SnippetsViewController", bundle: nil)
     var advancedViewController = AdvancedViewController(nibName: "AdvancedViewController", bundle: nil)
+    var appearanceViewController = AppearanceViewController(nibName: "AppearanceViewController", bundle: nil)
 
     override func windowDidLoad() {
         super.windowDidLoad()
@@ -40,7 +42,8 @@ class PreferencePanelController: NSWindowController {
         case .advanced:
             usedViewController = advancedViewController
             break
-        case .info:
+        case .appearance:
+            usedViewController = appearanceViewController
             break
         case .snippets:
             usedViewController = snippetsViewController
@@ -49,6 +52,7 @@ class PreferencePanelController: NSWindowController {
             return
         }
 
+        window?.title = viewIdentifier.rawValue
         toolbar.selectedItemIdentifier = viewIdentifier as NSToolbarItem.Identifier
 
         let currentFrame = window!.frame
@@ -58,19 +62,8 @@ class PreferencePanelController: NSWindowController {
         window?.contentView = usedViewController.view
     }
     
-    @IBAction func whenToolbarChange(_ sender: NSButton) {
-        let mapper = [0: PreferenceSubView("general"), 1: PreferenceSubView("snippets"), 2: PreferenceSubView("advanced"), 3: PreferenceSubView("info")]
-        switchView(of: mapper[sender.tag] ?? .general)
+    @IBAction func whenToolbarChange(_ sender: NSToolbarItem) {
+        switchView(of: sender.itemIdentifier as PreferenceSubView)
     }
 }
 
-extension PreferencePanelController: NSToolbarDelegate {
-    func toolbarAllowedItemIdentifiers(_ toolbar: NSToolbar) -> [NSToolbarItem.Identifier] {
-        return [
-            NSToolbarItem.Identifier("general"),
-            NSToolbarItem.Identifier("snippets"),
-            NSToolbarItem.Identifier("advanced"),
-            NSToolbarItem.Identifier("info"),
-        ]
-    }
-}

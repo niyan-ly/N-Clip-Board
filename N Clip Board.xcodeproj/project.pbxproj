@@ -23,6 +23,8 @@
 		DBA6F87F232DD47A0081FD48 /* AdvancedViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DBA6F87D232DD47A0081FD48 /* AdvancedViewController.xib */; };
 		DBA6F882232E7D820081FD48 /* SnippetsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBA6F880232E7D820081FD48 /* SnippetsViewController.swift */; };
 		DBA6F883232E7D820081FD48 /* SnippetsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DBA6F881232E7D820081FD48 /* SnippetsViewController.xib */; };
+		DBA6F886232E96050081FD48 /* AppearanceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBA6F884232E96050081FD48 /* AppearanceViewController.swift */; };
+		DBA6F887232E96050081FD48 /* AppearanceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DBA6F885232E96050081FD48 /* AppearanceViewController.xib */; };
 		DBEF770E2324F23F00A63D28 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBEF770D2324F23F00A63D28 /* AppDelegate.swift */; };
 		DBEF77102324F23F00A63D28 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DBEF770F2324F23F00A63D28 /* Assets.xcassets */; };
 		DBEF77132324F24000A63D28 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = DBEF77112324F23F00A63D28 /* MainMenu.xib */; };
@@ -48,6 +50,8 @@
 		DBA6F87D232DD47A0081FD48 /* AdvancedViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AdvancedViewController.xib; sourceTree = "<group>"; };
 		DBA6F880232E7D820081FD48 /* SnippetsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnippetsViewController.swift; sourceTree = "<group>"; };
 		DBA6F881232E7D820081FD48 /* SnippetsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SnippetsViewController.xib; sourceTree = "<group>"; };
+		DBA6F884232E96050081FD48 /* AppearanceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppearanceViewController.swift; sourceTree = "<group>"; };
+		DBA6F885232E96050081FD48 /* AppearanceViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AppearanceViewController.xib; sourceTree = "<group>"; };
 		DBEF770A2324F23F00A63D28 /* N Clip Board.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "N Clip Board.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DBEF770D2324F23F00A63D28 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DBEF770F2324F23F00A63D28 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -102,6 +106,8 @@
 			isa = PBXGroup;
 			children = (
 				DB655E36232B9AED00262660 /* PreferencePanelController.swift */,
+				DBA6F884232E96050081FD48 /* AppearanceViewController.swift */,
+				DBA6F885232E96050081FD48 /* AppearanceViewController.xib */,
 				DB93DE88232D4FE20074E740 /* GeneralViewController.swift */,
 				DB93DE89232D4FE20074E740 /* GeneralViewController.xib */,
 				DBA6F87C232DD47A0081FD48 /* AdvancedViewController.swift */,
@@ -213,6 +219,7 @@
 				DBA6F883232E7D820081FD48 /* SnippetsViewController.xib in Resources */,
 				DB93DE8B232D4FE20074E740 /* GeneralViewController.xib in Resources */,
 				DBA6F87F232DD47A0081FD48 /* AdvancedViewController.xib in Resources */,
+				DBA6F887232E96050081FD48 /* AppearanceViewController.xib in Resources */,
 				DBEF77102324F23F00A63D28 /* Assets.xcassets in Resources */,
 				DBEF77132324F24000A63D28 /* MainMenu.xib in Resources */,
 				DB38B2F5232D40BE00DFA3A0 /* PreferencePanel.xib in Resources */,
@@ -272,6 +279,7 @@
 				DB93CF3E232BE61400F930B2 /* ClipBoardItem.xcdatamodeld in Sources */,
 				DB5F25B323290141007993F6 /* SearchViewController.swift in Sources */,
 				DB655E38232B9AED00262660 /* PreferencePanelController.swift in Sources */,
+				DBA6F886232E96050081FD48 /* AppearanceViewController.swift in Sources */,
 				DB655E3D232BBF8600262660 /* ClipBoardHelper.swift in Sources */,
 				DB655E3B232B9DF100262660 /* Util.swift in Sources */,
 				DBA6F87E232DD47A0081FD48 /* AdvancedViewController.swift in Sources */,

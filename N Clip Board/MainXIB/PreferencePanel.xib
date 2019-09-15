@@ -26,72 +26,39 @@
                 <allowedToolbarItems>
                     <toolbarItem implicitItemIdentifier="NSToolbarSpaceItem" id="p4v-fA-GYl"/>
                     <toolbarItem implicitItemIdentifier="NSToolbarFlexibleSpaceItem" id="Qpw-Z8-nmT"/>
-                    <toolbarItem implicitItemIdentifier="68FF13DB-BA5D-444A-90CC-E7CBA94F2C74" explicitItemIdentifier="general" label="General" paletteLabel="General" image="NSPreferencesGeneral" sizingBehavior="auto" selectable="YES" id="a7m-xC-rhT">
-                        <nil key="toolTip"/>
-                        <button key="view" id="4KL-Db-IOO">
-                            <rect key="frame" x="0.0" y="14" width="48" height="48"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                            <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="NSPreferencesGeneral" imagePosition="overlaps" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="9Vk-is-Mgb">
-                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                <font key="font" metaFont="system"/>
-                            </buttonCell>
-                        </button>
+                    <toolbarItem implicitItemIdentifier="5E37981A-9107-45DB-8688-32F1836594F8" explicitItemIdentifier="General" label="General" paletteLabel="General" image="NSPreferencesGeneral" sizingBehavior="auto" selectable="YES" id="d9n-0j-1gV">
                         <connections>
-                            <action selector="whenToolbarChange:" target="-2" id="at6-OA-T9g"/>
+                            <action selector="whenToolbarChange:" target="-2" id="Ayx-wZ-SW0"/>
                         </connections>
                     </toolbarItem>
-                    <toolbarItem implicitItemIdentifier="BF2BBFEA-37FA-451A-9D9A-6B95A07AED5E" explicitItemIdentifier="snippets" label="Snippets" paletteLabel="Snippets" tag="1" image="n_shortcuts" sizingBehavior="auto" selectable="YES" id="Ue6-dB-BE1">
-                        <nil key="toolTip"/>
-                        <button key="view" tag="1" id="alD-yF-smh">
-                            <rect key="frame" x="3" y="14" width="48" height="48"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                            <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="n_shortcuts" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="XZK-Cx-Dhw">
-                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                <font key="font" metaFont="system"/>
-                            </buttonCell>
-                        </button>
+                    <toolbarItem implicitItemIdentifier="1E0D643D-21FA-41D2-A0D9-F6ECBDF1DF27" explicitItemIdentifier="Appearance" label="Appearance" paletteLabel="Appearance" tag="-1" image="NSInfo" selectable="YES" id="TKD-7G-ecw">
+                        <size key="minSize" width="32" height="32"/>
+                        <size key="maxSize" width="32" height="32"/>
                         <connections>
-                            <action selector="whenToolbarChange:" target="-2" id="aLo-lm-idA"/>
+                            <action selector="whenToolbarChange:" target="-2" id="ijI-8x-dPx"/>
                         </connections>
                     </toolbarItem>
-                    <toolbarItem implicitItemIdentifier="7BBE618E-3019-4E0D-BE13-645870559937" explicitItemIdentifier="advanced" label="Advanced" paletteLabel="Advanced" tag="2" image="NSAdvanced" sizingBehavior="auto" selectable="YES" id="fOb-tg-SB8">
-                        <nil key="toolTip"/>
-                        <button key="view" tag="2" id="ZjZ-Ul-los">
-                            <rect key="frame" x="6" y="14" width="48" height="48"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                            <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="NSAdvanced" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="qlN-Zz-YcN">
-                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                <font key="font" metaFont="system"/>
-                            </buttonCell>
-                        </button>
+                    <toolbarItem implicitItemIdentifier="01A3487B-D772-44D9-B086-2B5DB44A7C5D" explicitItemIdentifier="Snippets" label="Snippets" paletteLabel="Snippets" tag="1" image="n_shortcuts" selectable="YES" id="KLs-z2-dSc">
+                        <size key="minSize" width="50" height="50"/>
+                        <size key="maxSize" width="50" height="50"/>
                         <connections>
-                            <action selector="whenToolbarChange:" target="-2" id="jKL-TM-nyZ"/>
+                            <action selector="whenToolbarChange:" target="-2" id="7rD-Zf-PqX"/>
                         </connections>
                     </toolbarItem>
-                    <toolbarItem implicitItemIdentifier="4E07A110-C089-4428-BF43-6C0B768EB291" explicitItemIdentifier="info" label="info" paletteLabel="info" tag="3" image="n_info" sizingBehavior="auto" selectable="YES" id="a3q-0L-N02">
-                        <nil key="toolTip"/>
-                        <button key="view" tag="3" id="oi2-2c-6ny">
-                            <rect key="frame" x="0.0" y="14" width="48" height="48"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                            <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="n_info" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="fSv-Bx-py5">
-                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                <font key="font" metaFont="system"/>
-                            </buttonCell>
-                        </button>
+                    <toolbarItem implicitItemIdentifier="EC2D2D97-1A84-4494-A8E8-AF4F9C8DA16D" explicitItemIdentifier="Advanced" label="Advanced" paletteLabel="Advanced" tag="2" image="NSAdvanced" selectable="YES" id="rH1-Lc-nzr">
+                        <size key="minSize" width="32" height="32"/>
+                        <size key="maxSize" width="32" height="32"/>
                         <connections>
-                            <action selector="whenToolbarChange:" target="-2" id="NJU-u1-qiG"/>
+                            <action selector="whenToolbarChange:" target="-2" id="Jzv-fZ-SGl"/>
                         </connections>
                     </toolbarItem>
                 </allowedToolbarItems>
                 <defaultToolbarItems>
-                    <toolbarItem reference="a7m-xC-rhT"/>
-                    <toolbarItem reference="Ue6-dB-BE1"/>
-                    <toolbarItem reference="fOb-tg-SB8"/>
-                    <toolbarItem reference="a3q-0L-N02"/>
+                    <toolbarItem reference="d9n-0j-1gV"/>
+                    <toolbarItem reference="TKD-7G-ecw"/>
+                    <toolbarItem reference="KLs-z2-dSc"/>
+                    <toolbarItem reference="rH1-Lc-nzr"/>
                 </defaultToolbarItems>
-                <connections>
-                    <outlet property="delegate" destination="-2" id="AzL-cr-4eN"/>
-                </connections>
             </toolbar>
             <connections>
                 <outlet property="delegate" destination="-2" id="0bl-1N-AYu"/>
@@ -101,8 +68,8 @@
     </objects>
     <resources>
         <image name="NSAdvanced" width="32" height="32"/>
+        <image name="NSInfo" width="32" height="32"/>
         <image name="NSPreferencesGeneral" width="32" height="32"/>
-        <image name="n_info" width="50" height="50"/>
         <image name="n_shortcuts" width="50" height="50"/>
     </resources>
 </document>
