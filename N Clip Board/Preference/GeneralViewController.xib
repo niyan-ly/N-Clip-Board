@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14490.70"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="GeneralViewController" customModule="N_Clip_Board" customModuleProvider="target">
+            <connections>
+                <outlet property="cleanUpView" destination="1xB-aS-ZdV" id="mGv-1n-RHV"/>
+                <outlet property="keepItemView" destination="RMU-AU-gng" id="8Ee-xs-Oqo"/>
+                <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <customView id="Hz6-mo-xeY">
+            <rect key="frame" x="0.0" y="0.0" width="480" height="272"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <subviews>
+                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="LKm-O6-1rm">
+                    <rect key="frame" x="176" y="236" width="115" height="18"/>
+                    <buttonCell key="cell" type="check" title="Launch at login" bezelStyle="regularSquare" imagePosition="left" inset="2" id="Pli-rs-TLm">
+                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                </button>
+                <customView translatesAutoresizingMaskIntoConstraints="NO" id="LTA-2k-iw7" customClass="MASShortcutView">
+                    <rect key="frame" x="178" y="198" width="162" height="20"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="162" id="CBw-JV-nBU"/>
+                        <constraint firstAttribute="height" constant="20" id="Hfc-wG-kNw"/>
+                    </constraints>
+                </customView>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="8Nz-Kt-dKT">
+                    <rect key="frame" x="44" y="200" width="116" height="17"/>
+                    <textFieldCell key="cell" lineBreakMode="clipping" alignment="right" title="Activate Clipboard" id="DjQ-gf-agn">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="46t-S0-kxi">
+                    <rect key="frame" x="33" y="159" width="127" height="17"/>
+                    <textFieldCell key="cell" lineBreakMode="clipping" alignment="right" title="Keep Clipboard item" id="wEv-UC-QUe">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <stackView distribution="fill" orientation="horizontal" alignment="top" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RMU-AU-gng">
+                    <rect key="frame" x="178" y="157" width="88" height="21"/>
+                    <subviews>
+                        <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="TDZ-T1-DT1">
+                            <rect key="frame" x="-2" y="-3" width="55" height="25"/>
+                            <popUpButtonCell key="cell" type="push" title="30" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" tag="30" imageScaling="proportionallyDown" inset="2" selectedItem="0Vd-hd-zil" id="YRa-Yf-D6j">
+                                <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
+                                <font key="font" metaFont="menu"/>
+                                <menu key="menu" id="QJJ-14-p17">
+                                    <items>
+                                        <menuItem title="5" tag="5" id="ZST-Zg-8nx">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                        </menuItem>
+                                        <menuItem title="10" tag="10" id="wB6-2r-0N8"/>
+                                        <menuItem title="20" tag="20" id="Iin-NJ-blV">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                        </menuItem>
+                                        <menuItem title="30" state="on" tag="30" id="0Vd-hd-zil"/>
+                                    </items>
+                                </menu>
+                            </popUpButtonCell>
+                            <connections>
+                                <action selector="clipBoardExpireDateChange:" target="-2" id="dK0-mE-eQI"/>
+                            </connections>
+                        </popUpButton>
+                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="nTq-dz-ee3">
+                            <rect key="frame" x="56" y="4" width="34" height="17"/>
+                            <textFieldCell key="cell" lineBreakMode="clipping" title="Days" id="sVE-kp-otB">
+                                <font key="font" usesAppearanceFont="YES"/>
+                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                            </textFieldCell>
+                        </textField>
+                    </subviews>
+                    <visibilityPriorities>
+                        <integer value="1000"/>
+                        <integer value="1000"/>
+                    </visibilityPriorities>
+                    <customSpacing>
+                        <real value="3.4028234663852886e+38"/>
+                        <real value="3.4028234663852886e+38"/>
+                    </customSpacing>
+                </stackView>
+                <box verticalHuggingPriority="750" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="wH2-qw-D8L">
+                    <rect key="frame" x="0.0" y="134" width="480" height="5"/>
+                </box>
+                <stackView distribution="fill" orientation="vertical" alignment="leading" spacing="10" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1xB-aS-ZdV">
+                    <rect key="frame" x="178" y="71" width="162" height="45"/>
+                    <subviews>
+                        <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="8g3-Ui-a0X">
+                            <rect key="frame" x="-2" y="29" width="166" height="18"/>
+                            <buttonCell key="cell" type="check" title="Show Clean Up In Menu" bezelStyle="regularSquare" imagePosition="left" inset="2" id="GaN-f0-QLH">
+                                <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                <font key="font" metaFont="system"/>
+                            </buttonCell>
+                            <connections>
+                                <action selector="toggleClearUpBtnInMenu:" target="-2" id="lBm-hb-flW"/>
+                            </connections>
+                        </button>
+                        <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="xBV-Bh-CEh">
+                            <rect key="frame" x="-6" y="-7" width="105" height="32"/>
+                            <buttonCell key="cell" type="push" title="Clean Now" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="1Cd-bF-fWb">
+                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                <font key="font" metaFont="system"/>
+                            </buttonCell>
+                            <connections>
+                                <action selector="confirmBeforeCleanClipBoard:" target="-2" id="IL1-aF-91w"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <visibilityPriorities>
+                        <integer value="1000"/>
+                        <integer value="1000"/>
+                    </visibilityPriorities>
+                    <customSpacing>
+                        <real value="3.4028234663852886e+38"/>
+                        <real value="3.4028234663852886e+38"/>
+                    </customSpacing>
+                </stackView>
+            </subviews>
+            <constraints>
+                <constraint firstItem="RMU-AU-gng" firstAttribute="top" secondItem="LTA-2k-iw7" secondAttribute="bottom" constant="20" id="434-Cr-gkD"/>
+                <constraint firstItem="LKm-O6-1rm" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" constant="20" id="9he-1K-bc4"/>
+                <constraint firstItem="1xB-aS-ZdV" firstAttribute="leading" secondItem="RMU-AU-gng" secondAttribute="leading" id="D4O-iI-v7Y"/>
+                <constraint firstItem="LKm-O6-1rm" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" constant="178" id="DwV-BH-iXm"/>
+                <constraint firstItem="wH2-qw-D8L" firstAttribute="trailing" secondItem="Hz6-mo-xeY" secondAttribute="trailing" id="EKa-Hv-pyO"/>
+                <constraint firstItem="wH2-qw-D8L" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" id="F0q-ko-nVk"/>
+                <constraint firstItem="46t-S0-kxi" firstAttribute="centerY" secondItem="RMU-AU-gng" secondAttribute="centerY" id="OBJ-iC-yUw"/>
+                <constraint firstItem="8Nz-Kt-dKT" firstAttribute="centerY" secondItem="LTA-2k-iw7" secondAttribute="centerY" id="T2c-bk-SHb"/>
+                <constraint firstItem="wH2-qw-D8L" firstAttribute="top" secondItem="RMU-AU-gng" secondAttribute="bottom" constant="20" id="bDt-81-XGl"/>
+                <constraint firstItem="8Nz-Kt-dKT" firstAttribute="trailing" secondItem="LTA-2k-iw7" secondAttribute="leading" constant="-20" id="eur-wG-rja"/>
+                <constraint firstItem="LTA-2k-iw7" firstAttribute="top" secondItem="LKm-O6-1rm" secondAttribute="bottom" constant="20" id="g9w-cw-lgt"/>
+                <constraint firstItem="LTA-2k-iw7" firstAttribute="leading" secondItem="LKm-O6-1rm" secondAttribute="leading" id="qWe-kt-C0d"/>
+                <constraint firstItem="46t-S0-kxi" firstAttribute="trailing" secondItem="RMU-AU-gng" secondAttribute="leading" constant="-20" id="v2t-Tf-fxs"/>
+                <constraint firstItem="1xB-aS-ZdV" firstAttribute="top" secondItem="wH2-qw-D8L" secondAttribute="bottom" constant="20" id="w5d-xX-JNN"/>
+                <constraint firstItem="RMU-AU-gng" firstAttribute="leading" secondItem="LTA-2k-iw7" secondAttribute="leading" id="zxH-iy-Kkr"/>
+            </constraints>
+        </customView>
+    </objects>
+</document>

@@ -7,10 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DB38B2F5232D40BE00DFA3A0 /* PreferencePanel.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB38B2F4232D40BE00DFA3A0 /* PreferencePanel.xib */; };
 		DB5F25B323290141007993F6 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5F25B223290141007993F6 /* SearchViewController.swift */; };
 		DB5F25B523290200007993F6 /* SearchWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5F25B423290200007993F6 /* SearchWindowController.swift */; };
 		DB5F25B723290624007993F6 /* SearchPanel.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB5F25B623290624007993F6 /* SearchPanel.xib */; };
 		DB5F25BA23292076007993F6 /* Pods_N_Clip_Board.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB5F25B923292076007993F6 /* Pods_N_Clip_Board.framework */; };
+		DB655E38232B9AED00262660 /* PreferencePanelController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB655E36232B9AED00262660 /* PreferencePanelController.swift */; };
+		DB655E3B232B9DF100262660 /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB655E3A232B9DF100262660 /* Util.swift */; };
+		DB655E3D232BBF8600262660 /* ClipBoardHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB655E3C232BBF8600262660 /* ClipBoardHelper.swift */; };
+		DB655E3F232BD2BF00262660 /* NError.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB655E3E232BD2BF00262660 /* NError.swift */; };
+		DB93CF3E232BE61400F930B2 /* ClipBoardItem.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DB93CF3C232BE61400F930B2 /* ClipBoardItem.xcdatamodeld */; };
+		DB93DE8A232D4FE20074E740 /* GeneralViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB93DE88232D4FE20074E740 /* GeneralViewController.swift */; };
+		DB93DE8B232D4FE20074E740 /* GeneralViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB93DE89232D4FE20074E740 /* GeneralViewController.xib */; };
+		DBA6F87E232DD47A0081FD48 /* AdvancedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBA6F87C232DD47A0081FD48 /* AdvancedViewController.swift */; };
+		DBA6F87F232DD47A0081FD48 /* AdvancedViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DBA6F87D232DD47A0081FD48 /* AdvancedViewController.xib */; };
+		DBA6F882232E7D820081FD48 /* SnippetsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBA6F880232E7D820081FD48 /* SnippetsViewController.swift */; };
+		DBA6F883232E7D820081FD48 /* SnippetsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DBA6F881232E7D820081FD48 /* SnippetsViewController.xib */; };
 		DBEF770E2324F23F00A63D28 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBEF770D2324F23F00A63D28 /* AppDelegate.swift */; };
 		DBEF77102324F23F00A63D28 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DBEF770F2324F23F00A63D28 /* Assets.xcassets */; };
 		DBEF77132324F24000A63D28 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = DBEF77112324F23F00A63D28 /* MainMenu.xib */; };
@@ -20,10 +32,22 @@
 		2B37792841C67B6A432FD14D /* Pods_N_Clip_Board.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_N_Clip_Board.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4CF13127831EF3F43BE9AEFD /* Pods-N Clip Board.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-N Clip Board.debug.xcconfig"; path = "Target Support Files/Pods-N Clip Board/Pods-N Clip Board.debug.xcconfig"; sourceTree = "<group>"; };
 		B9F90EB868A137C49ED41B90 /* Pods-N Clip Board.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-N Clip Board.release.xcconfig"; path = "Target Support Files/Pods-N Clip Board/Pods-N Clip Board.release.xcconfig"; sourceTree = "<group>"; };
+		DB38B2F4232D40BE00DFA3A0 /* PreferencePanel.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PreferencePanel.xib; sourceTree = "<group>"; };
 		DB5F25B223290141007993F6 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		DB5F25B423290200007993F6 /* SearchWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchWindowController.swift; sourceTree = "<group>"; };
 		DB5F25B623290624007993F6 /* SearchPanel.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchPanel.xib; sourceTree = "<group>"; };
 		DB5F25B923292076007993F6 /* Pods_N_Clip_Board.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_N_Clip_Board.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DB655E36232B9AED00262660 /* PreferencePanelController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PreferencePanelController.swift; path = "N Clip Board/Preference/PreferencePanelController.swift"; sourceTree = SOURCE_ROOT; };
+		DB655E3A232B9DF100262660 /* Util.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
+		DB655E3C232BBF8600262660 /* ClipBoardHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClipBoardHelper.swift; sourceTree = "<group>"; };
+		DB655E3E232BD2BF00262660 /* NError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NError.swift; sourceTree = "<group>"; };
+		DB93CF3D232BE61400F930B2 /* ClipBoardItem.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ClipBoardItem.xcdatamodel; sourceTree = "<group>"; };
+		DB93DE88232D4FE20074E740 /* GeneralViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralViewController.swift; sourceTree = "<group>"; };
+		DB93DE89232D4FE20074E740 /* GeneralViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GeneralViewController.xib; sourceTree = "<group>"; };
+		DBA6F87C232DD47A0081FD48 /* AdvancedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvancedViewController.swift; sourceTree = "<group>"; };
+		DBA6F87D232DD47A0081FD48 /* AdvancedViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AdvancedViewController.xib; sourceTree = "<group>"; };
+		DBA6F880232E7D820081FD48 /* SnippetsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnippetsViewController.swift; sourceTree = "<group>"; };
+		DBA6F881232E7D820081FD48 /* SnippetsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SnippetsViewController.xib; sourceTree = "<group>"; };
 		DBEF770A2324F23F00A63D28 /* N Clip Board.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "N Clip Board.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DBEF770D2324F23F00A63D28 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DBEF770F2324F23F00A63D28 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -64,12 +88,28 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
-		DB5F25B823290697007993F6 /* xib */ = {
+		DB5F25B823290697007993F6 /* MainXIB */ = {
 			isa = PBXGroup;
 			children = (
+				DBEF77112324F23F00A63D28 /* MainMenu.xib */,
+				DB38B2F4232D40BE00DFA3A0 /* PreferencePanel.xib */,
 				DB5F25B623290624007993F6 /* SearchPanel.xib */,
 			);
-			path = xib;
+			path = MainXIB;
+			sourceTree = "<group>";
+		};
+		DB93CF40232D083F00F930B2 /* Preference */ = {
+			isa = PBXGroup;
+			children = (
+				DB655E36232B9AED00262660 /* PreferencePanelController.swift */,
+				DB93DE88232D4FE20074E740 /* GeneralViewController.swift */,
+				DB93DE89232D4FE20074E740 /* GeneralViewController.xib */,
+				DBA6F87C232DD47A0081FD48 /* AdvancedViewController.swift */,
+				DBA6F87D232DD47A0081FD48 /* AdvancedViewController.xib */,
+				DBA6F880232E7D820081FD48 /* SnippetsViewController.swift */,
+				DBA6F881232E7D820081FD48 /* SnippetsViewController.xib */,
+			);
+			path = Preference;
 			sourceTree = "<group>";
 		};
 		DBEF77012324F23F00A63D28 = {
@@ -93,12 +133,16 @@
 		DBEF770C2324F23F00A63D28 /* N Clip Board */ = {
 			isa = PBXGroup;
 			children = (
-				DB5F25B823290697007993F6 /* xib */,
+				DB93CF40232D083F00F930B2 /* Preference */,
+				DB5F25B823290697007993F6 /* MainXIB */,
 				DBEF770D2324F23F00A63D28 /* AppDelegate.swift */,
 				DB5F25B223290141007993F6 /* SearchViewController.swift */,
+				DB655E3C232BBF8600262660 /* ClipBoardHelper.swift */,
+				DB655E3E232BD2BF00262660 /* NError.swift */,
+				DB655E3A232B9DF100262660 /* Util.swift */,
 				DBEF770F2324F23F00A63D28 /* Assets.xcassets */,
-				DBEF77112324F23F00A63D28 /* MainMenu.xib */,
 				DB5F25B423290200007993F6 /* SearchWindowController.swift */,
+				DB93CF3C232BE61400F930B2 /* ClipBoardItem.xcdatamodeld */,
 				DBEF77142324F24000A63D28 /* Info.plist */,
 				DBEF77152324F24000A63D28 /* N_Clip_Board.entitlements */,
 			);
@@ -166,8 +210,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				DB5F25B723290624007993F6 /* SearchPanel.xib in Resources */,
+				DBA6F883232E7D820081FD48 /* SnippetsViewController.xib in Resources */,
+				DB93DE8B232D4FE20074E740 /* GeneralViewController.xib in Resources */,
+				DBA6F87F232DD47A0081FD48 /* AdvancedViewController.xib in Resources */,
 				DBEF77102324F23F00A63D28 /* Assets.xcassets in Resources */,
 				DBEF77132324F24000A63D28 /* MainMenu.xib in Resources */,
+				DB38B2F5232D40BE00DFA3A0 /* PreferencePanel.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -220,7 +268,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DB655E3F232BD2BF00262660 /* NError.swift in Sources */,
+				DB93CF3E232BE61400F930B2 /* ClipBoardItem.xcdatamodeld in Sources */,
 				DB5F25B323290141007993F6 /* SearchViewController.swift in Sources */,
+				DB655E38232B9AED00262660 /* PreferencePanelController.swift in Sources */,
+				DB655E3D232BBF8600262660 /* ClipBoardHelper.swift in Sources */,
+				DB655E3B232B9DF100262660 /* Util.swift in Sources */,
+				DBA6F87E232DD47A0081FD48 /* AdvancedViewController.swift in Sources */,
+				DBA6F882232E7D820081FD48 /* SnippetsViewController.swift in Sources */,
+				DB93DE8A232D4FE20074E740 /* GeneralViewController.swift in Sources */,
 				DBEF770E2324F23F00A63D28 /* AppDelegate.swift in Sources */,
 				DB5F25B523290200007993F6 /* SearchWindowController.swift in Sources */,
 			);
@@ -419,6 +475,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		DB93CF3C232BE61400F930B2 /* ClipBoardItem.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				DB93CF3D232BE61400F930B2 /* ClipBoardItem.xcdatamodel */,
+			);
+			currentVersion = DB93CF3D232BE61400F930B2 /* ClipBoardItem.xcdatamodel */;
+			path = ClipBoardItem.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = DBEF77022324F23F00A63D28 /* Project object */;
 }

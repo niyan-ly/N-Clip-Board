@@ -11,11 +11,21 @@ import HotKey
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
+    
+    @IBOutlet var statusBarMenu: NSMenu!
+    
     let searchWindowController = SearchWindowController(windowNibName: "SearchPanel")
+    let preferenceWindowController = PreferencePanelController(windowNibName: "PreferencePanel")
+    var statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.squareLength)
+    
     let hk = HotKey(key: .space, modifiers: [.control])
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
-        searchWindowController.showWindow(self)
+        statusItem.menu = statusBarMenu
+        if let button = statusItem.button {
+            button.image = NSImage(named: "n_status")
+        }
+
         hk.keyDownHandler = {
             self.searchWindowController.showWindow(self)
         }
@@ -25,4 +35,13 @@ class AppDelegate: NSObject, NSApplicationDelegate {
       // Insert code here to tear down your application
     }
     
+    @IBAction func showPreferencePanel(_ sender: NSMenuItem) {
+        NSApp.activate(ignoringOtherApps: true)
+        preferenceWindowController.window?.makeKeyAndOrderFront(self)
+    }
+    
+    @IBAction func showAppInfoPanel(_ sender: NSMenuItem) {
+        NSApp.activate(ignoringOtherApps: true)
+        NSApp.orderFrontStandardAboutPanel(self)
+    }
 }
