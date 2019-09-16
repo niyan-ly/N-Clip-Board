@@ -24,6 +24,9 @@
                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                         <font key="font" metaFont="system"/>
                     </buttonCell>
+                    <connections>
+                        <action selector="toggleLaunchAtStartUp:" target="-2" id="Kox-ug-XzN"/>
+                    </connections>
                 </button>
                 <customView translatesAutoresizingMaskIntoConstraints="NO" id="LTA-2k-iw7" customClass="MASShortcutView">
                     <rect key="frame" x="178" y="198" width="162" height="20"/>
@@ -58,11 +61,11 @@
                                 <font key="font" metaFont="menu"/>
                                 <menu key="menu" id="QJJ-14-p17">
                                     <items>
-                                        <menuItem title="5" tag="5" id="ZST-Zg-8nx">
+                                        <menuItem title="7" tag="7" id="ZST-Zg-8nx">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                         </menuItem>
-                                        <menuItem title="10" tag="10" id="wB6-2r-0N8"/>
-                                        <menuItem title="20" tag="20" id="Iin-NJ-blV">
+                                        <menuItem title="14" tag="14" id="wB6-2r-0N8"/>
+                                        <menuItem title="21" tag="21" id="Iin-NJ-blV">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                         </menuItem>
                                         <menuItem title="30" state="on" tag="30" id="0Vd-hd-zil"/>
@@ -108,8 +111,8 @@
                             </connections>
                         </button>
                         <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="xBV-Bh-CEh">
-                            <rect key="frame" x="-6" y="-7" width="105" height="32"/>
-                            <buttonCell key="cell" type="push" title="Clean Now" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="1Cd-bF-fWb">
+                            <rect key="frame" x="-6" y="-7" width="103" height="32"/>
+                            <buttonCell key="cell" type="push" title="Clear Now" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="1Cd-bF-fWb">
                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                 <font key="font" metaFont="system"/>
                             </buttonCell>

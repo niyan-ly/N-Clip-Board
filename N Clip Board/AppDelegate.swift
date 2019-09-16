@@ -8,6 +8,7 @@
 
 import Cocoa
 import HotKey
+import ServiceManagement
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
@@ -21,6 +22,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     let hk = HotKey(key: .space, modifiers: [.control])
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
+//        SMLoginItemSetEnabled(Bundle.main.bundleIdentifier! as CFString, <#T##enabled: Bool##Bool#>)
+        
         statusItem.menu = statusBarMenu
         if let button = statusItem.button {
             button.image = NSImage(named: "n_status")
