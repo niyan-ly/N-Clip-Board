@@ -7,7 +7,6 @@
 //
 
 import Cocoa
-import MASShortcut
 
 class GeneralViewController: NSViewController, ViewInitialSize {
     @IBOutlet var keepItemView: NSStackView!

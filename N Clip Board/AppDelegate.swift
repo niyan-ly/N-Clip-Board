@@ -22,7 +22,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     let hk = HotKey(key: .space, modifiers: [.control])
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
-//        SMLoginItemSetEnabled(Bundle.main.bundleIdentifier! as CFString, <#T##enabled: Bool##Bool#>)
+//        SMLoginItemSetEnabled(Bundle.main.bundleIdentifier! as CFString, true)
         
         statusItem.menu = statusBarMenu
         if let button = statusItem.button {
