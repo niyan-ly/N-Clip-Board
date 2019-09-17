@@ -10,7 +10,7 @@ import Foundation
 import SwiftyBeaver
 
 class LoggingService {
-    static let logFileURL = FileManager.default.temporaryDirectory.appendingPathComponent("nClipBoard.log")
+    static let logFileURL = FileManager.default.homeDirectoryForCurrentUser.appendingPathComponent("/Documents/nClipBoard.log")
     private let log = SwiftyBeaver.self
     private let logWithFile = SwiftyBeaver.self
     
@@ -18,8 +18,7 @@ class LoggingService {
     
     private init() {
         let fileDest = FileDestination()
-        print(fileDest.logFileURL?.path)
-//        fileDest.logFileURL = LoggingService.logFileURL
+        fileDest.logFileURL = LoggingService.logFileURL
         log.addDestination(ConsoleDestination())
         logWithFile.addDestination(ConsoleDestination())
         logWithFile.addDestination(fileDest)

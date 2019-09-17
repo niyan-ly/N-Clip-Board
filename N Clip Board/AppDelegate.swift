@@ -22,7 +22,14 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     let hk = HotKey(key: .space, modifiers: [.control])
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
-//        SMLoginItemSetEnabled(Bundle.main.bundleIdentifier! as CFString, true)
+        let launcherId = "poor-branson.Launcher"
+        let runningApps = NSWorkspace.shared.runningApplications
+        let isRunning = !runningApps.filter { $0.bundleIdentifier == launcherId }.isEmpty
+        
+        SMLoginItemSetEnabled(launcherId as CFString, true)
+        if isRunning {
+            DistributedNotificationCenter.default().post(name: .init("killlauncher"), object: Bundle.main.bundleIdentifier!)
+        }
         
         statusItem.menu = statusBarMenu
         if let button = statusItem.button {
