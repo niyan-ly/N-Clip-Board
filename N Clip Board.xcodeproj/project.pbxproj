@@ -33,6 +33,9 @@
 		DBA6F883232E7D820081FD48 /* SnippetsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DBA6F881232E7D820081FD48 /* SnippetsViewController.xib */; };
 		DBA6F886232E96050081FD48 /* AppearanceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBA6F884232E96050081FD48 /* AppearanceViewController.swift */; };
 		DBA6F887232E96050081FD48 /* AppearanceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DBA6F885232E96050081FD48 /* AppearanceViewController.xib */; };
+		DBEBD51F234347BA00233746 /* LoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBEBD51E234347BA00233746 /* LoginService.swift */; };
+		DBEBD52123434C5D00233746 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBEBD52023434C5D00233746 /* Constants.swift */; };
+		DBEBD52223434C5D00233746 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBEBD52023434C5D00233746 /* Constants.swift */; };
 		DBEF770E2324F23F00A63D28 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBEF770D2324F23F00A63D28 /* AppDelegate.swift */; };
 		DBEF77102324F23F00A63D28 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DBEF770F2324F23F00A63D28 /* Assets.xcassets */; };
 		DBEF77132324F24000A63D28 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = DBEF77112324F23F00A63D28 /* MainMenu.xib */; };
@@ -102,12 +105,13 @@
 		DBA6F881232E7D820081FD48 /* SnippetsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SnippetsViewController.xib; sourceTree = "<group>"; };
 		DBA6F884232E96050081FD48 /* AppearanceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppearanceViewController.swift; sourceTree = "<group>"; };
 		DBA6F885232E96050081FD48 /* AppearanceViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AppearanceViewController.xib; sourceTree = "<group>"; };
+		DBEBD51E234347BA00233746 /* LoginService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginService.swift; sourceTree = "<group>"; };
+		DBEBD52023434C5D00233746 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		DBEF770A2324F23F00A63D28 /* N Clip Board.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "N Clip Board.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DBEF770D2324F23F00A63D28 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DBEF770F2324F23F00A63D28 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DBEF77122324F23F00A63D28 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		DBEF77142324F24000A63D28 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		DBEF77152324F24000A63D28 /* N_Clip_Board.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = N_Clip_Board.entitlements; sourceTree = "<group>"; };
 		DBEF771B2325016E00A63D28 /* OpenQuicklyX.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = OpenQuicklyX.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -181,6 +185,7 @@
 				DB27743C232FA32700D4547D /* FileWatcher.swift */,
 				DB655E3C232BBF8600262660 /* ClipBoardHelper.swift */,
 				DB277481233069EF00D4547D /* LoggingService.swift */,
+				DBEBD51E234347BA00233746 /* LoginService.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -258,7 +263,7 @@
 				DBEF770F2324F23F00A63D28 /* Assets.xcassets */,
 				DB5F25B423290200007993F6 /* SearchWindowController.swift */,
 				DBEF77142324F24000A63D28 /* Info.plist */,
-				DBEF77152324F24000A63D28 /* N_Clip_Board.entitlements */,
+				DBEBD52023434C5D00233746 /* Constants.swift */,
 			);
 			path = "N Clip Board";
 			sourceTree = "<group>";
@@ -501,6 +506,7 @@
 			files = (
 				DB27749623308CEA00D4547D /* AppDelegate.swift in Sources */,
 				DB2774AD2331067300D4547D /* LoggingService.swift in Sources */,
+				DBEBD52223434C5D00233746 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -516,11 +522,13 @@
 				DB655E3D232BBF8600262660 /* ClipBoardHelper.swift in Sources */,
 				DB277482233069EF00D4547D /* LoggingService.swift in Sources */,
 				DB655E3B232B9DF100262660 /* Extensions.swift in Sources */,
+				DBEBD52123434C5D00233746 /* Constants.swift in Sources */,
 				DBA6F87E232DD47A0081FD48 /* AdvancedViewController.swift in Sources */,
 				DBA6F882232E7D820081FD48 /* SnippetsViewController.swift in Sources */,
 				DB93DE8A232D4FE20074E740 /* GeneralViewController.swift in Sources */,
 				DBEF770E2324F23F00A63D28 /* AppDelegate.swift in Sources */,
 				DB5F25B523290200007993F6 /* SearchWindowController.swift in Sources */,
+				DBEBD51F234347BA00233746 /* LoginService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -610,7 +618,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "poor-branson.Launcher";
+				PRODUCT_BUNDLE_IDENTIFIER = "launcher.poor-branson.N-Clip-Board";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_INCLUDE_PATHS = "$(inherited) \"${PODS_CONFIGURATION_BUILD_DIR}/SwiftyBeaver\"";
@@ -632,7 +640,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "poor-branson.Launcher";
+				PRODUCT_BUNDLE_IDENTIFIER = "launcher.poor-branson.N-Clip-Board";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_INCLUDE_PATHS = "$(inherited) \"${PODS_CONFIGURATION_BUILD_DIR}/SwiftyBeaver\"";

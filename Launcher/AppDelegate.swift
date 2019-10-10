@@ -16,12 +16,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         window.contentView?.addSubview(NSTextField(labelWithString: LoggingService.logFileURL.path))
         // Insert code here to initialize your application
-        let mainAppIdentifier = "poor-branson.N-Clip-Board"
         let runningApps = NSWorkspace.shared.runningApplications
-        let isRunning = !runningApps.filter { $0.bundleIdentifier == mainAppIdentifier }.isEmpty
+        let isRunning = !runningApps.filter { $0.bundleIdentifier == Constants.MainBundleName }.isEmpty
 
         if !isRunning {
-            DistributedNotificationCenter.default().addObserver(self, selector: #selector(terminateApp), name: .init("killlauncher"), object: mainAppIdentifier)
+            DistributedNotificationCenter.default().addObserver(self, selector: #selector(terminateApp), name: .init("killlauncher"), object: Constants.MainBundleName)
 
             let path = Bundle.main.bundlePath as NSString
             var components = path.pathComponents
