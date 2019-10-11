@@ -6,9 +6,16 @@
 //  Copyright © 2019 branson. All rights reserved.
 //
 
-let BundleName = "poor-branson.N-Clip-Board"
+fileprivate let BundleName = "poor-branson.N-Clip-Board"
 
 struct Constants {
     static let MainBundleName = BundleName
     static let LauncherBundleName = "launcher.".appending(BundleName)
+    
+    // MARK: - UserDefaults key name
+    struct Userdefaults {
+        static let LaunchOnStartUp = "LaunchOnStartUp"
+        static let KeepClipBoardItemUntil = "KeepClipBoardItemUntil"
+        static let ShowCleanUpMenuItem = "ShowCleanUpMenuItem"
+    }
 }

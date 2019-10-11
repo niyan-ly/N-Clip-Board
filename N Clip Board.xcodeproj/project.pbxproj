@@ -33,6 +33,7 @@
 		DBA6F883232E7D820081FD48 /* SnippetsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DBA6F881232E7D820081FD48 /* SnippetsViewController.xib */; };
 		DBA6F886232E96050081FD48 /* AppearanceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBA6F884232E96050081FD48 /* AppearanceViewController.swift */; };
 		DBA6F887232E96050081FD48 /* AppearanceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DBA6F885232E96050081FD48 /* AppearanceViewController.xib */; };
+		DBC3BE8C2350264900121044 /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC3BE8B2350264900121044 /* Utility.swift */; };
 		DBEBD51F234347BA00233746 /* LoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBEBD51E234347BA00233746 /* LoginService.swift */; };
 		DBEBD52123434C5D00233746 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBEBD52023434C5D00233746 /* Constants.swift */; };
 		DBEBD52223434C5D00233746 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBEBD52023434C5D00233746 /* Constants.swift */; };
@@ -105,6 +106,7 @@
 		DBA6F881232E7D820081FD48 /* SnippetsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SnippetsViewController.xib; sourceTree = "<group>"; };
 		DBA6F884232E96050081FD48 /* AppearanceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppearanceViewController.swift; sourceTree = "<group>"; };
 		DBA6F885232E96050081FD48 /* AppearanceViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AppearanceViewController.xib; sourceTree = "<group>"; };
+		DBC3BE8B2350264900121044 /* Utility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utility.swift; sourceTree = "<group>"; };
 		DBEBD51E234347BA00233746 /* LoginService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginService.swift; sourceTree = "<group>"; };
 		DBEBD52023434C5D00233746 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		DBEF770A2324F23F00A63D28 /* N Clip Board.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "N Clip Board.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -258,12 +260,13 @@
 				DB5F25B823290697007993F6 /* MainXIB */,
 				DBEF770D2324F23F00A63D28 /* AppDelegate.swift */,
 				DB5F25B223290141007993F6 /* SearchViewController.swift */,
+				DB5F25B423290200007993F6 /* SearchWindowController.swift */,
 				DB655E3E232BD2BF00262660 /* NError.swift */,
 				DB655E3A232B9DF100262660 /* Extensions.swift */,
-				DBEF770F2324F23F00A63D28 /* Assets.xcassets */,
-				DB5F25B423290200007993F6 /* SearchWindowController.swift */,
-				DBEF77142324F24000A63D28 /* Info.plist */,
+				DBC3BE8B2350264900121044 /* Utility.swift */,
 				DBEBD52023434C5D00233746 /* Constants.swift */,
+				DBEF770F2324F23F00A63D28 /* Assets.xcassets */,
+				DBEF77142324F24000A63D28 /* Info.plist */,
 			);
 			path = "N Clip Board";
 			sourceTree = "<group>";
@@ -526,6 +529,7 @@
 				DBA6F87E232DD47A0081FD48 /* AdvancedViewController.swift in Sources */,
 				DBA6F882232E7D820081FD48 /* SnippetsViewController.swift in Sources */,
 				DB93DE8A232D4FE20074E740 /* GeneralViewController.swift in Sources */,
+				DBC3BE8C2350264900121044 /* Utility.swift in Sources */,
 				DBEF770E2324F23F00A63D28 /* AppDelegate.swift in Sources */,
 				DB5F25B523290200007993F6 /* SearchWindowController.swift in Sources */,
 				DBEBD51F234347BA00233746 /* LoginService.swift in Sources */,

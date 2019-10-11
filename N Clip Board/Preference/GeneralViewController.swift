@@ -55,9 +55,9 @@ class GeneralViewController: NSViewController, ViewInitialSize {
     @IBAction func toggleLaunchAtStartUp(_ sender: NSButton) {
         switch sender.state {
         case .on:
-            NSApp.enableRelaunchOnLogin()
+            LoginService.enable()
         default:
-            NSApp.disableRelaunchOnLogin()
+            LoginService.disable()
         }
     }
     

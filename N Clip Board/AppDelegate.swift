@@ -22,6 +22,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     let hk = HotKey(key: .space, modifiers: [.control])
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
+        // kill launcher after main app was launched
+        LoginService.killLauncher()
+        
         statusItem.menu = statusBarMenu
         if let button = statusItem.button {
             button.image = NSImage(named: "n_status")
@@ -30,6 +33,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         hk.keyDownHandler = {
             self.searchWindowController.showWindow(self)
         }
+        
+        // MARK: - initialize UserDefaults configuration
+        Utility.registerUserDefaults()
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {

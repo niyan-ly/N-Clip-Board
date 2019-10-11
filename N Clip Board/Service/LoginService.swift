@@ -14,15 +14,19 @@ class LoginService {
     static func enable() {
         SMLoginItemSetEnabled(Constants.LauncherBundleName as CFString, true)
         
+        killLauncher()
+    }
+    
+    static func disable() {
+        SMLoginItemSetEnabled(Constants.LauncherBundleName as CFString, false)
+    }
+    
+    static func killLauncher() {
         let runningApps = NSWorkspace.shared.runningApplications
         let isRunning = !runningApps.filter { $0.bundleIdentifier == Constants.LauncherBundleName }.isEmpty
         
         if isRunning {
             DistributedNotificationCenter.default().post(name: .init("killlauncher"), object: Bundle.main.bundleIdentifier!)
         }
-    }
-    
-    static func disable() {
-        SMLoginItemSetEnabled(Constants.LauncherBundleName as CFString, false)
     }
 }

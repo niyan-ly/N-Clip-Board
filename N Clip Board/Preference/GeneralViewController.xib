@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="15400" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14490.70"/>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="15400"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -26,6 +27,7 @@
                     </buttonCell>
                     <connections>
                         <action selector="toggleLaunchAtStartUp:" target="-2" id="Kox-ug-XzN"/>
+                        <binding destination="q1G-pB-G6r" name="value" keyPath="values.LaunchOnStartUp" id="F1W-aW-15S"/>
                     </connections>
                 </button>
                 <customView translatesAutoresizingMaskIntoConstraints="NO" id="LTA-2k-iw7" customClass="MASShortcutView">
@@ -36,7 +38,7 @@
                     </constraints>
                 </customView>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="8Nz-Kt-dKT">
-                    <rect key="frame" x="44" y="200" width="116" height="17"/>
+                    <rect key="frame" x="44" y="200" width="116" height="16"/>
                     <textFieldCell key="cell" lineBreakMode="clipping" alignment="right" title="Activate Clipboard" id="DjQ-gf-agn">
                         <font key="font" metaFont="system"/>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -44,7 +46,7 @@
                     </textFieldCell>
                 </textField>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="46t-S0-kxi">
-                    <rect key="frame" x="33" y="159" width="127" height="17"/>
+                    <rect key="frame" x="33" y="160" width="127" height="16"/>
                     <textFieldCell key="cell" lineBreakMode="clipping" alignment="right" title="Keep Clipboard item" id="wEv-UC-QUe">
                         <font key="font" metaFont="system"/>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -74,10 +76,11 @@
                             </popUpButtonCell>
                             <connections>
                                 <action selector="clipBoardExpireDateChange:" target="-2" id="dK0-mE-eQI"/>
+                                <binding destination="q1G-pB-G6r" name="selectedTag" keyPath="values.KeepClipBoardItemUntil" id="EQK-Qo-5bf"/>
                             </connections>
                         </popUpButton>
                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="nTq-dz-ee3">
-                            <rect key="frame" x="56" y="4" width="34" height="17"/>
+                            <rect key="frame" x="56" y="5" width="34" height="16"/>
                             <textFieldCell key="cell" lineBreakMode="clipping" title="Days" id="sVE-kp-otB">
                                 <font key="font" usesAppearanceFont="YES"/>
                                 <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -108,6 +111,7 @@
                             </buttonCell>
                             <connections>
                                 <action selector="toggleClearUpBtnInMenu:" target="-2" id="lBm-hb-flW"/>
+                                <binding destination="q1G-pB-G6r" name="value" keyPath="values.ShowCleanUpMenuItem" id="sTS-Xu-U4v"/>
                             </connections>
                         </button>
                         <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="xBV-Bh-CEh">
@@ -148,6 +152,8 @@
                 <constraint firstItem="1xB-aS-ZdV" firstAttribute="top" secondItem="wH2-qw-D8L" secondAttribute="bottom" constant="20" id="w5d-xX-JNN"/>
                 <constraint firstItem="RMU-AU-gng" firstAttribute="leading" secondItem="LTA-2k-iw7" secondAttribute="leading" id="zxH-iy-Kkr"/>
             </constraints>
+            <point key="canvasLocation" x="141" y="154"/>
         </customView>
+        <userDefaultsController representsSharedInstance="YES" id="q1G-pB-G6r"/>
     </objects>
 </document>
