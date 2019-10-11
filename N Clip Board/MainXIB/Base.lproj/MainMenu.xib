@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="15400" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14490.70"/>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="15400"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="NSApplication">
@@ -69,11 +70,23 @@
                     </menu>
                 </menuItem>
             </items>
+            <point key="canvasLocation" x="139" y="154"/>
         </menu>
         <menu id="Wx1-pI-HjA">
             <items>
                 <menuItem title="Show ClipBoard" id="7H1-LH-hbX">
                     <modifierMask key="keyEquivalentModifierMask"/>
+                </menuItem>
+                <menuItem title="Clean Up" id="YY3-se-zwd">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <connections>
+                        <action selector="beforeCleaUp:" target="Voe-Tx-rLC" id="yB9-sI-9qu"/>
+                        <binding destination="e7f-qQ-IRR" name="hidden" keyPath="values.ShowCleanUpMenuItem" id="xsf-aa-Sb2">
+                            <dictionary key="options">
+                                <string key="NSValueTransformerName">NSNegateBoolean</string>
+                            </dictionary>
+                        </binding>
+                    </connections>
                 </menuItem>
                 <menuItem isSeparatorItem="YES" id="lbm-zv-ozc"/>
                 <menuItem title="Preference" keyEquivalent="," id="xg7-zR-Pde">
@@ -97,5 +110,6 @@
             </items>
             <point key="canvasLocation" x="126" y="-69"/>
         </menu>
+        <userDefaultsController representsSharedInstance="YES" id="e7f-qQ-IRR"/>
     </objects>
 </document>

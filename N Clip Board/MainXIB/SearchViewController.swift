@@ -9,6 +9,16 @@
 import Cocoa
 
 class SearchViewController: NSViewController {
+    fileprivate var searchValue = ""
+    @objc dynamic var searchFieldValue: String {
+        get {
+            return searchValue
+        }
+        set {
+            print(newValue)
+            searchValue = newValue
+        }
+    }
     
     @IBOutlet var searchField: NSTextField!
     @IBOutlet var imgButton: NSButton!
@@ -52,6 +62,13 @@ class SearchViewController: NSViewController {
     
     override func keyDown(with event: NSEvent) {
         
+    }
+}
+
+extension SearchViewController: NSTextFieldDelegate {
+    func controlTextDidChange(_ obj: Notification) {
+        guard let controlField = obj.object as? NSTextField else { return }
+        print(controlField.stringValue)
     }
 }
 

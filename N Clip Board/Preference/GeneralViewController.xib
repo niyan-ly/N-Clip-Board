@@ -60,7 +60,7 @@
                             <rect key="frame" x="-2" y="-3" width="55" height="25"/>
                             <popUpButtonCell key="cell" type="push" title="30" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" tag="30" imageScaling="proportionallyDown" inset="2" selectedItem="0Vd-hd-zil" id="YRa-Yf-D6j">
                                 <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
-                                <font key="font" metaFont="menu"/>
+                                <font key="font" metaFont="system"/>
                                 <menu key="menu" id="QJJ-14-p17">
                                     <items>
                                         <menuItem title="7" tag="7" id="ZST-Zg-8nx">
@@ -110,7 +110,6 @@
                                 <font key="font" metaFont="system"/>
                             </buttonCell>
                             <connections>
-                                <action selector="toggleClearUpBtnInMenu:" target="-2" id="lBm-hb-flW"/>
                                 <binding destination="q1G-pB-G6r" name="value" keyPath="values.ShowCleanUpMenuItem" id="sTS-Xu-U4v"/>
                             </connections>
                         </button>
@@ -121,7 +120,7 @@
                                 <font key="font" metaFont="system"/>
                             </buttonCell>
                             <connections>
-                                <action selector="confirmBeforeCleanClipBoard:" target="-2" id="IL1-aF-91w"/>
+                                <action selector="beforeCleaUp:" target="lVz-JX-KLD" id="CLM-QK-bDW"/>
                             </connections>
                         </button>
                     </subviews>
@@ -155,5 +154,6 @@
             <point key="canvasLocation" x="141" y="154"/>
         </customView>
         <userDefaultsController representsSharedInstance="YES" id="q1G-pB-G6r"/>
+        <customObject id="lVz-JX-KLD" customClass="AppDelegate" customModule="N_Clip_Board" customModuleProvider="target"/>
     </objects>
 </document>

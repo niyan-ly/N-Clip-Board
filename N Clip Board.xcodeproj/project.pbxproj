@@ -208,6 +208,7 @@
 			children = (
 				DBEF77112324F23F00A63D28 /* MainMenu.xib */,
 				DB38B2F4232D40BE00DFA3A0 /* PreferencePanel.xib */,
+				DB5F25B223290141007993F6 /* SearchViewController.swift */,
 				DB5F25B623290624007993F6 /* SearchPanel.xib */,
 			);
 			path = MainXIB;
@@ -259,7 +260,6 @@
 				DB93CF40232D083F00F930B2 /* Preference */,
 				DB5F25B823290697007993F6 /* MainXIB */,
 				DBEF770D2324F23F00A63D28 /* AppDelegate.swift */,
-				DB5F25B223290141007993F6 /* SearchViewController.swift */,
 				DB5F25B423290200007993F6 /* SearchWindowController.swift */,
 				DB655E3E232BD2BF00262660 /* NError.swift */,
 				DB655E3A232B9DF100262660 /* Extensions.swift */,

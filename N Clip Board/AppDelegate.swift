@@ -42,6 +42,27 @@ class AppDelegate: NSObject, NSApplicationDelegate {
       // Insert code here to tear down your application
     }
     
+    func confirmBeforeCleanClipBoard() {
+        let alert = NSAlert()
+        alert.alertStyle = .warning
+        alert.messageText = "Do you really want to clean up all items?"
+        alert.informativeText = "This can't be undo"
+        alert.addButton(withTitle: "No")
+        alert.addButton(withTitle: "Remove All")
+        let result = alert.runModal()
+        if result == .alertSecondButtonReturn {
+            clearAllContent()
+        }
+    }
+    
+    func clearAllContent() {
+        print("all clipBoard content cleared")
+    }
+    
+    @IBAction func beforeCleaUp(_ sender: Any) {
+        confirmBeforeCleanClipBoard()
+    }
+    
     @IBAction func showPreferencePanel(_ sender: NSMenuItem) {
         NSApp.activate(ignoringOtherApps: true)
         preferenceWindowController.window?.makeKeyAndOrderFront(self)
