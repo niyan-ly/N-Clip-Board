@@ -100,11 +100,11 @@
                 <box verticalHuggingPriority="750" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="wH2-qw-D8L">
                     <rect key="frame" x="0.0" y="134" width="480" height="5"/>
                 </box>
-                <stackView distribution="fill" orientation="vertical" alignment="leading" spacing="10" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1xB-aS-ZdV">
-                    <rect key="frame" x="178" y="71" width="162" height="45"/>
+                <stackView distribution="fill" orientation="vertical" alignment="leading" spacing="20" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1xB-aS-ZdV">
+                    <rect key="frame" x="178" y="61" width="162" height="55"/>
                     <subviews>
                         <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="8g3-Ui-a0X">
-                            <rect key="frame" x="-2" y="29" width="166" height="18"/>
+                            <rect key="frame" x="-2" y="39" width="166" height="18"/>
                             <buttonCell key="cell" type="check" title="Show Clean Up In Menu" bezelStyle="regularSquare" imagePosition="left" inset="2" id="GaN-f0-QLH">
                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                 <font key="font" metaFont="system"/>

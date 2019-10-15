@@ -17,5 +17,6 @@ struct Constants {
         static let LaunchOnStartUp = "LaunchOnStartUp"
         static let KeepClipBoardItemUntil = "KeepClipBoardItemUntil"
         static let ShowCleanUpMenuItem = "ShowCleanUpMenuItem"
+        static let PollingInterval = "PollingInterval"
     }
 }

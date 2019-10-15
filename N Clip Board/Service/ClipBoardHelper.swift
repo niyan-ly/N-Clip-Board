@@ -35,7 +35,7 @@ struct ClipBoardHelper {
         if isTimerSetted {
             print(NError.ClipBoardTimerHasSetted)
         } else {
-            timer = Timer.scheduledTimer(withTimeInterval: 2, repeats: true) { timer in
+            timer = Timer.scheduledTimer(withTimeInterval: 0.4, repeats: true) { timer in
                 self.readItem(onInsert: onInsert)
             }
         }

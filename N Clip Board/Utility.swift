@@ -15,6 +15,7 @@ final class Utility {
         preferenceDict[Constants.Userdefaults.LaunchOnStartUp] = false
         preferenceDict[Constants.Userdefaults.ShowCleanUpMenuItem] = false
         preferenceDict[Constants.Userdefaults.KeepClipBoardItemUntil] = 30
+        preferenceDict[Constants.Userdefaults.PollingInterval] = 0.4
         
         UserDefaults.standard.register(defaults: preferenceDict)
     }
