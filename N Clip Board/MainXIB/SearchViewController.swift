@@ -8,24 +8,21 @@
 
 import Cocoa
 
+class CPCellView: NSTableCellView {
+    @IBOutlet var content: NSTextField!
+    @IBOutlet var time: NSTextField!
+}
+
 class SearchViewController: NSViewController {
-    fileprivate var searchValue = ""
-    @objc dynamic var searchFieldValue: String {
-        get {
-            return searchValue
-        }
-        set {
-            print(newValue)
-            searchValue = newValue
-        }
-    }
+    fileprivate var searchResult = [ClipBoardItem]()
     
     @IBOutlet var searchField: NSTextField!
     @IBOutlet var imgButton: NSButton!
     @IBOutlet var outerStack: NSStackView!
-    @IBOutlet var resultList: NSScrollView!
+    @IBOutlet var resultList: NSTableView!
     @IBOutlet var visualEffectView: NSVisualEffectView!
-    @IBOutlet var outlineView: NSOutlineView!
+    
+    @IBOutlet var containerWindow: NSWindow!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,18 +31,16 @@ class SearchViewController: NSViewController {
             return $0
         }
         searchField.isBezeled = false
-        searchField.drawsBackground = false
+//        searchField.drawsBackground = false
         searchField.focusRingType = .none
         searchField.font = NSFont.systemFont(ofSize: 28, weight: .light)
-        resultList.drawsBackground = false
         view.window?.standardWindowButton(.zoomButton)?.isHidden = true
         view.window?.standardWindowButton(.closeButton)?.isHidden = true
         view.window?.standardWindowButton(.miniaturizeButton)?.isHidden = true
     }
     
     override func awakeFromNib() {
-        outlineView.backgroundColor = .clear
-        outerStack.addArrangedSubview(resultList)
+//        outerStack.addArrangedSubview(resultList)
 //        updateContentSize()
     }
     
@@ -60,6 +55,7 @@ class SearchViewController: NSViewController {
         view.window?.setFrame(newFrame, display: true)
     }
     
+    // override to avoid
     override func keyDown(with event: NSEvent) {
         
     }
@@ -72,26 +68,23 @@ extension SearchViewController: NSTextFieldDelegate {
     }
 }
 
-extension SearchViewController: NSOutlineViewDelegate {
-    func outlineView(_ outlineView: NSOutlineView, viewFor tableColumn: NSTableColumn?, item: Any) -> NSView? {
-        return NSTextField(labelWithString: item as! String)
+extension SearchViewController: NSTableViewDataSource {
+    func numberOfRows(in tableView: NSTableView) -> Int {
+        return 10
     }
 }
 
-extension SearchViewController: NSOutlineViewDataSource {
-    func outlineView(_ outlineView: NSOutlineView, numberOfChildrenOfItem item: Any?) -> Int {
-        return 20
-    }
-    
-    func outlineView(_ outlineView: NSOutlineView, isItemExpandable item: Any) -> Bool {
-        return false
-    }
-    
-    func outlineView(_ outlineView: NSOutlineView, child index: Int, ofItem item: Any?) -> Any {
-        return "lalala"
-    }
-    
-    func outlineView(_ outlineView: NSOutlineView, heightOfRowByItem item: Any) -> CGFloat {
-        return 48
+extension SearchViewController: NSTableViewDelegate {
+    func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
+        guard let cellView = tableView.makeView(withIdentifier: .init("CPCellView"), owner: containerWindow.windowController) else {  return nil }
+        
+        guard let cpCellView = cellView as? CPCellView else { return nil }
+        let data = ClipBoardItem("lalalafa")
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        cpCellView.content.stringValue = data.content
+        cpCellView.time.stringValue = dateFormatter.string(from: data.time)
+        
+        return cpCellView
     }
 }

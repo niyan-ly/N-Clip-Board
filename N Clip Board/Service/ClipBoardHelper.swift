@@ -14,28 +14,35 @@ struct ClipBoardHelper {
     
     static fileprivate var isTimerSetted = false
     static fileprivate var timer: Timer?
+    static fileprivate var changeCount = NSPasteboard.general.changeCount
     
     private init() {}
     
-    static func readItem() {
-        guard let items = NSPasteboard.general.pasteboardItems else { return }
+    fileprivate static func readItem(onInsert: (NSPasteboardItem) -> Void) {
+        // MARK: detect whether paste updated or not
+        guard changeCount != NSPasteboard.general.changeCount else { return }
         
+        changeCount = NSPasteboard.general.changeCount
+        
+        guard let items = NSPasteboard.general.pasteboardItems else { return }
+
         for item in items {
-            print(item.string(forType: .string)!)
+            onInsert(item)
         }
     }
     
-    static func mountTimer() {
+    static func mountTimer(onInsert: @escaping (NSPasteboardItem) -> Void) {
         if isTimerSetted {
             print(NError.ClipBoardTimerHasSetted)
         } else {
             timer = Timer.scheduledTimer(withTimeInterval: 2, repeats: true) { timer in
-                self.readItem()
+                self.readItem(onInsert: onInsert)
             }
         }
     }
     
-    static func unloadTimer() -> Bool {
+    @discardableResult
+    static func unMountTimer() -> Bool {
         guard let t = timer else {
             return false
         }

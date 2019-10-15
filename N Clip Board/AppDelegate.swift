@@ -24,6 +24,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         // kill launcher after main app was launched
         LoginService.killLauncher()
+        ClipBoardHelper.mountTimer {
+            guard let dataContent = $0.string(forType: .string) else { return }
+            print(dataContent)
+        }
         
         statusItem.menu = statusBarMenu
         if let button = statusItem.button {
@@ -40,6 +44,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
     func applicationWillTerminate(_ aNotification: Notification) {
       // Insert code here to tear down your application
+        ClipBoardHelper.unMountTimer()
     }
     
     func confirmBeforeCleanClipBoard() {
