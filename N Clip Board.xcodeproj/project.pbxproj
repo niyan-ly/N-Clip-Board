@@ -24,7 +24,7 @@
 		DB5F25B723290624007993F6 /* SearchPanel.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB5F25B623290624007993F6 /* SearchPanel.xib */; };
 		DB655E38232B9AED00262660 /* PreferencePanelController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB655E36232B9AED00262660 /* PreferencePanelController.swift */; };
 		DB655E3B232B9DF100262660 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB655E3A232B9DF100262660 /* Extensions.swift */; };
-		DB655E3D232BBF8600262660 /* ClipBoardHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB655E3C232BBF8600262660 /* ClipBoardHelper.swift */; };
+		DB655E3D232BBF8600262660 /* ClipBoardService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB655E3C232BBF8600262660 /* ClipBoardService.swift */; };
 		DB655E3F232BD2BF00262660 /* NError.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB655E3E232BD2BF00262660 /* NError.swift */; };
 		DB93DE8A232D4FE20074E740 /* GeneralViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB93DE88232D4FE20074E740 /* GeneralViewController.swift */; };
 		DB93DE8B232D4FE20074E740 /* GeneralViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB93DE89232D4FE20074E740 /* GeneralViewController.xib */; };
@@ -98,7 +98,7 @@
 		DB5F25B623290624007993F6 /* SearchPanel.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchPanel.xib; sourceTree = "<group>"; };
 		DB655E36232B9AED00262660 /* PreferencePanelController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PreferencePanelController.swift; path = "N Clip Board/Preference/PreferencePanelController.swift"; sourceTree = SOURCE_ROOT; };
 		DB655E3A232B9DF100262660 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
-		DB655E3C232BBF8600262660 /* ClipBoardHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClipBoardHelper.swift; sourceTree = "<group>"; };
+		DB655E3C232BBF8600262660 /* ClipBoardService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClipBoardService.swift; sourceTree = "<group>"; };
 		DB655E3E232BD2BF00262660 /* NError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NError.swift; sourceTree = "<group>"; };
 		DB93DE88232D4FE20074E740 /* GeneralViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralViewController.swift; sourceTree = "<group>"; };
 		DB93DE89232D4FE20074E740 /* GeneralViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GeneralViewController.xib; sourceTree = "<group>"; };
@@ -195,7 +195,7 @@
 			isa = PBXGroup;
 			children = (
 				DB27743C232FA32700D4547D /* FileWatcher.swift */,
-				DB655E3C232BBF8600262660 /* ClipBoardHelper.swift */,
+				DB655E3C232BBF8600262660 /* ClipBoardService.swift */,
 				DB277481233069EF00D4547D /* LoggingService.swift */,
 				DBEBD51E234347BA00233746 /* LoginService.swift */,
 			);
@@ -533,7 +533,7 @@
 				DB27743D232FA32800D4547D /* FileWatcher.swift in Sources */,
 				DB655E38232B9AED00262660 /* PreferencePanelController.swift in Sources */,
 				DBA6F886232E96050081FD48 /* AppearanceViewController.swift in Sources */,
-				DB655E3D232BBF8600262660 /* ClipBoardHelper.swift in Sources */,
+				DB655E3D232BBF8600262660 /* ClipBoardService.swift in Sources */,
 				DB277482233069EF00D4547D /* LoggingService.swift in Sources */,
 				DB655E3B232B9DF100262660 /* Extensions.swift in Sources */,
 				DBEBD52123434C5D00233746 /* Constants.swift in Sources */,

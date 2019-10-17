@@ -24,10 +24,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         // kill launcher after main app was launched
         LoginService.killLauncher()
-        ClipBoardHelper.mountTimer {
-            guard let dataContent = $0.string(forType: .string) else { return }
-            print(dataContent)
-        }
+        
+        ClipBoardService.mountTimer(onInsert: nil)
         
         statusItem.menu = statusBarMenu
         if let button = statusItem.button {
@@ -40,11 +38,12 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         // MARK: - initialize UserDefaults configuration
         Utility.registerUserDefaults()
+        UserDefaults.standard.addObserver(self, forKeyPath: Constants.Userdefaults.PollingInterval, options: [.new], context: nil)
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {
       // Insert code here to tear down your application
-        ClipBoardHelper.unMountTimer()
+        ClipBoardService.unMountTimer()
     }
     
     func confirmBeforeCleanClipBoard() {
@@ -57,6 +56,16 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         let result = alert.runModal()
         if result == .alertSecondButtonReturn {
             clearAllContent()
+        }
+    }
+    
+    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+        
+        let PreferenceKey = Constants.Userdefaults.self
+
+        switch keyPath {
+        default:
+            break
         }
     }
     

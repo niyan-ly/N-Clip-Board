@@ -26,10 +26,10 @@ class SearchViewController: NSViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        NSEvent.addLocalMonitorForEvents(matching: .keyDown) {
-            self.keyDown(with: $0)
-            return $0
-        }
+//        NSEvent.addLocalMonitorForEvents(matching: .keyDown) {
+//            self.keyDown(with: $0)
+//            return $0
+//        }
         searchField.isBezeled = false
 //        searchField.drawsBackground = false
         searchField.focusRingType = .none
@@ -42,6 +42,13 @@ class SearchViewController: NSViewController {
     override func awakeFromNib() {
 //        outerStack.addArrangedSubview(resultList)
 //        updateContentSize()
+        ClipBoardService.addObserver(self, forKeyPath: "cpItems", options: [.new], context: nil)
+    }
+    
+    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+        if keyPath == "cpItems" {
+            resultList.reloadData()
+        }
     }
     
     func updateContentSize() {
@@ -55,10 +62,10 @@ class SearchViewController: NSViewController {
         view.window?.setFrame(newFrame, display: true)
     }
     
-    // override to avoid
-    override func keyDown(with event: NSEvent) {
-        
-    }
+//    // override to avoid
+//    override func keyDown(with event: NSEvent) {
+//
+//    }
 }
 
 extension SearchViewController: NSTextFieldDelegate {
@@ -70,7 +77,7 @@ extension SearchViewController: NSTextFieldDelegate {
 
 extension SearchViewController: NSTableViewDataSource {
     func numberOfRows(in tableView: NSTableView) -> Int {
-        return 10
+        return ClipBoardService.cpItems.count
     }
 }
 
@@ -79,7 +86,7 @@ extension SearchViewController: NSTableViewDelegate {
         guard let cellView = tableView.makeView(withIdentifier: .init("CPCellView"), owner: containerWindow.windowController) else {  return nil }
         
         guard let cpCellView = cellView as? CPCellView else { return nil }
-        let data = ClipBoardItem("lalalafa")
+        let data = ClipBoardService.cpItems[row]
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
         cpCellView.content.stringValue = data.content

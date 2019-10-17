@@ -9,7 +9,7 @@
 import Foundation
 
 
-final class ClipBoardItem {
+final class ClipBoardItem: NSObject {
     struct ClipBoardReceiver {
         var appName: String
         var bundleID: String

@@ -8,6 +8,7 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="AdvancedViewController" customModule="N_Clip_Board" customModuleProvider="target">
             <connections>
+                <outlet property="pollingIntervalPopover" destination="ydV-I9-X8k" id="bsl-sd-Tmn"/>
                 <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
             </connections>
         </customObject>
@@ -17,21 +18,45 @@
             <rect key="frame" x="0.0" y="0.0" width="540" height="320"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
-                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="mqf-oC-cfh">
-                    <rect key="frame" x="67" y="284" width="93" height="16"/>
-                    <textFieldCell key="cell" lineBreakMode="clipping" title="Polling Interval" id="2Av-lW-uhE">
-                        <font key="font" usesAppearanceFont="YES"/>
-                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                    </textFieldCell>
-                </textField>
+                <stackView distribution="fill" orientation="horizontal" alignment="centerY" spacing="4" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="10o-O0-qYI">
+                    <rect key="frame" x="43" y="280" width="113" height="20"/>
+                    <subviews>
+                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="mqf-oC-cfh">
+                            <rect key="frame" x="-2" y="2" width="93" height="16"/>
+                            <textFieldCell key="cell" lineBreakMode="clipping" title="Polling Interval" id="2Av-lW-uhE">
+                                <font key="font" usesAppearanceFont="YES"/>
+                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                            </textFieldCell>
+                        </textField>
+                        <button verticalHuggingPriority="750" tag="1" translatesAutoresizingMaskIntoConstraints="NO" id="0aj-VY-4Ly">
+                            <rect key="frame" x="87" y="-7" width="32" height="31"/>
+                            <buttonCell key="cell" type="round" title="?" bezelStyle="circular" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Ruj-1Z-5hu">
+                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                <font key="font" metaFont="system"/>
+                            </buttonCell>
+                            <connections>
+                                <action selector="showPopoverView:" target="-2" id="uM2-LR-Wyt"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <visibilityPriorities>
+                        <integer value="1000"/>
+                        <integer value="1000"/>
+                    </visibilityPriorities>
+                    <customSpacing>
+                        <real value="3.4028234663852886e+38"/>
+                        <real value="3.4028234663852886e+38"/>
+                    </customSpacing>
+                </stackView>
                 <slider verticalHuggingPriority="750" allowsExpansionToolTips="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zAi-Yh-2zd">
-                    <rect key="frame" x="176" y="270" width="222" height="24"/>
+                    <rect key="frame" x="176" y="269" width="222" height="24"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="218" id="qe7-MW-Gx7"/>
                     </constraints>
                     <sliderCell key="cell" continuous="YES" state="on" alignment="left" minValue="0.20000000000000001" maxValue="1" doubleValue="0.40000000000000002" tickMarkPosition="below" numberOfTickMarks="5" allowsTickMarkValuesOnly="YES" sliderType="linear" id="ma9-vB-Uap"/>
                     <connections>
+                        <action selector="sliderEvent:" target="-2" id="9Qf-5O-DLN"/>
                         <binding destination="GWb-we-jWV" name="value" keyPath="values.PollingInterval" id="Yd5-if-Ddi">
                             <dictionary key="options">
                                 <string key="NSValueTransformerName">PollingIntervalTransformer</string>
@@ -47,38 +72,88 @@
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                     <connections>
+                        <binding destination="GWb-we-jWV" name="hidden" keyPath="values.ShowPollingIntervalLabel" id="ojK-gh-eEu">
+                            <dictionary key="options">
+                                <string key="NSValueTransformerName">NSNegateBoolean</string>
+                            </dictionary>
+                        </binding>
                         <binding destination="GWb-we-jWV" name="value" keyPath="values.PollingInterval" id="4ta-tT-kPa"/>
                     </connections>
                 </textField>
-                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zor-cd-jGq">
-                    <rect key="frame" x="176" y="254" width="23" height="16"/>
-                    <autoresizingMask key="autoresizingMask"/>
-                    <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="0.2" id="xi0-lI-WFM">
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="zor-cd-jGq">
+                    <rect key="frame" x="176" y="246" width="38" height="16"/>
+                    <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="0.2 s" id="xi0-lI-WFM">
                         <font key="font" metaFont="system"/>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
-                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WIw-ka-esh">
-                    <rect key="frame" x="377" y="254" width="21" height="16"/>
-                    <autoresizingMask key="autoresizingMask"/>
-                    <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="1" id="aN8-ge-86G">
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="WIw-ka-esh">
+                    <rect key="frame" x="373" y="246" width="25" height="16"/>
+                    <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="1 s" id="aN8-ge-86G">
                         <font key="font" metaFont="system"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="VMb-3w-tch">
+                    <rect key="frame" x="439" y="284" width="11" height="16"/>
+                    <textFieldCell key="cell" lineBreakMode="clipping" title="s" id="U3n-W9-Xz5">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                    <connections>
+                        <binding destination="GWb-we-jWV" name="hidden" keyPath="values.ShowPollingIntervalLabel" id="c0X-Mb-gvx">
+                            <dictionary key="options">
+                                <string key="NSValueTransformerName">NSNegateBoolean</string>
+                            </dictionary>
+                        </binding>
+                    </connections>
+                </textField>
+            </subviews>
+            <constraints>
+                <constraint firstItem="zAi-Yh-2zd" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" constant="178" id="0sm-HM-MfG"/>
+                <constraint firstItem="VMb-3w-tch" firstAttribute="top" secondItem="uO0-BG-00k" secondAttribute="top" id="0tg-NW-6ye"/>
+                <constraint firstItem="zAi-Yh-2zd" firstAttribute="centerY" secondItem="10o-O0-qYI" secondAttribute="bottom" id="AUF-Eu-6UH"/>
+                <constraint firstItem="10o-O0-qYI" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" constant="20" id="Apm-eo-Mpp"/>
+                <constraint firstItem="WIw-ka-esh" firstAttribute="trailing" secondItem="zAi-Yh-2zd" secondAttribute="trailing" id="Cf8-lQ-AOh"/>
+                <constraint firstItem="10o-O0-qYI" firstAttribute="trailing" secondItem="Hz6-mo-xeY" secondAttribute="leading" constant="156" id="O8o-hL-Av6"/>
+                <constraint firstItem="zor-cd-jGq" firstAttribute="leading" secondItem="zAi-Yh-2zd" secondAttribute="leading" id="QQz-kJ-neR"/>
+                <constraint firstItem="VMb-3w-tch" firstAttribute="leading" secondItem="uO0-BG-00k" secondAttribute="trailing" constant="4" id="Sg7-lc-KNm"/>
+                <constraint firstItem="zor-cd-jGq" firstAttribute="top" secondItem="zAi-Yh-2zd" secondAttribute="bottom" constant="8" symbolic="YES" id="U9v-BZ-SkD"/>
+                <constraint firstItem="WIw-ka-esh" firstAttribute="top" secondItem="zAi-Yh-2zd" secondAttribute="bottom" constant="8" symbolic="YES" id="azz-NZ-jAw"/>
+                <constraint firstItem="uO0-BG-00k" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" constant="20" id="c41-a2-G9A"/>
+                <constraint firstItem="uO0-BG-00k" firstAttribute="leading" secondItem="zAi-Yh-2zd" secondAttribute="trailing" constant="8" symbolic="YES" id="nDq-Yt-RSD"/>
+            </constraints>
+            <point key="canvasLocation" x="139" y="154"/>
+        </customView>
+        <userDefaultsController representsSharedInstance="YES" id="GWb-we-jWV"/>
+        <customView id="DNA-DN-0PZ" userLabel="polling interval">
+            <rect key="frame" x="0.0" y="0.0" width="208" height="115"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <subviews>
+                <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pTG-Rt-iGK">
+                    <rect key="frame" x="-2" y="26" width="212" height="64"/>
+                    <autoresizingMask key="autoresizingMask"/>
+                    <textFieldCell key="cell" selectable="YES" alignment="center" title="Because of the limitations of  system mechanism, N Clip Board retrieve pasteboard at a certain rate" id="WS0-Qo-BAp">
+                        <font key="font" usesAppearanceFont="YES"/>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
             </subviews>
-            <constraints>
-                <constraint firstItem="mqf-oC-cfh" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" constant="20" id="GNg-Fa-laq"/>
-                <constraint firstItem="zAi-Yh-2zd" firstAttribute="leading" secondItem="mqf-oC-cfh" secondAttribute="trailing" constant="20" id="UG5-t6-3mv"/>
-                <constraint firstItem="uO0-BG-00k" firstAttribute="top" secondItem="mqf-oC-cfh" secondAttribute="top" id="YOb-v6-6CK"/>
-                <constraint firstItem="mqf-oC-cfh" firstAttribute="trailing" secondItem="Hz6-mo-xeY" secondAttribute="leading" constant="158" id="lUG-Iq-90K"/>
-                <constraint firstItem="uO0-BG-00k" firstAttribute="leading" secondItem="zAi-Yh-2zd" secondAttribute="trailing" constant="8" symbolic="YES" id="nDq-Yt-RSD"/>
-                <constraint firstItem="zAi-Yh-2zd" firstAttribute="top" secondItem="mqf-oC-cfh" secondAttribute="centerY" id="nnY-Yl-y4n"/>
-            </constraints>
-            <point key="canvasLocation" x="139" y="154"/>
+            <point key="canvasLocation" x="132" y="460.5"/>
         </customView>
-        <userDefaultsController representsSharedInstance="YES" id="GWb-we-jWV"/>
+        <viewController id="QTb-pH-YWy" userLabel="Popover View Controller">
+            <connections>
+                <outlet property="view" destination="DNA-DN-0PZ" id="I8k-YW-RUU"/>
+            </connections>
+        </viewController>
+        <popover behavior="t" id="ydV-I9-X8k">
+            <connections>
+                <outlet property="contentViewController" destination="QTb-pH-YWy" id="BK4-ur-kHj"/>
+            </connections>
+        </popover>
     </objects>
 </document>

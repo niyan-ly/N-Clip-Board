@@ -8,7 +8,7 @@
 
 import Cocoa
 
-class PollingIntervalTransformer: ValueTransformer {
+fileprivate class PollingIntervalTransformer: ValueTransformer {
     override class func allowsReverseTransformation() -> Bool {
         true
     }
@@ -35,6 +35,8 @@ extension NSValueTransformerName {
 class AdvancedViewController: NSViewController, ViewInitialSize {
     var initialSize: CGSize = .init(width: 520, height: 320)
     
+    @IBOutlet weak var pollingIntervalPopover: NSPopover!
+    
     required init?(coder: NSCoder) {
         super.init(coder: coder)
     }
@@ -44,13 +46,30 @@ class AdvancedViewController: NSViewController, ViewInitialSize {
         
         ValueTransformer.setValueTransformer(PollingIntervalTransformer(), forName: .PollingIntervalTransformer)
     }
-//     {
-//    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         // Do view setup here.
     }
     
+    @IBAction func showPopoverView(_ sender: NSButton) {
+        switch sender.tag {
+        case 1:
+            pollingIntervalPopover.show(relativeTo: sender.bounds, of: sender, preferredEdge: .minY)
+        default:
+            break
+        }
+    }
+    
+    @IBAction func sliderEvent(_ sender: NSSlider) {
+        switch NSApp.currentEvent?.type {
+        case .leftMouseDown:
+            UserDefaults.standard.set(true, forKey: Constants.Userdefaults.ShowPollingIntervalLabel)
+        case .leftMouseUp:
+            UserDefaults.standard.set(false, forKey: Constants.Userdefaults.ShowPollingIntervalLabel)
+            ClipBoardService.reload()
+        default:
+            break
+        }
+    }
 }

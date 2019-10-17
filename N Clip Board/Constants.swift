@@ -18,5 +18,6 @@ struct Constants {
         static let KeepClipBoardItemUntil = "KeepClipBoardItemUntil"
         static let ShowCleanUpMenuItem = "ShowCleanUpMenuItem"
         static let PollingInterval = "PollingInterval"
+        static let ShowPollingIntervalLabel = "ShowPollingIntervalLabel"
     }
 }
