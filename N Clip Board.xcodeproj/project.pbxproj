@@ -9,7 +9,10 @@
 /* Begin PBXBuildFile section */
 		19E731E47B478DB83F8FA979 /* Pods_N_Clip_Board.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D301B6E42FC94B9A4D1E2B10 /* Pods_N_Clip_Board.framework */; };
 		D7D306DA5FA32DB1E4BA9464 /* Pods_Launcher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A954E7A8FF480272D714CF03 /* Pods_Launcher.framework */; };
-		DB18F06D2355C71E00D97341 /* ClipBoardItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB18F06C2355C71E00D97341 /* ClipBoardItem.swift */; };
+		DB12A634235A120100998198 /* PBStore.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DB12A632235A120100998198 /* PBStore.xcdatamodeld */; };
+		DB12A63A235AAB6500998198 /* Treansformers.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB12A639235AAB6500998198 /* Treansformers.swift */; };
+		DB12A63F235C156000998198 /* SearchField.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB12A63E235C156000998198 /* SearchField.swift */; };
+		DB18F06D2355C71E00D97341 /* PBItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB18F06C2355C71E00D97341 /* PBItem.swift */; };
 		DB277432232F866300D4547D /* N_Clip_BoardTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB277431232F866300D4547D /* N_Clip_BoardTests.swift */; };
 		DB27743D232FA32800D4547D /* FileWatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB27743C232FA32700D4547D /* FileWatcher.swift */; };
 		DB277482233069EF00D4547D /* LoggingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB277481233069EF00D4547D /* LoggingService.swift */; };
@@ -73,7 +76,10 @@
 		B9F90EB868A137C49ED41B90 /* Pods-N Clip Board.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-N Clip Board.release.xcconfig"; path = "Target Support Files/Pods-N Clip Board/Pods-N Clip Board.release.xcconfig"; sourceTree = "<group>"; };
 		CAFA9EFF4E701D1677ED6DC5 /* Pods-Launcher.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Launcher.debug.xcconfig"; path = "Target Support Files/Pods-Launcher/Pods-Launcher.debug.xcconfig"; sourceTree = "<group>"; };
 		D301B6E42FC94B9A4D1E2B10 /* Pods_N_Clip_Board.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_N_Clip_Board.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		DB18F06C2355C71E00D97341 /* ClipBoardItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClipBoardItem.swift; sourceTree = "<group>"; };
+		DB12A633235A120100998198 /* PBStore.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PBStore.xcdatamodel; sourceTree = "<group>"; };
+		DB12A639235AAB6500998198 /* Treansformers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Treansformers.swift; sourceTree = "<group>"; };
+		DB12A63E235C156000998198 /* SearchField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchField.swift; sourceTree = "<group>"; };
+		DB18F06C2355C71E00D97341 /* PBItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PBItem.swift; sourceTree = "<group>"; };
 		DB27742F232F866300D4547D /* N Clip BoardTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "N Clip BoardTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB277431232F866300D4547D /* N_Clip_BoardTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = N_Clip_BoardTests.swift; sourceTree = "<group>"; };
 		DB277433232F866300D4547D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -174,10 +180,21 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		DB12A63D235C150200998198 /* SearchPanel */ = {
+			isa = PBXGroup;
+			children = (
+				DB5F25B423290200007993F6 /* SearchWindowController.swift */,
+				DB5F25B223290141007993F6 /* SearchViewController.swift */,
+				DB12A63E235C156000998198 /* SearchField.swift */,
+				DB5F25B623290624007993F6 /* SearchPanel.xib */,
+			);
+			path = SearchPanel;
+			sourceTree = "<group>";
+		};
 		DB18F06B2355C70A00D97341 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				DB18F06C2355C71E00D97341 /* ClipBoardItem.swift */,
+				DB18F06C2355C71E00D97341 /* PBItem.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -218,8 +235,6 @@
 			children = (
 				DBEF77112324F23F00A63D28 /* MainMenu.xib */,
 				DB38B2F4232D40BE00DFA3A0 /* PreferencePanel.xib */,
-				DB5F25B223290141007993F6 /* SearchViewController.swift */,
-				DB5F25B623290624007993F6 /* SearchPanel.xib */,
 			);
 			path = MainXIB;
 			sourceTree = "<group>";
@@ -265,13 +280,15 @@
 		DBEF770C2324F23F00A63D28 /* N Clip Board */ = {
 			isa = PBXGroup;
 			children = (
+				DB12A63D235C150200998198 /* SearchPanel */,
+				DB12A639235AAB6500998198 /* Treansformers.swift */,
+				DB12A632235A120100998198 /* PBStore.xcdatamodeld */,
 				DB18F06B2355C70A00D97341 /* Model */,
 				DB2774AC2330FE0F00D4547D /* N Clip Board.entitlements */,
 				DB27743B232FA30200D4547D /* Service */,
 				DB93CF40232D083F00F930B2 /* Preference */,
 				DB5F25B823290697007993F6 /* MainXIB */,
 				DBEF770D2324F23F00A63D28 /* AppDelegate.swift */,
-				DB5F25B423290200007993F6 /* SearchWindowController.swift */,
 				DB655E3E232BD2BF00262660 /* NError.swift */,
 				DB655E3A232B9DF100262660 /* Extensions.swift */,
 				DBC3BE8B2350264900121044 /* Utility.swift */,
@@ -531,15 +548,18 @@
 				DB655E3F232BD2BF00262660 /* NError.swift in Sources */,
 				DB5F25B323290141007993F6 /* SearchViewController.swift in Sources */,
 				DB27743D232FA32800D4547D /* FileWatcher.swift in Sources */,
+				DB12A634235A120100998198 /* PBStore.xcdatamodeld in Sources */,
 				DB655E38232B9AED00262660 /* PreferencePanelController.swift in Sources */,
 				DBA6F886232E96050081FD48 /* AppearanceViewController.swift in Sources */,
 				DB655E3D232BBF8600262660 /* ClipBoardService.swift in Sources */,
+				DB12A63A235AAB6500998198 /* Treansformers.swift in Sources */,
 				DB277482233069EF00D4547D /* LoggingService.swift in Sources */,
+				DB12A63F235C156000998198 /* SearchField.swift in Sources */,
 				DB655E3B232B9DF100262660 /* Extensions.swift in Sources */,
 				DBEBD52123434C5D00233746 /* Constants.swift in Sources */,
 				DBA6F87E232DD47A0081FD48 /* AdvancedViewController.swift in Sources */,
 				DBA6F882232E7D820081FD48 /* SnippetsViewController.swift in Sources */,
-				DB18F06D2355C71E00D97341 /* ClipBoardItem.swift in Sources */,
+				DB18F06D2355C71E00D97341 /* PBItem.swift in Sources */,
 				DB93DE8A232D4FE20074E740 /* GeneralViewController.swift in Sources */,
 				DBC3BE8C2350264900121044 /* Utility.swift in Sources */,
 				DBEF770E2324F23F00A63D28 /* AppDelegate.swift in Sources */,
@@ -866,6 +886,20 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		DB12A632235A120100998198 /* PBStore.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				DB12A633235A120100998198 /* PBStore.xcdatamodel */,
+			);
+			currentVersion = DB12A633235A120100998198 /* PBStore.xcdatamodel */;
+			name = PBStore.xcdatamodeld;
+			path = ../PBStore.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = DBEF77022324F23F00A63D28 /* Project object */;
 }

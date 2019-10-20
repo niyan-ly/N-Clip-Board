@@ -22,6 +22,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     let hk = HotKey(key: .space, modifiers: [.control])
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
+        registerTransformer()
         // kill launcher after main app was launched
         LoginService.killLauncher()
         
@@ -44,6 +45,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     func applicationWillTerminate(_ aNotification: Notification) {
       // Insert code here to tear down your application
         ClipBoardService.unMountTimer()
+        UserDefaults.standard.set(NSPasteboard.general.changeCount, forKey: Constants.Userdefaults.LastPasteBoardChangeCount)
     }
     
     func confirmBeforeCleanClipBoard() {
@@ -70,7 +72,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
     
     func clearAllContent() {
-        print("all clipBoard content cleared")
+        do {
+            try ClipBoardService.clearRecord()
+        } catch {
+            warningBox(title: "Fail to clean up", message: error.localizedDescription)
+        }
     }
     
     @IBAction func beforeCleaUp(_ sender: Any) {

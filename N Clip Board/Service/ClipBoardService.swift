@@ -14,27 +14,49 @@ class ClipBoardService: NSObject {
     
     private static var onInsert: ((NSPasteboardItem) -> Void)? = nil
     
-    @objc dynamic static var cpItems = [ClipBoardItem]()
     static fileprivate var timer: Timer?
-    static fileprivate var changeCount = 0
+    static fileprivate var changeCount = UserDefaults.standard.integer(forKey: Constants.Userdefaults.LastPasteBoardChangeCount)
+    static var persistentContainer: NSPersistentContainer = {
+        let container = NSPersistentContainer(name: "PBStore")
+        container.loadPersistentStores { (description, error) in
+            if error != nil {
+                fatalError("\(error!)")
+            }
+        }
+        
+        return container
+    }()
+    
+    static var managedContext = {
+        ClipBoardService.persistentContainer.viewContext
+    }()
     
     private static func readItem() {
         // MARK: detect whether paste updated or not
         guard changeCount != NSPasteboard.general.changeCount else { return }
-
+        
         changeCount = NSPasteboard.general.changeCount
-
+        
         guard let items = NSPasteboard.general.pasteboardItems else { return }
 
         for item in items {
             if onInsert != nil {
                 onInsert!(item)
             }
-
+            
             if let data = item.string(forType: .string) {
-                willChangeValue(forKey: "cpItems")
-                cpItems.append(.init(data))
-                didChangeValue(forKey: "cpItems")
+                let item = PBItem(context: managedContext)
+                item.index = changeCount
+                item.content = data
+                item.time = Date()
+            }
+        }
+        
+        if managedContext.hasChanges {
+            do {
+                try managedContext.save()
+            } catch {
+                fatalError("\(error)")
             }
         }
     }
@@ -65,8 +87,18 @@ class ClipBoardService: NSObject {
     }
     
     // reload timer
-    static func reload() {
+    static func reloadTimer() {
         unMountTimer()
         mountTimer(onInsert: onInsert)
+    }
+    
+    static func clearRecord() throws {
+        let deleteRequest = NSBatchDeleteRequest(fetchRequest: PBItem.fetchRequest())
+        // execute batch request won't load data into memory, and take effect immediately
+        // execute(:) won't make change to current context, so we have to manually reload
+        // related view
+        try managedContext.execute(deleteRequest)
+        
+        NotificationCenter.default.post(name: .ShouldReloadCoreData, object: nil)
     }
 }

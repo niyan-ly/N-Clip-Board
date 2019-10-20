@@ -17,7 +17,17 @@ final class Utility {
         preferenceDict[Constants.Userdefaults.KeepClipBoardItemUntil] = 30
         preferenceDict[Constants.Userdefaults.PollingInterval] = 0.4
         preferenceDict[Constants.Userdefaults.ShowPollingIntervalLabel] = false
+        preferenceDict[Constants.Userdefaults.LastPasteBoardChangeCount] = NSPasteboard.general.changeCount
         
         UserDefaults.standard.register(defaults: preferenceDict)
     }
+}
+
+func warningBox(title: String, message: String) {
+    let alert = NSAlert()
+    alert.alertStyle = .warning
+    alert.messageText = title
+    alert.informativeText = message
+    
+    alert.runModal()
 }
