@@ -37,13 +37,15 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             self.searchWindowController.showWindow(self)
         }
         
-        // MARK: - initialize UserDefaults configuration
+        // initialize UserDefaults configuration
         Utility.registerUserDefaults()
         UserDefaults.standard.addObserver(self, forKeyPath: Constants.Userdefaults.PollingInterval, options: [.new], context: nil)
+        LoggingService.shared.info("application finished launching")
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {
       // Insert code here to tear down your application
+        LoggingService.shared.warn("application will exit")
         ClipBoardService.unMountTimer()
         UserDefaults.standard.set(NSPasteboard.general.changeCount, forKey: Constants.Userdefaults.LastPasteBoardChangeCount)
     }

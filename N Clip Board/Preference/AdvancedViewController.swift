@@ -11,6 +11,7 @@ import Cocoa
 class AdvancedViewController: NSViewController, ViewInitialSize {
     var initialSize: CGSize = .init(width: 520, height: 320)
     
+    @objc dynamic var logFilePath = LoggingService.logFileURL.path[0...36].appending("...")
     @IBOutlet weak var pollingIntervalPopover: NSPopover!
     
     required init?(coder: NSCoder) {
@@ -45,5 +46,13 @@ class AdvancedViewController: NSViewController, ViewInitialSize {
         default:
             break
         }
+    }
+    
+    @IBAction func openLogFileInFinder(_ sender: Any) {
+        let path = LoggingService.logFileURL.path as NSString
+        var pathComponents = path.pathComponents
+        pathComponents.removeLast()
+        
+        Utility.shell("open", "-b", "com.apple.finder", NSString.path(withComponents: pathComponents))
     }
 }

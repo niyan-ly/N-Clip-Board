@@ -47,7 +47,7 @@
                                                     <constraint firstAttribute="height" constant="36" id="jTg-2A-W5A"/>
                                                 </constraints>
                                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" placeholderString="Search clipboard" bezelStyle="round" id="2N5-Oo-CGr">
-                                                    <font key="font" metaFont="system" size="12"/>
+                                                    <font key="font" metaFont="titleBar" size="12"/>
                                                     <color key="textColor" red="1" green="1" blue="1" alpha="0.84705882352941175" colorSpace="custom" customColorSpace="displayP3"/>
                                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                 </textFieldCell>
@@ -114,7 +114,7 @@
                                                             <tableColumns>
                                                                 <tableColumn identifier="CPCellView" width="221" minWidth="40" maxWidth="1000" id="c9V-LE-NFE">
                                                                     <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border">
-                                                                        <font key="font" metaFont="message" size="11"/>
+                                                                        <font key="font" metaFont="controlContent" size="11"/>
                                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                                         <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
                                                                     </tableHeaderCell>
@@ -317,6 +317,7 @@
             <connections>
                 <binding destination="IGv-UE-2Ye" name="filterPredicate" keyPath="dataFilter" id="Myg-K9-1gR"/>
                 <binding destination="IGv-UE-2Ye" name="managedObjectContext" keyPath="managedContext" id="NU3-mP-WHg"/>
+                <binding destination="IGv-UE-2Ye" name="sortDescriptors" keyPath="sortDescripter" previousBinding="Myg-K9-1gR" id="idz-zI-n1r"/>
             </connections>
         </arrayController>
     </objects>

@@ -14,6 +14,7 @@ class ClipBoardService: NSObject {
     
     private static var onInsert: ((NSPasteboardItem) -> Void)? = nil
     
+    static var lastItem: PBItem?
     static fileprivate var timer: Timer?
     static fileprivate var changeCount = UserDefaults.standard.integer(forKey: Constants.Userdefaults.LastPasteBoardChangeCount)
     static var persistentContainer: NSPersistentContainer = {
@@ -45,10 +46,15 @@ class ClipBoardService: NSObject {
             }
             
             if let data = item.string(forType: .string) {
+                // skip duplicated content
+                if lastItem?.content == data {
+                    break
+                }
                 let item = PBItem(context: managedContext)
                 item.index = changeCount
                 item.content = data
                 item.time = Date()
+                lastItem = item
             }
         }
         

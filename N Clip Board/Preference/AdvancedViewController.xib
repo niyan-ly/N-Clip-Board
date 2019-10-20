@@ -72,12 +72,12 @@
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                     <connections>
+                        <binding destination="GWb-we-jWV" name="value" keyPath="values.PollingInterval" id="4ta-tT-kPa"/>
                         <binding destination="GWb-we-jWV" name="hidden" keyPath="values.ShowPollingIntervalLabel" id="ojK-gh-eEu">
                             <dictionary key="options">
                                 <string key="NSValueTransformerName">NSNegateBoolean</string>
                             </dictionary>
                         </binding>
-                        <binding destination="GWb-we-jWV" name="value" keyPath="values.PollingInterval" id="4ta-tT-kPa"/>
                     </connections>
                 </textField>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="zor-cd-jGq">
@@ -111,19 +111,65 @@
                         </binding>
                     </connections>
                 </textField>
+                <stackView distribution="fill" orientation="horizontal" alignment="top" spacing="4" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sr7-q5-5fX">
+                    <rect key="frame" x="81" y="210" width="75" height="16"/>
+                    <subviews>
+                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ELm-yw-3TE">
+                            <rect key="frame" x="-2" y="0.0" width="52" height="16"/>
+                            <textFieldCell key="cell" lineBreakMode="clipping" title="Log File" id="ffh-lN-vXp">
+                                <font key="font" metaFont="system"/>
+                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                            </textFieldCell>
+                        </textField>
+                        <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="gl1-NC-C5o">
+                            <rect key="frame" x="52" y="-1" width="23" height="17"/>
+                            <buttonCell key="cell" type="inline" title="→" bezelStyle="inline" alignment="center" borderStyle="border" inset="2" id="Hf4-l5-pAK">
+                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                <font key="font" metaFont="smallSystemBold"/>
+                            </buttonCell>
+                            <connections>
+                                <action selector="openLogFileInFinder:" target="-2" id="3gs-UA-iQ0"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <visibilityPriorities>
+                        <integer value="1000"/>
+                        <integer value="1000"/>
+                    </visibilityPriorities>
+                    <customSpacing>
+                        <real value="3.4028234663852886e+38"/>
+                        <real value="3.4028234663852886e+38"/>
+                    </customSpacing>
+                </stackView>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="fdK-5Z-uqB">
+                    <rect key="frame" x="176" y="210" width="56" height="16"/>
+                    <textFieldCell key="cell" lineBreakMode="truncatingTail" selectable="YES" title="File Path" id="WXj-CB-xbQ">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                    <connections>
+                        <binding destination="-2" name="value" keyPath="logFilePath" id="jRr-p2-DPE"/>
+                    </connections>
+                </textField>
             </subviews>
             <constraints>
                 <constraint firstItem="zAi-Yh-2zd" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" constant="178" id="0sm-HM-MfG"/>
                 <constraint firstItem="VMb-3w-tch" firstAttribute="top" secondItem="uO0-BG-00k" secondAttribute="top" id="0tg-NW-6ye"/>
                 <constraint firstItem="zAi-Yh-2zd" firstAttribute="centerY" secondItem="10o-O0-qYI" secondAttribute="bottom" id="AUF-Eu-6UH"/>
                 <constraint firstItem="10o-O0-qYI" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" constant="20" id="Apm-eo-Mpp"/>
+                <constraint firstItem="sr7-q5-5fX" firstAttribute="top" secondItem="zor-cd-jGq" secondAttribute="bottom" constant="20" id="B2j-Dj-VAf"/>
                 <constraint firstItem="WIw-ka-esh" firstAttribute="trailing" secondItem="zAi-Yh-2zd" secondAttribute="trailing" id="Cf8-lQ-AOh"/>
                 <constraint firstItem="10o-O0-qYI" firstAttribute="trailing" secondItem="Hz6-mo-xeY" secondAttribute="leading" constant="156" id="O8o-hL-Av6"/>
                 <constraint firstItem="zor-cd-jGq" firstAttribute="leading" secondItem="zAi-Yh-2zd" secondAttribute="leading" id="QQz-kJ-neR"/>
                 <constraint firstItem="VMb-3w-tch" firstAttribute="leading" secondItem="uO0-BG-00k" secondAttribute="trailing" constant="4" id="Sg7-lc-KNm"/>
                 <constraint firstItem="zor-cd-jGq" firstAttribute="top" secondItem="zAi-Yh-2zd" secondAttribute="bottom" constant="8" symbolic="YES" id="U9v-BZ-SkD"/>
+                <constraint firstItem="sr7-q5-5fX" firstAttribute="trailing" secondItem="Hz6-mo-xeY" secondAttribute="leading" constant="156" id="ZtC-hL-h9p"/>
                 <constraint firstItem="WIw-ka-esh" firstAttribute="top" secondItem="zAi-Yh-2zd" secondAttribute="bottom" constant="8" symbolic="YES" id="azz-NZ-jAw"/>
                 <constraint firstItem="uO0-BG-00k" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" constant="20" id="c41-a2-G9A"/>
+                <constraint firstItem="fdK-5Z-uqB" firstAttribute="centerY" secondItem="sr7-q5-5fX" secondAttribute="centerY" id="dEm-hf-o4L"/>
+                <constraint firstItem="fdK-5Z-uqB" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" constant="178" id="h6L-sI-nLF"/>
                 <constraint firstItem="uO0-BG-00k" firstAttribute="leading" secondItem="zAi-Yh-2zd" secondAttribute="trailing" constant="8" symbolic="YES" id="nDq-Yt-RSD"/>
             </constraints>
             <point key="canvasLocation" x="139" y="154"/>

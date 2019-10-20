@@ -25,6 +25,7 @@ fileprivate class CustomTableRowView: NSTableRowView {
     }
 }
 
+// MARK: view controller
 class SearchViewController: NSViewController {
     let filterTemplate = NSPredicate(format: "content LIKE $KEYWORD")
     
@@ -33,6 +34,7 @@ class SearchViewController: NSViewController {
     }()
     
     @objc dynamic var dataFilter: NSPredicate?
+    @objc dynamic var sortDescripter = [NSSortDescriptor]()
     @objc dynamic var selected: SelectedItem = .empty
     @objc dynamic var dataCount = 0
     @objc dynamic var isDataListEmpty: Bool {
@@ -52,6 +54,13 @@ class SearchViewController: NSViewController {
         
         monitorEvent()
         
+        let dateSorter = NSSortDescriptor(key: "time", ascending: true) { (rawLHS, rawRHS) -> ComparisonResult in
+            guard let lhs = rawLHS as? Date, let rhs = rawRHS as? Date else { return .orderedSame }
+            
+            return (lhs > rhs) ? .orderedAscending : .orderedDescending
+        }
+        
+        sortDescripter.append(dateSorter)
         resultListView.backgroundColor = .clear
         searchField.isBezeled = false
         searchField.focusRingType = .none
@@ -106,6 +115,7 @@ class SearchViewController: NSViewController {
     }
 }
 
+// MARK: Text Delegate
 extension SearchViewController: NSTextFieldDelegate {
     func controlTextDidChange(_ obj: Notification) {
         guard let controlField = obj.object as? NSTextField else { return }
@@ -113,6 +123,7 @@ extension SearchViewController: NSTextFieldDelegate {
     }
 }
 
+// MARK: Table Delegate
 extension SearchViewController: NSTableViewDelegate {
     func tableViewSelectionDidChange(_ notification: Notification) {
         guard dataListController.selectedObjects.count > 0 else {
@@ -128,6 +139,7 @@ extension SearchViewController: NSTableViewDelegate {
     }
 }
 
+// MARK: Nested Type
 extension SearchViewController {
     class SelectedItem: NSObject {
         @objc dynamic var title: String

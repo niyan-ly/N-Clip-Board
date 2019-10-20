@@ -20,8 +20,8 @@ class LoggingService {
         let fileDest = FileDestination()
         fileDest.logFileURL = LoggingService.logFileURL
         log.addDestination(ConsoleDestination())
-        logWithFile.addDestination(ConsoleDestination())
         logWithFile.addDestination(fileDest)
+        debugPrint("- logging service ready")
     }
     
     func info(_ message: Any) {
