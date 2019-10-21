@@ -16,7 +16,7 @@ class ClipBoardService: NSObject {
     
     static var lastItem: PBItem?
     static fileprivate var timer: Timer?
-    static fileprivate var changeCount = UserDefaults.standard.integer(forKey: Constants.Userdefaults.LastPasteBoardChangeCount)
+    static fileprivate var changeCount = NSPasteboard.general.changeCount
     static var persistentContainer: NSPersistentContainer = {
         let container = NSPersistentContainer(name: "PBStore")
         container.loadPersistentStores { (description, error) in
@@ -106,5 +106,24 @@ class ClipBoardService: NSObject {
         try managedContext.execute(deleteRequest)
         
         NotificationCenter.default.post(name: .ShouldReloadCoreData, object: nil)
+    }
+    
+    // MARK: paste
+    static func paste() {
+        let keyCodeOfV: CGKeyCode = 9
+        DispatchQueue.main.async {
+            let source = CGEventSource(stateID: .combinedSessionState)
+            // Disable local keyboard events while pasting
+            source?.setLocalEventsFilterDuringSuppressionState([.permitLocalMouseEvents, .permitSystemDefinedEvents], state: .eventSuppressionStateSuppressionInterval)
+            // Press Command + V
+            let keyVDown = CGEvent(keyboardEventSource: source, virtualKey: keyCodeOfV, keyDown: true)
+            keyVDown?.flags = .maskCommand
+            // Release Command + V
+            let keyVUp = CGEvent(keyboardEventSource: source, virtualKey: keyCodeOfV, keyDown: false)
+            keyVUp?.flags = .maskCommand
+            // Post Paste Command
+            keyVDown?.post(tap: .cgAnnotatedSessionEventTap)
+            keyVUp?.post(tap: .cgAnnotatedSessionEventTap)
+        }
     }
 }

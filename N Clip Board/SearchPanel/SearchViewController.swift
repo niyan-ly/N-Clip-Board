@@ -52,7 +52,7 @@ class SearchViewController: NSViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        monitorEvent()
+        monitorArrowEvent()
         
         let dateSorter = NSSortDescriptor(key: "time", ascending: true) { (rawLHS, rawRHS) -> ComparisonResult in
             guard let lhs = rawLHS as? Date, let rhs = rawRHS as? Date else { return .orderedSame }
@@ -95,11 +95,33 @@ class SearchViewController: NSViewController {
         }
     }
     
-    func monitorEvent() {
+    func monitorArrowEvent() {
         NSEvent.addLocalMonitorForEvents(matching: .keyDown) {
             switch $0.keyCode {
+            // [arrow down]: 125, [arrow up]: 126
             case 125, 126:
                 self.resultListView.keyDown(with: $0)
+                return nil
+            // [l]: 37
+            case 37:
+                if $0.modifierFlags.contains(.command) {
+                    self.searchField.becomeFirstResponder()
+                    return nil
+                }
+                return $0
+            // [Enter]: 36
+            case 36:
+                // specify paste type
+                if $0.modifierFlags.contains(.command) {
+                    
+                } else {
+                    ClipBoardService.paste()
+                }
+                self.containerWindow.close()
+                return nil
+            // [Escape key]: 53
+            case 53:
+                self.containerWindow.close()
                 return nil
             default:
                 return $0

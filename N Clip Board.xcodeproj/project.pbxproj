@@ -22,6 +22,7 @@
 		DB2774A92330F8AE00D4547D /* Launcher.app in CopyFiles */ = {isa = PBXBuildFile; fileRef = DB27749323308CEA00D4547D /* Launcher.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		DB2774AD2331067300D4547D /* LoggingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB277481233069EF00D4547D /* LoggingService.swift */; };
 		DB38B2F5232D40BE00DFA3A0 /* PreferencePanel.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB38B2F4232D40BE00DFA3A0 /* PreferencePanel.xib */; };
+		DB4CA1EC235D5806007BB8D2 /* AccessibilityService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB4CA1EB235D5806007BB8D2 /* AccessibilityService.swift */; };
 		DB5F25B323290141007993F6 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5F25B223290141007993F6 /* SearchViewController.swift */; };
 		DB5F25B523290200007993F6 /* SearchWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5F25B423290200007993F6 /* SearchWindowController.swift */; };
 		DB5F25B723290624007993F6 /* SearchPanel.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB5F25B623290624007993F6 /* SearchPanel.xib */; };
@@ -99,6 +100,7 @@
 		DB2774AA2330F9BF00D4547D /* libSwiftyBeaver.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libSwiftyBeaver.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB2774AC2330FE0F00D4547D /* N Clip Board.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "N Clip Board.entitlements"; sourceTree = "<group>"; };
 		DB38B2F4232D40BE00DFA3A0 /* PreferencePanel.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PreferencePanel.xib; sourceTree = "<group>"; };
+		DB4CA1EB235D5806007BB8D2 /* AccessibilityService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessibilityService.swift; sourceTree = "<group>"; };
 		DB5F25B223290141007993F6 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		DB5F25B423290200007993F6 /* SearchWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchWindowController.swift; sourceTree = "<group>"; };
 		DB5F25B623290624007993F6 /* SearchPanel.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchPanel.xib; sourceTree = "<group>"; };
@@ -215,6 +217,7 @@
 				DB655E3C232BBF8600262660 /* ClipBoardService.swift */,
 				DB277481233069EF00D4547D /* LoggingService.swift */,
 				DBEBD51E234347BA00233746 /* LoginService.swift */,
+				DB4CA1EB235D5806007BB8D2 /* AccessibilityService.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -553,6 +556,7 @@
 				DBA6F886232E96050081FD48 /* AppearanceViewController.swift in Sources */,
 				DB655E3D232BBF8600262660 /* ClipBoardService.swift in Sources */,
 				DB12A63A235AAB6500998198 /* Treansformers.swift in Sources */,
+				DB4CA1EC235D5806007BB8D2 /* AccessibilityService.swift in Sources */,
 				DB277482233069EF00D4547D /* LoggingService.swift in Sources */,
 				DB12A63F235C156000998198 /* SearchField.swift in Sources */,
 				DB655E3B232B9DF100262660 /* Extensions.swift in Sources */,

@@ -17,11 +17,11 @@ final class Utility {
         preferenceDict[Constants.Userdefaults.KeepClipBoardItemUntil] = 30
         preferenceDict[Constants.Userdefaults.PollingInterval] = 0.4
         preferenceDict[Constants.Userdefaults.ShowPollingIntervalLabel] = false
-        preferenceDict[Constants.Userdefaults.LastPasteBoardChangeCount] = NSPasteboard.general.changeCount
         
         UserDefaults.standard.register(defaults: preferenceDict)
     }
-    
+
+    // referenced from https://stackoverflow.com/questions/26971240/how-do-i-run-an-terminal-command-in-a-swift-script-e-g-xcodebuild
     @discardableResult
     static func shell(_ args: String...) -> Int32 {
         let task = Process()
@@ -30,6 +30,10 @@ final class Utility {
         task.launch()
         task.waitUntilExit()
         return task.terminationStatus
+    }
+    
+    static func accessibilityService() {
+        
     }
 }
 

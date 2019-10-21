@@ -47,7 +47,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
       // Insert code here to tear down your application
         LoggingService.shared.warn("application will exit")
         ClipBoardService.unMountTimer()
-        UserDefaults.standard.set(NSPasteboard.general.changeCount, forKey: Constants.Userdefaults.LastPasteBoardChangeCount)
     }
     
     func confirmBeforeCleanClipBoard() {
