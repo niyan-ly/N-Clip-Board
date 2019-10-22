@@ -20,7 +20,7 @@ class SearchWindowController: NSWindowController, NSWindowDelegate {
             return
         }
         
-        panel.level = .popUpMenu
+        panel.level = .floating
     }
     
     func windowDidResignKey(_ notification: Notification) {

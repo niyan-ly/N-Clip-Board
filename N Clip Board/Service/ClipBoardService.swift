@@ -8,7 +8,28 @@
 
 import Cocoa
 
-
+fileprivate class StringWriting: NSObject, NSPasteboardWriting {
+    var content: String
+    
+    init(_ content: String) {
+        self.content = content
+    }
+    
+    func writableTypes(for pasteboard: NSPasteboard) -> [NSPasteboard.PasteboardType] {
+        return [.string]
+    }
+    
+    func pasteboardPropertyList(forType type: NSPasteboard.PasteboardType) -> Any? {
+        switch type {
+        case .string:
+            return content
+        default:
+            return nil
+        }
+    }
+    
+    
+}
 
 class ClipBoardService: NSObject {
     
@@ -65,6 +86,11 @@ class ClipBoardService: NSObject {
                 fatalError("\(error)")
             }
         }
+    }
+    
+    static func write(content: String) {
+        NSPasteboard.general.declareTypes([.string], owner: nil)
+        NSPasteboard.general.setString(content, forType: .string)
     }
     
     static func mountTimer(onInsert: ((NSPasteboardItem) -> Void)?) {

@@ -79,6 +79,8 @@ class SearchViewController: NSViewController {
     
     override func viewWillAppear() {
         searchField.becomeFirstResponder()
+        resultListView.selectRowIndexes(.init(integer: 0), byExtendingSelection: false)
+        resultListView.scrollRowToVisible(0)
     }
     
     override func awakeFromNib() {
@@ -111,10 +113,14 @@ class SearchViewController: NSViewController {
                 return $0
             // [Enter]: 36
             case 36:
+                if self.selected == .empty {
+                    return nil
+                }
                 // specify paste type
                 if $0.modifierFlags.contains(.command) {
                     
                 } else {
+                    ClipBoardService.write(content: self.selected.content)
                     ClipBoardService.paste()
                 }
                 self.containerWindow.close()

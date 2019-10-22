@@ -19,7 +19,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     let preferenceWindowController = PreferencePanelController(windowNibName: "PreferencePanel")
     var statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.squareLength)
     
-    let hk = HotKey(key: .space, modifiers: [.control])
+    let hk = HotKey(key: .v, modifiers: [.command, .shift])
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         registerTransformer()
@@ -53,7 +53,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         let alert = NSAlert()
         alert.alertStyle = .warning
         alert.messageText = "Do you really want to clean up all items?"
-        alert.informativeText = "This can't be undo"
+        alert.informativeText = "This won't clean up the system pasteboard"
         alert.addButton(withTitle: "No")
         alert.addButton(withTitle: "Remove All")
         let result = alert.runModal()
