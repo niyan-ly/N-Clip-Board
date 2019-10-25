@@ -32,8 +32,13 @@ final class Utility {
         return task.terminationStatus
     }
     
-    static func accessibilityService() {
-        
+    static func monitorSystemEvents() {
+        NSWorkspace.shared.notificationCenter.addObserver(forName: NSWorkspace.screensDidSleepNotification, object: nil, queue: nil) { (notice) in
+            LoggingService.shared.warn("screen will going to sleep")
+        }
+        NSWorkspace.shared.notificationCenter.addObserver(forName: NSWorkspace.willSleepNotification, object: nil, queue: nil) { (notice) in
+            LoggingService.shared.warn("system will going to sleep")
+        }
     }
 }
 

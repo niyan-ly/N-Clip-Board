@@ -11,15 +11,15 @@ import Cocoa
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
 
-    @IBOutlet weak var window: NSWindow!
-
     func applicationDidFinishLaunching(_ aNotification: Notification) {
-        window.contentView?.addSubview(NSTextField(labelWithString: LoggingService.logFileURL.path))
+        LoggingService.shared.info("Launcher launched...")
+
         // Insert code here to initialize your application
         let runningApps = NSWorkspace.shared.runningApplications
         let isRunning = !runningApps.filter { $0.bundleIdentifier == Constants.MainBundleName }.isEmpty
 
         if !isRunning {
+            LoggingService.shared.info("Main Bundle Is Not Running")
             DistributedNotificationCenter.default().addObserver(self, selector: #selector(terminateApp), name: .init("killlauncher"), object: Constants.MainBundleName)
 
             let path = Bundle.main.bundlePath as NSString
@@ -30,17 +30,19 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             components.append("MacOS")
             components.append("N Clip Board")
 
-            let newPath = NSString.path(withComponents: components)
-            LoggingService.shared.info(newPath)
+            let locationOfMainBundle = NSString.path(withComponents: components)
+            LoggingService.shared.info("Location Of Main Bundle\n\(locationOfMainBundle)")
 
-            NSWorkspace.shared.launchApplication(newPath)
+            NSWorkspace.shared.launchApplication(locationOfMainBundle)
         } else {
+            LoggingService.shared.info("🔁 Main Bundle is already running")
             terminateApp()
         }
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {
         // Insert code here to tear down your application
+        LoggingService.shared.warn("🛑 Launcher is now exit")
     }
 
     @objc func terminateApp() {

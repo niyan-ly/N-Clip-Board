@@ -12,12 +12,18 @@ import ServiceManagement
 class LoginService {
 
     static func enable() {
-        SMLoginItemSetEnabled(Constants.LauncherBundleName as CFString, true)
+        LoggingService.shared.info("🤖 Enable launch on boot")
+        if SMLoginItemSetEnabled(Constants.LauncherBundleName as CFString, true) {
+            LoggingService.shared.info("service management request successed")
+        } else {
+            LoggingService.shared.info("service management request failed")
+        }
         
         killLauncher()
     }
     
     static func disable() {
+        LoggingService.shared.info("🛑 Disable launch on boot")
         SMLoginItemSetEnabled(Constants.LauncherBundleName as CFString, false)
     }
     
@@ -26,6 +32,7 @@ class LoginService {
         let isRunning = !runningApps.filter { $0.bundleIdentifier == Constants.LauncherBundleName }.isEmpty
         
         if isRunning {
+            LoggingService.shared.warn("kill launcher")
             DistributedNotificationCenter.default().post(name: .init("killlauncher"), object: Bundle.main.bundleIdentifier!)
         }
     }

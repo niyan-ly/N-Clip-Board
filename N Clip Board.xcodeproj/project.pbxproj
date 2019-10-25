@@ -19,7 +19,7 @@
 		DB27749623308CEA00D4547D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB27749523308CEA00D4547D /* AppDelegate.swift */; };
 		DB27749B23308CEB00D4547D /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB27749923308CEB00D4547D /* MainMenu.xib */; };
 		DB2774A123308D0200D4547D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DBEF770F2324F23F00A63D28 /* Assets.xcassets */; };
-		DB2774A92330F8AE00D4547D /* Launcher.app in CopyFiles */ = {isa = PBXBuildFile; fileRef = DB27749323308CEA00D4547D /* Launcher.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		DB2774A92330F8AE00D4547D /* Launcher.app in Copy Files */ = {isa = PBXBuildFile; fileRef = DB27749323308CEA00D4547D /* Launcher.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		DB2774AD2331067300D4547D /* LoggingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB277481233069EF00D4547D /* LoggingService.swift */; };
 		DB38B2F5232D40BE00DFA3A0 /* PreferencePanel.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB38B2F4232D40BE00DFA3A0 /* PreferencePanel.xib */; };
 		DB4CA1EC235D5806007BB8D2 /* AccessibilityService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB4CA1EB235D5806007BB8D2 /* AccessibilityService.swift */; };
@@ -58,14 +58,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		DB27743E232FAB2F00D4547D /* CopyFiles */ = {
+		DB27743E232FAB2F00D4547D /* Copy Files */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = Contents/Library/LoginItems;
 			dstSubfolderSpec = 1;
 			files = (
-				DB2774A92330F8AE00D4547D /* Launcher.app in CopyFiles */,
+				DB2774A92330F8AE00D4547D /* Launcher.app in Copy Files */,
 			);
+			name = "Copy Files";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -350,7 +351,7 @@
 				DBEF77062324F23F00A63D28 /* Sources */,
 				DBEF77072324F23F00A63D28 /* Frameworks */,
 				DBEF77082324F23F00A63D28 /* Resources */,
-				DB27743E232FAB2F00D4547D /* CopyFiles */,
+				DB27743E232FAB2F00D4547D /* Copy Files */,
 				620BDF9542D2E4F27D8AAF15 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (

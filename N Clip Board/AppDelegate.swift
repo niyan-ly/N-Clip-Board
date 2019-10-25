@@ -39,6 +39,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         // initialize UserDefaults configuration
         Utility.registerUserDefaults()
+        Utility.monitorSystemEvents()
         UserDefaults.standard.addObserver(self, forKeyPath: Constants.Userdefaults.PollingInterval, options: [.new], context: nil)
         LoggingService.shared.info("application finished launching")
     }
