@@ -8,11 +8,6 @@
 
 import Cocoa
 
-class CPCellView: NSTableCellView {
-    @IBOutlet var content: NSTextField!
-    @IBOutlet var time: NSTextField!
-}
-
 fileprivate class CustomTableRowView: NSTableRowView {
     override func drawSelection(in dirtyRect: NSRect) {
         
@@ -164,6 +159,12 @@ extension SearchViewController: NSTableViewDelegate {
     
     func tableView(_ tableView: NSTableView, rowViewForRow row: Int) -> NSTableRowView? {
         return CustomTableRowView()
+    }
+}
+
+extension SearchViewController : NSSplitViewDelegate {
+    func splitView(_ splitView: NSSplitView, shouldAdjustSizeOfSubview view: NSView) -> Bool {
+        return true
     }
 }
 
