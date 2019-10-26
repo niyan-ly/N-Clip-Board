@@ -7,18 +7,22 @@
 //
 
 import Cocoa
+import MASShortcut
 
 class GeneralViewController: NSViewController, ViewInitialSize {
     @IBOutlet var keepItemView: NSStackView!
     @IBOutlet var cleanUpView: NSStackView!
-    
+    @IBOutlet var masShortcutCiew: MASShortcutView!
+
     var initialSize: CGSize = .init(width: 480, height: 320)
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // whether to show clean up menu or not
-        if UserDefaults.standard.bool(forKey: Constants.Userdefaults.ShowCleanUpMenuItem) {
-            
+        
+        masShortcutCiew.style = .texturedRect
+        masShortcutCiew.shortcutValueChange = { sender in
+            print(sender?.shortcutValue?.modifierFlags)
+            print(sender?.shortcutValue?.keyCode)
         }
     }
     

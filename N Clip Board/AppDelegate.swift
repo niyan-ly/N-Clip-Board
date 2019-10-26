@@ -22,6 +22,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     let hk = HotKey(key: .v, modifiers: [.command, .shift])
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
+//        NSApp.appearance = NSAppearance(named: .aqua)
         registerTransformer()
         // kill launcher after main app was launched
         LoginService.killLauncher()

@@ -167,6 +167,21 @@ extension SearchViewController: NSTableViewDelegate {
     }
 }
 
+// MARK: SplitView Delegate
+extension SearchViewController: NSSplitViewDelegate {
+    func splitView(_ splitView: NSSplitView, shouldAdjustSizeOfSubview view: NSView) -> Bool {
+        true
+    }
+    
+    func splitView(_ splitView: NSSplitView, constrainMinCoordinate proposedMinimumPosition: CGFloat, ofSubviewAt dividerIndex: Int) -> CGFloat {
+        proposedMinimumPosition + 220
+    }
+    
+    func splitView(_ splitView: NSSplitView, constrainMaxCoordinate proposedMaximumPosition: CGFloat, ofSubviewAt dividerIndex: Int) -> CGFloat {
+        proposedMaximumPosition - 220
+    }
+}
+
 // MARK: Nested Type
 extension SearchViewController {
     class SelectedItem: NSObject {

@@ -10,6 +10,7 @@
             <connections>
                 <outlet property="cleanUpView" destination="1xB-aS-ZdV" id="mGv-1n-RHV"/>
                 <outlet property="keepItemView" destination="RMU-AU-gng" id="8Ee-xs-Oqo"/>
+                <outlet property="masShortcutCiew" destination="LTA-2k-iw7" id="9rE-or-MGF"/>
                 <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
             </connections>
         </customObject>
