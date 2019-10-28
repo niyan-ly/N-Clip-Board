@@ -39,6 +39,9 @@ final class Utility {
         NSWorkspace.shared.notificationCenter.addObserver(forName: NSWorkspace.willSleepNotification, object: nil, queue: nil) { (notice) in
             LoggingService.shared.warn("system will going to sleep")
         }
+        NSWorkspace.shared.notificationCenter.addObserver(forName: NSWorkspace.screensDidWakeNotification, object: nil, queue: nil) { (notice) in
+            LoggingService.shared.warn("screen awaked")
+        }
     }
 }
 
