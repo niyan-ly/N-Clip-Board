@@ -167,17 +167,18 @@ class SearchViewController: NSViewController {
     }
     
     func updateViewTypeTriggerStyle() {
-        allListViewTrigger.image = NSImage(imageLiteralResourceName: "All")
-        clipBoardListViewTrigger.image = NSImage(imageLiteralResourceName: "ClipBoard")
-        snippetListViewTrigger.image = NSImage(imageLiteralResourceName: "Snippet")
+        let highLightedColor = NSColor(red:0.000, green:0.480, blue:1.000, alpha:1.000)
+        allListViewTrigger.contentTintColor = nil
+        clipBoardListViewTrigger.contentTintColor = nil
+        snippetListViewTrigger.contentTintColor = nil
     
         switch viewType {
         case .ClipBoard:
-            clipBoardListViewTrigger.image = NSImage(imageLiteralResourceName: "ClipBoardOn")
+            clipBoardListViewTrigger.contentTintColor = highLightedColor
         case .All:
-            allListViewTrigger.image = NSImage(imageLiteralResourceName: "AllOn")
+            allListViewTrigger.contentTintColor = highLightedColor
         case .Snippet:
-            snippetListViewTrigger.image = NSImage(imageLiteralResourceName: "SnippetOn")
+            snippetListViewTrigger.contentTintColor = highLightedColor
         }
     }
 }
