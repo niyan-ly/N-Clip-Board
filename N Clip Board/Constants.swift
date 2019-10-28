@@ -21,3 +21,9 @@ struct Constants {
         static let ShowPollingIntervalLabel = "ShowPollingIntervalLabel"
     }
 }
+
+enum SearchPanelViewType {
+    case All
+    case ClipBoard
+    case Snippet
+}

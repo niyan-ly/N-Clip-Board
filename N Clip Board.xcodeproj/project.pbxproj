@@ -11,7 +11,6 @@
 		D7D306DA5FA32DB1E4BA9464 /* Pods_Launcher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A954E7A8FF480272D714CF03 /* Pods_Launcher.framework */; };
 		DB12A634235A120100998198 /* PBStore.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DB12A632235A120100998198 /* PBStore.xcdatamodeld */; };
 		DB12A63A235AAB6500998198 /* Treansformers.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB12A639235AAB6500998198 /* Treansformers.swift */; };
-		DB12A63F235C156000998198 /* SearchField.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB12A63E235C156000998198 /* SearchField.swift */; };
 		DB18F06D2355C71E00D97341 /* PBItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB18F06C2355C71E00D97341 /* PBItem.swift */; };
 		DB277432232F866300D4547D /* N_Clip_BoardTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB277431232F866300D4547D /* N_Clip_BoardTests.swift */; };
 		DB27743D232FA32800D4547D /* FileWatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB27743C232FA32700D4547D /* FileWatcher.swift */; };
@@ -80,7 +79,6 @@
 		D301B6E42FC94B9A4D1E2B10 /* Pods_N_Clip_Board.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_N_Clip_Board.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB12A633235A120100998198 /* PBStore.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PBStore.xcdatamodel; sourceTree = "<group>"; };
 		DB12A639235AAB6500998198 /* Treansformers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Treansformers.swift; sourceTree = "<group>"; };
-		DB12A63E235C156000998198 /* SearchField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchField.swift; sourceTree = "<group>"; };
 		DB18F06C2355C71E00D97341 /* PBItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PBItem.swift; sourceTree = "<group>"; };
 		DB27742F232F866300D4547D /* N Clip BoardTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "N Clip BoardTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB277431232F866300D4547D /* N_Clip_BoardTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = N_Clip_BoardTests.swift; sourceTree = "<group>"; };
@@ -188,7 +186,6 @@
 			children = (
 				DB5F25B423290200007993F6 /* SearchWindowController.swift */,
 				DB5F25B223290141007993F6 /* SearchViewController.swift */,
-				DB12A63E235C156000998198 /* SearchField.swift */,
 				DB5F25B623290624007993F6 /* SearchPanel.xib */,
 			);
 			path = SearchPanel;
@@ -559,7 +556,6 @@
 				DB12A63A235AAB6500998198 /* Treansformers.swift in Sources */,
 				DB4CA1EC235D5806007BB8D2 /* AccessibilityService.swift in Sources */,
 				DB277482233069EF00D4547D /* LoggingService.swift in Sources */,
-				DB12A63F235C156000998198 /* SearchField.swift in Sources */,
 				DB655E3B232B9DF100262660 /* Extensions.swift in Sources */,
 				DBEBD52123434C5D00233746 /* Constants.swift in Sources */,
 				DBA6F87E232DD47A0081FD48 /* AdvancedViewController.swift in Sources */,

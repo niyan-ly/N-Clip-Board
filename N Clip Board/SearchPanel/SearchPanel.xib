@@ -17,7 +17,7 @@
             <windowStyleMask key="styleMask" titled="YES" nonactivatingPanel="YES" fullSizeContentView="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="454" y="496" width="680" height="372"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="2560" height="1417"/>
             <value key="minSize" type="size" width="480" height="260"/>
             <view key="contentView" id="fh9-jm-Ppz">
                 <rect key="frame" x="0.0" y="0.0" width="680" height="370"/>
@@ -27,7 +27,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="680" height="370"/>
                         <subviews>
                             <stackView distribution="fill" orientation="horizontal" alignment="top" spacing="0.0" horizontalStackHuggingPriority="247.99998474121094" verticalStackHuggingPriority="247.99998474121094" horizontalClippingResistancePriority="997" verticalClippingResistancePriority="997" horizontalHuggingPriority="249" verticalHuggingPriority="249" horizontalCompressionResistancePriority="749" verticalCompressionResistancePriority="749" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cj7-Sw-CWY">
-                                <rect key="frame" x="0.0" y="322" width="472" height="48"/>
+                                <rect key="frame" x="0.0" y="322" width="664" height="48"/>
                                 <subviews>
                                     <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="FRv-R8-mvs">
                                         <rect key="frame" x="0.0" y="0.0" width="48" height="48"/>
@@ -38,7 +38,7 @@
                                         <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="NSTouchBarSearchTemplate" id="luh-G4-5gh"/>
                                     </imageView>
                                     <stackView distribution="fill" orientation="vertical" alignment="leading" spacing="0.0" horizontalStackHuggingPriority="250" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="usR-Ew-d5E">
-                                        <rect key="frame" x="48" y="0.0" width="424" height="48"/>
+                                        <rect key="frame" x="48" y="0.0" width="504" height="48"/>
                                         <subviews>
                                             <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="VCv-Xh-1Ea">
                                                 <rect key="frame" x="0.0" y="2" width="424" height="36"/>
@@ -47,7 +47,7 @@
                                                     <constraint firstAttribute="height" constant="36" id="jTg-2A-W5A"/>
                                                 </constraints>
                                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" placeholderString="Search clipboard" bezelStyle="round" id="2N5-Oo-CGr">
-                                                    <font key="font" metaFont="label" size="12"/>
+                                                    <font key="font" metaFont="system" size="12"/>
                                                     <color key="textColor" red="1" green="1" blue="1" alpha="0.84705882352941175" colorSpace="custom" customColorSpace="displayP3"/>
                                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                 </textFieldCell>
@@ -64,12 +64,71 @@
                                             <real value="3.4028234663852886e+38"/>
                                         </customSpacing>
                                     </stackView>
+                                    <stackView distribution="fill" orientation="horizontal" alignment="top" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="199-Xa-S0g" userLabel="Icon View">
+                                        <rect key="frame" x="552" y="8" width="112" height="32"/>
+                                        <subviews>
+                                            <button verticalHuggingPriority="750" tag="1" allowsExpansionToolTips="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DZn-04-cxw">
+                                                <rect key="frame" x="0.0" y="0.0" width="32" height="32"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="32" id="4XH-rJ-esL"/>
+                                                    <constraint firstAttribute="height" constant="32" id="anE-Jq-3oK"/>
+                                                </constraints>
+                                                <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="All" imagePosition="only" alignment="center" state="on" imageScaling="proportionallyDown" inset="2" id="W7W-EQ-wqf">
+                                                    <behavior key="behavior" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
+                                                    <font key="font" metaFont="system"/>
+                                                </buttonCell>
+                                                <connections>
+                                                    <action selector="toggleListViewDataSource:" target="IGv-UE-2Ye" id="cZ5-Wg-QgW"/>
+                                                </connections>
+                                            </button>
+                                            <button verticalHuggingPriority="750" tag="2" translatesAutoresizingMaskIntoConstraints="NO" id="sg5-49-M0S">
+                                                <rect key="frame" x="40" y="0.0" width="32" height="32"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="32" id="VLh-o5-AMO"/>
+                                                    <constraint firstAttribute="width" constant="32" id="XgE-BO-D4h"/>
+                                                </constraints>
+                                                <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="ClipBoard" imagePosition="only" alignment="center" imageScaling="proportionallyDown" inset="2" id="4J3-nT-Wd5">
+                                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                    <font key="font" metaFont="system"/>
+                                                </buttonCell>
+                                                <connections>
+                                                    <action selector="toggleListViewDataSource:" target="IGv-UE-2Ye" id="16L-EG-s8V"/>
+                                                </connections>
+                                            </button>
+                                            <button verticalHuggingPriority="750" tag="3" translatesAutoresizingMaskIntoConstraints="NO" id="olv-KX-kiK">
+                                                <rect key="frame" x="80" y="0.0" width="32" height="32"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="32" id="cd1-Mf-bve"/>
+                                                    <constraint firstAttribute="width" constant="32" id="g8d-qq-bvM"/>
+                                                </constraints>
+                                                <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="Snippet" imagePosition="only" alignment="center" imageScaling="proportionallyDown" inset="2" id="wZc-l4-3sh">
+                                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                    <font key="font" metaFont="system"/>
+                                                </buttonCell>
+                                                <connections>
+                                                    <action selector="toggleListViewDataSource:" target="IGv-UE-2Ye" id="oQ3-ou-W32"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <visibilityPriorities>
+                                            <integer value="1000"/>
+                                            <integer value="1000"/>
+                                            <integer value="1000"/>
+                                        </visibilityPriorities>
+                                        <customSpacing>
+                                            <real value="3.4028234663852886e+38"/>
+                                            <real value="3.4028234663852886e+38"/>
+                                            <real value="3.4028234663852886e+38"/>
+                                        </customSpacing>
+                                    </stackView>
                                 </subviews>
                                 <visibilityPriorities>
                                     <integer value="1000"/>
                                     <integer value="1000"/>
+                                    <integer value="1000"/>
                                 </visibilityPriorities>
                                 <customSpacing>
+                                    <real value="3.4028234663852886e+38"/>
                                     <real value="3.4028234663852886e+38"/>
                                     <real value="3.4028234663852886e+38"/>
                                 </customSpacing>
@@ -265,8 +324,10 @@
                         </subviews>
                         <constraints>
                             <constraint firstItem="XcO-am-8bb" firstAttribute="leading" secondItem="qq4-gl-W9v" secondAttribute="leading" id="10d-Ia-QVR"/>
+                            <constraint firstItem="199-Xa-S0g" firstAttribute="trailing" secondItem="qq4-gl-W9v" secondAttribute="trailing" constant="-16" id="Bhf-6O-jZW"/>
                             <constraint firstItem="XcO-am-8bb" firstAttribute="trailing" secondItem="qq4-gl-W9v" secondAttribute="trailing" id="EWq-dT-4Rj"/>
                             <constraint firstItem="Xpi-Af-FKi" firstAttribute="leading" secondItem="qq4-gl-W9v" secondAttribute="leading" id="GNC-t0-RVG"/>
+                            <constraint firstItem="199-Xa-S0g" firstAttribute="top" secondItem="qq4-gl-W9v" secondAttribute="top" constant="8" id="Jn8-XY-NOb"/>
                             <constraint firstItem="Xpi-Af-FKi" firstAttribute="trailing" secondItem="qq4-gl-W9v" secondAttribute="trailing" id="NWZ-S7-DIs"/>
                             <constraint firstItem="cj7-Sw-CWY" firstAttribute="leading" secondItem="qq4-gl-W9v" secondAttribute="leading" id="RdY-Bh-OO1"/>
                             <constraint firstItem="Xpi-Af-FKi" firstAttribute="top" secondItem="qq4-gl-W9v" secondAttribute="top" priority="750" constant="51" id="UGH-Dr-Ehn"/>
@@ -286,14 +347,17 @@
             <connections>
                 <outlet property="delegate" destination="-2" id="c1G-JT-M9v"/>
             </connections>
-            <point key="canvasLocation" x="137" y="140"/>
+            <point key="canvasLocation" x="216" y="128"/>
         </window>
         <customObject id="IGv-UE-2Ye" customClass="SearchViewController" customModule="N_Clip_Board" customModuleProvider="target">
             <connections>
+                <outlet property="allListViewTrigger" destination="DZn-04-cxw" id="fxV-bV-iuo"/>
+                <outlet property="clipBoardListViewTrigger" destination="sg5-49-M0S" id="bqw-jh-572"/>
                 <outlet property="containerWindow" destination="ZSn-qn-KVT" id="8hI-7M-ld7"/>
                 <outlet property="dataListController" destination="wqn-Tq-jQP" id="UvD-XD-OMY"/>
                 <outlet property="resultListView" destination="DHk-E8-KKh" id="kk8-RE-8tv"/>
                 <outlet property="searchField" destination="VCv-Xh-1Ea" id="Sml-gD-63X"/>
+                <outlet property="snippetListViewTrigger" destination="olv-KX-kiK" id="kfF-oj-Mtq"/>
                 <outlet property="view" destination="fh9-jm-Ppz" id="ygl-hf-TzJ"/>
                 <outlet property="visualEffectView" destination="qq4-gl-W9v" id="bFZ-TY-MpA"/>
             </connections>
@@ -307,6 +371,9 @@
         </arrayController>
     </objects>
     <resources>
+        <image name="All" width="16" height="16"/>
+        <image name="ClipBoard" width="16" height="16"/>
         <image name="NSTouchBarSearchTemplate" width="19" height="30"/>
+        <image name="Snippet" width="16" height="16"/>
     </resources>
 </document>

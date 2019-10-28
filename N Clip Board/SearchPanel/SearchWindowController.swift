@@ -9,6 +9,8 @@
 import Cocoa
 
 class SearchWindowController: NSWindowController, NSWindowDelegate {
+    
+    
     override func windowDidLoad() {
         super.windowDidLoad()
         customizeWindow()

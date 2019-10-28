@@ -28,6 +28,7 @@ fileprivate class CustomTableRowView: NSTableRowView {
 // MARK: view controller
 class SearchViewController: NSViewController {
     let filterTemplate = NSPredicate(format: "content LIKE $KEYWORD")
+    var viewType: SearchPanelViewType = .All
     
     @objc dynamic lazy var managedContext: NSManagedObjectContext = {
         ClipBoardService.managedContext
@@ -41,8 +42,11 @@ class SearchViewController: NSViewController {
         get { dataCount == 0 }
     }
     
+    @IBOutlet weak var allListViewTrigger: NSButton!
+    @IBOutlet weak var clipBoardListViewTrigger: NSButton!
+    @IBOutlet weak var snippetListViewTrigger: NSButton!
+    
     @IBOutlet var searchField: NSTextField!
-    @IBOutlet var imgButton: NSButton!
     @IBOutlet var resultListView: NSTableView!
     @IBOutlet var visualEffectView: NSVisualEffectView!
     @IBOutlet weak var dataListController: NSArrayController!
@@ -53,6 +57,11 @@ class SearchViewController: NSViewController {
         super.viewDidLoad()
         
         monitorArrowEvent()
+        updateViewTypeTriggerStyle()
+        
+        allListViewTrigger.toolTip = "Show All Content"
+        clipBoardListViewTrigger.toolTip = "Show ClipBoard Content"
+        snippetListViewTrigger.toolTip = "Show Snippet Content"
         
         let dateSorter = NSSortDescriptor(key: "time", ascending: true) { (rawLHS, rawRHS) -> ComparisonResult in
             guard let lhs = rawLHS as? Date, let rhs = rawRHS as? Date else { return .orderedSame }
@@ -140,6 +149,36 @@ class SearchViewController: NSViewController {
         willChangeValue(forKey: "isDataListEmpty")
         dataCount = items.count
         didChangeValue(forKey: "isDataListEmpty")
+    }
+    
+    @IBAction func toggleListViewDataSource(_ sender: NSButton) {
+        switch sender.tag {
+        case 1:
+            viewType = .All
+        case 2:
+            viewType = .ClipBoard
+        case 3:
+            viewType = .Snippet
+        default:
+            break
+        }
+        
+        updateViewTypeTriggerStyle()
+    }
+    
+    func updateViewTypeTriggerStyle() {
+        allListViewTrigger.image = NSImage(imageLiteralResourceName: "All")
+        clipBoardListViewTrigger.image = NSImage(imageLiteralResourceName: "ClipBoard")
+        snippetListViewTrigger.image = NSImage(imageLiteralResourceName: "Snippet")
+    
+        switch viewType {
+        case .ClipBoard:
+            clipBoardListViewTrigger.image = NSImage(imageLiteralResourceName: "ClipBoardOn")
+        case .All:
+            allListViewTrigger.image = NSImage(imageLiteralResourceName: "AllOn")
+        case .Snippet:
+            snippetListViewTrigger.image = NSImage(imageLiteralResourceName: "SnippetOn")
+        }
     }
 }
 
