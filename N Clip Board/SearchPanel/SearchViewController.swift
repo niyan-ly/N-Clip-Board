@@ -31,7 +31,7 @@ class SearchViewController: NSViewController {
     var viewType: SearchPanelViewType = .All
     
     @objc dynamic lazy var managedContext: NSManagedObjectContext = {
-        ClipBoardService.managedContext
+        ClipBoardService.shared.managedContext
     }()
     
     @objc dynamic var dataFilter: NSPredicate?
@@ -129,8 +129,8 @@ class SearchViewController: NSViewController {
                 if $0.modifierFlags.contains(.command) {
                     
                 } else {
-                    ClipBoardService.write(content: self.selected.content)
-                    ClipBoardService.paste()
+                    ClipBoardService.shared.write(content: self.selected.content)
+                    ClipBoardService.shared.paste()
                 }
                 self.containerWindow.close()
                 return nil

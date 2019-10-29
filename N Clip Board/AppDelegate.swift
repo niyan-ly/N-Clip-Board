@@ -27,8 +27,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         // kill launcher after main app was launched
         LoginService.killLauncher()
         
-        ClipBoardService.mountTimer(onInsert: nil)
-        
         statusItem.menu = statusBarMenu
         if let button = statusItem.button {
             button.image = NSImage(named: "n_status")
@@ -48,7 +46,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     func applicationWillTerminate(_ aNotification: Notification) {
       // Insert code here to tear down your application
         LoggingService.shared.warn("application will exit")
-        ClipBoardService.unMountTimer()
+        ClipBoardService.shared.disableNSPasteboardMonitor()
     }
     
     func confirmBeforeCleanClipBoard() {
@@ -76,7 +74,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     func clearAllContent() {
         do {
-            try ClipBoardService.clearRecord()
+            try ClipBoardService.shared.clearRecord()
         } catch {
             warningBox(title: "Fail to clean up", message: error.localizedDescription)
         }

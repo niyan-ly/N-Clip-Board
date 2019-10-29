@@ -42,7 +42,7 @@ class AdvancedViewController: NSViewController, ViewInitialSize {
             UserDefaults.standard.set(true, forKey: Constants.Userdefaults.ShowPollingIntervalLabel)
         case .leftMouseUp:
             UserDefaults.standard.set(false, forKey: Constants.Userdefaults.ShowPollingIntervalLabel)
-            ClipBoardService.reloadTimer()
+            ClipBoardService.shared.reloadMonitor()
         default:
             break
         }

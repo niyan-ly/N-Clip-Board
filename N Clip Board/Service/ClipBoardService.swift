@@ -10,12 +10,14 @@ import Cocoa
 
 class ClipBoardService: NSObject {
     
-    private static var onInsert: ((NSPasteboardItem) -> Void)? = nil
+    private var onInsert: ((NSPasteboardItem) -> Void)? = nil
     
-    static var lastItem: PBItem?
-    static fileprivate var timer: Timer?
-    static fileprivate var changeCount = NSPasteboard.general.changeCount
-    static var persistentContainer: NSPersistentContainer = {
+    var lastItem: PBItem?
+    fileprivate var timer: Timer?
+    fileprivate var changeCount = NSPasteboard.general.changeCount
+    
+    // MARK: Core Data Suits
+    lazy var persistentContainer: NSPersistentContainer = {
         let container = NSPersistentContainer(name: "PBStore")
         container.loadPersistentStores { (description, error) in
             if error != nil {
@@ -26,11 +28,20 @@ class ClipBoardService: NSObject {
         return container
     }()
     
-    static var managedContext = {
-        ClipBoardService.persistentContainer.viewContext
+    lazy var managedContext = {
+        persistentContainer.viewContext
     }()
     
-    private static func readItem() {
+    // MARK: Singleton Initializer
+    private override init() {
+        super.init()
+        
+        enableNSPasteboardMonitor(onInsert: nil)
+    }
+    // MARK: Singleton shared instance
+    static var shared = ClipBoardService()
+    
+    private func loadNewestItemFromNSPasteboard() {
         // MARK: detect whether paste updated or not
         guard changeCount != NSPasteboard.general.changeCount else { return }
         
@@ -65,12 +76,12 @@ class ClipBoardService: NSObject {
         }
     }
     
-    static func write(content: String) {
+    func write(content: String) {
         NSPasteboard.general.declareTypes([.string], owner: nil)
         NSPasteboard.general.setString(content, forType: .string)
     }
     
-    static func mountTimer(onInsert: ((NSPasteboardItem) -> Void)?) {
+    func enableNSPasteboardMonitor(onInsert: ((NSPasteboardItem) -> Void)?) {
         self.onInsert = onInsert
         
         var pollingInterval = UserDefaults.standard.double(forKey: Constants.Userdefaults.PollingInterval)
@@ -81,12 +92,12 @@ class ClipBoardService: NSObject {
         }
         
         timer = Timer.scheduledTimer(withTimeInterval: pollingInterval, repeats: true) { timer in
-            self.readItem()
+            self.loadNewestItemFromNSPasteboard()
         }
     }
     
     @discardableResult
-    static func unMountTimer() -> Bool {
+    func disableNSPasteboardMonitor() -> Bool {
         guard let t = timer else {
             return false
         }
@@ -96,12 +107,12 @@ class ClipBoardService: NSObject {
     }
     
     // reload timer
-    static func reloadTimer() {
-        unMountTimer()
-        mountTimer(onInsert: onInsert)
+    func reloadMonitor() {
+        disableNSPasteboardMonitor()
+        enableNSPasteboardMonitor(onInsert: onInsert)
     }
     
-    static func clearRecord() throws {
+    func clearRecord() throws {
         let deleteRequest = NSBatchDeleteRequest(fetchRequest: PBItem.fetchRequest())
         // execute batch request won't load data into memory, and take effect immediately
         // execute(:) won't make change to current context, so we have to manually reload
@@ -112,7 +123,7 @@ class ClipBoardService: NSObject {
     }
     
     // MARK: paste
-    static func paste() {
+    func paste() {
         let keyCodeOfV: CGKeyCode = 9
         DispatchQueue.main.async {
             let source = CGEventSource(stateID: .combinedSessionState)
