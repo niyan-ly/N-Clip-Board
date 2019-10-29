@@ -10,11 +10,12 @@ import Cocoa
 
 class ClipBoardService: NSObject {
     
-    private var onInsert: ((NSPasteboardItem) -> Void)? = nil
-    
     var lastItem: PBItem?
     fileprivate var timer: Timer?
+    private var onInsert: ((NSPasteboardItem) -> Void)? = nil
     fileprivate var changeCount = NSPasteboard.general.changeCount
+    
+    @objc dynamic var pasteboardMirror = [PBItem]()
     
     // MARK: Core Data Suits
     lazy var persistentContainer: NSPersistentContainer = {
@@ -37,11 +38,30 @@ class ClipBoardService: NSObject {
         super.init()
         
         enableNSPasteboardMonitor(onInsert: nil)
+        observeManagedContext()
     }
     // MARK: Singleton shared instance
     static var shared = ClipBoardService()
     
-    private func loadNewestItemFromNSPasteboard() {
+    private func observeManagedContext() {
+        NotificationCenter.default.addObserver(forName: .NSManagedObjectContextObjectsDidChange, object: nil, queue: nil) { (notice) in
+            self.syncMirrorFromStore()
+        }
+    }
+    
+    private func syncMirrorFromStore() {
+        let fetchRequest: NSFetchRequest<PBItem> = PBItem.fetchRequest()
+        do {
+            pasteboardMirror = try managedContext.fetch(fetchRequest)
+        } catch {
+            pasteboardMirror = []
+            LoggingService.shared.error("Error when sync pasteboardMirror: \(error)")
+        }
+        
+        print(pasteboardMirror.count)
+    }
+    
+    private func saveUserCopiedItemIntoStore() {
         // MARK: detect whether paste updated or not
         guard changeCount != NSPasteboard.general.changeCount else { return }
         
@@ -92,7 +112,7 @@ class ClipBoardService: NSObject {
         }
         
         timer = Timer.scheduledTimer(withTimeInterval: pollingInterval, repeats: true) { timer in
-            self.loadNewestItemFromNSPasteboard()
+            self.saveUserCopiedItemIntoStore()
         }
     }
     

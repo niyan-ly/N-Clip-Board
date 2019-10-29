@@ -47,7 +47,7 @@
                                                     <constraint firstAttribute="height" constant="36" id="jTg-2A-W5A"/>
                                                 </constraints>
                                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" placeholderString="Search clipboard" bezelStyle="round" id="2N5-Oo-CGr">
-                                                    <font key="font" metaFont="system" size="12"/>
+                                                    <font key="font" metaFont="controlContent"/>
                                                     <color key="textColor" red="1" green="1" blue="1" alpha="0.84705882352941175" colorSpace="custom" customColorSpace="displayP3"/>
                                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                 </textFieldCell>
@@ -164,7 +164,7 @@
                                                     <rect key="frame" x="1" y="1" width="224" height="318"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                     <subviews>
-                                                        <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="firstColumnOnly" columnReordering="NO" columnSelection="YES" columnResizing="NO" multipleSelection="NO" autosaveColumns="NO" rowHeight="42" viewBased="YES" id="DHk-E8-KKh">
+                                                        <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="firstColumnOnly" columnReordering="NO" columnSelection="YES" columnResizing="NO" multipleSelection="NO" emptySelection="NO" autosaveColumns="NO" rowHeight="42" viewBased="YES" id="DHk-E8-KKh">
                                                             <rect key="frame" x="0.0" y="0.0" width="224" height="318"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <size key="intercellSpacing" width="3" height="2"/>
