@@ -19,8 +19,8 @@
             <rect key="contentRect" x="454" y="496" width="680" height="372"/>
             <rect key="screenRect" x="0.0" y="0.0" width="2560" height="1417"/>
             <value key="minSize" type="size" width="480" height="260"/>
-            <view key="contentView" id="fh9-jm-Ppz">
-                <rect key="frame" x="0.0" y="0.0" width="680" height="370"/>
+            <view key="contentView" misplaced="YES" id="fh9-jm-Ppz">
+                <rect key="frame" x="0.0" y="0.0" width="680" height="372"/>
                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                 <subviews>
                     <visualEffectView appearanceType="inheritedVibrantLight" blendingMode="behindWindow" material="underWindowBackground" state="followsWindowActiveState" translatesAutoresizingMaskIntoConstraints="NO" id="qq4-gl-W9v">
@@ -362,7 +362,7 @@
                 <outlet property="visualEffectView" destination="qq4-gl-W9v" id="bFZ-TY-MpA"/>
             </connections>
         </customObject>
-        <arrayController mode="entity" entityName="PBItem" automaticallyPreparesContent="YES" id="wqn-Tq-jQP">
+        <arrayController mode="entity" entityName="PBItemMO" automaticallyPreparesContent="YES" id="wqn-Tq-jQP">
             <connections>
                 <binding destination="IGv-UE-2Ye" name="filterPredicate" keyPath="dataFilter" id="Myg-K9-1gR"/>
                 <binding destination="IGv-UE-2Ye" name="managedObjectContext" keyPath="managedContext" id="NU3-mP-WHg"/>

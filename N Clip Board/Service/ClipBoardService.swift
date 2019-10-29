@@ -10,16 +10,16 @@ import Cocoa
 
 class ClipBoardService: NSObject {
     
-    var lastItem: PBItem?
+    var lastItem: PBItemMO?
     fileprivate var timer: Timer?
     private var onInsert: ((NSPasteboardItem) -> Void)? = nil
     fileprivate var changeCount = NSPasteboard.general.changeCount
     
-    @objc dynamic var pasteboardMirror = [PBItem]()
+    @objc dynamic var pasteboardMirror = [PBItemMO]()
     
     // MARK: Core Data Suits
     lazy var persistentContainer: NSPersistentContainer = {
-        let container = NSPersistentContainer(name: "PBStore")
+        let container = NSPersistentContainer(name: "Store")
         container.loadPersistentStores { (description, error) in
             if error != nil {
                 fatalError("\(error!)")
@@ -50,7 +50,7 @@ class ClipBoardService: NSObject {
     }
     
     private func syncMirrorFromStore() {
-        let fetchRequest: NSFetchRequest<PBItem> = PBItem.fetchRequest()
+        let fetchRequest: NSFetchRequest<PBItemMO> = PBItemMO.fetchRequest()
         do {
             pasteboardMirror = try managedContext.fetch(fetchRequest)
         } catch {
@@ -79,9 +79,10 @@ class ClipBoardService: NSObject {
                 if lastItem?.content == data {
                     break
                 }
-                let item = PBItem(context: managedContext)
+                let item = PBItemMO(context: managedContext)
                 item.index = changeCount
                 item.content = data
+                item.entityType = "PBItem"
                 item.time = Date()
                 lastItem = item
             }
@@ -133,7 +134,7 @@ class ClipBoardService: NSObject {
     }
     
     func clearRecord() throws {
-        let deleteRequest = NSBatchDeleteRequest(fetchRequest: PBItem.fetchRequest())
+        let deleteRequest = NSBatchDeleteRequest(fetchRequest: PBItemMO.fetchRequest())
         // execute batch request won't load data into memory, and take effect immediately
         // execute(:) won't make change to current context, so we have to manually reload
         // related view

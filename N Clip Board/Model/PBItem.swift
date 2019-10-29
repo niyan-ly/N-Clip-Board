@@ -8,13 +8,11 @@
 
 import Cocoa
 
-@objc(PBItem)
-class PBItem: NSManagedObject {
-    @nonobjc public class func fetchRequest() -> NSFetchRequest<PBItem> {
-        return NSFetchRequest<PBItem>(entityName: "PBItem")
+@objc(PBItemMO)
+class PBItemMO: LabeledMO {
+    @nonobjc public class func fetchRequest() -> NSFetchRequest<PBItemMO> {
+        return NSFetchRequest<PBItemMO>(entityName: "PBItemMO")
     }
-    
-    @NSManaged public var content: String
+
     @NSManaged public var time: Date
-    @NSManaged public var index: Int
 }

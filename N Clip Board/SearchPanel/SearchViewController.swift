@@ -198,7 +198,7 @@ extension SearchViewController: NSTableViewDelegate {
             selected = .empty
             return
         }
-        guard let item = dataListController.selectedObjects[0] as? PBItem else { return }
+        guard let item = dataListController.selectedObjects[0] as? PBItemMO else { return }
         selected = .init(title: item.time.description, item.content)
     }
     
