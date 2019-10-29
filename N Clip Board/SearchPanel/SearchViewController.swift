@@ -31,7 +31,7 @@ class SearchViewController: NSViewController {
     var viewType: SearchPanelViewType = .All
     
     @objc dynamic lazy var managedContext: NSManagedObjectContext = {
-        ClipBoardService.shared.managedContext
+        StoreService.shared.managedContext
     }()
     
     @objc dynamic var dataFilter: NSPredicate?

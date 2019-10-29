@@ -22,8 +22,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     let hk = HotKey(key: .v, modifiers: [.command, .shift])
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
-//        NSApp.appearance = NSAppearance(named: .aqua)
+        // NSApp.appearance = NSAppearance(named: .aqua)
         registerTransformer()
+        ClipBoardService.shared.enableNSPasteboardMonitor(onInsert: nil)
         // kill launcher after main app was launched
         LoginService.killLauncher()
         

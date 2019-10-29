@@ -17,31 +17,14 @@ class ClipBoardService: NSObject {
     
     @objc dynamic var pasteboardMirror = [PBItemMO]()
     
-    // MARK: Core Data Suits
-    lazy var persistentContainer: NSPersistentContainer = {
-        let container = NSPersistentContainer(name: "Store")
-        container.loadPersistentStores { (description, error) in
-            if error != nil {
-                fatalError("\(error!)")
-            }
-        }
-        
-        return container
-    }()
-    
-    lazy var managedContext = {
-        persistentContainer.viewContext
-    }()
-    
     // MARK: Singleton Initializer
     private override init() {
         super.init()
-        
-        enableNSPasteboardMonitor(onInsert: nil)
+
         observeManagedContext()
     }
     // MARK: Singleton shared instance
-    static var shared = ClipBoardService()
+    static let shared = ClipBoardService()
     
     private func observeManagedContext() {
         NotificationCenter.default.addObserver(forName: .NSManagedObjectContextObjectsDidChange, object: nil, queue: nil) { (notice) in
@@ -52,7 +35,7 @@ class ClipBoardService: NSObject {
     private func syncMirrorFromStore() {
         let fetchRequest: NSFetchRequest<PBItemMO> = PBItemMO.fetchRequest()
         do {
-            pasteboardMirror = try managedContext.fetch(fetchRequest)
+            pasteboardMirror = try StoreService.shared.managedContext.fetch(fetchRequest)
         } catch {
             pasteboardMirror = []
             LoggingService.shared.error("Error when sync pasteboardMirror: \(error)")
@@ -79,7 +62,7 @@ class ClipBoardService: NSObject {
                 if lastItem?.content == data {
                     break
                 }
-                let item = PBItemMO(context: managedContext)
+                let item = PBItemMO(context: StoreService.shared.managedContext)
                 item.index = changeCount
                 item.content = data
                 item.entityType = "PBItem"
@@ -88,9 +71,9 @@ class ClipBoardService: NSObject {
             }
         }
         
-        if managedContext.hasChanges {
+        if StoreService.shared.managedContext.hasChanges {
             do {
-                try managedContext.save()
+                try StoreService.shared.managedContext.save()
             } catch {
                 fatalError("\(error)")
             }
@@ -103,6 +86,7 @@ class ClipBoardService: NSObject {
     }
     
     func enableNSPasteboardMonitor(onInsert: ((NSPasteboardItem) -> Void)?) {
+        print("monitor")
         self.onInsert = onInsert
         
         var pollingInterval = UserDefaults.standard.double(forKey: Constants.Userdefaults.PollingInterval)
@@ -138,7 +122,7 @@ class ClipBoardService: NSObject {
         // execute batch request won't load data into memory, and take effect immediately
         // execute(:) won't make change to current context, so we have to manually reload
         // related view
-        try managedContext.execute(deleteRequest)
+        try StoreService.shared.managedContext.execute(deleteRequest)
         
         NotificationCenter.default.post(name: .ShouldReloadCoreData, object: nil)
     }

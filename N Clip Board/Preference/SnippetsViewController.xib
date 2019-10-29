@@ -159,11 +159,11 @@
                                         </textView>
                                     </subviews>
                                 </clipView>
-                                <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="8LM-zO-Ver">
+                                <scroller key="horizontalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="YES" id="8LM-zO-Ver">
                                     <rect key="frame" x="-100" y="-100" width="225" height="15"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
-                                <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="NO" id="v7c-Qa-RtO">
+                                <scroller key="verticalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="NO" id="v7c-Qa-RtO">
                                     <rect key="frame" x="47" y="0.0" width="15" height="0.0"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
@@ -209,6 +209,7 @@
             </items>
             <point key="canvasLocation" x="41" y="-238"/>
         </menu>
+        <managedObjectContext id="5gh-Cs-baa"/>
     </objects>
     <resources>
         <image name="NSActionTemplate" width="14" height="14"/>
