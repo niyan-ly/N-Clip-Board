@@ -17,7 +17,7 @@
             <windowStyleMask key="styleMask" titled="YES" nonactivatingPanel="YES" fullSizeContentView="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="454" y="496" width="680" height="372"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="2560" height="1417"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
             <value key="minSize" type="size" width="480" height="260"/>
             <view key="contentView" misplaced="YES" id="fh9-jm-Ppz">
                 <rect key="frame" x="0.0" y="0.0" width="680" height="372"/>
@@ -141,9 +141,9 @@
                                                             <tableViewGridLines key="gridStyleMask" horizontal="YES"/>
                                                             <color key="gridColor" red="0.39839660334708121" green="0.39647198207487311" blue="0.40032122461928932" alpha="0.84705882352941175" colorSpace="custom" customColorSpace="displayP3"/>
                                                             <tableColumns>
-                                                                <tableColumn identifier="CPCellView" editable="NO" width="221" minWidth="40" maxWidth="1000" id="c9V-LE-NFE">
+                                                                <tableColumn editable="NO" width="221" minWidth="40" maxWidth="1000" id="c9V-LE-NFE">
                                                                     <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border">
-                                                                        <font key="font" metaFont="controlContent" size="11"/>
+                                                                        <font key="font" metaFont="message" size="11"/>
                                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                                         <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
                                                                     </tableHeaderCell>
@@ -154,7 +154,7 @@
                                                                     </textFieldCell>
                                                                     <tableColumnResizingMask key="resizingMask" resizeWithTable="YES"/>
                                                                     <prototypeCellViews>
-                                                                        <tableCellView id="Jdj-Fl-8GJ">
+                                                                        <tableCellView identifier="CPCellView" id="Jdj-Fl-8GJ" customClass="CPCellView" customModule="N_Clip_Board" customModuleProvider="target">
                                                                             <rect key="frame" x="1" y="1" width="221" height="49"/>
                                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                             <subviews>
@@ -168,9 +168,6 @@
                                                                                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                                                                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                                                     </textFieldCell>
-                                                                                    <connections>
-                                                                                        <binding destination="Jdj-Fl-8GJ" name="value" keyPath="objectValue.content" id="jOH-WO-eoJ"/>
-                                                                                    </connections>
                                                                                 </textField>
                                                                             </subviews>
                                                                             <constraints>
@@ -178,13 +175,16 @@
                                                                                 <constraint firstItem="rZG-OP-1Js" firstAttribute="leading" secondItem="Jdj-Fl-8GJ" secondAttribute="leading" constant="20" symbolic="YES" id="thh-9B-KMw"/>
                                                                                 <constraint firstItem="rZG-OP-1Js" firstAttribute="centerY" secondItem="Jdj-Fl-8GJ" secondAttribute="centerY" id="yBi-3N-GIi"/>
                                                                             </constraints>
+                                                                            <connections>
+                                                                                <outlet property="content" destination="rZG-OP-1Js" id="mz4-aE-Hlg"/>
+                                                                            </connections>
                                                                         </tableCellView>
                                                                     </prototypeCellViews>
                                                                 </tableColumn>
                                                             </tableColumns>
                                                             <connections>
-                                                                <binding destination="wqn-Tq-jQP" name="content" keyPath="arrangedObjects" id="L09-fa-HL9"/>
-                                                                <binding destination="wqn-Tq-jQP" name="selectionIndexes" keyPath="selectionIndexes" previousBinding="L09-fa-HL9" id="P65-f4-3zA"/>
+                                                                <binding destination="wqn-Tq-jQP" name="content" keyPath="arrangedObjects" id="8CO-Ts-Y7W"/>
+                                                                <binding destination="wqn-Tq-jQP" name="selectionIndexes" keyPath="selectionIndexes" previousBinding="8CO-Ts-Y7W" id="rax-kl-aIV"/>
                                                                 <outlet property="delegate" destination="IGv-UE-2Ye" id="yQO-ya-Uyw"/>
                                                             </connections>
                                                         </tableView>
@@ -329,7 +329,7 @@
                 <outlet property="visualEffectView" destination="qq4-gl-W9v" id="bFZ-TY-MpA"/>
             </connections>
         </customObject>
-        <arrayController mode="entity" entityName="PBItemMO" automaticallyPreparesContent="YES" id="wqn-Tq-jQP">
+        <arrayController mode="entity" entityName="Labeled" automaticallyPreparesContent="YES" id="wqn-Tq-jQP">
             <connections>
                 <binding destination="IGv-UE-2Ye" name="filterPredicate" keyPath="dataFilter" id="Myg-K9-1gR"/>
                 <binding destination="IGv-UE-2Ye" name="managedObjectContext" keyPath="managedContext" id="NU3-mP-WHg"/>

@@ -27,7 +27,7 @@ fileprivate class CustomTableRowView: NSTableRowView {
 
 // MARK: view controller
 class SearchViewController: NSViewController {
-    let filterTemplate = NSPredicate(format: "content LIKE $KEYWORD")
+    let filterTemplate = NSPredicate(format: "content LIKE $KEYWORD || label LIKE $KEYWORD")
     var viewType: SearchPanelViewType = .All
     
     @objc dynamic lazy var managedContext: NSManagedObjectContext = {
@@ -59,12 +59,12 @@ class SearchViewController: NSViewController {
         
         viewTrigger.toolTip = "Show All Content"
         
-        let dateSorter = NSSortDescriptor(key: "time", ascending: true) { (rawLHS, rawRHS) -> ComparisonResult in
+        let dateSorter = NSSortDescriptor(key: "createdAt", ascending: true) { (rawLHS, rawRHS) -> ComparisonResult in
             guard let lhs = rawLHS as? Date, let rhs = rawRHS as? Date else { return .orderedSame }
-            
+
             return (lhs > rhs) ? .orderedAscending : .orderedDescending
         }
-        
+
         sortDescripter.append(dateSorter)
         resultListView.backgroundColor = .clear
         searchField.isBezeled = false
@@ -188,11 +188,27 @@ extension SearchViewController: NSTableViewDelegate {
             return
         }
         guard let item = dataListController.selectedObjects[0] as? PBItemMO else { return }
-        selected = .init(title: item.time.description, item.content)
+        selected = .init(title: item.createdAt.description, item.content)
     }
     
     func tableView(_ tableView: NSTableView, rowViewForRow row: Int) -> NSTableRowView? {
         return CustomTableRowView()
+    }
+    
+    func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
+        guard let view = tableView.makeView(withIdentifier: .init("CPCellView"), owner: containerWindow.windowController) as? CPCellView else { return nil }
+        
+        guard let labeled = dataListController.arrangedObjects as? [LabeledMO] else { return nil }
+        
+        let entityType = labeled[row].entityType
+        
+        if entityType == "PBItem" {
+            view.content.stringValue = (labeled[row] as! PBItemMO).content
+        } else if entityType == "Snippet" {
+            view.content.stringValue = (labeled[row] as! SnippetMO).label!
+        }
+        
+        return view
     }
 }
 

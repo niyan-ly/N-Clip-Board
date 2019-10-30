@@ -11,8 +11,12 @@ import Cocoa
 @objc(PBItemMO)
 class PBItemMO: LabeledMO {
     @nonobjc public class func fetchRequest() -> NSFetchRequest<PBItemMO> {
-        return NSFetchRequest<PBItemMO>(entityName: "PBItemMO")
+        return NSFetchRequest<PBItemMO>(entityName: "PBItem")
     }
 
-    @NSManaged public var time: Date
+    override init(entity: NSEntityDescription, insertInto context: NSManagedObjectContext?) {
+        super.init(entity: entity, insertInto: context)
+        
+        entityType = "PBItem"
+    }
 }

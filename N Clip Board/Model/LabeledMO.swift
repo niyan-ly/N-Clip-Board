@@ -19,4 +19,12 @@ public class LabeledMO: NSManagedObject {
     @NSManaged public var content: String
     @NSManaged public var entityType: String
     @NSManaged public var index: Int
+    @NSManaged public var createdAt: Date
+    @NSManaged public var label: String?
+    
+    public override init(entity: NSEntityDescription, insertInto context: NSManagedObjectContext?) {
+        super.init(entity: entity, insertInto: context)
+        
+        createdAt = Date()
+    }
 }

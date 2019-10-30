@@ -63,8 +63,6 @@ class ClipBoardService: NSObject {
                 let item = PBItemMO(context: StoreService.shared.managedContext)
                 item.index = changeCount
                 item.content = data
-                item.entityType = "PBItem"
-                item.time = Date()
                 lastItem = item
             }
         }

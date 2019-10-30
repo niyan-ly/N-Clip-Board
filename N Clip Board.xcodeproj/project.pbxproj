@@ -28,13 +28,13 @@
 		DB655E3B232B9DF100262660 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB655E3A232B9DF100262660 /* Extensions.swift */; };
 		DB655E3D232BBF8600262660 /* ClipBoardService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB655E3C232BBF8600262660 /* ClipBoardService.swift */; };
 		DB655E3F232BD2BF00262660 /* NError.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB655E3E232BD2BF00262660 /* NError.swift */; };
-		DB7479D5236886E0009109D3 /* Snippet.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7479D4236886E0009109D3 /* Snippet.swift */; };
+		DB7479D5236886E0009109D3 /* SnippetMO.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7479D4236886E0009109D3 /* SnippetMO.swift */; };
 		DB7479D72368878D009109D3 /* SnippetService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7479D62368878D009109D3 /* SnippetService.swift */; };
 		DB7479D923688963009109D3 /* StoreService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7479D823688963009109D3 /* StoreService.swift */; };
-		DB8ACBA62368732500268908 /* PBItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8ACBA52368732500268908 /* PBItem.swift */; };
+		DB8ACBA62368732500268908 /* PBItemMO.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8ACBA52368732500268908 /* PBItemMO.swift */; };
 		DB93DE8A232D4FE20074E740 /* GeneralViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB93DE88232D4FE20074E740 /* GeneralViewController.swift */; };
 		DB93DE8B232D4FE20074E740 /* GeneralViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB93DE89232D4FE20074E740 /* GeneralViewController.xib */; };
-		DBA23730236870C300247FE1 /* Labeled.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBA2372E236870C300247FE1 /* Labeled.swift */; };
+		DBA23730236870C300247FE1 /* LabeledMO.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBA2372E236870C300247FE1 /* LabeledMO.swift */; };
 		DBA6F87E232DD47A0081FD48 /* AdvancedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBA6F87C232DD47A0081FD48 /* AdvancedViewController.swift */; };
 		DBA6F87F232DD47A0081FD48 /* AdvancedViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DBA6F87D232DD47A0081FD48 /* AdvancedViewController.xib */; };
 		DBA6F882232E7D820081FD48 /* SnippetsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBA6F880232E7D820081FD48 /* SnippetsViewController.swift */; };
@@ -110,13 +110,13 @@
 		DB655E3A232B9DF100262660 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		DB655E3C232BBF8600262660 /* ClipBoardService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClipBoardService.swift; sourceTree = "<group>"; };
 		DB655E3E232BD2BF00262660 /* NError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NError.swift; sourceTree = "<group>"; };
-		DB7479D4236886E0009109D3 /* Snippet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Snippet.swift; sourceTree = "<group>"; };
+		DB7479D4236886E0009109D3 /* SnippetMO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnippetMO.swift; sourceTree = "<group>"; };
 		DB7479D62368878D009109D3 /* SnippetService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnippetService.swift; sourceTree = "<group>"; };
 		DB7479D823688963009109D3 /* StoreService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreService.swift; sourceTree = "<group>"; };
-		DB8ACBA52368732500268908 /* PBItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PBItem.swift; sourceTree = "<group>"; };
+		DB8ACBA52368732500268908 /* PBItemMO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PBItemMO.swift; sourceTree = "<group>"; };
 		DB93DE88232D4FE20074E740 /* GeneralViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralViewController.swift; sourceTree = "<group>"; };
 		DB93DE89232D4FE20074E740 /* GeneralViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GeneralViewController.xib; sourceTree = "<group>"; };
-		DBA2372E236870C300247FE1 /* Labeled.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Labeled.swift; path = "N Clip Board/Model/Labeled.swift"; sourceTree = SOURCE_ROOT; };
+		DBA2372E236870C300247FE1 /* LabeledMO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LabeledMO.swift; path = "N Clip Board/Model/LabeledMO.swift"; sourceTree = SOURCE_ROOT; };
 		DBA6F87C232DD47A0081FD48 /* AdvancedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvancedViewController.swift; sourceTree = "<group>"; };
 		DBA6F87D232DD47A0081FD48 /* AdvancedViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AdvancedViewController.xib; sourceTree = "<group>"; };
 		DBA6F880232E7D820081FD48 /* SnippetsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnippetsViewController.swift; sourceTree = "<group>"; };
@@ -202,9 +202,9 @@
 		DB18F06B2355C70A00D97341 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				DBA2372E236870C300247FE1 /* Labeled.swift */,
-				DB8ACBA52368732500268908 /* PBItem.swift */,
-				DB7479D4236886E0009109D3 /* Snippet.swift */,
+				DBA2372E236870C300247FE1 /* LabeledMO.swift */,
+				DB8ACBA52368732500268908 /* PBItemMO.swift */,
+				DB7479D4236886E0009109D3 /* SnippetMO.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -567,10 +567,10 @@
 				DB655E3D232BBF8600262660 /* ClipBoardService.swift in Sources */,
 				DB12A63A235AAB6500998198 /* Treansformers.swift in Sources */,
 				DB4CA1EC235D5806007BB8D2 /* AccessibilityService.swift in Sources */,
-				DB7479D5236886E0009109D3 /* Snippet.swift in Sources */,
+				DB7479D5236886E0009109D3 /* SnippetMO.swift in Sources */,
 				DB277482233069EF00D4547D /* LoggingService.swift in Sources */,
 				DB7479D923688963009109D3 /* StoreService.swift in Sources */,
-				DB8ACBA62368732500268908 /* PBItem.swift in Sources */,
+				DB8ACBA62368732500268908 /* PBItemMO.swift in Sources */,
 				DB7479D72368878D009109D3 /* SnippetService.swift in Sources */,
 				DB655E3B232B9DF100262660 /* Extensions.swift in Sources */,
 				DBEBD52123434C5D00233746 /* Constants.swift in Sources */,
@@ -581,7 +581,7 @@
 				DBEF770E2324F23F00A63D28 /* AppDelegate.swift in Sources */,
 				DB5F25B523290200007993F6 /* SearchWindowController.swift in Sources */,
 				DBEBD51F234347BA00233746 /* LoginService.swift in Sources */,
-				DBA23730236870C300247FE1 /* Labeled.swift in Sources */,
+				DBA23730236870C300247FE1 /* LabeledMO.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

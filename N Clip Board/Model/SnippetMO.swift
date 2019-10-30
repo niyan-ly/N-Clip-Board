@@ -13,7 +13,11 @@ class SnippetMO: LabeledMO {
     @nonobjc public class func fetchRequest() -> NSFetchRequest<PBItemMO> {
         return NSFetchRequest<PBItemMO>(entityName: "SnippetMO")
     }
-
-    @NSManaged public var name: String
-    @NSManaged public var createdAt: Date
+    
+    override init(entity: NSEntityDescription, insertInto context: NSManagedObjectContext?) {
+        super.init(entity: entity, insertInto: context)
+        
+        entityType = "Snippet"
+        label = "name"
+    }
 }
