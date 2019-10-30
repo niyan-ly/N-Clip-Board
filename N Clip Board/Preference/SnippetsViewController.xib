@@ -8,6 +8,8 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="SnippetsViewController" customModule="N_Clip_Board" customModuleProvider="target">
             <connections>
+                <outlet property="snippetContentEditor" destination="Kzl-6M-ag8" id="h5K-VM-FJ3"/>
+                <outlet property="snippetDataController" destination="xz4-ak-VUv" id="FEo-Bb-GXi"/>
                 <outlet property="snippetsContextMenu" destination="4wY-15-e0r" id="Ggf-er-Esh"/>
                 <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
             </connections>
@@ -28,6 +30,9 @@
                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                 <font key="font" metaFont="system" size="20"/>
                             </buttonCell>
+                            <connections>
+                                <action selector="add:" target="xz4-ak-VUv" id="SXm-71-3MI"/>
+                            </connections>
                         </button>
                         <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="S8x-Xs-bR6">
                             <rect key="frame" x="29" y="0.0" width="11" height="14"/>
@@ -35,6 +40,9 @@
                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                 <font key="font" metaFont="system" size="20"/>
                             </buttonCell>
+                            <connections>
+                                <action selector="remove:" target="xz4-ak-VUv" id="RmE-jh-6yD"/>
+                            </connections>
                         </button>
                         <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="QUT-1l-y39">
                             <rect key="frame" x="48" y="0.0" width="14" height="14"/>
@@ -89,21 +97,22 @@
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 <subviews>
                                                     <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="QzN-Bq-SOO">
-                                                        <rect key="frame" x="0.0" y="0.0" width="96" height="18"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="185" height="18"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="18" id="lQD-OF-Dz6"/>
                                                         </constraints>
-                                                        <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="Table View Cell" id="Y2y-11-Iy5">
+                                                        <textFieldCell key="cell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" title="Table View Cell" id="Y2y-11-Iy5">
                                                             <font key="font" metaFont="system"/>
                                                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                         </textFieldCell>
                                                         <connections>
-                                                            <binding destination="JSr-zm-hpj" name="value" keyPath="objectValue" id="aIk-HU-95a"/>
+                                                            <binding destination="JSr-zm-hpj" name="value" keyPath="objectValue.name" id="YbB-VK-Tfb"/>
                                                         </connections>
                                                     </textField>
                                                 </subviews>
                                                 <constraints>
+                                                    <constraint firstAttribute="trailing" secondItem="QzN-Bq-SOO" secondAttribute="trailing" constant="20" symbolic="YES" id="GJu-Xb-zgM"/>
                                                     <constraint firstItem="QzN-Bq-SOO" firstAttribute="leading" secondItem="JSr-zm-hpj" secondAttribute="leading" constant="2" id="uFk-TL-ish"/>
                                                     <constraint firstItem="QzN-Bq-SOO" firstAttribute="centerY" secondItem="JSr-zm-hpj" secondAttribute="centerY" priority="250" id="wfK-fK-kQu"/>
                                                 </constraints>
@@ -115,7 +124,9 @@
                                     </tableColumn>
                                 </tableColumns>
                                 <connections>
-                                    <outlet property="dataSource" destination="-2" id="8EF-NP-UXc"/>
+                                    <binding destination="xz4-ak-VUv" name="content" keyPath="arrangedObjects" id="PHQ-3Z-tpJ"/>
+                                    <binding destination="xz4-ak-VUv" name="selectionIndexes" keyPath="selectionIndexes" previousBinding="PHQ-3Z-tpJ" id="oEs-wR-dKF"/>
+                                    <outlet property="delegate" destination="-2" id="mIr-JQ-hFf"/>
                                 </connections>
                             </tableView>
                         </subviews>
@@ -156,6 +167,9 @@
                                             <size key="minSize" width="340" height="383"/>
                                             <size key="maxSize" width="620" height="10000000"/>
                                             <color key="insertionPointColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                            <connections>
+                                                <binding destination="-2" name="value" keyPath="selectedObject.content" id="AAL-nt-NsD"/>
+                                            </connections>
                                         </textView>
                                     </subviews>
                                 </clipView>
@@ -209,7 +223,11 @@
             </items>
             <point key="canvasLocation" x="41" y="-238"/>
         </menu>
-        <managedObjectContext id="5gh-Cs-baa"/>
+        <arrayController mode="entity" entityName="Snippet" automaticallyPreparesContent="YES" id="xz4-ak-VUv">
+            <connections>
+                <binding destination="-2" name="managedObjectContext" keyPath="managedContext" id="5Qt-Oo-U7s"/>
+            </connections>
+        </arrayController>
     </objects>
     <resources>
         <image name="NSActionTemplate" width="14" height="14"/>

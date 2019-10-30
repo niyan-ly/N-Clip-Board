@@ -40,8 +40,6 @@ class ClipBoardService: NSObject {
             pasteboardMirror = []
             LoggingService.shared.error("Error when sync pasteboardMirror: \(error)")
         }
-        
-        print(pasteboardMirror.count)
     }
     
     private func saveUserCopiedItemIntoStore() {
@@ -103,10 +101,8 @@ class ClipBoardService: NSObject {
     
     @discardableResult
     func disableNSPasteboardMonitor() -> Bool {
-        guard let t = timer else {
-            return false
-        }
-        
+        guard let t = timer else { return false }
+
         t.invalidate()
         return true
     }

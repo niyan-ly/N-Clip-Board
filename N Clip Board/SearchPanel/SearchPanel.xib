@@ -38,7 +38,7 @@
                                         <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="NSTouchBarSearchTemplate" id="luh-G4-5gh"/>
                                     </imageView>
                                     <stackView distribution="fill" orientation="vertical" alignment="leading" spacing="0.0" horizontalStackHuggingPriority="250" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="usR-Ew-d5E">
-                                        <rect key="frame" x="48" y="0.0" width="504" height="48"/>
+                                        <rect key="frame" x="48" y="0.0" width="584" height="48"/>
                                         <subviews>
                                             <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="VCv-Xh-1Ea">
                                                 <rect key="frame" x="0.0" y="2" width="424" height="36"/>
@@ -65,7 +65,7 @@
                                         </customSpacing>
                                     </stackView>
                                     <stackView distribution="fill" orientation="horizontal" alignment="top" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="199-Xa-S0g" userLabel="Icon View">
-                                        <rect key="frame" x="552" y="8" width="112" height="32"/>
+                                        <rect key="frame" x="632" y="8" width="32" height="32"/>
                                         <subviews>
                                             <button verticalHuggingPriority="750" tag="1" allowsExpansionToolTips="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DZn-04-cxw">
                                                 <rect key="frame" x="0.0" y="0.0" width="32" height="32"/>
@@ -77,47 +77,16 @@
                                                     <behavior key="behavior" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
                                                     <font key="font" metaFont="system"/>
                                                 </buttonCell>
+                                                <color key="contentTintColor" name="systemBlueColor" catalog="System" colorSpace="catalog"/>
                                                 <connections>
-                                                    <action selector="toggleListViewDataSource:" target="IGv-UE-2Ye" id="cZ5-Wg-QgW"/>
-                                                </connections>
-                                            </button>
-                                            <button verticalHuggingPriority="750" tag="2" translatesAutoresizingMaskIntoConstraints="NO" id="sg5-49-M0S">
-                                                <rect key="frame" x="40" y="0.0" width="32" height="32"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="32" id="VLh-o5-AMO"/>
-                                                    <constraint firstAttribute="width" constant="32" id="XgE-BO-D4h"/>
-                                                </constraints>
-                                                <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="ClipBoard" imagePosition="only" alignment="center" imageScaling="proportionallyDown" inset="2" id="4J3-nT-Wd5">
-                                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                                    <font key="font" metaFont="system"/>
-                                                </buttonCell>
-                                                <connections>
-                                                    <action selector="toggleListViewDataSource:" target="IGv-UE-2Ye" id="16L-EG-s8V"/>
-                                                </connections>
-                                            </button>
-                                            <button verticalHuggingPriority="750" tag="3" translatesAutoresizingMaskIntoConstraints="NO" id="olv-KX-kiK">
-                                                <rect key="frame" x="80" y="0.0" width="32" height="32"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="32" id="cd1-Mf-bve"/>
-                                                    <constraint firstAttribute="width" constant="32" id="g8d-qq-bvM"/>
-                                                </constraints>
-                                                <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="Snippet" imagePosition="only" alignment="center" imageScaling="proportionallyDown" inset="2" id="wZc-l4-3sh">
-                                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                                    <font key="font" metaFont="system"/>
-                                                </buttonCell>
-                                                <connections>
-                                                    <action selector="toggleListViewDataSource:" target="IGv-UE-2Ye" id="oQ3-ou-W32"/>
+                                                    <action selector="nextView:" target="IGv-UE-2Ye" id="cZ5-Wg-QgW"/>
                                                 </connections>
                                             </button>
                                         </subviews>
                                         <visibilityPriorities>
                                             <integer value="1000"/>
-                                            <integer value="1000"/>
-                                            <integer value="1000"/>
                                         </visibilityPriorities>
                                         <customSpacing>
-                                            <real value="3.4028234663852886e+38"/>
-                                            <real value="3.4028234663852886e+38"/>
                                             <real value="3.4028234663852886e+38"/>
                                         </customSpacing>
                                     </stackView>
@@ -174,7 +143,7 @@
                                                             <tableColumns>
                                                                 <tableColumn identifier="CPCellView" editable="NO" width="221" minWidth="40" maxWidth="1000" id="c9V-LE-NFE">
                                                                     <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border">
-                                                                        <font key="font" metaFont="message" size="11"/>
+                                                                        <font key="font" metaFont="controlContent" size="11"/>
                                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                                         <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
                                                                     </tableHeaderCell>
@@ -351,14 +320,12 @@
         </window>
         <customObject id="IGv-UE-2Ye" customClass="SearchViewController" customModule="N_Clip_Board" customModuleProvider="target">
             <connections>
-                <outlet property="allListViewTrigger" destination="DZn-04-cxw" id="fxV-bV-iuo"/>
-                <outlet property="clipBoardListViewTrigger" destination="sg5-49-M0S" id="bqw-jh-572"/>
                 <outlet property="containerWindow" destination="ZSn-qn-KVT" id="8hI-7M-ld7"/>
                 <outlet property="dataListController" destination="wqn-Tq-jQP" id="UvD-XD-OMY"/>
                 <outlet property="resultListView" destination="DHk-E8-KKh" id="kk8-RE-8tv"/>
                 <outlet property="searchField" destination="VCv-Xh-1Ea" id="Sml-gD-63X"/>
-                <outlet property="snippetListViewTrigger" destination="olv-KX-kiK" id="kfF-oj-Mtq"/>
                 <outlet property="view" destination="fh9-jm-Ppz" id="ygl-hf-TzJ"/>
+                <outlet property="viewTrigger" destination="DZn-04-cxw" id="fxV-bV-iuo"/>
                 <outlet property="visualEffectView" destination="qq4-gl-W9v" id="bFZ-TY-MpA"/>
             </connections>
         </customObject>
@@ -372,8 +339,6 @@
     </objects>
     <resources>
         <image name="All" width="16" height="16"/>
-        <image name="ClipBoard" width="16" height="16"/>
         <image name="NSTouchBarSearchTemplate" width="19" height="30"/>
-        <image name="Snippet" width="16" height="16"/>
     </resources>
 </document>

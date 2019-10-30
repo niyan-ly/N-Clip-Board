@@ -42,9 +42,7 @@ class SearchViewController: NSViewController {
         get { dataCount == 0 }
     }
     
-    @IBOutlet weak var allListViewTrigger: NSButton!
-    @IBOutlet weak var clipBoardListViewTrigger: NSButton!
-    @IBOutlet weak var snippetListViewTrigger: NSButton!
+    @IBOutlet weak var viewTrigger: NSButton!
     
     @IBOutlet var searchField: NSTextField!
     @IBOutlet var resultListView: NSTableView!
@@ -59,9 +57,7 @@ class SearchViewController: NSViewController {
         monitorArrowEvent()
         updateViewTypeTriggerStyle()
         
-        allListViewTrigger.toolTip = "Show All Content"
-        clipBoardListViewTrigger.toolTip = "Show ClipBoard Content"
-        snippetListViewTrigger.toolTip = "Show Snippet Content"
+        viewTrigger.toolTip = "Show All Content"
         
         let dateSorter = NSSortDescriptor(key: "time", ascending: true) { (rawLHS, rawRHS) -> ComparisonResult in
             guard let lhs = rawLHS as? Date, let rhs = rawRHS as? Date else { return .orderedSame }
@@ -151,34 +147,27 @@ class SearchViewController: NSViewController {
         didChangeValue(forKey: "isDataListEmpty")
     }
     
-    @IBAction func toggleListViewDataSource(_ sender: NSButton) {
-        switch sender.tag {
-        case 1:
+    @IBAction func nextView(_ sender: NSButton) {
+        if viewType.rawValue < 2 {
+            viewType = SearchPanelViewType(rawValue: viewType.rawValue + 1)!
+        } else {
             viewType = .All
-        case 2:
-            viewType = .ClipBoard
-        case 3:
-            viewType = .Snippet
-        default:
-            break
         }
         
         updateViewTypeTriggerStyle()
     }
     
     func updateViewTypeTriggerStyle() {
-        let highLightedColor = NSColor(red:0.000, green:0.480, blue:1.000, alpha:1.000)
-        allListViewTrigger.contentTintColor = nil
-        clipBoardListViewTrigger.contentTintColor = nil
-        snippetListViewTrigger.contentTintColor = nil
-    
         switch viewType {
         case .ClipBoard:
-            clipBoardListViewTrigger.contentTintColor = highLightedColor
+            viewTrigger.image = .init(imageLiteralResourceName: "ClipBoard")
+            viewTrigger.toolTip = "Show ClipBoard Content"
         case .All:
-            allListViewTrigger.contentTintColor = highLightedColor
+            viewTrigger.image = .init(imageLiteralResourceName: "All")
+            viewTrigger.toolTip = "Show All Content"
         case .Snippet:
-            snippetListViewTrigger.contentTintColor = highLightedColor
+            viewTrigger.image = .init(imageLiteralResourceName: "Snippet")
+            viewTrigger.toolTip = "Show Snippet"
         }
     }
 }

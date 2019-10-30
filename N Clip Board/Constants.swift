@@ -22,8 +22,8 @@ struct Constants {
     }
 }
 
-enum SearchPanelViewType {
-    case All
+enum SearchPanelViewType: Int {
+    case All = 0
     case ClipBoard
     case Snippet
 }

@@ -31,6 +31,7 @@ class PreferencePanelController: NSWindowController {
 
     override func windowDidLoad() {
         super.windowDidLoad()
+        window?.backgroundColor = .textBackgroundColor
         switchView(of: .general)
     }
     
