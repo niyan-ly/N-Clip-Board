@@ -27,7 +27,7 @@ fileprivate class CustomTableRowView: NSTableRowView {
 
 // MARK: view controller
 class SearchViewController: NSViewController {
-    let filterTemplate = NSPredicate(format: "content LIKE $KEYWORD || label LIKE $KEYWORD")
+    let filterTemplate = NSPredicate(format: "(content LIKE[c] $KEYWORD || label LIKE[c] $KEYWORD) AND entityType IN $ENTITY_TYPE_GROUP")
     var viewType: SearchPanelViewType = .All
     
     @objc dynamic lazy var managedContext: NSManagedObjectContext = {
@@ -43,7 +43,6 @@ class SearchViewController: NSViewController {
     }
     
     @IBOutlet weak var viewTrigger: NSButton!
-    
     @IBOutlet var searchField: NSTextField!
     @IBOutlet var resultListView: NSTableView!
     @IBOutlet var visualEffectView: NSVisualEffectView!
@@ -158,6 +157,7 @@ class SearchViewController: NSViewController {
     }
     
     func updateViewTypeTriggerStyle() {
+        
         switch viewType {
         case .ClipBoard:
             viewTrigger.image = .init(imageLiteralResourceName: "ClipBoard")
@@ -169,14 +169,28 @@ class SearchViewController: NSViewController {
             viewTrigger.image = .init(imageLiteralResourceName: "Snippet")
             viewTrigger.toolTip = "Show Snippet"
         }
+
+        updateSearchPredicate()
+    }
+    
+    func updateSearchPredicate() {
+        let entityTypeMapper: Dictionary<Int, [String]> = [
+            0: ["PBItem", "Snippet"],
+            1: ["PBItem"],
+            2: ["Snippet"]
+        ]
+    
+        dataFilter = filterTemplate.withSubstitutionVariables([
+            "KEYWORD": "*\(searchField.stringValue)*",
+            "ENTITY_TYPE_GROUP": entityTypeMapper[viewType.rawValue] ?? entityTypeMapper[0]!
+        ])
     }
 }
 
 // MARK: Text Delegate
 extension SearchViewController: NSTextFieldDelegate {
     func controlTextDidChange(_ obj: Notification) {
-        guard let controlField = obj.object as? NSTextField else { return }
-        self.dataFilter = filterTemplate.withSubstitutionVariables(["KEYWORD": "*\(controlField.stringValue)*"])
+        updateSearchPredicate()
     }
 }
 
@@ -187,7 +201,7 @@ extension SearchViewController: NSTableViewDelegate {
             selected = .empty
             return
         }
-        guard let item = dataListController.selectedObjects[0] as? PBItemMO else { return }
+        guard let item = dataListController.selectedObjects[0] as? LabeledMO else { return }
         selected = .init(title: item.createdAt.description, item.content)
     }
     

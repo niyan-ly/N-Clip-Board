@@ -14,10 +14,9 @@ class SnippetMO: LabeledMO {
         return NSFetchRequest<PBItemMO>(entityName: "SnippetMO")
     }
     
-    override init(entity: NSEntityDescription, insertInto context: NSManagedObjectContext?) {
-        super.init(entity: entity, insertInto: context)
+    override func awakeFromInsert() {
+        super.awakeFromInsert()
         
         entityType = "Snippet"
-        label = "name"
     }
 }

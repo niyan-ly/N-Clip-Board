@@ -40,7 +40,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         // initialize UserDefaults configuration
         Utility.registerUserDefaults()
         Utility.monitorSystemEvents()
-        UserDefaults.standard.addObserver(self, forKeyPath: Constants.Userdefaults.PollingInterval, options: [.new], context: nil)
+
         LoggingService.shared.info("application finished launching")
     }
 
@@ -63,22 +63,16 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         }
     }
     
-    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
-        
-        let PreferenceKey = Constants.Userdefaults.self
-
-        switch keyPath {
-        default:
-            break
-        }
-    }
-    
     func clearAllContent() {
         do {
             try ClipBoardService.shared.clearRecord()
         } catch {
             warningBox(title: "Fail to clean up", message: error.localizedDescription)
         }
+    }
+    
+    @IBAction func showSearchPanel(_ sender: Any) {
+        searchWindowController.showWindow(self)
     }
     
     @IBAction func beforeCleaUp(_ sender: Any) {

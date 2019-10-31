@@ -13,9 +13,9 @@ class PBItemMO: LabeledMO {
     @nonobjc public class func fetchRequest() -> NSFetchRequest<PBItemMO> {
         return NSFetchRequest<PBItemMO>(entityName: "PBItem")
     }
-
-    override init(entity: NSEntityDescription, insertInto context: NSManagedObjectContext?) {
-        super.init(entity: entity, insertInto: context)
+    
+    override func awakeFromInsert() {
+        super.awakeFromInsert()
         
         entityType = "PBItem"
     }

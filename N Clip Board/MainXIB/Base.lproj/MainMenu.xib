@@ -126,6 +126,9 @@
             <items>
                 <menuItem title="Show ClipBoard" id="7H1-LH-hbX">
                     <modifierMask key="keyEquivalentModifierMask"/>
+                    <connections>
+                        <action selector="showSearchPanel:" target="Voe-Tx-rLC" id="UaE-ek-edK"/>
+                    </connections>
                 </menuItem>
                 <menuItem title="Clean Up" id="YY3-se-zwd">
                     <modifierMask key="keyEquivalentModifierMask"/>

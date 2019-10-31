@@ -33,10 +33,10 @@ class LoggingService {
     }
     
     func warn(_ message: Any) {
-        logWithFile.warning(message)
+        logWithFile.warning("⚠️ \(message)")
     }
     
     func error(_ message: Any) {
-        logWithFile.error(message)
+        logWithFile.error("🛑 \(message)")
     }
 }
