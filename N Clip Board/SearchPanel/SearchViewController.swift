@@ -196,9 +196,22 @@ extension SearchViewController: NSTextFieldDelegate {
 
 // MARK: Table Delegate
 extension SearchViewController: NSTableViewDelegate {
+    func tryToSelectFirst() {
+        guard let labeld = dataListController.arrangedObjects as? [LabeledMO] else {
+            LoggingService.shared.warn("fail to cast arrangedObjects of NSArrayController into ManagedObject")
+            return
+        }
+        
+        if labeld.count > 0 {
+            resultListView.selectRowIndexes(.init(integer: 0), byExtendingSelection: false)
+        } else {
+            selected = .empty
+        }
+    }
+    
     func tableViewSelectionDidChange(_ notification: Notification) {
         guard dataListController.selectedObjects.count > 0 else {
-            selected = .empty
+            tryToSelectFirst()
             return
         }
         guard let item = dataListController.selectedObjects[0] as? LabeledMO else { return }

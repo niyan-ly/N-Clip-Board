@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="15400"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="NSApplication">
@@ -120,7 +121,7 @@
                     </menu>
                 </menuItem>
             </items>
-            <point key="canvasLocation" x="139" y="154"/>
+            <point key="canvasLocation" x="437" y="-98"/>
         </menu>
         <menu id="Wx1-pI-HjA">
             <items>
@@ -638,5 +639,20 @@
                 </items>
             </menu>
         </menuItem>
+        <viewController id="qpo-EZ-H9w" userLabel="Popover View Controller">
+            <connections>
+                <outlet property="view" destination="yTb-17-A8w" id="vmv-YT-PBd"/>
+            </connections>
+        </viewController>
+        <popover id="ZvF-Zx-oK3">
+            <connections>
+                <outlet property="contentViewController" destination="qpo-EZ-H9w" id="mkx-La-baC"/>
+            </connections>
+        </popover>
+        <customView id="yTb-17-A8w">
+            <rect key="frame" x="0.0" y="0.0" width="349" height="454"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <point key="canvasLocation" x="229.5" y="330"/>
+        </customView>
     </objects>
 </document>

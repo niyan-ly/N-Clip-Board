@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="15400" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14490.70"/>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="15400"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -22,7 +23,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="520" height="270"/>
                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             </view>
-            <toolbar key="toolbar" implicitIdentifier="EFDDB612-4959-4C39-B11C-FBD4785DA1C3" autosavesConfiguration="NO" allowsUserCustomization="NO" displayMode="iconAndLabel" sizeMode="regular" id="Obu-Zk-5Rg">
+            <toolbar key="toolbar" implicitIdentifier="F4C2E324-457D-4119-94CF-505B50875CB9" autosavesConfiguration="NO" allowsUserCustomization="NO" displayMode="iconAndLabel" sizeMode="regular" id="Obu-Zk-5Rg">
                 <allowedToolbarItems>
                     <toolbarItem implicitItemIdentifier="NSToolbarSpaceItem" id="p4v-fA-GYl"/>
                     <toolbarItem implicitItemIdentifier="NSToolbarFlexibleSpaceItem" id="Qpw-Z8-nmT"/>
@@ -31,31 +32,25 @@
                             <action selector="whenToolbarChange:" target="-2" id="Ayx-wZ-SW0"/>
                         </connections>
                     </toolbarItem>
-                    <toolbarItem implicitItemIdentifier="1E0D643D-21FA-41D2-A0D9-F6ECBDF1DF27" explicitItemIdentifier="Appearance" label="Appearance" paletteLabel="Appearance" tag="-1" image="NSInfo" selectable="YES" id="TKD-7G-ecw">
-                        <size key="minSize" width="32" height="32"/>
-                        <size key="maxSize" width="32" height="32"/>
-                        <connections>
-                            <action selector="whenToolbarChange:" target="-2" id="ijI-8x-dPx"/>
-                        </connections>
-                    </toolbarItem>
-                    <toolbarItem implicitItemIdentifier="01A3487B-D772-44D9-B086-2B5DB44A7C5D" explicitItemIdentifier="Snippets" label="Snippets" paletteLabel="Snippets" tag="1" image="n_shortcuts" selectable="YES" id="KLs-z2-dSc">
-                        <size key="minSize" width="50" height="50"/>
-                        <size key="maxSize" width="50" height="50"/>
+                    <toolbarItem implicitItemIdentifier="01A3487B-D772-44D9-B086-2B5DB44A7C5D" explicitItemIdentifier="Snippets" label="Snippets" paletteLabel="Snippets" tag="1" image="NSMultipleDocuments" sizingBehavior="auto" selectable="YES" id="KLs-z2-dSc">
                         <connections>
                             <action selector="whenToolbarChange:" target="-2" id="7rD-Zf-PqX"/>
                         </connections>
                     </toolbarItem>
-                    <toolbarItem implicitItemIdentifier="EC2D2D97-1A84-4494-A8E8-AF4F9C8DA16D" explicitItemIdentifier="Advanced" label="Advanced" paletteLabel="Advanced" tag="2" image="NSAdvanced" selectable="YES" id="rH1-Lc-nzr">
-                        <size key="minSize" width="32" height="32"/>
-                        <size key="maxSize" width="32" height="32"/>
+                    <toolbarItem implicitItemIdentifier="EC2D2D97-1A84-4494-A8E8-AF4F9C8DA16D" explicitItemIdentifier="Advanced" label="Advanced" paletteLabel="Advanced" tag="2" image="NSAdvanced" sizingBehavior="auto" selectable="YES" id="rH1-Lc-nzr">
                         <connections>
                             <action selector="whenToolbarChange:" target="-2" id="Jzv-fZ-SGl"/>
+                        </connections>
+                    </toolbarItem>
+                    <toolbarItem implicitItemIdentifier="383C8163-DF8E-4A53-987C-D2DACAEB1C48" explicitItemIdentifier="Appearance" label="Appearance" paletteLabel="Appearance" tag="1" image="NSColorPanel" sizingBehavior="auto" selectable="YES" id="ceE-u2-CLx">
+                        <connections>
+                            <action selector="whenToolbarChange:" target="-2" id="8oP-lp-zaL"/>
                         </connections>
                     </toolbarItem>
                 </allowedToolbarItems>
                 <defaultToolbarItems>
                     <toolbarItem reference="d9n-0j-1gV"/>
-                    <toolbarItem reference="TKD-7G-ecw"/>
+                    <toolbarItem reference="ceE-u2-CLx"/>
                     <toolbarItem reference="KLs-z2-dSc"/>
                     <toolbarItem reference="rH1-Lc-nzr"/>
                 </defaultToolbarItems>
@@ -68,8 +63,8 @@
     </objects>
     <resources>
         <image name="NSAdvanced" width="32" height="32"/>
-        <image name="NSInfo" width="32" height="32"/>
+        <image name="NSColorPanel" width="32" height="32"/>
+        <image name="NSMultipleDocuments" width="32" height="32"/>
         <image name="NSPreferencesGeneral" width="32" height="32"/>
-        <image name="n_shortcuts" width="50" height="50"/>
     </resources>
 </document>

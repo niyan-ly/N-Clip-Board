@@ -225,6 +225,7 @@
                                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                 </textFieldCell>
                                                 <connections>
+                                                    <binding destination="IGv-UE-2Ye" name="hidden" keyPath="isDataListEmpty" id="H1D-jl-vkR"/>
                                                     <binding destination="IGv-UE-2Ye" name="value" keyPath="selected.title" id="6lR-Oq-Qcg"/>
                                                 </connections>
                                             </textField>
@@ -261,17 +262,39 @@
                                                     <rect key="frame" x="389" y="0.0" width="16" height="277"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                 </scroller>
+                                                <connections>
+                                                    <binding destination="IGv-UE-2Ye" name="hidden" keyPath="isDataListEmpty" id="V0W-Cb-BfZ"/>
+                                                </connections>
                                             </scrollView>
                                             <box verticalHuggingPriority="750" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="z3m-vL-lRy">
                                                 <rect key="frame" x="20" y="283" width="128" height="5"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="128" id="uuM-2B-70f"/>
                                                 </constraints>
+                                                <connections>
+                                                    <binding destination="IGv-UE-2Ye" name="hidden" keyPath="isDataListEmpty" id="fNi-yd-mv5"/>
+                                                </connections>
                                             </box>
+                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="mfl-fT-ZHT">
+                                                <rect key="frame" x="175" y="45" width="104" height="230"/>
+                                                <textFieldCell key="cell" lineBreakMode="clipping" title="N" id="PyU-9Y-UaO">
+                                                    <font key="font" size="144" name="Noteworthy-Bold"/>
+                                                    <color key="textColor" red="0.89803921568627454" green="0.89803921568627454" blue="0.89803921568627454" alpha="0.3671875" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                </textFieldCell>
+                                                <connections>
+                                                    <binding destination="IGv-UE-2Ye" name="hidden" keyPath="isDataListEmpty" id="gRE-ct-K8Y">
+                                                        <dictionary key="options">
+                                                            <string key="NSValueTransformerName">NSNegateBoolean</string>
+                                                        </dictionary>
+                                                    </binding>
+                                                </connections>
+                                            </textField>
                                         </subviews>
                                         <constraints>
                                             <constraint firstItem="a7N-eT-GZ4" firstAttribute="leading" secondItem="cGx-QJ-3Ik" secondAttribute="leading" constant="32" id="9w3-TA-hgw"/>
                                             <constraint firstItem="z3m-vL-lRy" firstAttribute="leading" secondItem="cGx-QJ-3Ik" secondAttribute="leading" constant="20" symbolic="YES" id="azI-Re-8UJ"/>
+                                            <constraint firstItem="mfl-fT-ZHT" firstAttribute="centerY" secondItem="cGx-QJ-3Ik" secondAttribute="centerY" priority="250" id="chK-mi-Mms"/>
                                             <constraint firstItem="ufU-W6-DuC" firstAttribute="top" secondItem="cGx-QJ-3Ik" secondAttribute="top" priority="750" constant="8" id="dq8-dE-SJc"/>
                                             <constraint firstItem="a7N-eT-GZ4" firstAttribute="top" secondItem="cGx-QJ-3Ik" secondAttribute="top" priority="750" constant="42" id="f46-Z8-FBl"/>
                                             <constraint firstItem="a7N-eT-GZ4" firstAttribute="trailing" secondItem="cGx-QJ-3Ik" secondAttribute="trailing" constant="-16" id="lld-Wo-Ijc"/>
@@ -279,6 +302,7 @@
                                             <constraint firstItem="ufU-W6-DuC" firstAttribute="trailing" secondItem="cGx-QJ-3Ik" secondAttribute="trailing" constant="-16" id="qsg-QT-w3T"/>
                                             <constraint firstItem="ufU-W6-DuC" firstAttribute="leading" secondItem="cGx-QJ-3Ik" secondAttribute="leading" constant="20" symbolic="YES" id="tgW-kI-3OR"/>
                                             <constraint firstItem="a7N-eT-GZ4" firstAttribute="bottom" secondItem="cGx-QJ-3Ik" secondAttribute="bottom" id="yo4-4z-0JB"/>
+                                            <constraint firstItem="mfl-fT-ZHT" firstAttribute="centerX" secondItem="cGx-QJ-3Ik" secondAttribute="centerX" priority="250" id="zUB-Nd-j07"/>
                                         </constraints>
                                     </customView>
                                 </subviews>

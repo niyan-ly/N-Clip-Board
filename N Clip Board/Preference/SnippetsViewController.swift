@@ -27,6 +27,7 @@ class SnippetsViewController: NSViewController, ViewInitialSize {
     @IBOutlet weak var snippetsContextMenu: NSMenu!
     @IBOutlet weak var snippetDataController: NSArrayController!
     @IBOutlet weak var snippetContentEditor: NSTextView!
+    @IBOutlet var helperPopover: NSPopover!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,6 +42,10 @@ class SnippetsViewController: NSViewController, ViewInitialSize {
         } catch {
             LoggingService.shared.error("Faile to save data: \(error)")
         }
+    }
+    
+    @IBAction func showHelper(_ sender: NSButton) {
+        helperPopover.show(relativeTo: sender.bounds, of: sender, preferredEdge: .minY)
     }
     
     @IBAction func popupSnippetsContextMenu(_ sender: NSButton) {
