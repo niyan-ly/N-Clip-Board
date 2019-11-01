@@ -227,15 +227,20 @@ extension SearchViewController: NSTableViewDelegate {
     func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
         guard let view = tableView.makeView(withIdentifier: .init("CPCellView"), owner: containerWindow.windowController) as? CPCellView else { return nil }
         
-        guard let labeled = dataListController.arrangedObjects as? [LabeledMO] else { return nil }
+        guard let labeledList = dataListController.arrangedObjects as? [LabeledMO] else { return nil }
         
-        let entityType = labeled[row].entityType
+        let entityType = labeledList[row].entityType
         
         if entityType == "PBItem" {
-            view.content.stringValue = (labeled[row] as! PBItemMO).content
-            view.icon.image = NSImage(imageLiteralResourceName: "icon_clip")
+            let item = labeledList[row] as! PBItemMO
+            view.content.stringValue = item.content
+            if let identifier = item.bundleIdentifier {
+                view.icon.image = Utility.findAppIcon(by: identifier)
+            } else {
+                view.icon.image = NSImage(named: .init("NSApplicationIcon"))
+            }
         } else if entityType == "Snippet" {
-            view.content.stringValue = (labeled[row] as! SnippetMO).label!
+            view.content.stringValue = (labeledList[row] as! SnippetMO).label!
             view.icon.image = NSImage(imageLiteralResourceName: "icon_snippet")
         }
         

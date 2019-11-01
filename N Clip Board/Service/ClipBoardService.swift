@@ -63,6 +63,7 @@ class ClipBoardService: NSObject {
                 let item = PBItemMO(context: StoreService.shared.managedContext)
                 item.index = changeCount
                 item.content = data
+                item.bundleIdentifier = SysMonitorService.shared.activatedAppBundleIdentifier
                 lastItem = item
             }
         }

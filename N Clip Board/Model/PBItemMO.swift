@@ -14,6 +14,8 @@ class PBItemMO: LabeledMO {
         return NSFetchRequest<PBItemMO>(entityName: "PBItem")
     }
     
+    @NSManaged var bundleIdentifier: String?
+    
     override func awakeFromInsert() {
         super.awakeFromInsert()
         

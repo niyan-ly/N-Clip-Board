@@ -24,6 +24,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         // NSApp.appearance = NSAppearance(named: .aqua)
         registerTransformer()
+        
+        SysMonitorService.shared.start()
+        
         ClipBoardService.shared.enableNSPasteboardMonitor(onInsert: nil)
         // kill launcher after main app was launched
         LoginService.killLauncher()
@@ -39,7 +42,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         // initialize UserDefaults configuration
         Utility.registerUserDefaults()
-        Utility.monitorSystemEvents()
 
         LoggingService.shared.info("application finished launching")
     }

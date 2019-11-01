@@ -32,16 +32,10 @@ final class Utility {
         return task.terminationStatus
     }
     
-    static func monitorSystemEvents() {
-        NSWorkspace.shared.notificationCenter.addObserver(forName: NSWorkspace.screensDidSleepNotification, object: nil, queue: nil) { (notice) in
-            LoggingService.shared.warn("screen will going to sleep")
-        }
-        NSWorkspace.shared.notificationCenter.addObserver(forName: NSWorkspace.willSleepNotification, object: nil, queue: nil) { (notice) in
-            LoggingService.shared.warn("system will going to sleep")
-        }
-        NSWorkspace.shared.notificationCenter.addObserver(forName: NSWorkspace.screensDidWakeNotification, object: nil, queue: nil) { (notice) in
-            LoggingService.shared.warn("screen awaked")
-        }
+    static func findAppIcon(by bundleIdentifier: String) -> NSImage? {
+        guard let bundlePath = NSWorkspace.shared.absolutePathForApplication(withBundleIdentifier: bundleIdentifier) else { return nil }
+        
+        return NSWorkspace.shared.icon(forFile: bundlePath)
     }
 }
 
