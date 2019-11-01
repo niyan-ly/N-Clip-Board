@@ -10,7 +10,7 @@ import Cocoa
 
 class CPCellView: NSTableCellView {
     @IBOutlet var content: NSTextField!
-    @IBOutlet var time: NSTextField!
+    @IBOutlet var icon: NSButton!
 }
 
 fileprivate class CustomTableRowView: NSTableRowView {
@@ -215,7 +215,9 @@ extension SearchViewController: NSTableViewDelegate {
             return
         }
         guard let item = dataListController.selectedObjects[0] as? LabeledMO else { return }
-        selected = .init(title: item.createdAt.description, item.content)
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        selected = .init(title: dateFormatter.string(from: item.createdAt), item.content)
     }
     
     func tableView(_ tableView: NSTableView, rowViewForRow row: Int) -> NSTableRowView? {
@@ -231,8 +233,10 @@ extension SearchViewController: NSTableViewDelegate {
         
         if entityType == "PBItem" {
             view.content.stringValue = (labeled[row] as! PBItemMO).content
+            view.icon.image = NSImage(imageLiteralResourceName: "icon_clip")
         } else if entityType == "Snippet" {
             view.content.stringValue = (labeled[row] as! SnippetMO).label!
+            view.icon.image = NSImage(imageLiteralResourceName: "icon_snippet")
         }
         
         return view

@@ -17,7 +17,7 @@
             <windowStyleMask key="styleMask" titled="YES" nonactivatingPanel="YES" fullSizeContentView="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="454" y="496" width="680" height="372"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="2560" height="1417"/>
             <value key="minSize" type="size" width="480" height="260"/>
             <view key="contentView" misplaced="YES" id="fh9-jm-Ppz">
                 <rect key="frame" x="0.0" y="0.0" width="680" height="372"/>
@@ -47,7 +47,7 @@
                                                     <constraint firstAttribute="height" constant="36" id="jTg-2A-W5A"/>
                                                 </constraints>
                                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" placeholderString="Search clipboard" bezelStyle="round" id="2N5-Oo-CGr">
-                                                    <font key="font" metaFont="controlContent"/>
+                                                    <font key="font" metaFont="label" size="12"/>
                                                     <color key="textColor" red="1" green="1" blue="1" alpha="0.84705882352941175" colorSpace="custom" customColorSpace="displayP3"/>
                                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                 </textFieldCell>
@@ -158,8 +158,19 @@
                                                                             <rect key="frame" x="1" y="1" width="221" height="49"/>
                                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                             <subviews>
+                                                                                <button translatesAutoresizingMaskIntoConstraints="NO" id="lb4-Qp-2Aa">
+                                                                                    <rect key="frame" x="8" y="11" width="28" height="28"/>
+                                                                                    <constraints>
+                                                                                        <constraint firstAttribute="width" constant="28" id="jFI-fL-pqD"/>
+                                                                                        <constraint firstAttribute="height" constant="28" id="xYm-Sr-qEL"/>
+                                                                                    </constraints>
+                                                                                    <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="68k-Pz-aZt">
+                                                                                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                                                        <font key="font" metaFont="system"/>
+                                                                                    </buttonCell>
+                                                                                </button>
                                                                                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="rZG-OP-1Js">
-                                                                                    <rect key="frame" x="18" y="16" width="187" height="18"/>
+                                                                                    <rect key="frame" x="46" y="16" width="159" height="18"/>
                                                                                     <constraints>
                                                                                         <constraint firstAttribute="height" constant="18" id="BqH-uY-sZ8"/>
                                                                                     </constraints>
@@ -171,12 +182,15 @@
                                                                                 </textField>
                                                                             </subviews>
                                                                             <constraints>
+                                                                                <constraint firstItem="lb4-Qp-2Aa" firstAttribute="leading" secondItem="Jdj-Fl-8GJ" secondAttribute="leading" constant="8" id="WJE-j3-Sj3"/>
                                                                                 <constraint firstItem="rZG-OP-1Js" firstAttribute="trailing" secondItem="Jdj-Fl-8GJ" secondAttribute="trailing" constant="-18" id="Wvs-8T-VkP"/>
-                                                                                <constraint firstItem="rZG-OP-1Js" firstAttribute="leading" secondItem="Jdj-Fl-8GJ" secondAttribute="leading" constant="20" symbolic="YES" id="thh-9B-KMw"/>
+                                                                                <constraint firstItem="lb4-Qp-2Aa" firstAttribute="centerY" secondItem="Jdj-Fl-8GJ" secondAttribute="centerY" id="d5l-9K-IbG"/>
+                                                                                <constraint firstItem="rZG-OP-1Js" firstAttribute="leading" secondItem="Jdj-Fl-8GJ" secondAttribute="leading" constant="48" id="thh-9B-KMw"/>
                                                                                 <constraint firstItem="rZG-OP-1Js" firstAttribute="centerY" secondItem="Jdj-Fl-8GJ" secondAttribute="centerY" id="yBi-3N-GIi"/>
                                                                             </constraints>
                                                                             <connections>
                                                                                 <outlet property="content" destination="rZG-OP-1Js" id="mz4-aE-Hlg"/>
+                                                                                <outlet property="icon" destination="lb4-Qp-2Aa" id="tDl-Qa-dlE"/>
                                                                             </connections>
                                                                         </tableCellView>
                                                                     </prototypeCellViews>
@@ -276,10 +290,10 @@
                                                 </connections>
                                             </box>
                                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="mfl-fT-ZHT">
-                                                <rect key="frame" x="175" y="45" width="104" height="230"/>
+                                                <rect key="frame" x="176" y="74" width="102" height="172"/>
                                                 <textFieldCell key="cell" lineBreakMode="clipping" title="N" id="PyU-9Y-UaO">
-                                                    <font key="font" size="144" name="Noteworthy-Bold"/>
-                                                    <color key="textColor" red="0.89803921568627454" green="0.89803921568627454" blue="0.89803921568627454" alpha="0.3671875" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <font key="font" size="144" name="SFCompactDisplay-Bold"/>
+                                                    <color key="textColor" red="0.89803921568627454" green="0.89803921568627454" blue="0.89803921568627454" alpha="0.18046339897260275" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                 </textFieldCell>
                                                 <connections>
