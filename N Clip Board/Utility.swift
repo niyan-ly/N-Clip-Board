@@ -17,6 +17,7 @@ final class Utility {
         preferenceDict[Constants.Userdefaults.KeepClipBoardItemUntil] = 30
         preferenceDict[Constants.Userdefaults.PollingInterval] = 0.4
         preferenceDict[Constants.Userdefaults.ShowPollingIntervalLabel] = false
+        preferenceDict[Constants.Userdefaults.ExcludedAppDict] = [:]
         
         UserDefaults.standard.register(defaults: preferenceDict)
     }
@@ -36,6 +37,15 @@ final class Utility {
         guard let bundlePath = NSWorkspace.shared.absolutePathForApplication(withBundleIdentifier: bundleIdentifier) else { return nil }
         
         return NSWorkspace.shared.icon(forFile: bundlePath)
+    }
+    
+    static func getAppLocalizedName(by bundleIdentifier: String) -> String? {
+        guard let bundlePath = NSWorkspace.shared.absolutePathForApplication(withBundleIdentifier: bundleIdentifier) else {
+            LoggingService.shared.warn("Fail to find bundle \(bundleIdentifier)")
+            return nil
+        }
+        
+        return FileManager.default.displayName(atPath: bundlePath)
     }
 }
 

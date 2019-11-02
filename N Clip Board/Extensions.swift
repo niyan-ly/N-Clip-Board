@@ -34,6 +34,14 @@ extension String {
     }
 }
 
+extension Array {
+    mutating func removeAll(indexSet: IndexSet) {
+        for index in indexSet {
+            self.remove(at: index)
+        }
+    }
+}
+
 extension Notification.Name {
     static let ShouldReloadCoreData = NSNotification.Name("ShouldReloadCoreData")
 }

@@ -1,0 +1,12 @@
+/* 
+  Localizable.strings
+  N Clip Board
+
+  Created by branson on 2019/11/2.
+  Copyright © 2019 branson. All rights reserved.
+*/
+
+"CleanUpMessage": "确认清除所有剪切板内容吗";
+"CleanUpHint": "你将无法恢复之前的数据";
+"CleanUpConfirmationOfNo" = "取消";
+"CleanUpConfirmationOfYes" = "确认";

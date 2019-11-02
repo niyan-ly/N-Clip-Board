@@ -1,0 +1,21 @@
+
+/* Class = "NSTextFieldCell"; placeholderString = "Search clipboard"; ObjectID = "2N5-Oo-CGr"; */
+"2N5-Oo-CGr.placeholderString" = "搜索";
+
+/* Class = "NSTextFieldCell"; title = "Label"; ObjectID = "4aT-kR-hcs"; */
+"4aT-kR-hcs.title" = "Label";
+
+/* Class = "NSTextFieldCell"; title = "Text Cell"; ObjectID = "G3p-aG-A43"; */
+"G3p-aG-A43.title" = "Text Cell";
+
+/* Class = "NSTextFieldCell"; title = "N"; ObjectID = "PyU-9Y-UaO"; */
+"PyU-9Y-UaO.title" = "N";
+
+/* Class = "NSTextFieldCell"; title = "No Matches"; ObjectID = "RPM-cz-01h"; */
+"RPM-cz-01h.title" = "无数据";
+
+/* Class = "NSWindow"; title = "N Clip Board"; ObjectID = "ZSn-qn-KVT"; */
+"ZSn-qn-KVT.title" = "N Clip Board";
+
+/* Class = "NSTextFieldCell"; title = "Label"; ObjectID = "b3F-m7-O5S"; */
+"b3F-m7-O5S.title" = "Label";

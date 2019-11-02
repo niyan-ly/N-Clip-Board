@@ -14,7 +14,7 @@ extension PreferenceSubView {
     static let advanced = PreferenceSubView("Advanced")
     static let snippets = PreferenceSubView("Snippets")
     static let info = PreferenceSubView("Info")
-    static let appearance = PreferenceSubView("Appearance")
+    static let rules = PreferenceSubView("Rules")
 }
 
 public protocol ViewInitialSize: NSViewController {
@@ -27,7 +27,7 @@ class PreferencePanelController: NSWindowController {
     var generalViewController = GeneralViewController(nibName: "GeneralViewController", bundle: nil)
     var snippetsViewController = SnippetsViewController(nibName: "SnippetsViewController", bundle: nil)
     var advancedViewController = AdvancedViewController(nibName: "AdvancedViewController", bundle: nil)
-    var appearanceViewController = AppearanceViewController(nibName: "AppearanceViewController", bundle: nil)
+    var rulesViewController = RulesViewController(nibName: "RulesViewController", bundle: nil)
 
     override func windowDidLoad() {
         super.windowDidLoad()
@@ -43,8 +43,8 @@ class PreferencePanelController: NSWindowController {
         case .advanced:
             usedViewController = advancedViewController
             break
-        case .appearance:
-            usedViewController = appearanceViewController
+        case .rules:
+            usedViewController = rulesViewController
             break
         case .snippets:
             usedViewController = snippetsViewController

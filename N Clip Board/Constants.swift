@@ -19,6 +19,7 @@ struct Constants {
         static let ShowCleanUpMenuItem = "ShowCleanUpMenuItem"
         static let PollingInterval = "PollingInterval"
         static let ShowPollingIntervalLabel = "ShowPollingIntervalLabel"
+        static let ExcludedAppDict = "ExcludedAppDict"
     }
 }
 

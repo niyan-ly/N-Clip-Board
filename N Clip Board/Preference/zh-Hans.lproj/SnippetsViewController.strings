@@ -1,0 +1,21 @@
+
+/* Class = "NSMenuItem"; title = "Import Snippets"; ObjectID = "7df-Ze-PgZ"; */
+"7df-Ze-PgZ.title" = "导入Snippets";
+
+/* Class = "NSTableColumn"; headerCell.title = "Snippets"; ObjectID = "GX2-n1-p6Q"; */
+"GX2-n1-p6Q.headerCell.title" = "Snippet";
+
+/* Class = "NSTextFieldCell"; title = "Text Cell"; ObjectID = "HkO-bQ-5Se"; */
+"HkO-bQ-5Se.title" = "Text Cell";
+
+/* Class = "NSBox"; title = "Snippet Editor"; ObjectID = "Lnw-UC-wRN"; */
+"Lnw-UC-wRN.title" = "编辑器";
+
+/* Class = "NSMenuItem"; title = "Export Snippets"; ObjectID = "O5y-cj-pFu"; */
+"O5y-cj-pFu.title" = "导出Snippets";
+
+/* Class = "NSTextFieldCell"; title = "Table View Cell"; ObjectID = "Y2y-11-Iy5"; */
+"Y2y-11-Iy5.title" = "Table View Cell";
+
+/* Class = "NSTextFieldCell"; title = "Take effect after window close."; ObjectID = "e7h-Qa-SAi"; */
+"e7h-Qa-SAi.title" = "所有更改将在窗口关闭后生效.";

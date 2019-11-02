@@ -1,0 +1,11 @@
+/* 
+  Localizable.strings
+  N Clip Board
+
+  Created by branson on 2019/11/2.
+  Copyright © 2019 branson. All rights reserved.
+*/
+"CleanUpMessage" = "Do you really want to clean up all items?";
+"CleaUpHint" = "You can't restore later on";
+"CleanUpConfirmationOfNo" = "No";
+"CleanUpConfirmationOfYes" = "Understand";

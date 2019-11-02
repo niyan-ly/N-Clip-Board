@@ -17,8 +17,9 @@ fileprivate class CustomTableRowView: NSTableRowView {
     override func drawSelection(in dirtyRect: NSRect) {
         
         let selectionRect = NSInsetRect(self.bounds, 0, 0)
-        NSColor(red: 0, green: 0.4797514081, blue: 0.998437345, alpha: 1).setStroke()
-        NSColor(red: 0, green: 0.4797514081, blue: 0.998437345, alpha: 0.2).setFill()
+//        NSColor(red: 0, green: 0.4797514081, blue: 0.998437345, alpha: 1).setStroke()
+//        NSColor(red: 0, green: 0.4797514081, blue: 0.998437345, alpha: 0.2).setFill()
+        NSColor.systemBlue.setFill()
         let selectionPath = NSBezierPath.init(rect: selectionRect)
         selectionPath.fill()
         selectionPath.stroke()
@@ -43,9 +44,10 @@ class SearchViewController: NSViewController {
     }
     
     @IBOutlet weak var viewTrigger: NSButton!
-    @IBOutlet var searchField: NSTextField!
-    @IBOutlet var resultListView: NSTableView!
-    @IBOutlet var visualEffectView: NSVisualEffectView!
+    @IBOutlet weak var searchField: NSTextField!
+    @IBOutlet weak var resultListView: NSTableView!
+    @IBOutlet weak var detailView: NSView!
+    @IBOutlet weak var masterView: NSView!
     @IBOutlet weak var dataListController: NSArrayController!
     
     @IBOutlet var containerWindow: NSWindow!
@@ -65,7 +67,7 @@ class SearchViewController: NSViewController {
         }
 
         sortDescripter.append(dateSorter)
-        resultListView.backgroundColor = .clear
+//        resultListView.backgroundColor = .clear
         searchField.isBezeled = false
         searchField.focusRingType = .none
         searchField.font = NSFont.systemFont(ofSize: 28, weight: .light)

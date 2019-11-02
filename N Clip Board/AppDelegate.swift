@@ -55,10 +55,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     func confirmBeforeCleanClipBoard() {
         let alert = NSAlert()
         alert.alertStyle = .warning
-        alert.messageText = "Do you really want to clean up all items?"
-        alert.informativeText = "This won't clean up the system pasteboard"
-        alert.addButton(withTitle: "No")
-        alert.addButton(withTitle: "Remove All")
+        alert.messageText = NSLocalizedString("CleanUpMessage", comment: "")
+        alert.informativeText = NSLocalizedString("CleanUpHint", comment: "")
+        alert.addButton(withTitle: NSLocalizedString("CleanUpConfirmationOfNo", comment: ""))
+        alert.addButton(withTitle: NSLocalizedString("CleanUpConfirmationOfYes", comment: ""))
         let result = alert.runModal()
         if result == .alertSecondButtonReturn {
             clearAllContent()

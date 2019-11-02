@@ -1,0 +1,30 @@
+
+/* Class = "NSMenuItem"; title = "30"; ObjectID = "0Vd-hd-zil"; */
+"0Vd-hd-zil.title" = "30";
+
+/* Class = "NSButtonCell"; title = "Clear Now"; ObjectID = "1Cd-bF-fWb"; */
+"1Cd-bF-fWb.title" = "立即清理";
+
+/* Class = "NSTextFieldCell"; title = "Activate Clipboard"; ObjectID = "DjQ-gf-agn"; */
+"DjQ-gf-agn.title" = "显示剪切板";
+
+/* Class = "NSButtonCell"; title = "Show Clean Up In Menu"; ObjectID = "GaN-f0-QLH"; */
+"GaN-f0-QLH.title" = "在菜单中显示清除";
+
+/* Class = "NSMenuItem"; title = "21"; ObjectID = "Iin-NJ-blV"; */
+"Iin-NJ-blV.title" = "21";
+
+/* Class = "NSButtonCell"; title = "Launch at login"; ObjectID = "Pli-rs-TLm"; */
+"Pli-rs-TLm.title" = "登录时启动";
+
+/* Class = "NSMenuItem"; title = "7"; ObjectID = "ZST-Zg-8nx"; */
+"ZST-Zg-8nx.title" = "7";
+
+/* Class = "NSTextFieldCell"; title = "Days"; ObjectID = "sVE-kp-otB"; */
+"sVE-kp-otB.title" = "天";
+
+/* Class = "NSMenuItem"; title = "14"; ObjectID = "wB6-2r-0N8"; */
+"wB6-2r-0N8.title" = "14";
+
+/* Class = "NSTextFieldCell"; title = "Keep Clipboard item"; ObjectID = "wEv-UC-QUe"; */
+"wEv-UC-QUe.title" = "保存数据至";

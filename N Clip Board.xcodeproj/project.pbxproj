@@ -19,12 +19,16 @@
 		DB2774A123308D0200D4547D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DBEF770F2324F23F00A63D28 /* Assets.xcassets */; };
 		DB2774A92330F8AE00D4547D /* Launcher.app in Copy Files */ = {isa = PBXBuildFile; fileRef = DB27749323308CEA00D4547D /* Launcher.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		DB2774AD2331067300D4547D /* LoggingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB277481233069EF00D4547D /* LoggingService.swift */; };
-		DB38B2F5232D40BE00DFA3A0 /* PreferencePanel.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB38B2F4232D40BE00DFA3A0 /* PreferencePanel.xib */; };
+		DB30A353236D6CE5007CA6AF /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = DB30A355236D6CE5007CA6AF /* Localizable.strings */; };
+		DB30A357236D6D38007CA6AF /* SearchPanel.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB30A359236D6D38007CA6AF /* SearchPanel.xib */; };
+		DB30A35F236D6DD9007CA6AF /* GeneralViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB30A361236D6DD9007CA6AF /* GeneralViewController.xib */; };
+		DB30A364236D6FCA007CA6AF /* PreferencePanel.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB30A366236D6FCA007CA6AF /* PreferencePanel.xib */; };
+		DB30A369236D703F007CA6AF /* AdvancedViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB30A36B236D703F007CA6AF /* AdvancedViewController.xib */; };
+		DB30A36E236D70D0007CA6AF /* SnippetsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB30A370236D70D0007CA6AF /* SnippetsViewController.xib */; };
 		DB482141236C6BCB00BD2545 /* SysMonitorService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB482140236C6BCB00BD2545 /* SysMonitorService.swift */; };
 		DB4CA1EC235D5806007BB8D2 /* AccessibilityService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB4CA1EB235D5806007BB8D2 /* AccessibilityService.swift */; };
 		DB5F25B323290141007993F6 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5F25B223290141007993F6 /* SearchViewController.swift */; };
 		DB5F25B523290200007993F6 /* SearchWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5F25B423290200007993F6 /* SearchWindowController.swift */; };
-		DB5F25B723290624007993F6 /* SearchPanel.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB5F25B623290624007993F6 /* SearchPanel.xib */; };
 		DB655E38232B9AED00262660 /* PreferencePanelController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB655E36232B9AED00262660 /* PreferencePanelController.swift */; };
 		DB655E3B232B9DF100262660 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB655E3A232B9DF100262660 /* Extensions.swift */; };
 		DB655E3D232BBF8600262660 /* ClipBoardService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB655E3C232BBF8600262660 /* ClipBoardService.swift */; };
@@ -34,14 +38,11 @@
 		DB7479D923688963009109D3 /* StoreService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7479D823688963009109D3 /* StoreService.swift */; };
 		DB8ACBA62368732500268908 /* PBItemMO.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8ACBA52368732500268908 /* PBItemMO.swift */; };
 		DB93DE8A232D4FE20074E740 /* GeneralViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB93DE88232D4FE20074E740 /* GeneralViewController.swift */; };
-		DB93DE8B232D4FE20074E740 /* GeneralViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB93DE89232D4FE20074E740 /* GeneralViewController.xib */; };
 		DBA23730236870C300247FE1 /* LabeledMO.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBA2372E236870C300247FE1 /* LabeledMO.swift */; };
 		DBA6F87E232DD47A0081FD48 /* AdvancedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBA6F87C232DD47A0081FD48 /* AdvancedViewController.swift */; };
-		DBA6F87F232DD47A0081FD48 /* AdvancedViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DBA6F87D232DD47A0081FD48 /* AdvancedViewController.xib */; };
 		DBA6F882232E7D820081FD48 /* SnippetsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBA6F880232E7D820081FD48 /* SnippetsViewController.swift */; };
-		DBA6F883232E7D820081FD48 /* SnippetsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DBA6F881232E7D820081FD48 /* SnippetsViewController.xib */; };
-		DBA6F886232E96050081FD48 /* AppearanceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBA6F884232E96050081FD48 /* AppearanceViewController.swift */; };
-		DBA6F887232E96050081FD48 /* AppearanceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DBA6F885232E96050081FD48 /* AppearanceViewController.xib */; };
+		DBA6F886232E96050081FD48 /* RulesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBA6F884232E96050081FD48 /* RulesViewController.swift */; };
+		DBA6F887232E96050081FD48 /* RulesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DBA6F885232E96050081FD48 /* RulesViewController.xib */; };
 		DBC3BE8C2350264900121044 /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC3BE8B2350264900121044 /* Utility.swift */; };
 		DBEBD51F234347BA00233746 /* LoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBEBD51E234347BA00233746 /* LoginService.swift */; };
 		DBEBD52123434C5D00233746 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBEBD52023434C5D00233746 /* Constants.swift */; };
@@ -102,12 +103,22 @@
 		DB2774A223308E9000D4547D /* SwiftyBeaver.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SwiftyBeaver.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB2774AA2330F9BF00D4547D /* libSwiftyBeaver.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libSwiftyBeaver.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB2774AC2330FE0F00D4547D /* N Clip Board.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "N Clip Board.entitlements"; sourceTree = "<group>"; };
-		DB38B2F4232D40BE00DFA3A0 /* PreferencePanel.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PreferencePanel.xib; sourceTree = "<group>"; };
+		DB30A356236D6D02007CA6AF /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		DB30A358236D6D38007CA6AF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/SearchPanel.xib; sourceTree = "<group>"; };
+		DB30A35D236D6D44007CA6AF /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/SearchPanel.strings"; sourceTree = "<group>"; };
+		DB30A35E236D6DA5007CA6AF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		DB30A360236D6DD9007CA6AF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/GeneralViewController.xib; sourceTree = "<group>"; };
+		DB30A363236D6DE1007CA6AF /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/GeneralViewController.strings"; sourceTree = "<group>"; };
+		DB30A365236D6FCA007CA6AF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/PreferencePanel.xib; sourceTree = "<group>"; };
+		DB30A368236D6FCE007CA6AF /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/PreferencePanel.strings"; sourceTree = "<group>"; };
+		DB30A36A236D703F007CA6AF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/AdvancedViewController.xib; sourceTree = "<group>"; };
+		DB30A36D236D7043007CA6AF /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/AdvancedViewController.strings"; sourceTree = "<group>"; };
+		DB30A36F236D70D0007CA6AF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/SnippetsViewController.xib; sourceTree = "<group>"; };
+		DB30A372236D70D5007CA6AF /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/SnippetsViewController.strings"; sourceTree = "<group>"; };
 		DB482140236C6BCB00BD2545 /* SysMonitorService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SysMonitorService.swift; sourceTree = "<group>"; };
 		DB4CA1EB235D5806007BB8D2 /* AccessibilityService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessibilityService.swift; sourceTree = "<group>"; };
 		DB5F25B223290141007993F6 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		DB5F25B423290200007993F6 /* SearchWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchWindowController.swift; sourceTree = "<group>"; };
-		DB5F25B623290624007993F6 /* SearchPanel.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchPanel.xib; sourceTree = "<group>"; };
 		DB655E36232B9AED00262660 /* PreferencePanelController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PreferencePanelController.swift; path = "N Clip Board/Preference/PreferencePanelController.swift"; sourceTree = SOURCE_ROOT; };
 		DB655E3A232B9DF100262660 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		DB655E3C232BBF8600262660 /* ClipBoardService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClipBoardService.swift; sourceTree = "<group>"; };
@@ -117,14 +128,11 @@
 		DB7479D823688963009109D3 /* StoreService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreService.swift; sourceTree = "<group>"; };
 		DB8ACBA52368732500268908 /* PBItemMO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PBItemMO.swift; sourceTree = "<group>"; };
 		DB93DE88232D4FE20074E740 /* GeneralViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralViewController.swift; sourceTree = "<group>"; };
-		DB93DE89232D4FE20074E740 /* GeneralViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GeneralViewController.xib; sourceTree = "<group>"; };
 		DBA2372E236870C300247FE1 /* LabeledMO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LabeledMO.swift; path = "N Clip Board/Model/LabeledMO.swift"; sourceTree = SOURCE_ROOT; };
 		DBA6F87C232DD47A0081FD48 /* AdvancedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvancedViewController.swift; sourceTree = "<group>"; };
-		DBA6F87D232DD47A0081FD48 /* AdvancedViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AdvancedViewController.xib; sourceTree = "<group>"; };
 		DBA6F880232E7D820081FD48 /* SnippetsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnippetsViewController.swift; sourceTree = "<group>"; };
-		DBA6F881232E7D820081FD48 /* SnippetsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SnippetsViewController.xib; sourceTree = "<group>"; };
-		DBA6F884232E96050081FD48 /* AppearanceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppearanceViewController.swift; sourceTree = "<group>"; };
-		DBA6F885232E96050081FD48 /* AppearanceViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AppearanceViewController.xib; sourceTree = "<group>"; };
+		DBA6F884232E96050081FD48 /* RulesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RulesViewController.swift; sourceTree = "<group>"; };
+		DBA6F885232E96050081FD48 /* RulesViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RulesViewController.xib; sourceTree = "<group>"; };
 		DBC3BE8B2350264900121044 /* Utility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utility.swift; sourceTree = "<group>"; };
 		DBEBD51E234347BA00233746 /* LoginService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginService.swift; sourceTree = "<group>"; };
 		DBEBD52023434C5D00233746 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -196,7 +204,7 @@
 			children = (
 				DB5F25B423290200007993F6 /* SearchWindowController.swift */,
 				DB5F25B223290141007993F6 /* SearchViewController.swift */,
-				DB5F25B623290624007993F6 /* SearchPanel.xib */,
+				DB30A359236D6D38007CA6AF /* SearchPanel.xib */,
 			);
 			path = SearchPanel;
 			sourceTree = "<group>";
@@ -250,7 +258,7 @@
 			isa = PBXGroup;
 			children = (
 				DBEF77112324F23F00A63D28 /* MainMenu.xib */,
-				DB38B2F4232D40BE00DFA3A0 /* PreferencePanel.xib */,
+				DB30A366236D6FCA007CA6AF /* PreferencePanel.xib */,
 			);
 			path = MainXIB;
 			sourceTree = "<group>";
@@ -259,14 +267,14 @@
 			isa = PBXGroup;
 			children = (
 				DB655E36232B9AED00262660 /* PreferencePanelController.swift */,
-				DBA6F884232E96050081FD48 /* AppearanceViewController.swift */,
-				DBA6F885232E96050081FD48 /* AppearanceViewController.xib */,
+				DBA6F884232E96050081FD48 /* RulesViewController.swift */,
+				DBA6F885232E96050081FD48 /* RulesViewController.xib */,
 				DB93DE88232D4FE20074E740 /* GeneralViewController.swift */,
-				DB93DE89232D4FE20074E740 /* GeneralViewController.xib */,
+				DB30A361236D6DD9007CA6AF /* GeneralViewController.xib */,
 				DBA6F87C232DD47A0081FD48 /* AdvancedViewController.swift */,
-				DBA6F87D232DD47A0081FD48 /* AdvancedViewController.xib */,
+				DB30A36B236D703F007CA6AF /* AdvancedViewController.xib */,
 				DBA6F880232E7D820081FD48 /* SnippetsViewController.swift */,
-				DBA6F881232E7D820081FD48 /* SnippetsViewController.xib */,
+				DB30A370236D70D0007CA6AF /* SnippetsViewController.xib */,
 			);
 			path = Preference;
 			sourceTree = "<group>";
@@ -296,6 +304,7 @@
 		DBEF770C2324F23F00A63D28 /* N Clip Board */ = {
 			isa = PBXGroup;
 			children = (
+				DB30A355236D6CE5007CA6AF /* Localizable.strings */,
 				DB12A63D235C150200998198 /* SearchPanel */,
 				DB12A639235AAB6500998198 /* Treansformers.swift */,
 				DB12A632235A120100998198 /* Store.xcdatamodeld */,
@@ -410,6 +419,7 @@
 			knownRegions = (
 				en,
 				Base,
+				"zh-Hans",
 			);
 			mainGroup = DBEF77012324F23F00A63D28;
 			productRefGroup = DBEF770B2324F23F00A63D28 /* Products */;
@@ -444,14 +454,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DB5F25B723290624007993F6 /* SearchPanel.xib in Resources */,
-				DBA6F883232E7D820081FD48 /* SnippetsViewController.xib in Resources */,
-				DB93DE8B232D4FE20074E740 /* GeneralViewController.xib in Resources */,
-				DBA6F87F232DD47A0081FD48 /* AdvancedViewController.xib in Resources */,
-				DBA6F887232E96050081FD48 /* AppearanceViewController.xib in Resources */,
+				DB30A357236D6D38007CA6AF /* SearchPanel.xib in Resources */,
+				DB30A36E236D70D0007CA6AF /* SnippetsViewController.xib in Resources */,
+				DB30A35F236D6DD9007CA6AF /* GeneralViewController.xib in Resources */,
+				DB30A369236D703F007CA6AF /* AdvancedViewController.xib in Resources */,
+				DB30A353236D6CE5007CA6AF /* Localizable.strings in Resources */,
+				DBA6F887232E96050081FD48 /* RulesViewController.xib in Resources */,
 				DBEF77102324F23F00A63D28 /* Assets.xcassets in Resources */,
 				DBEF77132324F24000A63D28 /* MainMenu.xib in Resources */,
-				DB38B2F5232D40BE00DFA3A0 /* PreferencePanel.xib in Resources */,
+				DB30A364236D6FCA007CA6AF /* PreferencePanel.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -566,7 +577,7 @@
 				DB27743D232FA32800D4547D /* FileWatcher.swift in Sources */,
 				DB12A634235A120100998198 /* Store.xcdatamodeld in Sources */,
 				DB655E38232B9AED00262660 /* PreferencePanelController.swift in Sources */,
-				DBA6F886232E96050081FD48 /* AppearanceViewController.swift in Sources */,
+				DBA6F886232E96050081FD48 /* RulesViewController.swift in Sources */,
 				DB655E3D232BBF8600262660 /* ClipBoardService.swift in Sources */,
 				DB482141236C6BCB00BD2545 /* SysMonitorService.swift in Sources */,
 				DB12A63A235AAB6500998198 /* Treansformers.swift in Sources */,
@@ -606,6 +617,60 @@
 				DB27749A23308CEB00D4547D /* Base */,
 			);
 			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+		DB30A355236D6CE5007CA6AF /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DB30A356236D6D02007CA6AF /* zh-Hans */,
+				DB30A35E236D6DA5007CA6AF /* en */,
+			);
+			name = Localizable.strings;
+			sourceTree = SOURCE_ROOT;
+		};
+		DB30A359236D6D38007CA6AF /* SearchPanel.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DB30A358236D6D38007CA6AF /* Base */,
+				DB30A35D236D6D44007CA6AF /* zh-Hans */,
+			);
+			name = SearchPanel.xib;
+			sourceTree = "<group>";
+		};
+		DB30A361236D6DD9007CA6AF /* GeneralViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DB30A360236D6DD9007CA6AF /* Base */,
+				DB30A363236D6DE1007CA6AF /* zh-Hans */,
+			);
+			name = GeneralViewController.xib;
+			sourceTree = "<group>";
+		};
+		DB30A366236D6FCA007CA6AF /* PreferencePanel.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DB30A365236D6FCA007CA6AF /* Base */,
+				DB30A368236D6FCE007CA6AF /* zh-Hans */,
+			);
+			name = PreferencePanel.xib;
+			sourceTree = "<group>";
+		};
+		DB30A36B236D703F007CA6AF /* AdvancedViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DB30A36A236D703F007CA6AF /* Base */,
+				DB30A36D236D7043007CA6AF /* zh-Hans */,
+			);
+			name = AdvancedViewController.xib;
+			sourceTree = "<group>";
+		};
+		DB30A370236D70D0007CA6AF /* SnippetsViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DB30A36F236D70D0007CA6AF /* Base */,
+				DB30A372236D70D5007CA6AF /* zh-Hans */,
+			);
+			name = SnippetsViewController.xib;
 			sourceTree = "<group>";
 		};
 		DBEF77112324F23F00A63D28 /* MainMenu.xib */ = {
@@ -709,6 +774,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -770,6 +836,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";

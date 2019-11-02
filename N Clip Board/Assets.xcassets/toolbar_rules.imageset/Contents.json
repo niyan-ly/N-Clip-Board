@@ -6,19 +6,17 @@
     },
     {
       "idiom" : "universal",
-      "filename" : "Black-S.png",
+      "filename" : "tools-ruler-angled.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
+      "filename" : "tools-ruler-angled_2.png",
       "scale" : "3x"
     }
   ],
   "info" : {
     "version" : 1,
     "author" : "xcode"
-  },
-  "properties" : {
-    "template-rendering-intent" : "template"
   }
 }

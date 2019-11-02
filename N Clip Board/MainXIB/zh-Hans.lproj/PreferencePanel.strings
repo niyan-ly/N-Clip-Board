@@ -1,0 +1,27 @@
+
+/* Class = "NSWindow"; title = "Window"; ObjectID = "F0z-JX-Cv5"; */
+"F0z-JX-Cv5.title" = "Window";
+
+/* Class = "NSToolbarItem"; label = "Snippets"; ObjectID = "KLs-z2-dSc"; */
+"KLs-z2-dSc.label" = "Snippet";
+
+/* Class = "NSToolbarItem"; paletteLabel = "Snippets"; ObjectID = "KLs-z2-dSc"; */
+"KLs-z2-dSc.paletteLabel" = "Snippet";
+
+/* Class = "NSToolbarItem"; label = "Rules"; ObjectID = "ceE-u2-CLx"; */
+"ceE-u2-CLx.label" = "规则";
+
+/* Class = "NSToolbarItem"; paletteLabel = "Rules"; ObjectID = "ceE-u2-CLx"; */
+"ceE-u2-CLx.paletteLabel" = "规则";
+
+/* Class = "NSToolbarItem"; label = "General"; ObjectID = "d9n-0j-1gV"; */
+"d9n-0j-1gV.label" = "通用";
+
+/* Class = "NSToolbarItem"; paletteLabel = "General"; ObjectID = "d9n-0j-1gV"; */
+"d9n-0j-1gV.paletteLabel" = "通用";
+
+/* Class = "NSToolbarItem"; label = "Advanced"; ObjectID = "rH1-Lc-nzr"; */
+"rH1-Lc-nzr.label" = "高级";
+
+/* Class = "NSToolbarItem"; paletteLabel = "Advanced"; ObjectID = "rH1-Lc-nzr"; */
+"rH1-Lc-nzr.paletteLabel" = "高级";

@@ -17,7 +17,7 @@
         <window title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" animationBehavior="default" id="F0z-JX-Cv5">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-            <rect key="contentRect" x="196" y="240" width="520" height="270"/>
+            <rect key="contentRect" x="574" y="683" width="520" height="270"/>
             <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
             <view key="contentView" id="se5-gp-TjO">
                 <rect key="frame" x="0.0" y="0.0" width="520" height="270"/>
@@ -32,17 +32,17 @@
                             <action selector="whenToolbarChange:" target="-2" id="Ayx-wZ-SW0"/>
                         </connections>
                     </toolbarItem>
-                    <toolbarItem implicitItemIdentifier="01A3487B-D772-44D9-B086-2B5DB44A7C5D" explicitItemIdentifier="Snippets" label="Snippets" paletteLabel="Snippets" tag="1" image="NSMultipleDocuments" sizingBehavior="auto" selectable="YES" id="KLs-z2-dSc">
+                    <toolbarItem implicitItemIdentifier="01A3487B-D772-44D9-B086-2B5DB44A7C5D" explicitItemIdentifier="Snippets" label="Snippets" paletteLabel="Snippets" tag="1" image="toolbar_snippet" sizingBehavior="auto" selectable="YES" id="KLs-z2-dSc">
                         <connections>
                             <action selector="whenToolbarChange:" target="-2" id="7rD-Zf-PqX"/>
                         </connections>
                     </toolbarItem>
-                    <toolbarItem implicitItemIdentifier="EC2D2D97-1A84-4494-A8E8-AF4F9C8DA16D" explicitItemIdentifier="Advanced" label="Advanced" paletteLabel="Advanced" tag="2" image="NSAdvanced" sizingBehavior="auto" selectable="YES" id="rH1-Lc-nzr">
+                    <toolbarItem implicitItemIdentifier="EC2D2D97-1A84-4494-A8E8-AF4F9C8DA16D" explicitItemIdentifier="Advanced" label="Advanced" paletteLabel="Advanced" tag="2" image="toolbar_advanced" sizingBehavior="auto" selectable="YES" id="rH1-Lc-nzr">
                         <connections>
                             <action selector="whenToolbarChange:" target="-2" id="Jzv-fZ-SGl"/>
                         </connections>
                     </toolbarItem>
-                    <toolbarItem implicitItemIdentifier="383C8163-DF8E-4A53-987C-D2DACAEB1C48" explicitItemIdentifier="Appearance" label="Appearance" paletteLabel="Appearance" tag="1" image="NSColorPanel" sizingBehavior="auto" selectable="YES" id="ceE-u2-CLx">
+                    <toolbarItem implicitItemIdentifier="383C8163-DF8E-4A53-987C-D2DACAEB1C48" explicitItemIdentifier="Rules" label="Rules" paletteLabel="Rules" tag="1" image="toolbar_rules" sizingBehavior="auto" selectable="YES" id="ceE-u2-CLx">
                         <connections>
                             <action selector="whenToolbarChange:" target="-2" id="8oP-lp-zaL"/>
                         </connections>
@@ -62,9 +62,9 @@
         </window>
     </objects>
     <resources>
-        <image name="NSAdvanced" width="32" height="32"/>
-        <image name="NSColorPanel" width="32" height="32"/>
-        <image name="NSMultipleDocuments" width="32" height="32"/>
         <image name="NSPreferencesGeneral" width="32" height="32"/>
+        <image name="toolbar_advanced" width="32" height="32"/>
+        <image name="toolbar_rules" width="32" height="32"/>
+        <image name="toolbar_snippet" width="32" height="28.5"/>
     </resources>
 </document>
