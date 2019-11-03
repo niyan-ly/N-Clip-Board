@@ -7,61 +7,60 @@
 //
 
 import Cocoa
+import MASShortcut
 
 class GeneralViewController: NSViewController, ViewInitialSize {
     @IBOutlet var keepItemView: NSStackView!
     @IBOutlet var cleanUpView: NSStackView!
-    
-    var initialSize: CGSize = .init(width: 480, height: 320)
+    @IBOutlet var masShortcutView: MASShortcutView!
+
+    var initialSize: CGSize = .init(width: 480, height: 348)
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do view setup here.
+        
+        if let storedShortCutValue = UserDefaults.standard.dictionary(forKey: Constants.Userdefaults.ActivationHotKeyDict) as? [String: Int] {
+            
+            let modifierRawValue = storedShortCutValue["modifier"]!
+            let keyCode = storedShortCutValue["keyCode"]!
+            masShortcutView.shortcutValue = MASShortcut(keyCode: keyCode, modifierFlags: .init(rawValue: UInt(modifierRawValue)))
+        }
+        masShortcutView.style = .texturedRect
+//        masShortcutCiew.shortcutValue = .ini
+        masShortcutView.shortcutValueChange = { sender in
+            var useModifier: Int, useKeyCode: Int
+            
+            if let shortcut = sender?.shortcutValue {
+                useModifier = Int(shortcut.modifierFlags.rawValue)
+                useKeyCode = shortcut.keyCode
+            } else {
+                useModifier = Constants.defaultActivationHotKey["modifier"]!
+                useKeyCode = Constants.defaultActivationHotKey["keyCode"]!
+            }
+            
+            let shortcutValue: [String: Int] = ["modifier": useModifier, "keyCode": useKeyCode]
+            UserDefaults.standard.set(shortcutValue, forKey: Constants.Userdefaults.ActivationHotKeyDict)
+
+            let appDelegate = NSApp.delegate as! AppDelegate
+            
+            do {
+                try appDelegate.setActivationHotKey()
+            } catch {
+                UserDefaults.standard.set(Constants.defaultActivationHotKey, forKey: Constants.Userdefaults.ActivationHotKeyDict)
+            }
+        }
     }
     
     @IBAction func clipBoardExpireDateChange(_ sender: NSPopUpButton) {
 //        print(sender.selectedItem?.tag)
     }
     
-    @IBAction func toggleClearUpBtnInMenu(_ sender: NSButton) {
-        guard let appDelegate = NSApp.delegate as? AppDelegate else { return }
-        
-        switch sender.state {
-        case .on:
-            let menuItemOfClear = NSMenuItem(title: "Clean Up", action: #selector(confirmBeforeCleanClipBoard(_:)), keyEquivalent: "")
-            menuItemOfClear.target = self
-
-            appDelegate.statusItem.menu?.insertItem(menuItemOfClear, at: 0)
-            break
-        default:
-            appDelegate.statusItem.menu?.removeItem(at: 0)
-            break
-        }
-    }
-    
-    @IBAction func confirmBeforeCleanClipBoard(_ sender: NSButton) {
-        let alert = NSAlert()
-        alert.alertStyle = .warning
-        alert.messageText = "Do you really want to clean up all items?"
-        alert.informativeText = "This can't be undo"
-        alert.addButton(withTitle: "No")
-        alert.addButton(withTitle: "Remove All")
-        let result = alert.runModal()
-        if result == .alertSecondButtonReturn {
-            clearAllContent()
-        }
-    }
-    
     @IBAction func toggleLaunchAtStartUp(_ sender: NSButton) {
         switch sender.state {
         case .on:
-            NSApp.enableRelaunchOnLogin()
+            LoginService.enable()
         default:
-            NSApp.disableRelaunchOnLogin()
+            LoginService.disable()
         }
-    }
-    
-    func clearAllContent() {
-        print("all content cleared")
     }
 }

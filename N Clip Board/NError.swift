@@ -11,4 +11,5 @@ import Cocoa
 enum NError: Error {
     case ClipBoardTimerHasSetted
     case FileAlreadyBeenWatched
+    case InValidActivationKey
 }

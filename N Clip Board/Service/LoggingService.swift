@@ -20,8 +20,8 @@ class LoggingService {
         let fileDest = FileDestination()
         fileDest.logFileURL = LoggingService.logFileURL
         log.addDestination(ConsoleDestination())
-        logWithFile.addDestination(ConsoleDestination())
         logWithFile.addDestination(fileDest)
+        debugPrint("- logging service ready")
     }
     
     func info(_ message: Any) {
@@ -33,10 +33,10 @@ class LoggingService {
     }
     
     func warn(_ message: Any) {
-        logWithFile.warning(message)
+        logWithFile.warning("⚠️ \(message)")
     }
     
     func error(_ message: Any) {
-        logWithFile.error(message)
+        logWithFile.error("🛑 \(message)")
     }
 }

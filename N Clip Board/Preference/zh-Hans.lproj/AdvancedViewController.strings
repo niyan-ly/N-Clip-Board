@@ -1,0 +1,30 @@
+
+/* Class = "NSTextFieldCell"; title = "Polling Interval"; ObjectID = "2Av-lW-uhE"; */
+"2Av-lW-uhE.title" = "更新间隔";
+
+/* Class = "NSButtonCell"; title = "→"; ObjectID = "Hf4-l5-pAK"; */
+"Hf4-l5-pAK.title" = "→";
+
+/* Class = "NSButtonCell"; title = "?"; ObjectID = "Ruj-1Z-5hu"; */
+"Ruj-1Z-5hu.title" = "?";
+
+/* Class = "NSTextFieldCell"; title = "s"; ObjectID = "U3n-W9-Xz5"; */
+"U3n-W9-Xz5.title" = "s";
+
+/* Class = "NSTextFieldCell"; title = "Because of the limitations of  system mechanism, N Clip Board retrieve pasteboard at a certain rate"; ObjectID = "WS0-Qo-BAp"; */
+"WS0-Qo-BAp.title" = "由于系统的限制，N Clip Board采用轮询的方式来获取系统剪切板数据";
+
+/* Class = "NSTextFieldCell"; title = "File Path"; ObjectID = "WXj-CB-xbQ"; */
+"WXj-CB-xbQ.title" = "路径";
+
+/* Class = "NSTextFieldCell"; title = "1 s"; ObjectID = "aN8-ge-86G"; */
+"aN8-ge-86G.title" = "1 s";
+
+/* Class = "NSTextFieldCell"; title = "Log File"; ObjectID = "ffh-lN-vXp"; */
+"ffh-lN-vXp.title" = "日志文件";
+
+/* Class = "NSTextFieldCell"; title = "Label"; ObjectID = "uaX-1u-By7"; */
+"uaX-1u-By7.title" = "Label";
+
+/* Class = "NSTextFieldCell"; title = "0.2 s"; ObjectID = "xi0-lI-WFM"; */
+"xi0-lI-WFM.title" = "0.2 s";

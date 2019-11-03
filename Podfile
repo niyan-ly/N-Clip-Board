@@ -9,7 +9,9 @@ target 'N Clip Board' do
   pod 'MASShortcut'
   pod 'SwiftyBeaver'
   # Pods for N Clip Board
-
+  target "N Clip BoardTests" do
+    inherit! :search_paths
+  end
 end
 
 target 'Launcher' do
