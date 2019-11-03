@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="15505" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
+        <deployment identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="15505"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -23,7 +24,7 @@
                     <rect key="frame" x="176" y="288" width="115" height="18"/>
                     <buttonCell key="cell" type="check" title="Launch at login" bezelStyle="regularSquare" imagePosition="left" inset="2" id="Pli-rs-TLm">
                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                        <font key="font" metaFont="label" size="13"/>
+                        <font key="font" metaFont="system"/>
                     </buttonCell>
                     <connections>
                         <action selector="toggleLaunchAtStartUp:" target="-2" id="Kox-ug-XzN"/>
@@ -40,7 +41,7 @@
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="8Nz-Kt-dKT">
                     <rect key="frame" x="44" y="256" width="116" height="16"/>
                     <textFieldCell key="cell" lineBreakMode="clipping" alignment="right" title="Activate Clipboard" id="DjQ-gf-agn">
-                        <font key="font" metaFont="label" size="13"/>
+                        <font key="font" metaFont="system"/>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
@@ -48,7 +49,7 @@
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="46t-S0-kxi">
                     <rect key="frame" x="33" y="220" width="127" height="16"/>
                     <textFieldCell key="cell" lineBreakMode="clipping" alignment="right" title="Keep Clipboard item" id="wEv-UC-QUe">
-                        <font key="font" metaFont="label" size="13"/>
+                        <font key="font" metaFont="system"/>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
@@ -60,7 +61,7 @@
                             <rect key="frame" x="-2" y="-3" width="55" height="25"/>
                             <popUpButtonCell key="cell" type="push" title="30" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" tag="30" imageScaling="proportionallyDown" inset="2" selectedItem="0Vd-hd-zil" id="YRa-Yf-D6j">
                                 <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
-                                <font key="font" metaFont="label" size="13"/>
+                                <font key="font" metaFont="system"/>
                                 <menu key="menu" id="QJJ-14-p17">
                                     <items>
                                         <menuItem title="7" tag="7" id="ZST-Zg-8nx">
@@ -107,7 +108,7 @@
                             <rect key="frame" x="-2" y="39" width="166" height="18"/>
                             <buttonCell key="cell" type="check" title="Show Clean Up In Menu" bezelStyle="regularSquare" imagePosition="left" inset="2" id="GaN-f0-QLH">
                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                <font key="font" metaFont="label" size="13"/>
+                                <font key="font" metaFont="system"/>
                             </buttonCell>
                             <connections>
                                 <binding destination="q1G-pB-G6r" name="value" keyPath="values.ShowCleanUpMenuItem" id="sTS-Xu-U4v"/>
@@ -117,7 +118,7 @@
                             <rect key="frame" x="-6" y="-7" width="103" height="32"/>
                             <buttonCell key="cell" type="push" title="Clear Now" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="1Cd-bF-fWb">
                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                <font key="font" metaFont="label" size="13"/>
+                                <font key="font" metaFont="system"/>
                             </buttonCell>
                             <connections>
                                 <action selector="beforeCleaUp:" target="lVz-JX-KLD" id="CLM-QK-bDW"/>
@@ -136,7 +137,7 @@
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="gUf-JJ-Lna">
                     <rect key="frame" x="47" y="97" width="111" height="16"/>
                     <textFieldCell key="cell" lineBreakMode="clipping" title="Focus Search Bar" id="1JN-Yo-AM2">
-                        <font key="font" metaFont="label" size="13"/>
+                        <font key="font" metaFont="system"/>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
@@ -144,7 +145,7 @@
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="FN1-ci-JJP">
                     <rect key="frame" x="76" y="65" width="82" height="16"/>
                     <textFieldCell key="cell" lineBreakMode="clipping" title="Switch Panel" id="pv1-pb-9g2">
-                        <font key="font" metaFont="label" size="13"/>
+                        <font key="font" metaFont="system"/>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
@@ -152,7 +153,7 @@
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="NVF-ex-Gf7">
                     <rect key="frame" x="174" y="65" width="44" height="16"/>
                     <textFieldCell key="cell" lineBreakMode="clipping" title="⌃ + ⇥" id="gUm-9V-84k">
-                        <font key="font" metaFont="label" size="13"/>
+                        <font key="font" metaFont="system"/>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
@@ -160,7 +161,7 @@
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="W6f-re-FN7">
                     <rect key="frame" x="174" y="97" width="39" height="16"/>
                     <textFieldCell key="cell" lineBreakMode="clipping" title="⌘ + L" id="IZl-j2-yH7">
-                        <font key="font" metaFont="label" size="13"/>
+                        <font key="font" metaFont="system"/>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>

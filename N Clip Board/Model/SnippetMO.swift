@@ -18,5 +18,6 @@ class SnippetMO: LabeledMO {
         super.awakeFromInsert()
         
         entityType = "Snippet"
+        label = "label"
     }
 }
