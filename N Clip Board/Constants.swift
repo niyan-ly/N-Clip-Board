@@ -11,6 +11,7 @@ fileprivate let BundleName = "poor-branson.N-Clip-Board"
 struct Constants {
     static let MainBundleName = BundleName
     static let LauncherBundleName = "launcher.".appending(BundleName)
+    static let defaultActivationHotKey = ["modifier": 1179648, "keyCode": 9]
     
     // MARK: - UserDefaults key name
     struct Userdefaults {
@@ -20,6 +21,7 @@ struct Constants {
         static let PollingInterval = "PollingInterval"
         static let ShowPollingIntervalLabel = "ShowPollingIntervalLabel"
         static let ExcludedAppDict = "ExcludedAppDict"
+        static let ActivationHotKeyDict = "ActivationHotKeyDict"
     }
 }
 

@@ -17,7 +17,9 @@ final class Utility {
         preferenceDict[Constants.Userdefaults.KeepClipBoardItemUntil] = 30
         preferenceDict[Constants.Userdefaults.PollingInterval] = 0.4
         preferenceDict[Constants.Userdefaults.ShowPollingIntervalLabel] = false
-        preferenceDict[Constants.Userdefaults.ExcludedAppDict] = [:]
+        preferenceDict[Constants.Userdefaults.ExcludedAppDict] = [String: Bool]()
+        // default using command+shift+v
+        preferenceDict[Constants.Userdefaults.ActivationHotKeyDict] = Constants.defaultActivationHotKey
         
         UserDefaults.standard.register(defaults: preferenceDict)
     }

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		19E731E47B478DB83F8FA979 /* Pods_N_Clip_Board.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D301B6E42FC94B9A4D1E2B10 /* Pods_N_Clip_Board.framework */; };
+		B5179ED2815AD45CBC784A29 /* Pods_N_Clip_BoardTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33C5EA6531A3D33F1E797881 /* Pods_N_Clip_BoardTests.framework */; };
 		D7D306DA5FA32DB1E4BA9464 /* Pods_Launcher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A954E7A8FF480272D714CF03 /* Pods_Launcher.framework */; };
 		DB12A634235A120100998198 /* Store.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DB12A632235A120100998198 /* Store.xcdatamodeld */; };
 		DB12A63A235AAB6500998198 /* Treansformers.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB12A639235AAB6500998198 /* Treansformers.swift */; };
@@ -77,12 +78,14 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		2348498D421B2BB02A3A8161 /* Pods-N Clip BoardTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-N Clip BoardTests.debug.xcconfig"; path = "Target Support Files/Pods-N Clip BoardTests/Pods-N Clip BoardTests.debug.xcconfig"; sourceTree = "<group>"; };
+		33C5EA6531A3D33F1E797881 /* Pods_N_Clip_BoardTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_N_Clip_BoardTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4CF13127831EF3F43BE9AEFD /* Pods-N Clip Board.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-N Clip Board.debug.xcconfig"; path = "Target Support Files/Pods-N Clip Board/Pods-N Clip Board.debug.xcconfig"; sourceTree = "<group>"; };
+		5EF222DAAFF48CBB9FDDDE48 /* Pods-N Clip BoardTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-N Clip BoardTests.release.xcconfig"; path = "Target Support Files/Pods-N Clip BoardTests/Pods-N Clip BoardTests.release.xcconfig"; sourceTree = "<group>"; };
 		A86AC3F3486A62A306A5F88E /* Pods-Launcher.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Launcher.release.xcconfig"; path = "Target Support Files/Pods-Launcher/Pods-Launcher.release.xcconfig"; sourceTree = "<group>"; };
 		A954E7A8FF480272D714CF03 /* Pods_Launcher.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Launcher.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B9F90EB868A137C49ED41B90 /* Pods-N Clip Board.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-N Clip Board.release.xcconfig"; path = "Target Support Files/Pods-N Clip Board/Pods-N Clip Board.release.xcconfig"; sourceTree = "<group>"; };
 		CAFA9EFF4E701D1677ED6DC5 /* Pods-Launcher.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Launcher.debug.xcconfig"; path = "Target Support Files/Pods-Launcher/Pods-Launcher.debug.xcconfig"; sourceTree = "<group>"; };
-		D301B6E42FC94B9A4D1E2B10 /* Pods_N_Clip_Board.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_N_Clip_Board.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB12A633235A120100998198 /* PBStore.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PBStore.xcdatamodel; sourceTree = "<group>"; };
 		DB12A639235AAB6500998198 /* Treansformers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Treansformers.swift; sourceTree = "<group>"; };
 		DB27742F232F866300D4547D /* N Clip BoardTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "N Clip BoardTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -149,6 +152,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B5179ED2815AD45CBC784A29 /* Pods_N_Clip_BoardTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -183,7 +187,7 @@
 				DB277439232F9ABC00D4547D /* ServiceManagement.framework */,
 				DBEF771B2325016E00A63D28 /* OpenQuicklyX.framework */,
 				A954E7A8FF480272D714CF03 /* Pods_Launcher.framework */,
-				D301B6E42FC94B9A4D1E2B10 /* Pods_N_Clip_Board.framework */,
+				33C5EA6531A3D33F1E797881 /* Pods_N_Clip_BoardTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -195,6 +199,8 @@
 				B9F90EB868A137C49ED41B90 /* Pods-N Clip Board.release.xcconfig */,
 				CAFA9EFF4E701D1677ED6DC5 /* Pods-Launcher.debug.xcconfig */,
 				A86AC3F3486A62A306A5F88E /* Pods-Launcher.release.xcconfig */,
+				2348498D421B2BB02A3A8161 /* Pods-N Clip BoardTests.debug.xcconfig */,
+				5EF222DAAFF48CBB9FDDDE48 /* Pods-N Clip BoardTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -331,6 +337,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = DB277436232F866300D4547D /* Build configuration list for PBXNativeTarget "N Clip BoardTests" */;
 			buildPhases = (
+				2DFFE2F74A86E39FBAAA1367 /* [CP] Check Pods Manifest.lock */,
 				DB27742B232F866300D4547D /* Sources */,
 				DB27742C232F866300D4547D /* Frameworks */,
 				DB27742D232F866300D4547D /* Resources */,
@@ -469,6 +476,28 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		2DFFE2F74A86E39FBAAA1367 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-N Clip BoardTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
 		620BDF9542D2E4F27D8AAF15 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -686,6 +715,7 @@
 /* Begin XCBuildConfiguration section */
 		DB277437232F866300D4547D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2348498D421B2BB02A3A8161 /* Pods-N Clip BoardTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Manual;
@@ -707,6 +737,7 @@
 		};
 		DB277438232F866300D4547D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5EF222DAAFF48CBB9FDDDE48 /* Pods-N Clip BoardTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Manual;

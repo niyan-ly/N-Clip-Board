@@ -17,9 +17,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     let searchWindowController = SearchWindowController(windowNibName: "SearchPanel")
     let preferenceWindowController = PreferencePanelController(windowNibName: "PreferencePanel")
-    var statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.squareLength)
     
-    let hk = HotKey(key: .v, modifiers: [.command, .shift])
+    var statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.squareLength)
+    var hk: HotKey?
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         // NSApp.appearance = NSAppearance(named: .aqua)
@@ -35,11 +35,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         if let button = statusItem.button {
             button.image = NSImage(named: "n_status")
         }
-
-        hk.keyDownHandler = {
-            self.searchWindowController.showWindow(self)
-        }
         
+        try? setActivationHotKey()
+
         // initialize UserDefaults configuration
         Utility.registerUserDefaults()
 
@@ -50,6 +48,26 @@ class AppDelegate: NSObject, NSApplicationDelegate {
       // Insert code here to tear down your application
         LoggingService.shared.warn("application will exit")
         ClipBoardService.shared.disableNSPasteboardMonitor()
+    }
+    
+    func setActivationHotKey() throws {
+        guard let activationKey = UserDefaults.standard.dictionary(forKey: Constants.Userdefaults.ActivationHotKeyDict) else {
+            throw NError.InValidActivationKey
+        }
+        
+        guard let modifier = activationKey["modifier"] as? UInt, let keyCode = activationKey["keyCode"] as? UInt32 else {
+            throw NError.InValidActivationKey
+        }
+
+        guard let key = Key(carbonKeyCode: keyCode) else {
+            LoggingService.shared.error("Fail to setActivationHotKey, passed keyCode is: \(keyCode)")
+            throw NError.InValidActivationKey
+        }
+        
+        hk = HotKey(key: key, modifiers: NSEvent.ModifierFlags(rawValue: modifier))
+        hk?.keyDownHandler = {
+            self.searchWindowController.showWindow(self)
+        }
     }
     
     func confirmBeforeCleanClipBoard() {
