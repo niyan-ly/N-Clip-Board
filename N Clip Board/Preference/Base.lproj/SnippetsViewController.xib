@@ -11,6 +11,7 @@
                 <outlet property="helperPopover" destination="Hxg-O8-US3" id="rXk-Ug-Wf7"/>
                 <outlet property="snippetContentEditor" destination="Kzl-6M-ag8" id="h5K-VM-FJ3"/>
                 <outlet property="snippetDataController" destination="xz4-ak-VUv" id="FEo-Bb-GXi"/>
+                <outlet property="snippetTable" destination="Sij-6u-it8" id="lKW-ch-fdc"/>
                 <outlet property="snippetsContextMenu" destination="4wY-15-e0r" id="Ggf-er-Esh"/>
                 <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
             </connections>
@@ -32,7 +33,7 @@
                                 <font key="font" metaFont="system" size="20"/>
                             </buttonCell>
                             <connections>
-                                <action selector="add:" target="xz4-ak-VUv" id="SXm-71-3MI"/>
+                                <action selector="add:" target="xz4-ak-VUv" id="Vy1-6n-okb"/>
                             </connections>
                         </button>
                         <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="S8x-Xs-bR6">
@@ -170,6 +171,7 @@
                                             <color key="insertionPointColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                             <connections>
                                                 <binding destination="-2" name="value" keyPath="selectedObject.content" id="AAL-nt-NsD"/>
+                                                <outlet property="delegate" destination="-2" id="Q7I-LQ-H2W"/>
                                             </connections>
                                         </textView>
                                     </subviews>
@@ -217,7 +219,7 @@
                 <constraint firstItem="JQh-LL-OTN" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" constant="20" symbolic="YES" id="tdn-0o-LRh"/>
                 <constraint firstAttribute="bottom" secondItem="Lnw-UC-wRN" secondAttribute="bottom" constant="48" id="zYg-Wa-qaA"/>
             </constraints>
-            <point key="canvasLocation" x="140" y="153.5"/>
+            <point key="canvasLocation" x="121" y="124"/>
         </customView>
         <menu id="4wY-15-e0r">
             <items>

@@ -27,6 +27,7 @@ class SnippetsViewController: NSViewController, ViewInitialSize {
     @IBOutlet weak var snippetsContextMenu: NSMenu!
     @IBOutlet weak var snippetDataController: NSArrayController!
     @IBOutlet weak var snippetContentEditor: NSTextView!
+    @IBOutlet weak var snippetTable: NSTableView!
     @IBOutlet var helperPopover: NSPopover!
     
     override func viewDidLoad() {
@@ -42,6 +43,10 @@ class SnippetsViewController: NSViewController, ViewInitialSize {
         } catch {
             LoggingService.shared.error("Faile to save data: \(error)")
         }
+    }
+    
+    @IBAction func addSnippet(_ sender: Any) {
+        
     }
     
     @IBAction func showHelper(_ sender: NSButton) {
@@ -70,12 +75,9 @@ extension SnippetsViewController: NSTableViewDelegate {
     }
 }
 
-extension SnippetsViewController: NSTableViewDataSource {
-    func numberOfRows(in tableView: NSTableView) -> Int {
-        return 4
-    }
-    
-    func tableView(_ tableView: NSTableView, objectValueFor tableColumn: NSTableColumn?, row: Int) -> Any? {
-        return "data for: \(row)"
+extension SnippetsViewController: NSTextViewDelegate {    
+    func textDidChange(_ notification: Notification) {
+        guard let textView = notification.object as? NSTextView else { return }
+        selectedObject?.content = textView.string
     }
 }

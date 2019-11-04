@@ -91,12 +91,15 @@ class SearchViewController: NSViewController {
     }
     
     override func awakeFromNib() {
+        NotificationCenter.default.addObserver(forName: .NSManagedObjectContextObjectsDidChange, object: nil, queue: nil) { (notice) in
+            self.resultListView.reloadData()
+        }
     }
     
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
         switch keyPath {
         case "arrangedObjects":
-            print("------ changed")
+            print("arrangedObjects changed")
             checkDataListCount()
         default:
             break
@@ -139,6 +142,19 @@ class SearchViewController: NSViewController {
                 return $0
             }
         }
+        
+        NSEvent.addLocalMonitorForEvents(matching: .keyUp) {
+            switch $0.keyCode {
+            // [Tab key]: 48
+            case 48:
+                if $0.modifierFlags.description == "⌃" {
+                    self.nextView(self)
+                }
+                return nil
+            default:
+                return $0
+            }
+        }
     }
     
     func checkDataListCount() {
@@ -148,7 +164,7 @@ class SearchViewController: NSViewController {
         didChangeValue(forKey: "isDataListEmpty")
     }
     
-    @IBAction func nextView(_ sender: NSButton) {
+    @IBAction func nextView(_ sender: Any) {
         if viewType.rawValue < 2 {
             viewType = SearchPanelViewType(rawValue: viewType.rawValue + 1)!
         } else {
