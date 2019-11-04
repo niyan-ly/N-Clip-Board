@@ -38,7 +38,7 @@ class SearchViewController: NSViewController {
     @objc dynamic var dataFilter: NSPredicate?
     @objc dynamic var sortDescripter = [NSSortDescriptor]()
     @objc dynamic var selected: SelectedItem = .empty
-    @objc dynamic var dataCount = 0
+    @objc dynamic var dataCount = -1
     @objc dynamic var isDataListEmpty: Bool {
         get { dataCount == 0 }
     }
@@ -87,16 +87,16 @@ class SearchViewController: NSViewController {
         searchField.becomeFirstResponder()
         resultListView.selectRowIndexes(.init(integer: 0), byExtendingSelection: false)
         resultListView.scrollRowToVisible(0)
+        dataListController.addObserver(self, forKeyPath: "arrangedObjects", options: [.new], context: nil)
     }
     
     override func awakeFromNib() {
-        dataListController.addObserver(self, forKeyPath: "arrangedObjects", options: [.new], context: nil)
-        checkDataListCount()
     }
     
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
         switch keyPath {
         case "arrangedObjects":
+            print("------ changed")
             checkDataListCount()
         default:
             break
