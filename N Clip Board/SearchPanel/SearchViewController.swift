@@ -38,7 +38,7 @@ class SearchViewController: NSViewController {
     @objc dynamic var dataFilter: NSPredicate?
     @objc dynamic var sortDescripter = [NSSortDescriptor]()
     @objc dynamic var selected: SelectedItem = .empty
-    @objc dynamic var dataCount = 0
+    @objc dynamic var dataCount = -1
     @objc dynamic var isDataListEmpty: Bool {
         get { dataCount == 0 }
     }
@@ -87,16 +87,19 @@ class SearchViewController: NSViewController {
         searchField.becomeFirstResponder()
         resultListView.selectRowIndexes(.init(integer: 0), byExtendingSelection: false)
         resultListView.scrollRowToVisible(0)
+        dataListController.addObserver(self, forKeyPath: "arrangedObjects", options: [.new], context: nil)
     }
     
     override func awakeFromNib() {
-        dataListController.addObserver(self, forKeyPath: "arrangedObjects", options: [.new], context: nil)
-        checkDataListCount()
+        NotificationCenter.default.addObserver(forName: .NSManagedObjectContextObjectsDidChange, object: nil, queue: nil) { (notice) in
+            self.resultListView.reloadData()
+        }
     }
     
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
         switch keyPath {
         case "arrangedObjects":
+            print("arrangedObjects changed")
             checkDataListCount()
         default:
             break
@@ -139,6 +142,19 @@ class SearchViewController: NSViewController {
                 return $0
             }
         }
+        
+        NSEvent.addLocalMonitorForEvents(matching: .keyUp) {
+            switch $0.keyCode {
+            // [Tab key]: 48
+            case 48:
+                if $0.modifierFlags.description == "⌃" {
+                    self.nextView(self)
+                }
+                return nil
+            default:
+                return $0
+            }
+        }
     }
     
     func checkDataListCount() {
@@ -148,7 +164,7 @@ class SearchViewController: NSViewController {
         didChangeValue(forKey: "isDataListEmpty")
     }
     
-    @IBAction func nextView(_ sender: NSButton) {
+    @IBAction func nextView(_ sender: Any) {
         if viewType.rawValue < 2 {
             viewType = SearchPanelViewType(rawValue: viewType.rawValue + 1)!
         } else {

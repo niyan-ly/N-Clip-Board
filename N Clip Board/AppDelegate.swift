@@ -36,10 +36,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             button.image = NSImage(named: "n_status")
         }
         
-        try? setActivationHotKey()
-
         // initialize UserDefaults configuration
         Utility.registerUserDefaults()
+        try? setActivationHotKey()
 
         LoggingService.shared.info("application finished launching")
     }
