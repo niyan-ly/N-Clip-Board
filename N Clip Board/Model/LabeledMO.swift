@@ -16,7 +16,7 @@ public class LabeledMO: NSManagedObject {
         return NSFetchRequest<LabeledMO>(entityName: "Labeled")
     }
 
-    @NSManaged public var content: String
+    @NSManaged public var content: Data?
     @NSManaged public var entityType: String
     @NSManaged public var index: Int
     @NSManaged public var createdAt: Date

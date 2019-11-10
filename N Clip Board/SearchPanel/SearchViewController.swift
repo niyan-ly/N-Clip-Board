@@ -28,17 +28,21 @@ fileprivate class CustomTableRowView: NSTableRowView {
 
 // MARK: view controller
 class SearchViewController: NSViewController {
-    let filterTemplate = NSPredicate(format: "(content LIKE[c] $KEYWORD || label LIKE[c] $KEYWORD) AND entityType IN $ENTITY_TYPE_GROUP")
+    let filterTemplate = NSPredicate(format: "($CONTENT LIKE[cd] $KEYWORD || label LIKE[c] $KEYWORD) AND entityType IN $ENTITY_TYPE_GROUP")
     var viewType: SearchPanelViewType = .All
     
-    @objc dynamic lazy var managedContext: NSManagedObjectContext = {
-        StoreService.shared.managedContext
-    }()
+    @objc dynamic var managedContext: NSManagedObjectContext {
+        get { StoreService.shared.managedContext }
+    }
     
     @objc dynamic var dataFilter: NSPredicate?
     @objc dynamic var sortDescripter = [NSSortDescriptor]()
-    @objc dynamic var selected: SelectedItem = .empty
-    @objc dynamic var dataCount = -1
+    @objc dynamic var selected: LabeledMO?
+    @objc dynamic var dataCount: Int {
+        get {
+            (dataListController.arrangedObjects as? [Any])?.count ?? 0
+        }
+    }
     @objc dynamic var isDataListEmpty: Bool {
         get { dataCount == 0 }
     }
@@ -48,7 +52,8 @@ class SearchViewController: NSViewController {
     @IBOutlet weak var resultListView: NSTableView!
     @IBOutlet weak var detailView: NSView!
     @IBOutlet weak var masterView: NSView!
-    @IBOutlet weak var dataListController: NSArrayController!
+    @IBOutlet weak var dataListController: SearchViewArrayController!
+    @IBOutlet weak var contentView: NSView!
     
     @IBOutlet var containerWindow: NSWindow!
     
@@ -77,9 +82,8 @@ class SearchViewController: NSViewController {
         
         // register handler for core data reload event
         NotificationCenter.default.addObserver(forName: .ShouldReloadCoreData, object: nil, queue: nil) { (notice) in
-            
+
             self.dataListController.fetch(self)
-            self.selected = .empty
         }
     }
     
@@ -87,10 +91,11 @@ class SearchViewController: NSViewController {
         searchField.becomeFirstResponder()
         resultListView.selectRowIndexes(.init(integer: 0), byExtendingSelection: false)
         resultListView.scrollRowToVisible(0)
-        dataListController.addObserver(self, forKeyPath: "arrangedObjects", options: [.new], context: nil)
     }
     
     override func awakeFromNib() {
+        dataListController.addObserver(self, forKeyPath: "arrangedObjects", options: [.new], context: nil)
+        dataListController.addObserver(self, forKeyPath: "selectionIndex", options: [.new], context: nil)
         NotificationCenter.default.addObserver(forName: .NSManagedObjectContextObjectsDidChange, object: nil, queue: nil) { (notice) in
             self.resultListView.reloadData()
         }
@@ -99,10 +104,29 @@ class SearchViewController: NSViewController {
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
         switch keyPath {
         case "arrangedObjects":
-            print("arrangedObjects changed")
-            checkDataListCount()
+            willChangeValue(forKey: "dataCount")
+            didChangeValue(forKey: "dataCount")
+        case "selectionIndex":
+            if let items = dataListController.arrangedObjects as? [LabeledMO] {
+                if items.count > dataListController.selectionIndex {
+                    selected = items[dataListController.selectionIndex]
+
+                    return
+                }
+            }
+            
+            selected = nil
         default:
             break
+        }
+    }
+    
+    override class func keyPathsForValuesAffectingValue(forKey key: String) -> Set<String> {
+        switch key {
+        case "isDataListEmpty":
+            return [#keyPath(dataCount)]
+        default:
+            return []
         }
     }
     
@@ -122,17 +146,17 @@ class SearchViewController: NSViewController {
                 return $0
             // [Enter]: 36
             case 36:
-                if self.selected == .empty {
-                    return nil
-                }
-                // specify paste type
-                if $0.modifierFlags.contains(.command) {
-                    
-                } else {
-                    ClipBoardService.shared.write(content: self.selected.content)
-                    ClipBoardService.shared.paste()
-                }
-                self.containerWindow.close()
+//                if self.selected == .empty {
+//                    return nil
+//                }
+//                // specify paste type
+//                if $0.modifierFlags.contains(.command) {
+//
+//                } else {
+//                    // ClipBoardService.shared.write(content: self.selected.content)
+//                    ClipBoardService.shared.paste()
+//                }
+//                self.containerWindow.close()
                 return nil
             // [Escape key]: 53
             case 53:
@@ -155,13 +179,6 @@ class SearchViewController: NSViewController {
                 return $0
             }
         }
-    }
-    
-    func checkDataListCount() {
-        guard let items = dataListController.arrangedObjects as? [Any] else { return }
-        willChangeValue(forKey: "isDataListEmpty")
-        dataCount = items.count
-        didChangeValue(forKey: "isDataListEmpty")
     }
     
     @IBAction func nextView(_ sender: Any) {
@@ -223,7 +240,7 @@ extension SearchViewController: NSTableViewDelegate {
         if labeld.count > 0 {
             resultListView.selectRowIndexes(.init(integer: 0), byExtendingSelection: false)
         } else {
-            selected = .empty
+//            selected = nil
         }
     }
     
@@ -235,7 +252,7 @@ extension SearchViewController: NSTableViewDelegate {
         guard let item = dataListController.selectedObjects[0] as? LabeledMO else { return }
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
-        selected = .init(title: dateFormatter.string(from: item.createdAt), item.content)
+//        selected = .init(title: dateFormatter.string(from: item.createdAt), item.content)
     }
     
     func tableView(_ tableView: NSTableView, rowViewForRow row: Int) -> NSTableRowView? {
@@ -251,7 +268,12 @@ extension SearchViewController: NSTableViewDelegate {
         
         if entityType == "PBItem" {
             let item = labeledList[row] as! PBItemMO
-            view.content.stringValue = item.content
+            switch NSPasteboard.PasteboardType(item.contentType) {
+            case .string:
+                view.content.stringValue = String(data: item.content!, encoding: .utf8) ?? ""
+            default:
+                view.content.stringValue = ""
+            }
             if let identifier = item.bundleIdentifier {
                 view.icon.image = Utility.findAppIcon(by: identifier)
             } else {
@@ -278,20 +300,5 @@ extension SearchViewController: NSSplitViewDelegate {
     
     func splitView(_ splitView: NSSplitView, constrainMaxCoordinate proposedMaximumPosition: CGFloat, ofSubviewAt dividerIndex: Int) -> CGFloat {
         proposedMaximumPosition - 220
-    }
-}
-
-// MARK: Nested Type
-extension SearchViewController {
-    class SelectedItem: NSObject {
-        @objc dynamic var title: String
-        @objc dynamic var content: String
-        
-        static let empty = SelectedItem(title: "", "")
-        
-        init(title: String, _ content: String) {
-            self.title = title
-            self.content = content
-        }
     }
 }

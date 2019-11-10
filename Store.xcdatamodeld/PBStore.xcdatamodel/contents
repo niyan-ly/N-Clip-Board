@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="15400" systemVersion="19A602" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="15400" systemVersion="19A583" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Labeled" representedClassName="LabeledMO" isAbstract="YES" syncable="YES">
-        <attribute name="content" attributeType="String" defaultValueString=""/>
+        <attribute name="content" optional="YES" attributeType="Binary" defaultValueString=""/>
         <attribute name="createdAt" attributeType="Date" defaultDateTimeInterval="594142200" usesScalarValueType="NO"/>
         <attribute name="entityType" attributeType="String" defaultValueString=""/>
         <attribute name="index" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
@@ -9,11 +9,12 @@
     </entity>
     <entity name="PBItem" representedClassName="PBItemMO" parentEntity="Labeled" syncable="YES">
         <attribute name="bundleIdentifier" optional="YES" attributeType="String"/>
+        <attribute name="contentType" attributeType="String"/>
     </entity>
     <entity name="Snippet" representedClassName="SnippetMO" parentEntity="Labeled" syncable="YES"/>
     <elements>
         <element name="Labeled" positionX="0" positionY="0" width="128" height="118"/>
-        <element name="PBItem" positionX="-296.44921875" positionY="59.21484375" width="128" height="58"/>
+        <element name="PBItem" positionX="-296.44921875" positionY="59.21484375" width="128" height="73"/>
         <element name="Snippet" positionX="-217.2890625" positionY="-129.1328125" width="128" height="43"/>
     </elements>
 </model>

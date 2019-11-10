@@ -15,6 +15,7 @@ class PBItemMO: LabeledMO {
     }
     
     @NSManaged var bundleIdentifier: String?
+    @NSManaged var contentType: String
     
     override func awakeFromInsert() {
         super.awakeFromInsert()

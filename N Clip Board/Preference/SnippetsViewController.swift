@@ -78,6 +78,6 @@ extension SnippetsViewController: NSTableViewDelegate {
 extension SnippetsViewController: NSTextViewDelegate {    
     func textDidChange(_ notification: Notification) {
         guard let textView = notification.object as? NSTextView else { return }
-        selectedObject?.content = textView.string
+        selectedObject?.content = textView.string.data(using: .utf8)
     }
 }

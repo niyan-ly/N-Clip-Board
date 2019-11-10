@@ -27,7 +27,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         SysMonitorService.shared.start()
         
-        ClipBoardService.shared.enableNSPasteboardMonitor(onInsert: nil)
+        ClipBoardService.shared.enableNSPasteboardMonitor()
         // kill launcher after main app was launched
         LoginService.killLauncher()
         
