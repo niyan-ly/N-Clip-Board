@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		19E731E47B478DB83F8FA979 /* Pods_N_Clip_Board.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D301B6E42FC94B9A4D1E2B10 /* Pods_N_Clip_Board.framework */; };
+		19E731E47B478DB83F8FA979 /* (null) in Frameworks */ = {isa = PBXBuildFile; };
 		B5179ED2815AD45CBC784A29 /* Pods_N_Clip_BoardTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33C5EA6531A3D33F1E797881 /* Pods_N_Clip_BoardTests.framework */; };
 		D7D306DA5FA32DB1E4BA9464 /* Pods_Launcher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A954E7A8FF480272D714CF03 /* Pods_Launcher.framework */; };
 		DB12A634235A120100998198 /* Store.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DB12A632235A120100998198 /* Store.xcdatamodeld */; };
@@ -28,6 +28,8 @@
 		DB30A36E236D70D0007CA6AF /* SnippetsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB30A370236D70D0007CA6AF /* SnippetsViewController.xib */; };
 		DB482141236C6BCB00BD2545 /* SysMonitorService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB482140236C6BCB00BD2545 /* SysMonitorService.swift */; };
 		DB4CA1EC235D5806007BB8D2 /* AccessibilityService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB4CA1EB235D5806007BB8D2 /* AccessibilityService.swift */; };
+		DB5EAB8423781C7C002A39B5 /* SearchViewArrayController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5EAB8323781C7B002A39B5 /* SearchViewArrayController.swift */; };
+		DB5EAB8623781C83002A39B5 /* ColorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5EAB8523781C83002A39B5 /* ColorView.swift */; };
 		DB5F25B323290141007993F6 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5F25B223290141007993F6 /* SearchViewController.swift */; };
 		DB5F25B523290200007993F6 /* SearchWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5F25B423290200007993F6 /* SearchWindowController.swift */; };
 		DB655E38232B9AED00262660 /* PreferencePanelController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB655E36232B9AED00262660 /* PreferencePanelController.swift */; };
@@ -120,6 +122,8 @@
 		DB30A372236D70D5007CA6AF /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/SnippetsViewController.strings"; sourceTree = "<group>"; };
 		DB482140236C6BCB00BD2545 /* SysMonitorService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SysMonitorService.swift; sourceTree = "<group>"; };
 		DB4CA1EB235D5806007BB8D2 /* AccessibilityService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessibilityService.swift; sourceTree = "<group>"; };
+		DB5EAB8323781C7B002A39B5 /* SearchViewArrayController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewArrayController.swift; sourceTree = "<group>"; };
+		DB5EAB8523781C83002A39B5 /* ColorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorView.swift; sourceTree = "<group>"; };
 		DB5F25B223290141007993F6 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		DB5F25B423290200007993F6 /* SearchWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchWindowController.swift; sourceTree = "<group>"; };
 		DB655E36232B9AED00262660 /* PreferencePanelController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PreferencePanelController.swift; path = "N Clip Board/Preference/PreferencePanelController.swift"; sourceTree = SOURCE_ROOT; };
@@ -145,6 +149,7 @@
 		DBEF77122324F23F00A63D28 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		DBEF77142324F24000A63D28 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DBEF771B2325016E00A63D28 /* OpenQuicklyX.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = OpenQuicklyX.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DBFD61C42378ECB700A74256 /* Pods_N_Clip_Board.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_N_Clip_Board.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -168,7 +173,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				19E731E47B478DB83F8FA979 /* Pods_N_Clip_Board.framework in Frameworks */,
+				19E731E47B478DB83F8FA979 /* (null) in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -178,6 +183,7 @@
 		C261A11D424A1B6EE9659870 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				DBFD61C42378ECB700A74256 /* Pods_N_Clip_Board.framework */,
 				DB2774AA2330F9BF00D4547D /* libSwiftyBeaver.a */,
 				DB2774A223308E9000D4547D /* SwiftyBeaver.framework */,
 				DB27748C2330740A00D4547D /* SwiftyBeaver.framework */,
@@ -209,7 +215,9 @@
 			isa = PBXGroup;
 			children = (
 				DB5F25B423290200007993F6 /* SearchWindowController.swift */,
+				DB5EAB8523781C83002A39B5 /* ColorView.swift */,
 				DB5F25B223290141007993F6 /* SearchViewController.swift */,
+				DB5EAB8323781C7B002A39B5 /* SearchViewArrayController.swift */,
 				DB30A359236D6D38007CA6AF /* SearchPanel.xib */,
 			);
 			path = SearchPanel;
@@ -607,6 +615,7 @@
 				DB12A634235A120100998198 /* Store.xcdatamodeld in Sources */,
 				DB655E38232B9AED00262660 /* PreferencePanelController.swift in Sources */,
 				DBA6F886232E96050081FD48 /* RulesViewController.swift in Sources */,
+				DB5EAB8623781C83002A39B5 /* ColorView.swift in Sources */,
 				DB655E3D232BBF8600262660 /* ClipBoardService.swift in Sources */,
 				DB482141236C6BCB00BD2545 /* SysMonitorService.swift in Sources */,
 				DB12A63A235AAB6500998198 /* Treansformers.swift in Sources */,
@@ -621,6 +630,7 @@
 				DBA6F87E232DD47A0081FD48 /* AdvancedViewController.swift in Sources */,
 				DBA6F882232E7D820081FD48 /* SnippetsViewController.swift in Sources */,
 				DB93DE8A232D4FE20074E740 /* GeneralViewController.swift in Sources */,
+				DB5EAB8423781C7C002A39B5 /* SearchViewArrayController.swift in Sources */,
 				DBC3BE8C2350264900121044 /* Utility.swift in Sources */,
 				DBEF770E2324F23F00A63D28 /* AppDelegate.swift in Sources */,
 				DB5F25B523290200007993F6 /* SearchWindowController.swift in Sources */,
@@ -933,6 +943,7 @@
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "poor-branson.N-Clip-Board";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -957,6 +968,7 @@
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "poor-branson.N-Clip-Board";
 				PRODUCT_NAME = "$(TARGET_NAME)";

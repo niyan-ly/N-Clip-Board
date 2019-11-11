@@ -13,6 +13,7 @@ class SearchViewArrayController: NSArrayController {
         let objs = objects as NSArray
         
         return objs.sortedArray(using: sortDescriptors).filter { (rawItem) -> Bool in
+            var content = "";
             guard let item = rawItem as? LabeledMO else { return false }
             
             guard let pbItem = item as? PBItemMO else {
@@ -21,9 +22,9 @@ class SearchViewArrayController: NSArrayController {
                 return filterPredicate?.evaluate(with: item, substitutionVariables: ["CONTENT": content!]) ?? false
             }
             
-            guard pbItem.contentType == Constants.stringTypeRawValue else { return false }
-            
-            guard let content = String(data: pbItem.content!, encoding: .utf8) else { return false }
+            if pbItem.contentType == Constants.stringTypeRawValue {
+                content = String(data: pbItem.content!, encoding: .utf8) ?? ""
+            }
 
             return filterPredicate?.evaluate(with: item, substitutionVariables: ["CONTENT": content]) ?? false
         }

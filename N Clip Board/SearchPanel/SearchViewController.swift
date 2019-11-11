@@ -54,7 +54,12 @@ class SearchViewController: NSViewController {
     @IBOutlet weak var masterView: NSView!
     @IBOutlet weak var dataListController: SearchViewArrayController!
     @IBOutlet weak var contentView: NSView!
-    
+    // MARK: contentview
+    @IBOutlet weak var textContainerView: NSScrollView!
+    @IBOutlet weak var colorView: ColorView!
+    @IBOutlet weak var imageView: NSImageView!
+    @IBOutlet weak var textView: NSTextView!
+
     @IBOutlet var containerWindow: NSWindow!
     
     override func viewDidLoad() {
@@ -62,6 +67,9 @@ class SearchViewController: NSViewController {
         
         monitorArrowEvent()
         updateViewTypeTriggerStyle()
+        dataListController.addObserver(self, forKeyPath: "arrangedObjects", options: [.new], context: nil)
+        dataListController.addObserver(self, forKeyPath: "selectionIndex", options: [.new], context: nil)
+        addObserver(self, forKeyPath: "selected", options: [.new], context: nil)
         
         viewTrigger.toolTip = "Show All Content"
         
@@ -89,18 +97,12 @@ class SearchViewController: NSViewController {
     
     override func viewWillAppear() {
         searchField.becomeFirstResponder()
-        resultListView.selectRowIndexes(.init(integer: 0), byExtendingSelection: false)
-        resultListView.scrollRowToVisible(0)
-    }
-    
-    override func awakeFromNib() {
-        dataListController.addObserver(self, forKeyPath: "arrangedObjects", options: [.new], context: nil)
-        dataListController.addObserver(self, forKeyPath: "selectionIndex", options: [.new], context: nil)
+
         NotificationCenter.default.addObserver(forName: .NSManagedObjectContextObjectsDidChange, object: nil, queue: nil) { (notice) in
             self.resultListView.reloadData()
         }
     }
-    
+
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
         switch keyPath {
         case "arrangedObjects":
@@ -114,13 +116,59 @@ class SearchViewController: NSViewController {
                     return
                 }
             }
-            
+
             selected = nil
+        case "selected":
+            switchContentView()
         default:
             break
         }
     }
     
+    func switchContentView() {
+        guard let labeld = selected else {
+            contentView.subviews = []
+            return
+        }
+
+        if labeld.entityType == "PBItem" {
+            var createdView: NSView
+            let pbItem = labeld as! PBItemMO
+            let contentType = NSPasteboard.PasteboardType(pbItem.contentType)
+            
+            switch contentType {
+            case .png:
+                let image = NSImage(data: pbItem.content!)
+                imageView.image = image
+                createdView = imageView
+            case .color:
+                let color = try? NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(pbItem.content!) as? NSColor
+                colorView.color = color
+                createdView = colorView
+            case .string:
+                let stringValue = String(data: pbItem.content!, encoding: .utf8) ?? ""
+                textView.string = stringValue
+                createdView = textContainerView
+            default:
+                LoggingService.shared.warn("unknown type of PBItem to handler")
+                return
+            }
+            
+            contentView.subviews = [createdView]
+        }
+        
+        if labeld.entityType == "Snippet" {
+            let snippet = labeld as! SnippetMO
+            if let data = snippet.content {
+                let stringValue = String(data: data, encoding: .utf8) ?? ""
+                textView.string = stringValue
+                contentView.subviews = [textContainerView]
+            } else {
+                contentView.subviews = []
+            }
+        }
+    }
+
     override class func keyPathsForValuesAffectingValue(forKey key: String) -> Set<String> {
         switch key {
         case "isDataListEmpty":
@@ -129,7 +177,7 @@ class SearchViewController: NSViewController {
             return []
         }
     }
-    
+
     func monitorArrowEvent() {
         NSEvent.addLocalMonitorForEvents(matching: .keyDown) {
             switch $0.keyCode {
@@ -271,9 +319,15 @@ extension SearchViewController: NSTableViewDelegate {
             switch NSPasteboard.PasteboardType(item.contentType) {
             case .string:
                 view.content.stringValue = String(data: item.content!, encoding: .utf8) ?? ""
+            case .png:
+                view.content.stringValue = ""
+            case .color:
+                let color = try? NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(item.content!) as? NSColor
+                view.content.stringValue = "color"
             default:
                 view.content.stringValue = ""
             }
+
             if let identifier = item.bundleIdentifier {
                 view.icon.image = Utility.findAppIcon(by: identifier)
             } else {
