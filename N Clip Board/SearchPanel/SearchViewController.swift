@@ -341,7 +341,10 @@ extension SearchViewController: NSTableViewDelegate {
 
             switch NSPasteboard.PasteboardType(item.contentType) {
             case .string:
+                view.color.isHidden = true
                 view.content.stringValue = String(data: item.content!, encoding: .utf8) ?? ""
+                // update old constraint if needed
+                view.constraints.first(where: { $0.constant == 72 })?.constant = 48
             case .png:
                 view.content.stringValue = ""
             case .color:
@@ -350,7 +353,7 @@ extension SearchViewController: NSTableViewDelegate {
                 view.color.isHidden = false
                 view.color.color = color
                 // update constraint, the default textfield constant is 48
-                view.constraints.first(where: { $0.constant == 48 })?.constant = 72
+                view.constraints.first(where: { $0.firstAnchor == view.content.leadingAnchor })?.constant = 72
             default:
                 view.content.stringValue = ""
             }
