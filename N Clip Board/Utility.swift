@@ -49,6 +49,14 @@ final class Utility {
         
         return FileManager.default.displayName(atPath: bundlePath)
     }
+    
+    static func hexColor(color: NSColor) -> String {
+        let red = Int(round(color.redComponent * 0xff))
+        let blue = Int(round(color.blueComponent * 0xff))
+        let green = Int(round(color.greenComponent * 0xff))
+        
+        return String(format: "#%02X%02X%02X", red, green, blue)
+    }
 }
 
 func warningBox(title: String, message: String) {

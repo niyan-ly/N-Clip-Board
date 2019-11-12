@@ -10,7 +10,8 @@ import Cocoa
 
 @IBDesignable
 class ColorView: NSView {
-    @IBInspectable var color: NSColor?
+    @IBInspectable
+    dynamic var color: NSColor?
     
     override func draw(_ dirtyRect: NSRect) {
         super.draw(dirtyRect)
@@ -21,4 +22,21 @@ class ColorView: NSView {
         NSRect(origin: CGPoint(x: 0, y: 0), size: frame.size).fill()
     }
     
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        
+        wantsLayer = true
+        layer?.cornerRadius = 4
+        addObserver(self, forKeyPath: #keyPath(color), options: [.new], context: nil)
+    }
+    
+//    override class var requiresConstraintBasedLayout: Bool {
+//        get { true }
+//    }
+    
+    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+        if keyPath == "color" {
+            needsDisplay = true
+        }
+    }
 }

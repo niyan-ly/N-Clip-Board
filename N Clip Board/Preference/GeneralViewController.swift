@@ -10,9 +10,9 @@ import Cocoa
 import MASShortcut
 
 class GeneralViewController: NSViewController, ViewInitialSize {
-    @IBOutlet var keepItemView: NSStackView!
-    @IBOutlet var cleanUpView: NSStackView!
-    @IBOutlet var masShortcutView: MASShortcutView!
+    @IBOutlet weak var keepItemView: NSStackView!
+    @IBOutlet weak var cleanUpView: NSStackView!
+    @IBOutlet weak var masShortcutView: MASShortcutView!
 
     var initialSize: CGSize = .init(width: 480, height: 348)
 

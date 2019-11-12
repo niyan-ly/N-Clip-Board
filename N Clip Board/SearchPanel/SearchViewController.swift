@@ -9,8 +9,9 @@
 import Cocoa
 
 class CPCellView: NSTableCellView {
-    @IBOutlet var content: NSTextField!
-    @IBOutlet var icon: NSButton!
+    @IBOutlet weak  var content: NSTextField!
+    @IBOutlet weak var icon: NSButton!
+    @IBOutlet weak var color: ColorView!
 }
 
 fileprivate class CustomTableRowView: NSTableRowView {
@@ -37,7 +38,6 @@ class SearchViewController: NSViewController {
     
     @objc dynamic var dataFilter: NSPredicate?
     @objc dynamic var sortDescripter = [NSSortDescriptor]()
-    @objc dynamic var selected: LabeledMO?
     @objc dynamic var dataCount: Int {
         get {
             (dataListController.arrangedObjects as? [Any])?.count ?? 0
@@ -58,9 +58,10 @@ class SearchViewController: NSViewController {
     @IBOutlet weak var textContainerView: NSScrollView!
     @IBOutlet weak var colorView: ColorView!
     @IBOutlet weak var imageView: NSImageView!
+    @IBOutlet weak var creationDateView: NSTextField!
     @IBOutlet weak var textView: NSTextView!
 
-    @IBOutlet var containerWindow: NSWindow!
+    @IBOutlet weak var containerWindow: NSWindow!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -68,9 +69,7 @@ class SearchViewController: NSViewController {
         monitorArrowEvent()
         updateViewTypeTriggerStyle()
         dataListController.addObserver(self, forKeyPath: "arrangedObjects", options: [.new], context: nil)
-        dataListController.addObserver(self, forKeyPath: "selectionIndex", options: [.new], context: nil)
-        addObserver(self, forKeyPath: "selected", options: [.new], context: nil)
-        
+
         viewTrigger.toolTip = "Show All Content"
         
         let dateSorter = NSSortDescriptor(key: "createdAt", ascending: true) { (rawLHS, rawRHS) -> ComparisonResult in
@@ -80,7 +79,7 @@ class SearchViewController: NSViewController {
         }
 
         sortDescripter.append(dateSorter)
-//        resultListView.backgroundColor = .clear
+        textView.font = NSFont.systemFont(ofSize: 14)
         searchField.isBezeled = false
         searchField.focusRingType = .none
         searchField.font = NSFont.systemFont(ofSize: 28, weight: .light)
@@ -93,6 +92,10 @@ class SearchViewController: NSViewController {
 
             self.dataListController.fetch(self)
         }
+    }
+    
+    override func awakeFromNib() {
+        loadContentView()
     }
     
     override func viewWillAppear() {
@@ -108,31 +111,53 @@ class SearchViewController: NSViewController {
         case "arrangedObjects":
             willChangeValue(forKey: "dataCount")
             didChangeValue(forKey: "dataCount")
-        case "selectionIndex":
-            if let items = dataListController.arrangedObjects as? [LabeledMO] {
-                if items.count > dataListController.selectionIndex {
-                    selected = items[dataListController.selectionIndex]
-
-                    return
-                }
-            }
-
-            selected = nil
-        case "selected":
-            switchContentView()
         default:
             break
         }
     }
     
-    func switchContentView() {
-        guard let labeld = selected else {
+    func loadContentView() {
+        contentView.subviews = [
+            textContainerView,
+            colorView,
+            imageView
+        ]
+        
+        colorView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 20).isActive = true
+        colorView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20).isActive = true
+        colorView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -20).isActive = true
+        colorView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20).isActive = true
+        
+        textContainerView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 20).isActive = true
+        textContainerView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20).isActive = true
+        textContainerView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -20).isActive = true
+        textContainerView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: 0).isActive = true
+        
+        imageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 0).isActive = true
+        imageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 0).isActive = true
+        imageView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: 0).isActive = true
+        imageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: 0).isActive = true
+    }
+    
+    func activateContentView(of view: NSView) {
+        contentView.subviews.forEach { (subView) in
+            if type(of: subView) == type(of: view) {
+                subView.isHidden = false
+            } else {
+                subView.isHidden = true
+            }
+        }
+    }
+    
+    func switchContentView(item: LabeledMO?) {
+        guard let labeld = item else {
             contentView.subviews = []
             return
         }
+        
+        creationDateView.stringValue = ValueTransformer(forName: .DateToString)?.transformedValue(labeld.createdAt) as? String ?? ""
 
         if labeld.entityType == "PBItem" {
-            var createdView: NSView
             let pbItem = labeld as! PBItemMO
             let contentType = NSPasteboard.PasteboardType(pbItem.contentType)
             
@@ -140,21 +165,19 @@ class SearchViewController: NSViewController {
             case .png:
                 let image = NSImage(data: pbItem.content!)
                 imageView.image = image
-                createdView = imageView
+                activateContentView(of: imageView)
             case .color:
                 let color = try? NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(pbItem.content!) as? NSColor
                 colorView.color = color
-                createdView = colorView
+                activateContentView(of: colorView)
             case .string:
                 let stringValue = String(data: pbItem.content!, encoding: .utf8) ?? ""
                 textView.string = stringValue
-                createdView = textContainerView
+                activateContentView(of: textContainerView)
             default:
                 LoggingService.shared.warn("unknown type of PBItem to handler")
                 return
             }
-            
-            contentView.subviews = [createdView]
         }
         
         if labeld.entityType == "Snippet" {
@@ -287,20 +310,19 @@ extension SearchViewController: NSTableViewDelegate {
         
         if labeld.count > 0 {
             resultListView.selectRowIndexes(.init(integer: 0), byExtendingSelection: false)
-        } else {
-//            selected = nil
+            switchContentView(item: labeld[0])
         }
     }
     
     func tableViewSelectionDidChange(_ notification: Notification) {
         guard dataListController.selectedObjects.count > 0 else {
+            // try reset selectionIndex to first when it's empty
             tryToSelectFirst()
             return
         }
-        guard let item = dataListController.selectedObjects[0] as? LabeledMO else { return }
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
-//        selected = .init(title: dateFormatter.string(from: item.createdAt), item.content)
+
+        let item = dataListController.selectedObjects[0] as? LabeledMO
+        switchContentView(item: item)
     }
     
     func tableView(_ tableView: NSTableView, rowViewForRow row: Int) -> NSTableRowView? {
@@ -316,6 +338,7 @@ extension SearchViewController: NSTableViewDelegate {
         
         if entityType == "PBItem" {
             let item = labeledList[row] as! PBItemMO
+
             switch NSPasteboard.PasteboardType(item.contentType) {
             case .string:
                 view.content.stringValue = String(data: item.content!, encoding: .utf8) ?? ""
@@ -323,7 +346,11 @@ extension SearchViewController: NSTableViewDelegate {
                 view.content.stringValue = ""
             case .color:
                 let color = try? NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(item.content!) as? NSColor
-                view.content.stringValue = "color"
+                view.content.stringValue = Utility.hexColor(color: color!)
+                view.color.isHidden = false
+                view.color.color = color
+                // update constraint, the default textfield constant is 48
+                view.constraints.first(where: { $0.constant == 48 })?.constant = 72
             default:
                 view.content.stringValue = ""
             }

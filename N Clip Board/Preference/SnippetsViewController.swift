@@ -28,7 +28,7 @@ class SnippetsViewController: NSViewController, ViewInitialSize {
     @IBOutlet weak var snippetDataController: NSArrayController!
     @IBOutlet weak var snippetContentEditor: NSTextView!
     @IBOutlet weak var snippetTable: NSTableView!
-    @IBOutlet var helperPopover: NSPopover!
+    @IBOutlet weak var helperPopover: NSPopover!
     
     override func viewDidLoad() {
         super.viewDidLoad()
