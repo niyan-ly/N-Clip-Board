@@ -347,6 +347,7 @@ extension SearchViewController: NSTableViewDelegate {
                 view.constraints.first(where: { $0.constant == 72 })?.constant = 48
             case .png:
                 view.content.stringValue = ""
+                view.color.isHidden = true
             case .color:
                 let color = try? NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(item.content!) as? NSColor
                 view.content.stringValue = Utility.hexColor(color: color!)
@@ -361,7 +362,7 @@ extension SearchViewController: NSTableViewDelegate {
             if let identifier = item.bundleIdentifier {
                 view.icon.image = Utility.findAppIcon(by: identifier)
             } else {
-                view.icon.image = NSImage(named: .init("NSApplicationIcon"))
+                view.icon.image = nil
             }
         } else if entityType == "Snippet" {
             view.content.stringValue = (labeledList[row] as! SnippetMO).label!
