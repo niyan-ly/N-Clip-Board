@@ -31,6 +31,7 @@ fileprivate class CustomTableRowView: NSTableRowView {
 class SearchViewController: NSViewController {
     let filterTemplate = NSPredicate(format: "($CONTENT LIKE[cd] $KEYWORD || label LIKE[c] $KEYWORD) AND entityType IN $ENTITY_TYPE_GROUP")
     var viewType: SearchPanelViewType = .All
+    var rowIndexToRemove: Int? = nil
     
     @objc dynamic var managedContext: NSManagedObjectContext {
         get { StoreService.shared.managedContext }
@@ -88,8 +89,8 @@ class SearchViewController: NSViewController {
         view.window?.standardWindowButton(.miniaturizeButton)?.isHidden = true
         
         // register handler for core data reload event
+        // only will be triggered on clea
         NotificationCenter.default.addObserver(forName: .ShouldReloadCoreData, object: nil, queue: nil) { (notice) in
-
             self.dataListController.fetch(self)
         }
     }
@@ -100,10 +101,6 @@ class SearchViewController: NSViewController {
     
     override func viewWillAppear() {
         searchField.becomeFirstResponder()
-
-        NotificationCenter.default.addObserver(forName: .NSManagedObjectContextObjectsDidChange, object: nil, queue: nil) { (notice) in
-            self.resultListView.reloadData()
-        }
     }
 
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
@@ -210,7 +207,7 @@ class SearchViewController: NSViewController {
                 return nil
             // [l]: 37
             case 37:
-                if $0.modifierFlags.contains(.command) {
+                if $0.modifierFlags.intersection(.deviceIndependentFlagsMask) == .command {
                     self.searchField.becomeFirstResponder()
                     return nil
                 }
@@ -228,6 +225,13 @@ class SearchViewController: NSViewController {
 //                    ClipBoardService.shared.paste()
 //                }
 //                self.containerWindow.close()
+                return nil
+            case 2:
+                if $0.modifierFlags.intersection(.deviceIndependentFlagsMask) == .command {
+                    self.rowIndexToRemove = self.resultListView.selectedRow
+                    self.tryToSelectNext()
+                    self.resultListView.removeRows(at: .init(integer: self.rowIndexToRemove!), withAnimation: .slideDown)
+                }
                 return nil
             // [Escape key]: 53
             case 53:
@@ -314,6 +318,17 @@ extension SearchViewController: NSTableViewDelegate {
         }
     }
     
+    func tryToSelectNext() {
+        guard let labeled = dataListController.arrangedObjects as? [LabeledMO] else { return }
+        guard labeled.count > 0 else { return }
+        
+        if dataListController.selectionIndex < labeled.count - 1 {
+            dataListController.setSelectionIndex(dataListController.selectionIndex + 1)
+        } else if dataListController.selectionIndex > 0 {
+            dataListController.setSelectionIndex(dataListController.selectionIndex - 1)
+        }
+    }
+    
     func tableViewSelectionDidChange(_ notification: Notification) {
         guard dataListController.selectedObjects.count > 0 else {
             // try reset selectionIndex to first when it's empty
@@ -323,6 +338,12 @@ extension SearchViewController: NSTableViewDelegate {
 
         let item = dataListController.selectedObjects[0] as? LabeledMO
         switchContentView(item: item)
+    }
+    
+    func tableView(_ tableView: NSTableView, didRemove rowView: NSTableRowView, forRow row: Int) {
+        guard row == -1, let index = rowIndexToRemove else { return }
+        self.dataListController.remove(atArrangedObjectIndex: index)
+        rowIndexToRemove = nil
     }
     
     func tableView(_ tableView: NSTableView, rowViewForRow row: Int) -> NSTableRowView? {
