@@ -22,10 +22,16 @@ class SearchViewArrayController: NSArrayController {
                 return filterPredicate?.evaluate(with: item, substitutionVariables: ["CONTENT": content!]) ?? false
             }
             
-            if pbItem.contentType == Constants.stringTypeRawValue {
+            switch NSPasteboard.PasteboardType(pbItem.contentType) {
+            case .string:
                 content = String(data: pbItem.content!, encoding: .utf8) ?? ""
+            case .color:
+                let color = try! NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(pbItem.content!) as! NSColor
+                content = Utility.hexColor(color: color)
+            default:
+                break
             }
-
+            
             return filterPredicate?.evaluate(with: item, substitutionVariables: ["CONTENT": content]) ?? false
         }
     }

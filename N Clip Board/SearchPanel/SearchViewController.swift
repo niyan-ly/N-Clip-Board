@@ -38,7 +38,7 @@ class SearchViewController: NSViewController {
     }
     
     @objc dynamic var dataFilter: NSPredicate?
-    @objc dynamic var sortDescripter = [NSSortDescriptor]()
+    @objc dynamic var sortDescripter = Constants.genSortDescriptor()
     @objc dynamic var dataCount: Int {
         get {
             (dataListController.arrangedObjects as? [Any])?.count ?? 0
@@ -72,14 +72,7 @@ class SearchViewController: NSViewController {
         dataListController.addObserver(self, forKeyPath: "arrangedObjects", options: [.new], context: nil)
 
         viewTrigger.toolTip = "Show All Content"
-        
-        let dateSorter = NSSortDescriptor(key: "createdAt", ascending: true) { (rawLHS, rawRHS) -> ComparisonResult in
-            guard let lhs = rawLHS as? Date, let rhs = rawRHS as? Date else { return .orderedSame }
 
-            return (lhs > rhs) ? .orderedAscending : .orderedDescending
-        }
-
-        sortDescripter.append(dateSorter)
         textView.font = NSFont.systemFont(ofSize: 14)
         searchField.isBezeled = false
         searchField.focusRingType = .none
@@ -101,6 +94,7 @@ class SearchViewController: NSViewController {
     
     override func viewWillAppear() {
         searchField.becomeFirstResponder()
+        dataListController.fetch(self)
     }
 
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
@@ -172,7 +166,7 @@ class SearchViewController: NSViewController {
                 textView.string = stringValue
                 activateContentView(of: textContainerView)
             default:
-                LoggingService.shared.warn("unknown type of PBItem to handler")
+                LoggingService.shared.warn("unknown type of PBItem to handle with")
                 return
             }
         }
@@ -182,10 +176,11 @@ class SearchViewController: NSViewController {
             if let data = snippet.content {
                 let stringValue = String(data: data, encoding: .utf8) ?? ""
                 textView.string = stringValue
-                contentView.subviews = [textContainerView]
             } else {
-                contentView.subviews = []
+                textView.string = ""
             }
+            
+            activateContentView(of: textContainerView)
         }
     }
 
@@ -211,7 +206,6 @@ class SearchViewController: NSViewController {
                     self.searchField.becomeFirstResponder()
                     return nil
                 }
-                return $0
             // [Enter]: 36
             case 36:
 //                if self.selected == .empty {
@@ -228,18 +222,22 @@ class SearchViewController: NSViewController {
                 return nil
             case 2:
                 if $0.modifierFlags.intersection(.deviceIndependentFlagsMask) == .command {
-                    self.rowIndexToRemove = self.resultListView.selectedRow
-                    self.tryToSelectNext()
-                    self.resultListView.removeRows(at: .init(integer: self.rowIndexToRemove!), withAnimation: .slideDown)
+                    guard let labeled = self.dataListController.selectedObjects[0] as? LabeledMO else { return $0 }
+                    if labeled.entityType == "PBItem" {
+                        self.rowIndexToRemove = self.resultListView.selectedRow
+                        self.tryToSelectNext()
+                        self.resultListView.removeRows(at: .init(integer: self.rowIndexToRemove!), withAnimation: .slideDown)
+                        return nil
+                    }
                 }
-                return nil
             // [Escape key]: 53
             case 53:
                 self.containerWindow.close()
                 return nil
             default:
-                return $0
+                break
             }
+            return $0
         }
         
         NSEvent.addLocalMonitorForEvents(matching: .keyUp) {
@@ -388,6 +386,7 @@ extension SearchViewController: NSTableViewDelegate {
         } else if entityType == "Snippet" {
             view.content.stringValue = (labeledList[row] as! SnippetMO).label!
             view.icon.image = NSImage(imageLiteralResourceName: "icon_snippet")
+            view.color.isHidden = false
         }
         
         return view

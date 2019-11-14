@@ -26,6 +26,16 @@ struct Constants {
         static let ExcludedAppDict = "ExcludedAppDict"
         static let ActivationHotKeyDict = "ActivationHotKeyDict"
     }
+    
+    static func genSortDescriptor(descending: Bool = false) -> [NSSortDescriptor] {
+        return [
+            NSSortDescriptor(key: "createdAt", ascending: true) { (rawLHS, rawRHS) -> ComparisonResult in
+                guard let lhs = rawLHS as? Date, let rhs = rawRHS as? Date else { return .orderedSame }
+                
+                return (lhs > rhs) && !descending ? .orderedAscending : .orderedDescending
+            }
+        ]
+    }
 }
 
 enum SearchPanelViewType: Int {
