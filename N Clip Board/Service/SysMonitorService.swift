@@ -47,12 +47,11 @@ class SysMonitorService: NSObject {
     func monitorSysStatu() {
         NSWorkspace.shared.notificationCenter.addObserver(forName: NSWorkspace.screensDidSleepNotification, object: nil, queue: nil) { (notice) in
             LoggingService.shared.warn("screen will going to sleep")
-        }
-        NSWorkspace.shared.notificationCenter.addObserver(forName: NSWorkspace.willSleepNotification, object: nil, queue: nil) { (notice) in
-            LoggingService.shared.warn("system will going to sleep")
+            ClipBoardService.shared.disableNSPasteboardMonitor()
         }
         NSWorkspace.shared.notificationCenter.addObserver(forName: NSWorkspace.screensDidWakeNotification, object: nil, queue: nil) { (notice) in
             LoggingService.shared.warn("screen awaked")
+            ClipBoardService.shared.enableNSPasteboardMonitor()
         }
     }
 }

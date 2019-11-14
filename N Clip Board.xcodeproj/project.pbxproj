@@ -12,6 +12,7 @@
 		D7D306DA5FA32DB1E4BA9464 /* Pods_Launcher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A954E7A8FF480272D714CF03 /* Pods_Launcher.framework */; };
 		DB12A634235A120100998198 /* Store.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DB12A632235A120100998198 /* Store.xcdatamodeld */; };
 		DB12A63A235AAB6500998198 /* Treansformers.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB12A639235AAB6500998198 /* Treansformers.swift */; };
+		DB1FC254237D48B8006D00F6 /* ExcludAppService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1FC253237D48B8006D00F6 /* ExcludAppService.swift */; };
 		DB277432232F866300D4547D /* N_Clip_BoardTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB277431232F866300D4547D /* N_Clip_BoardTests.swift */; };
 		DB27743D232FA32800D4547D /* FileWatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB27743C232FA32700D4547D /* FileWatcher.swift */; };
 		DB277482233069EF00D4547D /* LoggingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB277481233069EF00D4547D /* LoggingService.swift */; };
@@ -90,6 +91,7 @@
 		CAFA9EFF4E701D1677ED6DC5 /* Pods-Launcher.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Launcher.debug.xcconfig"; path = "Target Support Files/Pods-Launcher/Pods-Launcher.debug.xcconfig"; sourceTree = "<group>"; };
 		DB12A633235A120100998198 /* PBStore.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PBStore.xcdatamodel; sourceTree = "<group>"; };
 		DB12A639235AAB6500998198 /* Treansformers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Treansformers.swift; sourceTree = "<group>"; };
+		DB1FC253237D48B8006D00F6 /* ExcludAppService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExcludAppService.swift; sourceTree = "<group>"; };
 		DB27742F232F866300D4547D /* N Clip BoardTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "N Clip BoardTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB277431232F866300D4547D /* N_Clip_BoardTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = N_Clip_BoardTests.swift; sourceTree = "<group>"; };
 		DB277433232F866300D4547D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -253,6 +255,7 @@
 				DB7479D62368878D009109D3 /* SnippetService.swift */,
 				DB7479D823688963009109D3 /* StoreService.swift */,
 				DB482140236C6BCB00BD2545 /* SysMonitorService.swift */,
+				DB1FC253237D48B8006D00F6 /* ExcludAppService.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -625,6 +628,7 @@
 				DB7479D923688963009109D3 /* StoreService.swift in Sources */,
 				DB8ACBA62368732500268908 /* PBItemMO.swift in Sources */,
 				DB7479D72368878D009109D3 /* SnippetService.swift in Sources */,
+				DB1FC254237D48B8006D00F6 /* ExcludAppService.swift in Sources */,
 				DB655E3B232B9DF100262660 /* Extensions.swift in Sources */,
 				DBEBD52123434C5D00233746 /* Constants.swift in Sources */,
 				DBA6F87E232DD47A0081FD48 /* AdvancedViewController.swift in Sources */,

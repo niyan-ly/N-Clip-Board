@@ -386,7 +386,8 @@ extension SearchViewController: NSTableViewDelegate {
         } else if entityType == "Snippet" {
             view.content.stringValue = (labeledList[row] as! SnippetMO).label!
             view.icon.image = NSImage(imageLiteralResourceName: "icon_snippet")
-            view.color.isHidden = false
+            view.constraints.first(where: { $0.constant == 72 })?.constant = 48
+            view.color.isHidden = true
         }
         
         return view

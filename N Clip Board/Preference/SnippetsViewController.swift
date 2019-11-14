@@ -39,7 +39,11 @@ class SnippetsViewController: NSViewController, ViewInitialSize {
     
     override func viewWillDisappear() {
         if let snippets = snippetDataController.arrangedObjects as? [SnippetMO] {
-            snippets[snippetDataController.selectionIndex].content = snippetContentEditor.string.data(using: .utf8)
+            let index = snippetDataController.selectionIndex
+
+            if index >= 0 && index < snippets.count {
+                snippets[snippetDataController.selectionIndex].content = snippetContentEditor.string.data(using: .utf8)
+            }
         }
         
         guard managedContext.hasChanges else { return }

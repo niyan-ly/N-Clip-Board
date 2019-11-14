@@ -9,7 +9,7 @@
 import Cocoa
 
 class ClipBoardService: NSObject {
-    fileprivate var timer: Timer?
+    private var timer: Timer?
     fileprivate var changeCount = NSPasteboard.general.changeCount
     
     @objc dynamic var pasteboardMirror = [PBItemMO]()
@@ -44,6 +44,8 @@ class ClipBoardService: NSObject {
         guard changeCount != NSPasteboard.general.changeCount else { return }
         
         changeCount = NSPasteboard.general.changeCount
+        
+        guard !ExcludeAppService.shared.isActivatedProcessExcluded() else { return }
         
         guard let items = NSPasteboard.general.pasteboardItems else { return }
         
@@ -84,6 +86,7 @@ class ClipBoardService: NSObject {
     }
     
     func enableNSPasteboardMonitor() {
+        guard timer == nil || timer?.isValid == false else { return }
         var pollingInterval = UserDefaults.standard.double(forKey: Constants.Userdefaults.PollingInterval)
         
         if !(0.2...1).contains(pollingInterval) {
@@ -99,6 +102,7 @@ class ClipBoardService: NSObject {
     @discardableResult
     func disableNSPasteboardMonitor() -> Bool {
         guard let t = timer else { return false }
+        guard t.isValid else { return true }
 
         t.invalidate()
         return true
