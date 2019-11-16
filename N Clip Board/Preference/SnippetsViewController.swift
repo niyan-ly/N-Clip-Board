@@ -23,7 +23,7 @@ class SnippetsViewController: NSViewController, ViewInitialSize {
     
     @objc dynamic var managedContext = StoreService.shared.managedContext
     @objc dynamic var selectedObject: SnippetMO?
-    @objc dynamic let sortDescriptor = Constants.genSortDescriptor(descending: true)
+    @objc dynamic let sortDescriptor = Constants.genSortDescriptor(true)
     
     @IBOutlet weak var snippetsContextMenu: NSMenu!
     @IBOutlet weak var snippetDataController: NSArrayController!

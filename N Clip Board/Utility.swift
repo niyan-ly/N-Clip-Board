@@ -11,7 +11,7 @@ import Cocoa
 final class Utility {
     static func registerUserDefaults() {
         var preferenceDict = Dictionary<String, Any>.init()
-        
+
         preferenceDict[Constants.Userdefaults.LaunchOnStartUp] = false
         preferenceDict[Constants.Userdefaults.ShowCleanUpMenuItem] = false
         preferenceDict[Constants.Userdefaults.KeepClipBoardItemUntil] = 30

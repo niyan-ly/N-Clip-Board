@@ -276,6 +276,8 @@ class SearchViewController: NSViewController {
         case .Snippet:
             viewTrigger.image = .init(imageLiteralResourceName: "Snippet")
             viewTrigger.toolTip = "Show Snippet"
+        @unknown default:
+            break;
         }
 
         updateSearchPredicate()

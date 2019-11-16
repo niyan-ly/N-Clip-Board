@@ -34,8 +34,8 @@ class GeneralViewController: NSViewController, ViewInitialSize {
                 useModifier = Int(shortcut.modifierFlags.rawValue)
                 useKeyCode = shortcut.keyCode
             } else {
-                useModifier = Constants.defaultActivationHotKey["modifier"]!
-                useKeyCode = Constants.defaultActivationHotKey["keyCode"]!
+                useModifier = Constants.defaultActivationHotKey["modifier"] as! Int
+                useKeyCode = Constants.defaultActivationHotKey["keyCode"] as! Int
             }
             
             let shortcutValue: [String: Int] = ["modifier": useModifier, "keyCode": useKeyCode]
