@@ -39,6 +39,8 @@
 		DB91B517237FB85C0052166B /* Launcher.app in Resources */ = {isa = PBXBuildFile; fileRef = DBB039BA237EC9C100F869DC /* Launcher.app */; };
 		DB93DE8A232D4FE20074E740 /* GeneralViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB93DE88232D4FE20074E740 /* GeneralViewController.swift */; };
 		DB94A9F6237FC3A1000644A6 /* Launcher.app in Copy Files */ = {isa = PBXBuildFile; fileRef = DBB039BA237EC9C100F869DC /* Launcher.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		DB94A9F823801605000644A6 /* AutoGCService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB94A9F723801605000644A6 /* AutoGCService.swift */; };
+		DB94A9FA23801F77000644A6 /* AutoGCServiceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB94A9F923801F77000644A6 /* AutoGCServiceTest.swift */; };
 		DBA23730236870C300247FE1 /* LabeledMO.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBA2372E236870C300247FE1 /* LabeledMO.swift */; };
 		DBA6F87E232DD47A0081FD48 /* AdvancedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBA6F87C232DD47A0081FD48 /* AdvancedViewController.swift */; };
 		DBA6F882232E7D820081FD48 /* SnippetsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBA6F880232E7D820081FD48 /* SnippetsViewController.swift */; };
@@ -147,6 +149,8 @@
 		DB8ACBA52368732500268908 /* PBItemMO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PBItemMO.swift; sourceTree = "<group>"; };
 		DB91B4D8237F91900052166B /* LoginService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginService.swift; sourceTree = "<group>"; };
 		DB93DE88232D4FE20074E740 /* GeneralViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralViewController.swift; sourceTree = "<group>"; };
+		DB94A9F723801605000644A6 /* AutoGCService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoGCService.swift; sourceTree = "<group>"; };
+		DB94A9F923801F77000644A6 /* AutoGCServiceTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoGCServiceTest.swift; sourceTree = "<group>"; };
 		DBA2372E236870C300247FE1 /* LabeledMO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LabeledMO.swift; path = "N Clip Board/Model/LabeledMO.swift"; sourceTree = SOURCE_ROOT; };
 		DBA6F87C232DD47A0081FD48 /* AdvancedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvancedViewController.swift; sourceTree = "<group>"; };
 		DBA6F880232E7D820081FD48 /* SnippetsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnippetsViewController.swift; sourceTree = "<group>"; };
@@ -257,6 +261,7 @@
 			isa = PBXGroup;
 			children = (
 				DB277431232F866300D4547D /* N_Clip_BoardTests.swift */,
+				DB94A9F923801F77000644A6 /* AutoGCServiceTest.swift */,
 				DB277433232F866300D4547D /* Info.plist */,
 			);
 			path = "N Clip BoardTests";
@@ -274,6 +279,7 @@
 				DB7479D823688963009109D3 /* StoreService.swift */,
 				DB482140236C6BCB00BD2545 /* SysMonitorService.swift */,
 				DB1FC253237D48B8006D00F6 /* ExcludAppService.swift */,
+				DB94A9F723801605000644A6 /* AutoGCService.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -579,6 +585,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DB94A9FA23801F77000644A6 /* AutoGCServiceTest.swift in Sources */,
 				DB277432232F866300D4547D /* N_Clip_BoardTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -619,6 +626,7 @@
 				DBA6F87E232DD47A0081FD48 /* AdvancedViewController.swift in Sources */,
 				DBA6F882232E7D820081FD48 /* SnippetsViewController.swift in Sources */,
 				DB93DE8A232D4FE20074E740 /* GeneralViewController.swift in Sources */,
+				DB94A9F823801605000644A6 /* AutoGCService.swift in Sources */,
 				DB5EAB8423781C7C002A39B5 /* SearchViewArrayController.swift in Sources */,
 				DBC3BE8C2350264900121044 /* Utility.swift in Sources */,
 				DBEF770E2324F23F00A63D28 /* AppDelegate.swift in Sources */,
@@ -779,6 +787,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "Launcher.poor-branson.N-Clip-Board";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -797,6 +806,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "Launcher.poor-branson.N-Clip-Board";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -936,6 +946,7 @@
 					"@executable_path/../Frameworks",
 					"@loader_path/../Frameworks",
 				);
+				MARKETING_VERSION = 0.2.6;
 				PRODUCT_BUNDLE_IDENTIFIER = "poor-branson.N-Clip-Board";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -962,6 +973,7 @@
 					"@executable_path/../Frameworks",
 					"@loader_path/../Frameworks",
 				);
+				MARKETING_VERSION = 0.2.6;
 				PRODUCT_BUNDLE_IDENTIFIER = "poor-branson.N-Clip-Board";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";

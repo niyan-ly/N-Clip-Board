@@ -15,6 +15,7 @@ import Foundation
 class N_Clip_BoardTests: XCTestCase {
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.
+        
     }
 
     override func tearDown() {
@@ -26,13 +27,5 @@ class N_Clip_BoardTests: XCTestCase {
         // Use XCTAssert and related functions to verify your tests produce the correct results.
     }
 
-    func testKeyCode() {
-        let key = Key(carbonKeyCode: 9)
-        switch key {
-        case .v:
-            XCTAssert(true)
-        default:
-            XCTAssert(false)
-        }
-    }
+    
 }

@@ -48,6 +48,8 @@ class SysMonitorService: NSObject {
         NSWorkspace.shared.notificationCenter.addObserver(forName: NSWorkspace.screensDidSleepNotification, object: nil, queue: nil) { (notice) in
             LoggingService.shared.warn("screen will going to sleep")
             ClipBoardService.shared.disableNSPasteboardMonitor()
+            // try to clean up expired clip item
+            AutoGCService.collect()
         }
         NSWorkspace.shared.notificationCenter.addObserver(forName: NSWorkspace.screensDidWakeNotification, object: nil, queue: nil) { (notice) in
             LoggingService.shared.warn("screen awaked")
