@@ -48,9 +48,9 @@ static NSString *BundleName = @"poor-branson.N-Clip-Board";
             NSDate *lhs = ((NSDate *)rawLHS);
             NSDate *rhs = ((NSDate *)rawRHS);
             if (descending) {
-                return lhs > rhs ? NSOrderedDescending : NSOrderedAscending;
+                return [lhs compare:rhs];
             }
-            return lhs > rhs ? NSOrderedAscending : NSOrderedDescending;
+            return [rhs compare:lhs];
         }]
     ];
 }
