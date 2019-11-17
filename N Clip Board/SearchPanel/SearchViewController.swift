@@ -9,8 +9,9 @@
 import Cocoa
 
 class CPCellView: NSTableCellView {
-    @IBOutlet var content: NSTextField!
-    @IBOutlet var icon: NSButton!
+    @IBOutlet weak  var content: NSTextField!
+    @IBOutlet weak var icon: NSButton!
+    @IBOutlet weak var color: ColorView!
 }
 
 fileprivate class CustomTableRowView: NSTableRowView {
@@ -28,17 +29,21 @@ fileprivate class CustomTableRowView: NSTableRowView {
 
 // MARK: view controller
 class SearchViewController: NSViewController {
-    let filterTemplate = NSPredicate(format: "(content LIKE[c] $KEYWORD || label LIKE[c] $KEYWORD) AND entityType IN $ENTITY_TYPE_GROUP")
+    let filterTemplate = NSPredicate(format: "($CONTENT LIKE[cd] $KEYWORD || label LIKE[c] $KEYWORD) AND entityType IN $ENTITY_TYPE_GROUP")
     var viewType: SearchPanelViewType = .All
+    var rowIndexToRemove: Int? = nil
     
-    @objc dynamic lazy var managedContext: NSManagedObjectContext = {
-        StoreService.shared.managedContext
-    }()
+    @objc dynamic var managedContext: NSManagedObjectContext {
+        get { StoreService.shared.managedContext }
+    }
     
     @objc dynamic var dataFilter: NSPredicate?
-    @objc dynamic var sortDescripter = [NSSortDescriptor]()
-    @objc dynamic var selected: SelectedItem = .empty
-    @objc dynamic var dataCount = -1
+    @objc dynamic var sortDescripter = Constants.genSortDescriptor()
+    @objc dynamic var dataCount: Int {
+        get {
+            (dataListController.arrangedObjects as? [Any])?.count ?? 0
+        }
+    }
     @objc dynamic var isDataListEmpty: Bool {
         get { dataCount == 0 }
     }
@@ -48,26 +53,27 @@ class SearchViewController: NSViewController {
     @IBOutlet weak var resultListView: NSTableView!
     @IBOutlet weak var detailView: NSView!
     @IBOutlet weak var masterView: NSView!
-    @IBOutlet weak var dataListController: NSArrayController!
-    
-    @IBOutlet var containerWindow: NSWindow!
+    @IBOutlet weak var dataListController: SearchViewArrayController!
+    @IBOutlet weak var contentView: NSView!
+    // MARK: contentview
+    @IBOutlet weak var textContainerView: NSScrollView!
+    @IBOutlet weak var colorView: ColorView!
+    @IBOutlet weak var imageView: NSImageView!
+    @IBOutlet weak var creationDateView: NSTextField!
+    @IBOutlet weak var textView: NSTextView!
+
+    @IBOutlet weak var containerWindow: NSWindow!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         monitorArrowEvent()
         updateViewTypeTriggerStyle()
-        
+        dataListController.addObserver(self, forKeyPath: "arrangedObjects", options: [.new], context: nil)
+
         viewTrigger.toolTip = "Show All Content"
-        
-        let dateSorter = NSSortDescriptor(key: "createdAt", ascending: true) { (rawLHS, rawRHS) -> ComparisonResult in
-            guard let lhs = rawLHS as? Date, let rhs = rawRHS as? Date else { return .orderedSame }
 
-            return (lhs > rhs) ? .orderedAscending : .orderedDescending
-        }
-
-        sortDescripter.append(dateSorter)
-//        resultListView.backgroundColor = .clear
+        textView.font = NSFont.systemFont(ofSize: 14)
         searchField.isBezeled = false
         searchField.focusRingType = .none
         searchField.font = NSFont.systemFont(ofSize: 28, weight: .light)
@@ -76,36 +82,119 @@ class SearchViewController: NSViewController {
         view.window?.standardWindowButton(.miniaturizeButton)?.isHidden = true
         
         // register handler for core data reload event
+        // only will be triggered on clea
         NotificationCenter.default.addObserver(forName: .ShouldReloadCoreData, object: nil, queue: nil) { (notice) in
-            
             self.dataListController.fetch(self)
-            self.selected = .empty
         }
+    }
+    
+    override func awakeFromNib() {
+        loadContentView()
     }
     
     override func viewWillAppear() {
         searchField.becomeFirstResponder()
-        resultListView.selectRowIndexes(.init(integer: 0), byExtendingSelection: false)
-        resultListView.scrollRowToVisible(0)
-        dataListController.addObserver(self, forKeyPath: "arrangedObjects", options: [.new], context: nil)
+        dataListController.fetch(self)
     }
-    
-    override func awakeFromNib() {
-        NotificationCenter.default.addObserver(forName: .NSManagedObjectContextObjectsDidChange, object: nil, queue: nil) { (notice) in
-            self.resultListView.reloadData()
-        }
-    }
-    
+
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
         switch keyPath {
         case "arrangedObjects":
-            print("arrangedObjects changed")
-            checkDataListCount()
+            willChangeValue(forKey: "dataCount")
+            didChangeValue(forKey: "dataCount")
         default:
             break
         }
     }
     
+    func loadContentView() {
+        contentView.subviews = [
+            textContainerView,
+            colorView,
+            imageView
+        ]
+        
+        colorView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 20).isActive = true
+        colorView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20).isActive = true
+        colorView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -20).isActive = true
+        colorView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20).isActive = true
+        
+        textContainerView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 20).isActive = true
+        textContainerView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20).isActive = true
+        textContainerView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -20).isActive = true
+        textContainerView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: 0).isActive = true
+        
+        imageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 0).isActive = true
+        imageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 0).isActive = true
+        imageView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: 0).isActive = true
+        imageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: 0).isActive = true
+    }
+    
+    func activateContentView(of view: NSView) {
+        contentView.subviews.forEach { (subView) in
+            if type(of: subView) == type(of: view) {
+                subView.isHidden = false
+            } else {
+                subView.isHidden = true
+            }
+        }
+    }
+    
+    func switchContentView(item: LabeledMO?) {
+        guard let labeld = item else {
+            contentView.subviews = []
+            return
+        }
+        
+        creationDateView.stringValue = ValueTransformer(forName: .DateToString)?.transformedValue(labeld.createdAt) as? String ?? ""
+
+        if labeld.entityType == "PBItem" {
+            let pbItem = labeld as! PBItemMO
+            let contentType = NSPasteboard.PasteboardType(pbItem.contentType)
+            
+            switch contentType {
+            case .png:
+                let image = NSImage(data: pbItem.content!)
+                imageView.image = image
+                activateContentView(of: imageView)
+            case .color:
+                let color = try? NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(pbItem.content!) as? NSColor
+                colorView.color = color
+                activateContentView(of: colorView)
+            case .string:
+                let stringValue = String(data: pbItem.content!, encoding: .utf8) ?? ""
+                textView.string = stringValue
+                activateContentView(of: textContainerView)
+            default:
+                LoggingService.shared.warn("unknown type of PBItem to handle with")
+                return
+            }
+        }
+        
+        if labeld.entityType == "Snippet" {
+            let snippet = labeld as! SnippetMO
+            if let data = snippet.content {
+                let stringValue = String(data: data, encoding: .utf8) ?? ""
+                textView.string = stringValue
+            } else {
+                textView.string = ""
+            }
+            
+            activateContentView(of: textContainerView)
+        }
+    }
+
+    override class func keyPathsForValuesAffectingValue(forKey key: String) -> Set<String> {
+        switch key {
+        case "isDataListEmpty":
+            return [#keyPath(dataCount)]
+        default:
+            return []
+        }
+    }
+    
+    
+
     func monitorArrowEvent() {
         NSEvent.addLocalMonitorForEvents(matching: .keyDown) {
             switch $0.keyCode {
@@ -115,32 +204,38 @@ class SearchViewController: NSViewController {
                 return nil
             // [l]: 37
             case 37:
-                if $0.modifierFlags.contains(.command) {
+                if $0.modifierFlags.intersection(.deviceIndependentFlagsMask) == .command {
                     self.searchField.becomeFirstResponder()
                     return nil
                 }
-                return $0
             // [Enter]: 36
             case 36:
-                if self.selected == .empty {
-                    return nil
-                }
-                // specify paste type
-                if $0.modifierFlags.contains(.command) {
-                    
-                } else {
-                    ClipBoardService.shared.write(content: self.selected.content)
-                    ClipBoardService.shared.paste()
-                }
+                let list = self.dataListController.selectedObjects as! [LabeledMO]
+                guard list.count > 0 else { break }
+
+                ClipBoardService.shared.write(of: list[0])
+                ClipBoardService.shared.paste()
                 self.containerWindow.close()
                 return nil
+            // [D] delete record
+            case 2:
+                if $0.modifierFlags.intersection(.deviceIndependentFlagsMask) == .command {
+                    guard let labeled = self.dataListController.selectedObjects[0] as? LabeledMO else { return $0 }
+                    if labeled.entityType == "PBItem" {
+                        self.rowIndexToRemove = self.resultListView.selectedRow
+                        self.tryToSelectNext()
+                        self.resultListView.removeRows(at: .init(integer: self.rowIndexToRemove!), withAnimation: .slideDown)
+                        return nil
+                    }
+                }
             // [Escape key]: 53
             case 53:
                 self.containerWindow.close()
                 return nil
             default:
-                return $0
+                break
             }
+            return $0
         }
         
         NSEvent.addLocalMonitorForEvents(matching: .keyUp) {
@@ -155,13 +250,6 @@ class SearchViewController: NSViewController {
                 return $0
             }
         }
-    }
-    
-    func checkDataListCount() {
-        guard let items = dataListController.arrangedObjects as? [Any] else { return }
-        willChangeValue(forKey: "isDataListEmpty")
-        dataCount = items.count
-        didChangeValue(forKey: "isDataListEmpty")
     }
     
     @IBAction func nextView(_ sender: Any) {
@@ -186,6 +274,8 @@ class SearchViewController: NSViewController {
         case .Snippet:
             viewTrigger.image = .init(imageLiteralResourceName: "Snippet")
             viewTrigger.toolTip = "Show Snippet"
+        @unknown default:
+            break;
         }
 
         updateSearchPredicate()
@@ -222,20 +312,36 @@ extension SearchViewController: NSTableViewDelegate {
         
         if labeld.count > 0 {
             resultListView.selectRowIndexes(.init(integer: 0), byExtendingSelection: false)
-        } else {
-            selected = .empty
+            switchContentView(item: labeld[0])
+        }
+    }
+    
+    func tryToSelectNext() {
+        guard let labeled = dataListController.arrangedObjects as? [LabeledMO] else { return }
+        guard labeled.count > 0 else { return }
+        
+        if dataListController.selectionIndex < labeled.count - 1 {
+            dataListController.setSelectionIndex(dataListController.selectionIndex + 1)
+        } else if dataListController.selectionIndex > 0 {
+            dataListController.setSelectionIndex(dataListController.selectionIndex - 1)
         }
     }
     
     func tableViewSelectionDidChange(_ notification: Notification) {
         guard dataListController.selectedObjects.count > 0 else {
+            // try reset selectionIndex to first when it's empty
             tryToSelectFirst()
             return
         }
-        guard let item = dataListController.selectedObjects[0] as? LabeledMO else { return }
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
-        selected = .init(title: dateFormatter.string(from: item.createdAt), item.content)
+
+        let item = dataListController.selectedObjects[0] as? LabeledMO
+        switchContentView(item: item)
+    }
+    
+    func tableView(_ tableView: NSTableView, didRemove rowView: NSTableRowView, forRow row: Int) {
+        guard row == -1, let index = rowIndexToRemove else { return }
+        self.dataListController.remove(atArrangedObjectIndex: index)
+        rowIndexToRemove = nil
     }
     
     func tableView(_ tableView: NSTableView, rowViewForRow row: Int) -> NSTableRowView? {
@@ -251,15 +357,37 @@ extension SearchViewController: NSTableViewDelegate {
         
         if entityType == "PBItem" {
             let item = labeledList[row] as! PBItemMO
-            view.content.stringValue = item.content
+
+            switch NSPasteboard.PasteboardType(item.contentType) {
+            case .string:
+                view.color.isHidden = true
+                view.content.stringValue = String(data: item.content!, encoding: .utf8) ?? ""
+                // update old constraint if needed
+                view.constraints.first(where: { $0.constant == 72 })?.constant = 48
+            case .png:
+                view.content.stringValue = ""
+                view.color.isHidden = true
+            case .color:
+                let color = try? NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(item.content!) as? NSColor
+                view.content.stringValue = Utility.hexColor(color: color!)
+                view.color.isHidden = false
+                view.color.color = color
+                // update constraint, the default textfield constant is 48
+                view.constraints.first(where: { $0.firstAnchor == view.content.leadingAnchor })?.constant = 72
+            default:
+                view.content.stringValue = ""
+            }
+
             if let identifier = item.bundleIdentifier {
                 view.icon.image = Utility.findAppIcon(by: identifier)
             } else {
-                view.icon.image = NSImage(named: .init("NSApplicationIcon"))
+                view.icon.image = nil
             }
         } else if entityType == "Snippet" {
             view.content.stringValue = (labeledList[row] as! SnippetMO).label!
             view.icon.image = NSImage(imageLiteralResourceName: "icon_snippet")
+            view.constraints.first(where: { $0.constant == 72 })?.constant = 48
+            view.color.isHidden = true
         }
         
         return view
@@ -278,20 +406,5 @@ extension SearchViewController: NSSplitViewDelegate {
     
     func splitView(_ splitView: NSSplitView, constrainMaxCoordinate proposedMaximumPosition: CGFloat, ofSubviewAt dividerIndex: Int) -> CGFloat {
         proposedMaximumPosition - 220
-    }
-}
-
-// MARK: Nested Type
-extension SearchViewController {
-    class SelectedItem: NSObject {
-        @objc dynamic var title: String
-        @objc dynamic var content: String
-        
-        static let empty = SelectedItem(title: "", "")
-        
-        init(title: String, _ content: String) {
-            self.title = title
-            self.content = content
-        }
     }
 }

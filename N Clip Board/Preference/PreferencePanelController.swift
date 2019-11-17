@@ -22,7 +22,7 @@ public protocol ViewInitialSize: NSViewController {
 }
 
 class PreferencePanelController: NSWindowController {
-    @IBOutlet var toolbar: NSToolbar!
+    @IBOutlet weak var toolbar: NSToolbar!
     
     var generalViewController = GeneralViewController(nibName: "GeneralViewController", bundle: nil)
     var snippetsViewController = SnippetsViewController(nibName: "SnippetsViewController", bundle: nil)

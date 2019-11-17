@@ -33,7 +33,7 @@ class LoginService {
         
         if isRunning {
             LoggingService.shared.warn("kill launcher")
-            DistributedNotificationCenter.default().post(name: .init("killlauncher"), object: Bundle.main.bundleIdentifier!)
+            DistributedNotificationCenter.default().post(name: .init("killLauncher"), object: Bundle.main.bundleIdentifier!)
         }
     }
 }

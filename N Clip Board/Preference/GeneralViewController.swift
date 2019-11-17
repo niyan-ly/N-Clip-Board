@@ -10,9 +10,9 @@ import Cocoa
 import MASShortcut
 
 class GeneralViewController: NSViewController, ViewInitialSize {
-    @IBOutlet var keepItemView: NSStackView!
-    @IBOutlet var cleanUpView: NSStackView!
-    @IBOutlet var masShortcutView: MASShortcutView!
+    @IBOutlet weak var keepItemView: NSStackView!
+    @IBOutlet weak var cleanUpView: NSStackView!
+    @IBOutlet weak var masShortcutView: MASShortcutView!
 
     var initialSize: CGSize = .init(width: 480, height: 348)
 
@@ -34,8 +34,8 @@ class GeneralViewController: NSViewController, ViewInitialSize {
                 useModifier = Int(shortcut.modifierFlags.rawValue)
                 useKeyCode = shortcut.keyCode
             } else {
-                useModifier = Constants.defaultActivationHotKey["modifier"]!
-                useKeyCode = Constants.defaultActivationHotKey["keyCode"]!
+                useModifier = Constants.defaultActivationHotKey["modifier"] as! Int
+                useKeyCode = Constants.defaultActivationHotKey["keyCode"] as! Int
             }
             
             let shortcutValue: [String: Int] = ["modifier": useModifier, "keyCode": useKeyCode]

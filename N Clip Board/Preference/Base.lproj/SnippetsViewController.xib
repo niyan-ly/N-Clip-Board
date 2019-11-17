@@ -128,7 +128,6 @@
                                 <connections>
                                     <binding destination="xz4-ak-VUv" name="content" keyPath="arrangedObjects" id="PHQ-3Z-tpJ"/>
                                     <binding destination="xz4-ak-VUv" name="selectionIndexes" keyPath="selectionIndexes" previousBinding="PHQ-3Z-tpJ" id="oEs-wR-dKF"/>
-                                    <outlet property="delegate" destination="-2" id="mIr-JQ-hFf"/>
                                 </connections>
                             </tableView>
                         </subviews>
@@ -161,7 +160,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="340" height="355"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
-                                        <textView importsGraphics="NO" richText="NO" verticallyResizable="YES" findStyle="bar" smartInsertDelete="YES" id="Kzl-6M-ag8">
+                                        <textView importsGraphics="NO" richText="NO" verticallyResizable="YES" findStyle="bar" allowsUndo="YES" smartInsertDelete="YES" id="Kzl-6M-ag8">
                                             <rect key="frame" x="0.0" y="0.0" width="340" height="355"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
@@ -170,8 +169,11 @@
                                             <size key="maxSize" width="620" height="10000000"/>
                                             <color key="insertionPointColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                             <connections>
-                                                <binding destination="-2" name="value" keyPath="selectedObject.content" id="AAL-nt-NsD"/>
-                                                <outlet property="delegate" destination="-2" id="Q7I-LQ-H2W"/>
+                                                <binding destination="xz4-ak-VUv" name="value" keyPath="selection.content" id="feV-d9-31N">
+                                                    <dictionary key="options">
+                                                        <string key="NSValueTransformerName">BinaryToString</string>
+                                                    </dictionary>
+                                                </binding>
                                             </connections>
                                         </textView>
                                     </subviews>
@@ -241,6 +243,7 @@
         <arrayController mode="entity" entityName="Snippet" automaticallyPreparesContent="YES" id="xz4-ak-VUv">
             <connections>
                 <binding destination="-2" name="managedObjectContext" keyPath="managedContext" id="5Qt-Oo-U7s"/>
+                <binding destination="-2" name="sortDescriptors" keyPath="sortDescriptor" id="rRy-Yl-I0x"/>
             </connections>
         </arrayController>
         <viewController id="cow-RO-ojW" userLabel="Popover View Controller">

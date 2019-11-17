@@ -15,10 +15,30 @@ class PBItemMO: LabeledMO {
     }
     
     @NSManaged var bundleIdentifier: String?
+    @NSManaged var contentType: String
     
     override func awakeFromInsert() {
         super.awakeFromInsert()
         
         entityType = "PBItem"
+    }
+}
+
+extension PBItemMO: NSPasteboardWriting {
+    func writableTypes(for pasteboard: NSPasteboard) -> [NSPasteboard.PasteboardType] {
+        let itemType = NSPasteboard.PasteboardType(contentType)
+        return itemType == .color ? [.string, itemType] : [itemType]
+    }
+    
+    func pasteboardPropertyList(forType type: NSPasteboard.PasteboardType) -> Any? {
+        if type == .string && contentType == NSPasteboard.PasteboardType.color.rawValue {
+            guard let color = try? NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(content!) as? NSColor else { return nil }
+            return Utility.hexColor(color: color)
+        }
+        return content
+    }
+    
+    func writingOptions(forType type: NSPasteboard.PasteboardType, pasteboard: NSPasteboard) -> NSPasteboard.WritingOptions {
+        return []
     }
 }

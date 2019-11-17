@@ -44,7 +44,7 @@
                                             <constraint firstAttribute="height" constant="36" id="jTg-2A-W5A"/>
                                         </constraints>
                                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" placeholderString="Search Content" bezelStyle="round" id="2N5-Oo-CGr">
-                                            <font key="font" metaFont="label" size="12"/>
+                                            <font key="font" metaFont="controlContent"/>
                                             <color key="textColor" red="1" green="1" blue="1" alpha="0.84705882352941175" colorSpace="custom" customColorSpace="displayP3"/>
                                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                         </textFieldCell>
@@ -140,7 +140,7 @@
                                                     <tableColumns>
                                                         <tableColumn editable="NO" width="223" minWidth="40" maxWidth="1000" id="c9V-LE-NFE">
                                                             <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border">
-                                                                <font key="font" metaFont="message" size="11"/>
+                                                                <font key="font" metaFont="label" size="11"/>
                                                                 <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                                 <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
                                                             </tableHeaderCell>
@@ -166,6 +166,10 @@
                                                                                 <font key="font" metaFont="system"/>
                                                                             </buttonCell>
                                                                         </button>
+                                                                        <customView id="Vhg-pe-w69" customClass="ColorView" customModule="N_Clip_Board" customModuleProvider="target">
+                                                                            <rect key="frame" x="48" y="20" width="18" height="18"/>
+                                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                                        </customView>
                                                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="rZG-OP-1Js">
                                                                             <rect key="frame" x="46" y="16" width="161" height="18"/>
                                                                             <constraints>
@@ -186,6 +190,7 @@
                                                                         <constraint firstItem="rZG-OP-1Js" firstAttribute="centerY" secondItem="Jdj-Fl-8GJ" secondAttribute="centerY" id="yBi-3N-GIi"/>
                                                                     </constraints>
                                                                     <connections>
+                                                                        <outlet property="color" destination="Vhg-pe-w69" id="buq-7H-JV3"/>
                                                                         <outlet property="content" destination="rZG-OP-1Js" id="mz4-aE-Hlg"/>
                                                                         <outlet property="icon" destination="lb4-Qp-2Aa" id="tDl-Qa-dlE"/>
                                                                     </connections>
@@ -237,46 +242,8 @@
                                         </textFieldCell>
                                         <connections>
                                             <binding destination="IGv-UE-2Ye" name="hidden" keyPath="isDataListEmpty" id="H1D-jl-vkR"/>
-                                            <binding destination="IGv-UE-2Ye" name="value" keyPath="selected.title" id="6lR-Oq-Qcg"/>
                                         </connections>
                                     </textField>
-                                    <scrollView borderType="none" autohidesScrollers="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a7N-eT-GZ4">
-                                        <rect key="frame" x="32" y="0.0" width="405" height="277"/>
-                                        <clipView key="contentView" drawsBackground="NO" copiesOnScroll="NO" id="ir7-UP-BkA">
-                                            <rect key="frame" x="0.0" y="0.0" width="405" height="277"/>
-                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                            <subviews>
-                                                <textView editable="NO" drawsBackground="NO" importsGraphics="NO" richText="NO" verticallyResizable="YES" smartInsertDelete="YES" id="UTm-vU-qMG">
-                                                    <rect key="frame" x="0.0" y="0.0" width="405" height="277"/>
-                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                                    <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
-                                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                                    <size key="minSize" width="405" height="277"/>
-                                                    <size key="maxSize" width="407" height="10000000"/>
-                                                    <color key="insertionPointColor" name="textColor" catalog="System" colorSpace="catalog"/>
-                                                    <connections>
-                                                        <binding destination="IGv-UE-2Ye" name="value" keyPath="selected.content" id="reY-tp-SCN">
-                                                            <dictionary key="options">
-                                                                <bool key="NSAllowsEditingMultipleValuesSelection" value="NO"/>
-                                                                <bool key="NSConditionallySetsEditable" value="NO"/>
-                                                            </dictionary>
-                                                        </binding>
-                                                    </connections>
-                                                </textView>
-                                            </subviews>
-                                        </clipView>
-                                        <scroller key="horizontalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="YES" id="MY1-fb-GqD">
-                                            <rect key="frame" x="-100" y="-100" width="240" height="16"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </scroller>
-                                        <scroller key="verticalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="NO" id="XAn-bf-UpD">
-                                            <rect key="frame" x="389" y="0.0" width="16" height="277"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </scroller>
-                                        <connections>
-                                            <binding destination="IGv-UE-2Ye" name="hidden" keyPath="isDataListEmpty" id="V0W-Cb-BfZ"/>
-                                        </connections>
-                                    </scrollView>
                                     <box verticalHuggingPriority="750" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="z3m-vL-lRy">
                                         <rect key="frame" x="20" y="283" width="128" height="5"/>
                                         <constraints>
@@ -301,18 +268,24 @@
                                             </binding>
                                         </connections>
                                     </textField>
+                                    <customView translatesAutoresizingMaskIntoConstraints="NO" id="RhC-8S-4es">
+                                        <rect key="frame" x="0.0" y="0.0" width="453" height="277"/>
+                                        <connections>
+                                            <binding destination="IGv-UE-2Ye" name="hidden" keyPath="isDataListEmpty" id="vzr-vh-FST"/>
+                                        </connections>
+                                    </customView>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="a7N-eT-GZ4" firstAttribute="leading" secondItem="cGx-QJ-3Ik" secondAttribute="leading" constant="32" id="9w3-TA-hgw"/>
+                                    <constraint firstItem="RhC-8S-4es" firstAttribute="leading" secondItem="cGx-QJ-3Ik" secondAttribute="leading" id="D4j-st-21A"/>
+                                    <constraint firstAttribute="bottom" secondItem="RhC-8S-4es" secondAttribute="bottom" id="G1u-U2-duj"/>
+                                    <constraint firstItem="RhC-8S-4es" firstAttribute="trailing" secondItem="cGx-QJ-3Ik" secondAttribute="trailing" id="Q61-XO-GBy"/>
+                                    <constraint firstItem="RhC-8S-4es" firstAttribute="top" secondItem="cGx-QJ-3Ik" secondAttribute="top" priority="750" constant="42" id="Uxf-y1-Wjg"/>
                                     <constraint firstItem="z3m-vL-lRy" firstAttribute="leading" secondItem="cGx-QJ-3Ik" secondAttribute="leading" constant="20" symbolic="YES" id="azI-Re-8UJ"/>
                                     <constraint firstItem="mfl-fT-ZHT" firstAttribute="centerY" secondItem="cGx-QJ-3Ik" secondAttribute="centerY" priority="250" id="chK-mi-Mms"/>
                                     <constraint firstItem="ufU-W6-DuC" firstAttribute="top" secondItem="cGx-QJ-3Ik" secondAttribute="top" priority="750" constant="8" id="dq8-dE-SJc"/>
-                                    <constraint firstItem="a7N-eT-GZ4" firstAttribute="top" secondItem="cGx-QJ-3Ik" secondAttribute="top" priority="750" constant="42" id="f46-Z8-FBl"/>
-                                    <constraint firstItem="a7N-eT-GZ4" firstAttribute="trailing" secondItem="cGx-QJ-3Ik" secondAttribute="trailing" constant="-16" id="lld-Wo-Ijc"/>
                                     <constraint firstItem="z3m-vL-lRy" firstAttribute="top" secondItem="ufU-W6-DuC" secondAttribute="bottom" constant="8" id="p2T-YF-G1o"/>
                                     <constraint firstItem="ufU-W6-DuC" firstAttribute="trailing" secondItem="cGx-QJ-3Ik" secondAttribute="trailing" constant="-16" id="qsg-QT-w3T"/>
                                     <constraint firstItem="ufU-W6-DuC" firstAttribute="leading" secondItem="cGx-QJ-3Ik" secondAttribute="leading" constant="20" symbolic="YES" id="tgW-kI-3OR"/>
-                                    <constraint firstItem="a7N-eT-GZ4" firstAttribute="bottom" secondItem="cGx-QJ-3Ik" secondAttribute="bottom" id="yo4-4z-0JB"/>
                                     <constraint firstItem="mfl-fT-ZHT" firstAttribute="centerX" secondItem="cGx-QJ-3Ik" secondAttribute="centerX" priority="250" id="zUB-Nd-j07"/>
                                 </constraints>
                             </customView>
@@ -347,23 +320,70 @@
         </window>
         <customObject id="IGv-UE-2Ye" customClass="SearchViewController" customModule="N_Clip_Board" customModuleProvider="target">
             <connections>
+                <outlet property="colorView" destination="Rr3-Oz-LHF" id="peH-Au-u1c"/>
                 <outlet property="containerWindow" destination="ZSn-qn-KVT" id="8hI-7M-ld7"/>
+                <outlet property="contentView" destination="RhC-8S-4es" id="PaU-gh-zvx"/>
+                <outlet property="creationDateView" destination="ufU-W6-DuC" id="2Hf-tZ-6dI"/>
                 <outlet property="dataListController" destination="wqn-Tq-jQP" id="UvD-XD-OMY"/>
                 <outlet property="detailView" destination="cGx-QJ-3Ik" id="czS-aB-JZC"/>
+                <outlet property="imageView" destination="DM3-i6-sut" id="dBU-of-40Z"/>
                 <outlet property="masterView" destination="ta8-wW-tz0" id="74b-ld-C6I"/>
                 <outlet property="resultListView" destination="DHk-E8-KKh" id="kk8-RE-8tv"/>
                 <outlet property="searchField" destination="VCv-Xh-1Ea" id="Sml-gD-63X"/>
+                <outlet property="textContainerView" destination="a7N-eT-GZ4" id="HAH-RW-Xhz"/>
+                <outlet property="textView" destination="UTm-vU-qMG" id="36J-zd-pSM"/>
                 <outlet property="view" destination="fh9-jm-Ppz" id="ygl-hf-TzJ"/>
                 <outlet property="viewTrigger" destination="DZn-04-cxw" id="fxV-bV-iuo"/>
             </connections>
         </customObject>
-        <arrayController mode="entity" entityName="Labeled" automaticallyPreparesContent="YES" id="wqn-Tq-jQP">
+        <arrayController mode="entity" entityName="Labeled" automaticallyPreparesContent="YES" id="wqn-Tq-jQP" customClass="SearchViewArrayController" customModule="N_Clip_Board" customModuleProvider="target">
             <connections>
-                <binding destination="IGv-UE-2Ye" name="filterPredicate" keyPath="dataFilter" id="Myg-K9-1gR"/>
+                <binding destination="IGv-UE-2Ye" name="filterPredicate" keyPath="dataFilter" id="TXW-0c-46M"/>
                 <binding destination="IGv-UE-2Ye" name="managedObjectContext" keyPath="managedContext" id="NU3-mP-WHg"/>
-                <binding destination="IGv-UE-2Ye" name="sortDescriptors" keyPath="sortDescripter" previousBinding="Myg-K9-1gR" id="idz-zI-n1r"/>
+                <binding destination="IGv-UE-2Ye" name="sortDescriptors" keyPath="sortDescripter" previousBinding="TXW-0c-46M" id="cHn-xK-8bp"/>
             </connections>
         </arrayController>
+        <scrollView borderType="none" autohidesScrollers="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a7N-eT-GZ4">
+            <rect key="frame" x="0.0" y="0.0" width="405" height="257"/>
+            <clipView key="contentView" drawsBackground="NO" copiesOnScroll="NO" id="ir7-UP-BkA">
+                <rect key="frame" x="0.0" y="0.0" width="405" height="257"/>
+                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                <subviews>
+                    <textView editable="NO" drawsBackground="NO" importsGraphics="NO" richText="NO" verticallyResizable="YES" smartInsertDelete="YES" id="UTm-vU-qMG">
+                        <rect key="frame" x="0.0" y="0.0" width="405" height="257"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                        <size key="minSize" width="405" height="257"/>
+                        <size key="maxSize" width="407" height="10000000"/>
+                        <color key="insertionPointColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                    </textView>
+                </subviews>
+            </clipView>
+            <scroller key="horizontalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="YES" id="MY1-fb-GqD">
+                <rect key="frame" x="-100" y="-100" width="240" height="16"/>
+                <autoresizingMask key="autoresizingMask"/>
+            </scroller>
+            <scroller key="verticalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="NO" id="XAn-bf-UpD">
+                <rect key="frame" x="389" y="0.0" width="16" height="277"/>
+                <autoresizingMask key="autoresizingMask"/>
+            </scroller>
+            <point key="canvasLocation" x="2" y="516"/>
+        </scrollView>
+        <customView translatesAutoresizingMaskIntoConstraints="NO" id="Rr3-Oz-LHF" customClass="ColorView" customModule="N_Clip_Board" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="163" height="96"/>
+            <userDefinedRuntimeAttributes>
+                <userDefinedRuntimeAttribute type="color" keyPath="color">
+                    <color key="value" name="systemBlueColor" catalog="System" colorSpace="catalog"/>
+                </userDefinedRuntimeAttribute>
+            </userDefinedRuntimeAttributes>
+            <point key="canvasLocation" x="410" y="532"/>
+        </customView>
+        <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="DM3-i6-sut">
+            <rect key="frame" x="0.0" y="0.0" width="405" height="277"/>
+            <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" id="DaD-2M-okb"/>
+            <point key="canvasLocation" x="419" y="867"/>
+        </imageView>
     </objects>
     <resources>
         <image name="All" width="16.5" height="16.5"/>

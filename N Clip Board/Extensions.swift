@@ -42,6 +42,12 @@ extension Array {
     }
 }
 
+extension Array where Element == String {
+    func intersect(with others: [String]) -> [Element] {
+        filter({ others.contains($0) })
+    }
+}
+
 extension Notification.Name {
     static let ShouldReloadCoreData = NSNotification.Name("ShouldReloadCoreData")
 }

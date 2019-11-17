@@ -9,10 +9,7 @@
 import Cocoa
 
 class ClipBoardService: NSObject {
-    
-    var lastItem: PBItemMO?
-    fileprivate var timer: Timer?
-    private var onInsert: ((NSPasteboardItem) -> Void)? = nil
+    private var timer: Timer?
     fileprivate var changeCount = NSPasteboard.general.changeCount
     
     @objc dynamic var pasteboardMirror = [PBItemMO]()
@@ -24,7 +21,7 @@ class ClipBoardService: NSObject {
         observeManagedContext()
     }
     // MARK: Singleton shared instance
-    static let shared = ClipBoardService()
+    @objc static let shared = ClipBoardService()
     
     private func observeManagedContext() {
         NotificationCenter.default.addObserver(forName: .NSManagedObjectContextObjectsDidChange, object: nil, queue: nil) { (notice) in
@@ -45,26 +42,30 @@ class ClipBoardService: NSObject {
     private func saveUserCopiedItemIntoStore() {
         // MARK: detect whether paste updated or not
         guard changeCount != NSPasteboard.general.changeCount else { return }
-        
         changeCount = NSPasteboard.general.changeCount
         
+        guard !ExcludeAppService.shared.isActivatedProcessExcluded() else { return }
+        
         guard let items = NSPasteboard.general.pasteboardItems else { return }
-
+        
         for item in items {
-            if onInsert != nil {
-                onInsert!(item)
+            guard item.types.contains(where: { Constants.supportedPasteboardType.contains($0) }) else {
+                return
             }
+
+            let pbItem = PBItemMO(context: StoreService.shared.managedContext)
+            pbItem.index = changeCount
+            pbItem.bundleIdentifier = SysMonitorService.shared.activatedAppBundleIdentifier
             
-            if let data = item.string(forType: .string) {
-                // skip duplicated content
-                if lastItem?.content == data {
-                    break
-                }
-                let item = PBItemMO(context: StoreService.shared.managedContext)
-                item.index = changeCount
-                item.content = data
-                item.bundleIdentifier = SysMonitorService.shared.activatedAppBundleIdentifier
-                lastItem = item
+            if item.types.contains(.png) {
+                pbItem.content = item.data(forType: .png)
+                pbItem.contentType = NSPasteboard.PasteboardType.png.rawValue
+            } else if item.types.contains(.color) {
+                pbItem.content = item.data(forType: .color)
+                pbItem.contentType = NSPasteboard.PasteboardType.color.rawValue
+            } else if item.types.contains(.string) {
+                pbItem.content = item.data(forType: .string)
+                pbItem.contentType = NSPasteboard.PasteboardType.string.rawValue
             }
         }
         
@@ -77,15 +78,26 @@ class ClipBoardService: NSObject {
         }
     }
     
-    func write(content: String) {
-        NSPasteboard.general.declareTypes([.string], owner: nil)
-        NSPasteboard.general.setString(content, forType: .string)
+    func write(of rawItem: LabeledMO?) {
+        guard let labeld = rawItem else { return }
+
+        NSPasteboard.general.prepareForNewContents(with: [])
+        changeCount += 1
+        labeld.createdAt = Date()
+        
+        if labeld.entityType == "PBItem" {
+            let pbItem = labeld as! PBItemMO
+            NSPasteboard.general.writeObjects([pbItem])
+        }
+        
+        if labeld.entityType == "Snippet" {
+            let snippet = labeld as! SnippetMO
+            NSPasteboard.general.writeObjects([snippet])
+        }
     }
     
-    func enableNSPasteboardMonitor(onInsert: ((NSPasteboardItem) -> Void)?) {
-        print("monitor")
-        self.onInsert = onInsert
-        
+    func enableNSPasteboardMonitor() {
+        guard timer == nil || timer?.isValid == false else { return }
         var pollingInterval = UserDefaults.standard.double(forKey: Constants.Userdefaults.PollingInterval)
         
         if !(0.2...1).contains(pollingInterval) {
@@ -101,6 +113,7 @@ class ClipBoardService: NSObject {
     @discardableResult
     func disableNSPasteboardMonitor() -> Bool {
         guard let t = timer else { return false }
+        guard t.isValid else { return true }
 
         t.invalidate()
         return true
@@ -109,7 +122,7 @@ class ClipBoardService: NSObject {
     // reload timer
     func reloadMonitor() {
         disableNSPasteboardMonitor()
-        enableNSPasteboardMonitor(onInsert: onInsert)
+        enableNSPasteboardMonitor()
     }
     
     func clearRecord() throws {

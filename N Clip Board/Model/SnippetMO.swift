@@ -21,3 +21,15 @@ class SnippetMO: LabeledMO {
         label = "label"
     }
 }
+
+extension SnippetMO: NSPasteboardWriting {
+    func writableTypes(for pasteboard: NSPasteboard) -> [NSPasteboard.PasteboardType] {
+        return [.string]
+    }
+    
+    func pasteboardPropertyList(forType type: NSPasteboard.PasteboardType) -> Any? {
+        return content
+    }
+    
+    
+}

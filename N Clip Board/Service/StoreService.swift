@@ -20,14 +20,14 @@ class StoreService: NSObject {
         return container
     }()
     
-    @objc dynamic lazy var managedContext = {
-        persistentContainer.viewContext
-    }()
+    @objc dynamic var managedContext: NSManagedObjectContext {
+        get { persistentContainer.viewContext }
+    }
     
     // MARK: Singleton initializer
     private override init() {
         
     }
     
-    static let shared = StoreService()
+    @objc dynamic static let shared = StoreService()
 }

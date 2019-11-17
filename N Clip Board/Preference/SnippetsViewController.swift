@@ -23,20 +23,29 @@ class SnippetsViewController: NSViewController, ViewInitialSize {
     
     @objc dynamic var managedContext = StoreService.shared.managedContext
     @objc dynamic var selectedObject: SnippetMO?
+    @objc dynamic let sortDescriptor = Constants.genSortDescriptor(true)
     
     @IBOutlet weak var snippetsContextMenu: NSMenu!
     @IBOutlet weak var snippetDataController: NSArrayController!
     @IBOutlet weak var snippetContentEditor: NSTextView!
     @IBOutlet weak var snippetTable: NSTableView!
-    @IBOutlet var helperPopover: NSPopover!
+    @IBOutlet weak var helperPopover: NSPopover!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do view setup here.
-        snippetContentEditor.font = .systemFont(ofSize: 16)
+        snippetContentEditor.font = .systemFont(ofSize: 14)
     }
     
     override func viewWillDisappear() {
+        if let snippets = snippetDataController.arrangedObjects as? [SnippetMO] {
+            let index = snippetDataController.selectionIndex
+
+            if index >= 0 && index < snippets.count {
+                snippets[snippetDataController.selectionIndex].content = snippetContentEditor.string.data(using: .utf8)
+            }
+        }
+        
         guard managedContext.hasChanges else { return }
         do {
             try managedContext.save()
@@ -63,21 +72,5 @@ class SnippetsViewController: NSViewController, ViewInitialSize {
     
     @IBAction func importSnippets(_ sender: Any) {
         print("import")
-    }
-}
-
-extension SnippetsViewController: NSTableViewDelegate {
-    func tableViewSelectionDidChange(_ notification: Notification) {
-        guard snippetDataController.selectedObjects.count > 0 else { return }
-        guard let item = snippetDataController.selectedObjects[0] as? SnippetMO else { return }
-        
-        selectedObject = item
-    }
-}
-
-extension SnippetsViewController: NSTextViewDelegate {    
-    func textDidChange(_ notification: Notification) {
-        guard let textView = notification.object as? NSTextView else { return }
-        selectedObject?.content = textView.string
     }
 }

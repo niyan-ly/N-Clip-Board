@@ -13,6 +13,7 @@ import ServiceManagement
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
     
+    // the life cycle of status bar is the same as application
     @IBOutlet var statusBarMenu: NSMenu!
     
     let searchWindowController = SearchWindowController(windowNibName: "SearchPanel")
@@ -27,7 +28,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         SysMonitorService.shared.start()
         
-        ClipBoardService.shared.enableNSPasteboardMonitor(onInsert: nil)
+        ClipBoardService.shared.enableNSPasteboardMonitor()
         // kill launcher after main app was launched
         LoginService.killLauncher()
         
