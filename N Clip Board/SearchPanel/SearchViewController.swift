@@ -192,6 +192,8 @@ class SearchViewController: NSViewController {
             return []
         }
     }
+    
+    
 
     func monitorArrowEvent() {
         NSEvent.addLocalMonitorForEvents(matching: .keyDown) {
@@ -208,18 +210,16 @@ class SearchViewController: NSViewController {
                 }
             // [Enter]: 36
             case 36:
-//                if self.selected == .empty {
-//                    return nil
-//                }
-//                // specify paste type
-//                if $0.modifierFlags.contains(.command) {
-//
-//                } else {
-//                    // ClipBoardService.shared.write(content: self.selected.content)
-//                    ClipBoardService.shared.paste()
-//                }
-//                self.containerWindow.close()
+                ClipBoardService.shared.deactivate()
+                defer { ClipBoardService.shared.activate();print("re-activated") }
+
+                let list = self.dataListController.selectedObjects as! [LabeledMO]
+                guard list.count > 0 else { break }
+                ClipBoardService.shared.write(of: list[0])
+                ClipBoardService.shared.paste()
+                self.containerWindow.close()
                 return nil
+            // [D] delete record
             case 2:
                 if $0.modifierFlags.intersection(.deviceIndependentFlagsMask) == .command {
                     guard let labeled = self.dataListController.selectedObjects[0] as? LabeledMO else { return $0 }

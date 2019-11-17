@@ -10,6 +10,7 @@ import Cocoa
 
 class ClipBoardService: NSObject {
     private var timer: Timer?
+    private var isActivate = true
     fileprivate var changeCount = NSPasteboard.general.changeCount
     
     @objc dynamic var pasteboardMirror = [PBItemMO]()
@@ -40,6 +41,7 @@ class ClipBoardService: NSObject {
     }
     
     private func saveUserCopiedItemIntoStore() {
+        guard isActivate else { return }
         // MARK: detect whether paste updated or not
         guard changeCount != NSPasteboard.general.changeCount else { return }
         
@@ -79,10 +81,26 @@ class ClipBoardService: NSObject {
         }
     }
     
-    func write(item: PBItemMO) {
-        let itemType = NSPasteboard.PasteboardType(item.contentType)
-        NSPasteboard.general.declareTypes([itemType], owner: nil)
-        NSPasteboard.general.setData(item.content, forType: itemType)
+    func write(of rawItem: LabeledMO?) {
+        guard let labeld = rawItem else { return }
+        
+        if labeld.entityType == "PBItem" {
+            let pbItem = labeld as! PBItemMO
+            NSPasteboard.general.writeObjects([pbItem])
+        }
+        
+        if labeld.entityType == "Snippet" {
+            let snippet = labeld as! SnippetMO
+            NSPasteboard.general.writeObjects([snippet])
+        }
+    }
+    
+    func activate() {
+        isActivate = true
+    }
+    
+    func deactivate() {
+        isActivate = false
     }
     
     func enableNSPasteboardMonitor() {
