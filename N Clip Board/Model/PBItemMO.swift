@@ -31,6 +31,10 @@ extension PBItemMO: NSPasteboardWriting {
     }
     
     func pasteboardPropertyList(forType type: NSPasteboard.PasteboardType) -> Any? {
+        if type == .string && contentType == NSPasteboard.PasteboardType.color.rawValue {
+            guard let color = try? NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(content!) as? NSColor else { return nil }
+            return Utility.hexColor(color: color)
+        }
         return content
     }
     

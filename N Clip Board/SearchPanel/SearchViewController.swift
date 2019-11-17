@@ -210,11 +210,9 @@ class SearchViewController: NSViewController {
                 }
             // [Enter]: 36
             case 36:
-                ClipBoardService.shared.deactivate()
-                defer { ClipBoardService.shared.activate();print("re-activated") }
-
                 let list = self.dataListController.selectedObjects as! [LabeledMO]
                 guard list.count > 0 else { break }
+
                 ClipBoardService.shared.write(of: list[0])
                 ClipBoardService.shared.paste()
                 self.containerWindow.close()
