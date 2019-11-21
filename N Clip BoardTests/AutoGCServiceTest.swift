@@ -14,6 +14,12 @@ class AutoGCServiceTest: XCTestCase {
 
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.
+        let fetchRequest: NSFetchRequest<NSFetchRequestResult> = LabeledMO.fetchRequest()
+        let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
+        //
+        try! StoreService.shared.managedContext.execute(deleteRequest)
+        try! StoreService.shared.managedContext.save()
+
         UserDefaults.standard.set(3, forKey: Constants.Userdefaults.KeepClipBoardItemUntil)
         let expiredItem = PBItemMO(context: StoreService.shared.managedContext)
         let validItem = PBItemMO(context: StoreService.shared.managedContext)
@@ -23,12 +29,6 @@ class AutoGCServiceTest: XCTestCase {
         validItem.label = "valid"
         // mock
         expiredItem.createdAt = Date(timeIntervalSinceNow: 60 * 60 * 24 * 4 * -1)
-        
-//        let fetchRequest: NSFetchRequest<NSFetchRequestResult> = LabeledMO.fetchRequest()
-//        let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
-//
-//        try! StoreService.shared.managedContext.execute(deleteRequest)
-//        try! StoreService.shared.managedContext.save()
     }
 
     override func tearDown() {

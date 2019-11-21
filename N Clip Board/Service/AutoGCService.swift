@@ -9,7 +9,7 @@
 import Cocoa
 
 class AutoGCService {
-    private static var lastCollectTime = Date()
+    private static var lastCollectTime = Date(timeIntervalSince1970: 0)
     private static let duration: TimeInterval = 60 * 60 * 5
 
     /**
