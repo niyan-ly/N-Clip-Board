@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="15400" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="15505" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="15400"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="15505"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -17,25 +17,39 @@
             <windowStyleMask key="styleMask" titled="YES" nonactivatingPanel="YES" fullSizeContentView="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="454" y="496" width="680" height="372"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="2560" height="1417"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
             <value key="minSize" type="size" width="480" height="260"/>
             <view key="contentView" id="fh9-jm-Ppz">
                 <rect key="frame" x="0.0" y="0.0" width="680" height="370"/>
                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                 <subviews>
-                    <stackView distribution="fill" orientation="horizontal" alignment="top" spacing="0.0" horizontalStackHuggingPriority="247.99998474121094" verticalStackHuggingPriority="247.99998474121094" horizontalClippingResistancePriority="997" verticalClippingResistancePriority="997" horizontalHuggingPriority="249" verticalHuggingPriority="249" horizontalCompressionResistancePriority="749" verticalCompressionResistancePriority="749" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cj7-Sw-CWY">
+                    <stackView distribution="fill" orientation="horizontal" alignment="top" spacing="16" horizontalStackHuggingPriority="247.99998474121094" verticalStackHuggingPriority="247.99998474121094" horizontalClippingResistancePriority="997" verticalClippingResistancePriority="997" horizontalHuggingPriority="249" verticalHuggingPriority="249" horizontalCompressionResistancePriority="749" verticalCompressionResistancePriority="749" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cj7-Sw-CWY">
                         <rect key="frame" x="0.0" y="322" width="664" height="48"/>
                         <subviews>
-                            <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="FRv-R8-mvs">
+                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="mdf-sV-Ph7" customClass="IndicatorView" customModule="N_Clip_Board" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="48" height="48"/>
+                                <subviews>
+                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Pis-zH-0cK">
+                                        <rect key="frame" x="14" y="14" width="20" height="21"/>
+                                        <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="0" id="dkE-uG-dwH">
+                                            <font key="font" metaFont="systemMedium" size="18"/>
+                                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                        <connections>
+                                            <binding destination="IGv-UE-2Ye" name="value" keyPath="displayListCount" id="tEi-CC-FQR"/>
+                                        </connections>
+                                    </textField>
+                                </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="48" id="hnH-fX-Yf4"/>
-                                    <constraint firstAttribute="width" constant="48" id="iNe-88-aGE"/>
+                                    <constraint firstItem="Pis-zH-0cK" firstAttribute="centerX" secondItem="mdf-sV-Ph7" secondAttribute="centerX" id="DTF-VX-nWT"/>
+                                    <constraint firstAttribute="height" constant="48" id="MR2-86-aJT"/>
+                                    <constraint firstItem="Pis-zH-0cK" firstAttribute="centerY" secondItem="mdf-sV-Ph7" secondAttribute="centerY" id="i8C-QM-lDB"/>
+                                    <constraint firstAttribute="width" constant="48" id="sOi-RM-KpF"/>
                                 </constraints>
-                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="NSTouchBarSearchTemplate" id="luh-G4-5gh"/>
-                            </imageView>
+                            </customView>
                             <stackView distribution="fill" orientation="vertical" alignment="leading" spacing="0.0" horizontalStackHuggingPriority="250" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="usR-Ew-d5E">
-                                <rect key="frame" x="48" y="0.0" width="584" height="48"/>
+                                <rect key="frame" x="64" y="0.0" width="552" height="48"/>
                                 <subviews>
                                     <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="VCv-Xh-1Ea">
                                         <rect key="frame" x="0.0" y="2" width="424" height="36"/>
@@ -88,6 +102,10 @@
                                 </customSpacing>
                             </stackView>
                         </subviews>
+                        <constraints>
+                            <constraint firstItem="mdf-sV-Ph7" firstAttribute="top" secondItem="cj7-Sw-CWY" secondAttribute="top" id="9XJ-Sd-h5d"/>
+                            <constraint firstItem="mdf-sV-Ph7" firstAttribute="leading" secondItem="cj7-Sw-CWY" secondAttribute="leading" id="s1E-8q-51g"/>
+                        </constraints>
                         <visibilityPriorities>
                             <integer value="1000"/>
                             <integer value="1000"/>
@@ -387,6 +405,5 @@
     </objects>
     <resources>
         <image name="All" width="16.5" height="16.5"/>
-        <image name="NSTouchBarSearchTemplate" width="19" height="30"/>
     </resources>
 </document>
