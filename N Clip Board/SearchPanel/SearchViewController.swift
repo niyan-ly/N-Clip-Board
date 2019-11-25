@@ -47,6 +47,9 @@ class SearchViewController: NSViewController {
     @objc dynamic var isDataListEmpty: Bool {
         get { dataCount == 0 }
     }
+    @objc dynamic var displayListCount: String {
+        get { dataCount > 999 ? "999+" : dataCount.description }
+    }
     
     @IBOutlet weak var viewTrigger: NSButton!
     @IBOutlet weak var searchField: NSTextField!
@@ -187,6 +190,8 @@ class SearchViewController: NSViewController {
     override class func keyPathsForValuesAffectingValue(forKey key: String) -> Set<String> {
         switch key {
         case "isDataListEmpty":
+            return [#keyPath(dataCount)]
+        case "displayListCount":
             return [#keyPath(dataCount)]
         default:
             return []
