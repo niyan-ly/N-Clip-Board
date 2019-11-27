@@ -73,6 +73,10 @@ class RulesViewController: NSViewController, PreferencePane {
         UserDefaults.standard.set(newAppDict, forKey: Constants.Userdefaults.ExcludedAppDict)
     }
     
+    func isBundleInExcludedList(identifier: String) -> Bool {
+        excludedAppList.contains { $0.bundleIdentifier == identifier }
+    }
+    
     @IBAction func addExcludedApp(_ sender: NSButton) {
         let panel = NSOpenPanel()
         panel.canChooseFiles = true
@@ -85,6 +89,7 @@ class RulesViewController: NSViewController, PreferencePane {
                     warningBox(title: "Error", message: "Not an App")
                     return
                 }
+                guard self.isBundleInExcludedList(identifier: identifier) == false else { return }
                 let name = Utility.getAppLocalizedName(by: identifier) ?? "Unknown"
                 let icon = Utility.findAppIcon(by: identifier)
                 

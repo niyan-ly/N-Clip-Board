@@ -46,6 +46,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         // initialize UserDefaults configuration
         Utility.registerUserDefaults()
         try? setActivationHotKey()
+        preferenceWindowController.window?.standardWindowButton(.miniaturizeButton)?.isEnabled = true
+        preferenceWindowController.window?.styleMask.insert(.miniaturizable)
 
         LoggingService.shared.info("application finished launching")
     }
