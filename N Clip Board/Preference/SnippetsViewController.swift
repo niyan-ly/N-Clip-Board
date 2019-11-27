@@ -7,6 +7,7 @@
 //
 
 import Cocoa
+import Preferences
 
 fileprivate class InnerItem: NSObject {
     @objc dynamic var item: String
@@ -18,8 +19,14 @@ fileprivate class InnerItem: NSObject {
     }
 }
 
-class SnippetsViewController: NSViewController, ViewInitialSize {
-    var initialSize: CGSize = CGSize(width: 640, height: 480)
+class SnippetsViewController: NSViewController, PreferencePane {
+    var preferencePaneIdentifier: Identifier = .snippet
+    var preferencePaneTitle: String = "Snippet"
+    var toolbarItemIcon: NSImage = #imageLiteral(resourceName: "toolbar_snippet")
+    override var preferredContentSize: NSSize {
+        get { NSSize(width: 640, height: 480) }
+        set {}
+    }
     
     @objc dynamic var managedContext = StoreService.shared.managedContext
     @objc dynamic var selectedObject: SnippetMO?

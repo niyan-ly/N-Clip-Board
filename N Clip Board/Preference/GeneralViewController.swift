@@ -8,13 +8,21 @@
 
 import Cocoa
 import MASShortcut
+import Preferences
 
-class GeneralViewController: NSViewController, ViewInitialSize {
+class GeneralViewController: NSViewController, PreferencePane {
+    var preferencePaneIdentifier: PreferencePaneIdentifier = .general
+    var toolbarItemIcon: NSImage = NSImage(named: NSImage.Name("NSPreferencesGeneral"))!
+    var preferencePaneTitle: String = "General"
+    
     @IBOutlet weak var keepItemView: NSStackView!
     @IBOutlet weak var cleanUpView: NSStackView!
     @IBOutlet weak var masShortcutView: MASShortcutView!
 
-    var initialSize: CGSize = .init(width: 480, height: 348)
+    override var preferredContentSize: NSSize {
+        get { NSSize(width: 480, height: 280) }
+        set {}
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()

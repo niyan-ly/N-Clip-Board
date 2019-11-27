@@ -7,6 +7,7 @@
 //
 
 import Cocoa
+import Preferences
 
 class ExcludedApp: NSObject {
     @objc dynamic var name: String
@@ -22,8 +23,14 @@ class ExcludedApp: NSObject {
     }
 }
 
-class RulesViewController: NSViewController, ViewInitialSize {
-    var initialSize: CGSize = CGSize(width: 540, height: 418)
+class RulesViewController: NSViewController, PreferencePane {
+    var preferencePaneIdentifier: Identifier = .rules
+    var preferencePaneTitle: String = "Rules"
+    var toolbarItemIcon: NSImage = #imageLiteral(resourceName: "toolbar_rules")
+    override var preferredContentSize: NSSize {
+        get { NSSize(width: 540, height: 340) }
+        set {}
+    }
     
     var lastRemovedIndexSet: IndexSet?
     

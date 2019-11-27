@@ -9,6 +9,7 @@
 import Cocoa
 import HotKey
 import ServiceManagement
+import Preferences
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
@@ -17,7 +18,12 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     @IBOutlet var statusBarMenu: NSMenu!
     
     let searchWindowController = SearchWindowController(windowNibName: "SearchPanel")
-    let preferenceWindowController = PreferencePanelController(windowNibName: "PreferencePanel")
+    lazy var preferenceWindowController = PreferencesWindowController(preferencePanes: [
+        GeneralViewController(),
+        RulesViewController(),
+        SnippetsViewController(),
+        AdvancedViewController()
+    ])
     
     var statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.squareLength)
     var hk: HotKey?
@@ -101,7 +107,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     @IBAction func showPreferencePanel(_ sender: NSMenuItem) {
         NSApp.activate(ignoringOtherApps: true)
-        preferenceWindowController.window?.makeKeyAndOrderFront(self)
+        preferenceWindowController.show(preferencePane: .general)
     }
     
     @IBAction func showAppInfoPanel(_ sender: NSMenuItem) {

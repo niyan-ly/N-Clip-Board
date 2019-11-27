@@ -1,4 +1,5 @@
 ${PODS_ROOT}/Target Support Files/Pods-N Clip Board/Pods-N Clip Board-frameworks.sh
 ${BUILT_PRODUCTS_DIR}/HotKey/HotKey.framework
 ${BUILT_PRODUCTS_DIR}/MASShortcut/MASShortcut.framework
+${BUILT_PRODUCTS_DIR}/Preferences/Preferences.framework
 ${BUILT_PRODUCTS_DIR}/SwiftyBeaver/SwiftyBeaver.framework

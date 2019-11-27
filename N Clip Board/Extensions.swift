@@ -7,6 +7,14 @@
 //
 
 import Foundation
+import Preferences
+
+extension PreferencePaneIdentifier {
+    static let general = PreferencePaneIdentifier("general")
+    static let rules = PreferencePaneIdentifier("rules")
+    static let snippet = PreferencePaneIdentifier("snippet")
+    static let advanced = PreferencePaneIdentifier("advanced")
+}
 
 extension String {
     mutating func trim() {

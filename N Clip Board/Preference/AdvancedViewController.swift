@@ -7,9 +7,16 @@
 //
 
 import Cocoa
+import Preferences
 
-class AdvancedViewController: NSViewController, ViewInitialSize {
-    var initialSize: CGSize = .init(width: 520, height: 320)
+class AdvancedViewController: NSViewController, PreferencePane {
+    var preferencePaneIdentifier: Identifier = .advanced
+    var preferencePaneTitle: String = "Advanced"
+    var toolbarItemIcon: NSImage = #imageLiteral(resourceName: "toolbar_advanced")
+    override var preferredContentSize: NSSize {
+        get { NSSize(width: 520, height: 180) }
+        set {}
+    }
     
     @objc dynamic var logFilePath = LoggingService.logFileURL.path[0...36].appending("...")
     @IBOutlet weak var pollingIntervalPopover: NSPopover!
