@@ -20,7 +20,7 @@ fileprivate class CustomTableRowView: NSTableRowView {
         let selectionRect = NSInsetRect(self.bounds, 0, 0)
 //        NSColor(red: 0, green: 0.4797514081, blue: 0.998437345, alpha: 1).setStroke()
 //        NSColor(red: 0, green: 0.4797514081, blue: 0.998437345, alpha: 0.2).setFill()
-        NSColor.systemBlue.setFill()
+        Constants.themeGolden.primaryColor.setFill()
         let selectionPath = NSBezierPath.init(rect: selectionRect)
         selectionPath.fill()
         selectionPath.stroke()
@@ -58,6 +58,7 @@ class SearchViewController: NSViewController {
     @IBOutlet weak var masterView: NSView!
     @IBOutlet weak var dataListController: SearchViewArrayController!
     @IBOutlet weak var contentView: NSView!
+    @IBOutlet weak var barView: NSStackView!
     // MARK: contentview
     @IBOutlet weak var textContainerView: NSScrollView!
     @IBOutlet weak var colorView: ColorView!
@@ -93,6 +94,16 @@ class SearchViewController: NSViewController {
     
     override func awakeFromNib() {
         loadContentView()
+//        barView.wantsLayer = true
+        self.view.wantsLayer = true
+//        barView.layer?.backgroundColor = NSColor.systemBlue.withAlphaComponent(0.2).cgColor
+        resultListView.backgroundColor = .clear
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.colors = Constants.themeGolden.background.map({ $0.cgColor })
+        gradientLayer.startPoint = CGPoint(x: 0, y: 1)
+        gradientLayer.endPoint = CGPoint(x: 1, y: 0)
+        viewTrigger.contentTintColor = Constants.themeGolden.primaryColor
+        self.view.layer = gradientLayer
     }
     
     override func viewWillAppear() {

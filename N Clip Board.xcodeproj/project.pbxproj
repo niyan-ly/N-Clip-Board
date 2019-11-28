@@ -131,6 +131,7 @@
 		DB30A36D236D7043007CA6AF /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/AdvancedViewController.strings"; sourceTree = "<group>"; };
 		DB30A36F236D70D0007CA6AF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/SnippetsViewController.xib; sourceTree = "<group>"; };
 		DB30A372236D70D5007CA6AF /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/SnippetsViewController.strings"; sourceTree = "<group>"; };
+		DB3C7648238F73240060A83A /* issue&idea.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = "issue&idea.md"; sourceTree = "<group>"; };
 		DB482140236C6BCB00BD2545 /* SysMonitorService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SysMonitorService.swift; sourceTree = "<group>"; };
 		DB4CA1EB235D5806007BB8D2 /* AccessibilityService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessibilityService.swift; sourceTree = "<group>"; };
 		DB5EAB8323781C7B002A39B5 /* SearchViewArrayController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewArrayController.swift; sourceTree = "<group>"; };
@@ -323,6 +324,7 @@
 		DBEF77012324F23F00A63D28 = {
 			isa = PBXGroup;
 			children = (
+				DB3C7648238F73240060A83A /* issue&idea.md */,
 				DBEF770C2324F23F00A63D28 /* N Clip Board */,
 				DB277430232F866300D4547D /* N Clip BoardTests */,
 				DBB039BB237EC9C100F869DC /* Launcher */,

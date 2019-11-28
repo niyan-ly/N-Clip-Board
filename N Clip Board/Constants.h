@@ -16,6 +16,22 @@ typedef NS_ENUM(NSInteger, SearchPanelViewType) {
     Snippet
 };
 
+@interface NThemeConfig : NSObject
+{
+    @private
+    NSString *_name;
+    NSColor *_primaryColor;
+    NSColor *_complementaryColor;
+    NSArray<NSColor *> *_background;
+}
+
+@property (readonly, nonatomic) NSString *name;
+@property (readonly, nonatomic) NSColor *primaryColor;
+@property (readonly, nonatomic) NSArray<NSColor *> *background;
+@property (readonly, nonatomic) NSColor *complementaryColor;
+- (id)init: (NSString*) name primaryColor:(NSColor*) primaryColor background:(NSArray<NSColor *>*) background complementaryColor:(NSColor*) complementaryColor;
+@end
+
 @interface _UserDefaults : NSObject
 @property (readonly)NSString *LaunchOnStartUp NS_SWIFT_NAME(LaunchOnStartUp);
 @property (readonly)NSString *KeepClipBoardItemUntil NS_SWIFT_NAME(KeepClipBoardItemUntil);
@@ -33,6 +49,7 @@ typedef NS_ENUM(NSInteger, SearchPanelViewType) {
 @property (class, readonly) NSDictionary<NSString *, NSNumber *> *defaultActivationHotKey;
 @property (class, readonly) NSArray<NSPasteboardType> *supportedPasteboardType;
 @property (class, readonly) NSString *stringTypeRawValue;
+@property (class, readonly) NThemeConfig *themeGolden;
 
 @property (class, readonly) _UserDefaults *Userdefaults NS_SWIFT_NAME(Userdefaults);
 

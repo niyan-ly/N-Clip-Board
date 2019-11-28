@@ -35,7 +35,7 @@ class IndicatorView: NSView {
     override func draw(_ dirtyRect: NSRect) {
         let rect = NSMakeRect(0, 0, 48, 48)
 //        let circlePath = NSBezierPath(ovalIn: rect)
-        NSColor.systemBlue.setFill()
+        Constants.themeGolden.primaryColor.setFill()
         rect.fill()
 //        circlePath.fill()
     }
