@@ -20,9 +20,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     let searchWindowController = SearchWindowController(windowNibName: "SearchPanel")
     lazy var preferenceWindowController = PreferencesWindowController(preferencePanes: [
         GeneralViewController(),
+        AppearanceViewController(),
         RulesViewController(),
         SnippetsViewController(),
-        AdvancedViewController()
     ])
     
     var statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.squareLength)

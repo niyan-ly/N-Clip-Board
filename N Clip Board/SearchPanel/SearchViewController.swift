@@ -20,7 +20,7 @@ fileprivate class CustomTableRowView: NSTableRowView {
         let selectionRect = NSInsetRect(self.bounds, 0, 0)
 //        NSColor(red: 0, green: 0.4797514081, blue: 0.998437345, alpha: 1).setStroke()
 //        NSColor(red: 0, green: 0.4797514081, blue: 0.998437345, alpha: 0.2).setFill()
-        Constants.themeGolden.primaryColor.setFill()
+        NSColor.systemBlue.setFill()
         let selectionPath = NSBezierPath.init(rect: selectionRect)
         selectionPath.fill()
         selectionPath.stroke()
@@ -102,7 +102,7 @@ class SearchViewController: NSViewController {
         gradientLayer.colors = Constants.themeGolden.background.map({ $0.cgColor })
         gradientLayer.startPoint = CGPoint(x: 0, y: 1)
         gradientLayer.endPoint = CGPoint(x: 1, y: 0)
-        viewTrigger.contentTintColor = Constants.themeGolden.primaryColor
+        viewTrigger.contentTintColor = NSColor.systemBlue //Constants.themeGolden.primaryColor
         self.view.layer = gradientLayer
     }
     
@@ -128,10 +128,10 @@ class SearchViewController: NSViewController {
             imageView
         ]
         
-        colorView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 20).isActive = true
-        colorView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20).isActive = true
-        colorView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -20).isActive = true
-        colorView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20).isActive = true
+        colorView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 0).isActive = true
+        colorView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 0).isActive = true
+//        colorView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -20).isActive = true
+//        colorView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20).isActive = true
         
         textContainerView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 20).isActive = true
         textContainerView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20).isActive = true
@@ -381,8 +381,12 @@ extension SearchViewController: NSTableViewDelegate {
                 // update old constraint if needed
                 view.constraints.first(where: { $0.constant == 72 })?.constant = 48
             case .png:
-                view.content.stringValue = ""
+                let formatter = ByteCountFormatter()
+                formatter.allowedUnits = [.useKB]
+                formatter.countStyle = .file
+                view.content.stringValue = formatter.string(fromByteCount: Int64(item.content?.count ?? 0))
                 view.color.isHidden = true
+                view.constraints.first(where: { $0.constant == 72 })?.constant = 48
             case .color:
                 let color = try? NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(item.content!) as? NSColor
                 view.content.stringValue = Utility.hexColor(color: color!)

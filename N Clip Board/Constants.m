@@ -61,19 +61,12 @@ static NSString *BundleName = @"poor-branson.N-Clip-Board";
     return [self genSortDescriptor:false];
 }
 + (NThemeConfig *)themeGolden {
-    NSArray<NSColor*> *background = @[[NSColor colorWithCalibratedRed:0.260 green:0.270 blue:0.314 alpha:1], [NSColor colorWithCalibratedRed:0.2109375 green:0.21875 blue:0.2421875 alpha:1]];
-    NSColor* golden = [NSColor colorWithCalibratedRed:0.984375 green:0.9765625 blue:0.53515625 alpha:1];
+    NSArray<NSColor*> *background = @[[NSColor colorWithCalibratedRed:0.12890625 green:0.14453125 blue:0.14453125 alpha:1], [NSColor colorWithCalibratedRed:0.12890625 green:0.14453125 blue:0.14453125 alpha:1]];
+    NSColor* primaryGolden = [NSColor colorWithCalibratedRed:0.984375 green:0.9765625 blue:0.53515625 alpha:1];
     NSColor* complementaryColor = [NSColor colorWithCalibratedRed:0.26953125 green:0.26953125 blue:0.26953125 alpha:1];
     
-    return [[NThemeConfig alloc]init:@"golden" primaryColor:golden background:background complementaryColor:complementaryColor];
+    return [[NThemeConfig alloc]init:@"golden" primaryColor:primaryGolden background:background complementaryColor:complementaryColor];
 }
-//+ (NSArray<NThemeConfig *> *)themeList {
-//    // golden
-//
-//    return @[
-//        [[NThemeConfig alloc]init:@"golden" primaryColor:golden background:goldenBg]
-//    ];
-//}
 + (NSArray<NSSortDescriptor *> *)genSortDescriptor: (BOOL) descending {
     return @[
         [[NSSortDescriptor alloc]initWithKey:@"createdAt" ascending:true comparator:^NSComparisonResult(id  _Nonnull rawLHS, id  _Nonnull rawRHS) {

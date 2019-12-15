@@ -33,10 +33,10 @@ class SearchWindowController: NSWindowController, NSWindowDelegate {
 @IBDesignable
 class IndicatorView: NSView {
     override func draw(_ dirtyRect: NSRect) {
-        let rect = NSMakeRect(0, 0, 48, 48)
+//        let rect = NSMakeRect(0, 0, 48, 48)
 //        let circlePath = NSBezierPath(ovalIn: rect)
-        Constants.themeGolden.primaryColor.setFill()
-        rect.fill()
+//        NSColor.systemBlue.setFill()
+//        rect.fill()
 //        circlePath.fill()
     }
 }

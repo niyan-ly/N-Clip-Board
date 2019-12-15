@@ -1,8 +1,8 @@
 PODS:
   - HotKey (0.1.2)
   - MASShortcut (2.4.0)
-  - Preferences (1.0.0)
-  - SwiftyBeaver (1.8.3)
+  - Preferences (1.0.1)
+  - SwiftyBeaver (1.8.4)
 
 DEPENDENCIES:
   - HotKey
@@ -20,9 +20,9 @@ SPEC REPOS:
 SPEC CHECKSUMS:
   HotKey: ad59450195936c10992438c4210f673de5aee43e
   MASShortcut: d9e4909e878661cc42877cc9d6efbe638273ab57
-  Preferences: c77691cfb1b7c04de998c2b4017a50cc3c4d8a54
-  SwiftyBeaver: 3d3e93a12d648bd400b6f2948a7ef128b5b183c7
+  Preferences: a5afbe0ae3e6bd886328b1960f4998e65d58f2c4
+  SwiftyBeaver: f9a9aba96a6a6166e21682377804d728b0d20b95
 
 PODFILE CHECKSUM: 6a21ce8fa484b1d3e1fd2f5d1e660739f2870167
 
-COCOAPODS: 1.8.4
+COCOAPODS: 1.8.3

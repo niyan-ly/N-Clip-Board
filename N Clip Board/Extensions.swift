@@ -13,7 +13,7 @@ extension PreferencePaneIdentifier {
     static let general = PreferencePaneIdentifier("general")
     static let rules = PreferencePaneIdentifier("rules")
     static let snippet = PreferencePaneIdentifier("snippet")
-    static let advanced = PreferencePaneIdentifier("advanced")
+    static let appearance = PreferencePaneIdentifier("appearance")
 }
 
 extension String {

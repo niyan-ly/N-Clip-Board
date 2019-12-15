@@ -10,20 +10,20 @@
 		19E731E47B478DB83F8FA979 /* (null) in Frameworks */ = {isa = PBXBuildFile; };
 		3CE8CAE5339AE1CBBD0439E1 /* Pods_N_Clip_Board.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DBFD61C42378ECB700A74256 /* Pods_N_Clip_Board.framework */; };
 		6B80DA0223D516E4B3C5EF17 /* Pods_Launcher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A954E7A8FF480272D714CF03 /* Pods_Launcher.framework */; };
-		B5179ED2815AD45CBC784A29 /* Pods_N_Clip_BoardTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33C5EA6531A3D33F1E797881 /* Pods_N_Clip_BoardTests.framework */; };
 		DB12A634235A120100998198 /* Store.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DB12A632235A120100998198 /* Store.xcdatamodeld */; };
 		DB12A63A235AAB6500998198 /* Treansformers.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB12A639235AAB6500998198 /* Treansformers.swift */; };
 		DB1FC254237D48B8006D00F6 /* ExcludAppService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1FC253237D48B8006D00F6 /* ExcludAppService.swift */; };
-		DB277432232F866300D4547D /* N_Clip_BoardTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB277431232F866300D4547D /* N_Clip_BoardTests.swift */; };
 		DB27743D232FA32800D4547D /* FileWatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB27743C232FA32700D4547D /* FileWatcher.swift */; };
 		DB277482233069EF00D4547D /* LoggingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB277481233069EF00D4547D /* LoggingService.swift */; };
 		DB30A353236D6CE5007CA6AF /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = DB30A355236D6CE5007CA6AF /* Localizable.strings */; };
 		DB30A357236D6D38007CA6AF /* SearchPanel.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB30A359236D6D38007CA6AF /* SearchPanel.xib */; };
 		DB30A35F236D6DD9007CA6AF /* GeneralViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB30A361236D6DD9007CA6AF /* GeneralViewController.xib */; };
-		DB30A369236D703F007CA6AF /* AdvancedViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB30A36B236D703F007CA6AF /* AdvancedViewController.xib */; };
+		DB30A369236D703F007CA6AF /* AppearanceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB30A36B236D703F007CA6AF /* AppearanceViewController.xib */; };
 		DB30A36E236D70D0007CA6AF /* SnippetsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB30A370236D70D0007CA6AF /* SnippetsViewController.xib */; };
 		DB482141236C6BCB00BD2545 /* SysMonitorService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB482140236C6BCB00BD2545 /* SysMonitorService.swift */; };
 		DB4CA1EC235D5806007BB8D2 /* AccessibilityService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB4CA1EB235D5806007BB8D2 /* AccessibilityService.swift */; };
+		DB4CB00523A5C90D0050E1D2 /* N_Clip_BoardTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB4CB00423A5C90D0050E1D2 /* N_Clip_BoardTests.swift */; };
+		DB4CB00C23A5C9400050E1D2 /* AutoGCServiceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB94A9F923801F77000644A6 /* AutoGCServiceTest.swift */; };
 		DB5EAB8423781C7C002A39B5 /* SearchViewArrayController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5EAB8323781C7B002A39B5 /* SearchViewArrayController.swift */; };
 		DB5EAB8623781C83002A39B5 /* ColorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5EAB8523781C83002A39B5 /* ColorView.swift */; };
 		DB5F25B323290141007993F6 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5F25B223290141007993F6 /* SearchViewController.swift */; };
@@ -40,9 +40,8 @@
 		DB93DE8A232D4FE20074E740 /* GeneralViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB93DE88232D4FE20074E740 /* GeneralViewController.swift */; };
 		DB94A9F6237FC3A1000644A6 /* Launcher.app in Copy Files */ = {isa = PBXBuildFile; fileRef = DBB039BA237EC9C100F869DC /* Launcher.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		DB94A9F823801605000644A6 /* AutoGCService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB94A9F723801605000644A6 /* AutoGCService.swift */; };
-		DB94A9FA23801F77000644A6 /* AutoGCServiceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB94A9F923801F77000644A6 /* AutoGCServiceTest.swift */; };
 		DBA23730236870C300247FE1 /* LabeledMO.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBA2372E236870C300247FE1 /* LabeledMO.swift */; };
-		DBA6F87E232DD47A0081FD48 /* AdvancedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBA6F87C232DD47A0081FD48 /* AdvancedViewController.swift */; };
+		DBA6F87E232DD47A0081FD48 /* AppearanceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBA6F87C232DD47A0081FD48 /* AppearanceViewController.swift */; };
 		DBA6F882232E7D820081FD48 /* SnippetsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBA6F880232E7D820081FD48 /* SnippetsViewController.swift */; };
 		DBA6F886232E96050081FD48 /* RulesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBA6F884232E96050081FD48 /* RulesViewController.swift */; };
 		DBA6F887232E96050081FD48 /* RulesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DBA6F885232E96050081FD48 /* RulesViewController.xib */; };
@@ -59,7 +58,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		DB277434232F866300D4547D /* PBXContainerItemProxy */ = {
+		DB4CB00723A5C90D0050E1D2 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = DBEF77022324F23F00A63D28 /* Project object */;
 			proxyType = 1;
@@ -108,9 +107,6 @@
 		DB12A633235A120100998198 /* PBStore.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PBStore.xcdatamodel; sourceTree = "<group>"; };
 		DB12A639235AAB6500998198 /* Treansformers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Treansformers.swift; sourceTree = "<group>"; };
 		DB1FC253237D48B8006D00F6 /* ExcludAppService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExcludAppService.swift; sourceTree = "<group>"; };
-		DB27742F232F866300D4547D /* N Clip BoardTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "N Clip BoardTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		DB277431232F866300D4547D /* N_Clip_BoardTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = N_Clip_BoardTests.swift; sourceTree = "<group>"; };
-		DB277433232F866300D4547D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DB277439232F9ABC00D4547D /* ServiceManagement.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ServiceManagement.framework; path = System/Library/Frameworks/ServiceManagement.framework; sourceTree = SDKROOT; };
 		DB27743C232FA32700D4547D /* FileWatcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileWatcher.swift; sourceTree = "<group>"; };
 		DB277481233069EF00D4547D /* LoggingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggingService.swift; sourceTree = "<group>"; };
@@ -127,13 +123,16 @@
 		DB30A35E236D6DA5007CA6AF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		DB30A360236D6DD9007CA6AF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/GeneralViewController.xib; sourceTree = "<group>"; };
 		DB30A363236D6DE1007CA6AF /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/GeneralViewController.strings"; sourceTree = "<group>"; };
-		DB30A36A236D703F007CA6AF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/AdvancedViewController.xib; sourceTree = "<group>"; };
-		DB30A36D236D7043007CA6AF /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/AdvancedViewController.strings"; sourceTree = "<group>"; };
+		DB30A36A236D703F007CA6AF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/AppearanceViewController.xib; sourceTree = "<group>"; };
+		DB30A36D236D7043007CA6AF /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/AppearanceViewController.strings"; sourceTree = "<group>"; };
 		DB30A36F236D70D0007CA6AF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/SnippetsViewController.xib; sourceTree = "<group>"; };
 		DB30A372236D70D5007CA6AF /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/SnippetsViewController.strings"; sourceTree = "<group>"; };
 		DB3C7648238F73240060A83A /* issue&idea.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = "issue&idea.md"; sourceTree = "<group>"; };
 		DB482140236C6BCB00BD2545 /* SysMonitorService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SysMonitorService.swift; sourceTree = "<group>"; };
 		DB4CA1EB235D5806007BB8D2 /* AccessibilityService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessibilityService.swift; sourceTree = "<group>"; };
+		DB4CB00223A5C90D0050E1D2 /* N Clip BoardTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "N Clip BoardTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		DB4CB00423A5C90D0050E1D2 /* N_Clip_BoardTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = N_Clip_BoardTests.swift; sourceTree = "<group>"; };
+		DB4CB00623A5C90D0050E1D2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DB5EAB8323781C7B002A39B5 /* SearchViewArrayController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewArrayController.swift; sourceTree = "<group>"; };
 		DB5EAB8523781C83002A39B5 /* ColorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorView.swift; sourceTree = "<group>"; };
 		DB5F25B223290141007993F6 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
@@ -150,7 +149,7 @@
 		DB94A9F723801605000644A6 /* AutoGCService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoGCService.swift; sourceTree = "<group>"; };
 		DB94A9F923801F77000644A6 /* AutoGCServiceTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoGCServiceTest.swift; sourceTree = "<group>"; };
 		DBA2372E236870C300247FE1 /* LabeledMO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LabeledMO.swift; path = "N Clip Board/Model/LabeledMO.swift"; sourceTree = SOURCE_ROOT; };
-		DBA6F87C232DD47A0081FD48 /* AdvancedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvancedViewController.swift; sourceTree = "<group>"; };
+		DBA6F87C232DD47A0081FD48 /* AppearanceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppearanceViewController.swift; sourceTree = "<group>"; };
 		DBA6F880232E7D820081FD48 /* SnippetsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnippetsViewController.swift; sourceTree = "<group>"; };
 		DBA6F884232E96050081FD48 /* RulesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RulesViewController.swift; sourceTree = "<group>"; };
 		DBA6F885232E96050081FD48 /* RulesViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RulesViewController.xib; sourceTree = "<group>"; };
@@ -176,11 +175,10 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		DB27742C232F866300D4547D /* Frameworks */ = {
+		DB4CAFFF23A5C90D0050E1D2 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B5179ED2815AD45CBC784A29 /* Pods_N_Clip_BoardTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -257,16 +255,6 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		DB277430232F866300D4547D /* N Clip BoardTests */ = {
-			isa = PBXGroup;
-			children = (
-				DB277431232F866300D4547D /* N_Clip_BoardTests.swift */,
-				DB94A9F923801F77000644A6 /* AutoGCServiceTest.swift */,
-				DB277433232F866300D4547D /* Info.plist */,
-			);
-			path = "N Clip BoardTests";
-			sourceTree = "<group>";
-		};
 		DB27743B232FA30200D4547D /* Service */ = {
 			isa = PBXGroup;
 			children = (
@@ -284,6 +272,16 @@
 			path = Service;
 			sourceTree = "<group>";
 		};
+		DB4CB00323A5C90D0050E1D2 /* N Clip BoardTests */ = {
+			isa = PBXGroup;
+			children = (
+				DB94A9F923801F77000644A6 /* AutoGCServiceTest.swift */,
+				DB4CB00423A5C90D0050E1D2 /* N_Clip_BoardTests.swift */,
+				DB4CB00623A5C90D0050E1D2 /* Info.plist */,
+			);
+			path = "N Clip BoardTests";
+			sourceTree = "<group>";
+		};
 		DB5F25B823290697007993F6 /* MainXIB */ = {
 			isa = PBXGroup;
 			children = (
@@ -299,8 +297,8 @@
 				DBA6F885232E96050081FD48 /* RulesViewController.xib */,
 				DB93DE88232D4FE20074E740 /* GeneralViewController.swift */,
 				DB30A361236D6DD9007CA6AF /* GeneralViewController.xib */,
-				DBA6F87C232DD47A0081FD48 /* AdvancedViewController.swift */,
-				DB30A36B236D703F007CA6AF /* AdvancedViewController.xib */,
+				DBA6F87C232DD47A0081FD48 /* AppearanceViewController.swift */,
+				DB30A36B236D703F007CA6AF /* AppearanceViewController.xib */,
 				DBA6F880232E7D820081FD48 /* SnippetsViewController.swift */,
 				DB30A370236D70D0007CA6AF /* SnippetsViewController.xib */,
 			);
@@ -326,8 +324,8 @@
 			children = (
 				DB3C7648238F73240060A83A /* issue&idea.md */,
 				DBEF770C2324F23F00A63D28 /* N Clip Board */,
-				DB277430232F866300D4547D /* N Clip BoardTests */,
 				DBB039BB237EC9C100F869DC /* Launcher */,
+				DB4CB00323A5C90D0050E1D2 /* N Clip BoardTests */,
 				DBEF770B2324F23F00A63D28 /* Products */,
 				C3EFDB7B9192615D76DA929F /* Pods */,
 				C261A11D424A1B6EE9659870 /* Frameworks */,
@@ -338,8 +336,8 @@
 			isa = PBXGroup;
 			children = (
 				DBEF770A2324F23F00A63D28 /* N Clip Board.app */,
-				DB27742F232F866300D4547D /* N Clip BoardTests.xctest */,
 				DBB039BA237EC9C100F869DC /* Launcher.app */,
+				DB4CB00223A5C90D0050E1D2 /* N Clip BoardTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -372,23 +370,22 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		DB27742E232F866300D4547D /* N Clip BoardTests */ = {
+		DB4CB00123A5C90D0050E1D2 /* N Clip BoardTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = DB277436232F866300D4547D /* Build configuration list for PBXNativeTarget "N Clip BoardTests" */;
+			buildConfigurationList = DB4CB00923A5C90D0050E1D2 /* Build configuration list for PBXNativeTarget "N Clip BoardTests" */;
 			buildPhases = (
-				2DFFE2F74A86E39FBAAA1367 /* [CP] Check Pods Manifest.lock */,
-				DB27742B232F866300D4547D /* Sources */,
-				DB27742C232F866300D4547D /* Frameworks */,
-				DB27742D232F866300D4547D /* Resources */,
+				DB4CAFFE23A5C90D0050E1D2 /* Sources */,
+				DB4CAFFF23A5C90D0050E1D2 /* Frameworks */,
+				DB4CB00023A5C90D0050E1D2 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				DB277435232F866300D4547D /* PBXTargetDependency */,
+				DB4CB00823A5C90D0050E1D2 /* PBXTargetDependency */,
 			);
 			name = "N Clip BoardTests";
 			productName = "N Clip BoardTests";
-			productReference = DB27742F232F866300D4547D /* N Clip BoardTests.xctest */;
+			productReference = DB4CB00223A5C90D0050E1D2 /* N Clip BoardTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 		DBB039B9237EC9C100F869DC /* Launcher */ = {
@@ -438,12 +435,12 @@
 		DBEF77022324F23F00A63D28 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1030;
+				LastSwiftUpdateCheck = 1120;
 				LastUpgradeCheck = 1030;
 				ORGANIZATIONNAME = branson;
 				TargetAttributes = {
-					DB27742E232F866300D4547D = {
-						CreatedOnToolsVersion = 10.3;
+					DB4CB00123A5C90D0050E1D2 = {
+						CreatedOnToolsVersion = 11.2.1;
 						TestTargetID = DBEF77092324F23F00A63D28;
 					};
 					DBB039B9237EC9C100F869DC = {
@@ -475,14 +472,14 @@
 			projectRoot = "";
 			targets = (
 				DBEF77092324F23F00A63D28 /* N Clip Board */,
-				DB27742E232F866300D4547D /* N Clip BoardTests */,
 				DBB039B9237EC9C100F869DC /* Launcher */,
+				DB4CB00123A5C90D0050E1D2 /* N Clip BoardTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		DB27742D232F866300D4547D /* Resources */ = {
+		DB4CB00023A5C90D0050E1D2 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -506,7 +503,7 @@
 				DB30A36E236D70D0007CA6AF /* SnippetsViewController.xib in Resources */,
 				DB30A35F236D6DD9007CA6AF /* GeneralViewController.xib in Resources */,
 				DB91B517237FB85C0052166B /* Launcher.app in Resources */,
-				DB30A369236D703F007CA6AF /* AdvancedViewController.xib in Resources */,
+				DB30A369236D703F007CA6AF /* AppearanceViewController.xib in Resources */,
 				DB30A353236D6CE5007CA6AF /* Localizable.strings in Resources */,
 				DBA6F887232E96050081FD48 /* RulesViewController.xib in Resources */,
 				DBEF77102324F23F00A63D28 /* Assets.xcassets in Resources */,
@@ -533,28 +530,6 @@
 			);
 			outputPaths = (
 				"$(DERIVED_FILE_DIR)/Pods-Launcher-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		2DFFE2F74A86E39FBAAA1367 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-N Clip BoardTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -620,12 +595,12 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		DB27742B232F866300D4547D /* Sources */ = {
+		DB4CAFFE23A5C90D0050E1D2 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DB94A9FA23801F77000644A6 /* AutoGCServiceTest.swift in Sources */,
-				DB277432232F866300D4547D /* N_Clip_BoardTests.swift in Sources */,
+				DB4CB00C23A5C9400050E1D2 /* AutoGCServiceTest.swift in Sources */,
+				DB4CB00523A5C90D0050E1D2 /* N_Clip_BoardTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -661,7 +636,7 @@
 				DB1FC254237D48B8006D00F6 /* ExcludAppService.swift in Sources */,
 				DB655E3B232B9DF100262660 /* Extensions.swift in Sources */,
 				DBB039D1237ED02B00F869DC /* Constants.m in Sources */,
-				DBA6F87E232DD47A0081FD48 /* AdvancedViewController.swift in Sources */,
+				DBA6F87E232DD47A0081FD48 /* AppearanceViewController.swift in Sources */,
 				DBA6F882232E7D820081FD48 /* SnippetsViewController.swift in Sources */,
 				DB93DE8A232D4FE20074E740 /* GeneralViewController.swift in Sources */,
 				DB94A9F823801605000644A6 /* AutoGCService.swift in Sources */,
@@ -677,10 +652,10 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		DB277435232F866300D4547D /* PBXTargetDependency */ = {
+		DB4CB00823A5C90D0050E1D2 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = DBEF77092324F23F00A63D28 /* N Clip Board */;
-			targetProxy = DB277434232F866300D4547D /* PBXContainerItemProxy */;
+			targetProxy = DB4CB00723A5C90D0050E1D2 /* PBXContainerItemProxy */;
 		};
 		DB91B519237FB85C0052166B /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -722,13 +697,13 @@
 			name = GeneralViewController.xib;
 			sourceTree = "<group>";
 		};
-		DB30A36B236D703F007CA6AF /* AdvancedViewController.xib */ = {
+		DB30A36B236D703F007CA6AF /* AppearanceViewController.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
 				DB30A36A236D703F007CA6AF /* Base */,
 				DB30A36D236D7043007CA6AF /* zh-Hans */,
 			);
-			name = AdvancedViewController.xib;
+			name = AppearanceViewController.xib;
 			sourceTree = "<group>";
 		};
 		DB30A370236D70D0007CA6AF /* SnippetsViewController.xib */ = {
@@ -759,45 +734,41 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		DB277437232F866300D4547D /* Debug */ = {
+		DB4CB00A23A5C90D0050E1D2 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2348498D421B2BB02A3A8161 /* Pods-N Clip BoardTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "N Clip BoardTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 					"@loader_path/../Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				PRODUCT_BUNDLE_IDENTIFIER = "poor-branson.N-Clip-BoardTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/N Clip Board.app/Contents/MacOS/N Clip Board";
 			};
 			name = Debug;
 		};
-		DB277438232F866300D4547D /* Release */ = {
+		DB4CB00B23A5C90D0050E1D2 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5EF222DAAFF48CBB9FDDDE48 /* Pods-N Clip BoardTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "N Clip BoardTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 					"@loader_path/../Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				PRODUCT_BUNDLE_IDENTIFIER = "poor-branson.N-Clip-BoardTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/N Clip Board.app/Contents/MacOS/N Clip Board";
 			};
@@ -1016,11 +987,11 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		DB277436232F866300D4547D /* Build configuration list for PBXNativeTarget "N Clip BoardTests" */ = {
+		DB4CB00923A5C90D0050E1D2 /* Build configuration list for PBXNativeTarget "N Clip BoardTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				DB277437232F866300D4547D /* Debug */,
-				DB277438232F866300D4547D /* Release */,
+				DB4CB00A23A5C90D0050E1D2 /* Debug */,
+				DB4CB00B23A5C90D0050E1D2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
